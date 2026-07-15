@@ -10,7 +10,7 @@ Il sito introduce le scaling laws e la corsa tra energia, chip e algoritmi. La h
 
 I quattro capitoli principali sono `energia.html`, `chip.html`, `algoritmi.html` e `inferenza.html`. Tutti condividono navigazione, tema, stile editoriale e script, ma caricano soltanto il contenuto del capitolo scelto.
 
-L'area `altro.html` raccoglie dossier che cambiano più rapidamente: `novita.html`, `benchmark.html`, `politica.html` e `guerra.html`. `altro.css` contiene il loro sistema visuale condiviso; `dossier.js` gestisce le animazioni progressive, il lettore interattivo di METR e i filtri dei prodotti Anduril. La pagina Novità è intenzionalmente segnata come “Da aggiornare”.
+L'area `altro.html` raccoglie dossier che cambiano più rapidamente: `novita.html`, `benchmark.html`, `politica.html` e `guerra.html`. `altro.css` contiene il loro sistema visuale condiviso; `dossier.js` gestisce le animazioni progressive e la timeline interattiva dei dati METR. La pagina Guerra usa una fotografia editoriale in `assets/anduril-field-test-editorial-v1.png` e riduce Anduril a cinque nuclei narrativi, senza filtri da catalogo. La pagina Novità è intenzionalmente segnata come “Da aggiornare”.
 
 Il capitolo Energia aggiunge una visualizzazione nativa e accessibile della relazione tra PIL ed energia. `energy.css` contiene soltanto lo stile di questa pagina; `energy-visuals.js` legge `assets/energy-gdp-2024.json` e disegna il grafico nel browser, senza backend o librerie esterne.
 
