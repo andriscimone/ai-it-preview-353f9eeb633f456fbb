@@ -1,0 +1,277 @@
+/* Inferenza — laboratorio editoriale. Regole isolate per non cambiare le altre pagine. */
+.inference-page {
+  --inference-blue: #1d5fd1;
+  --inference-blue-soft: color-mix(in srgb, var(--inference-blue) 11%, var(--paper));
+  --inference-edge: color-mix(in srgb, var(--ink) 16%, transparent);
+}
+
+:root[data-theme="dark"] .inference-page {
+  --inference-blue: #4d8ff7;
+  --inference-blue-soft: color-mix(in srgb, var(--inference-blue) 9%, var(--paper));
+  --inference-edge: color-mix(in srgb, var(--ink) 18%, transparent);
+}
+
+.inference-page main { overflow: clip; }
+.inference-page .chapter {
+  width: min(100%, 2080px);
+  margin-inline: auto;
+  padding-top: clamp(88px, 8vw, 150px);
+}
+
+.inference-page .chapter-head {
+  min-height: clamp(320px, 31vw, 520px);
+  grid-template-columns: 72px minmax(430px, 1.25fr) minmax(300px, .75fr);
+  margin-bottom: clamp(58px, 6vw, 94px);
+  position: relative;
+}
+.inference-page .chapter-head::after {
+  content: "TPS / UTENTE  ×  TPS / MW";
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: var(--muted);
+  font: 9px var(--mono);
+  letter-spacing: .12em;
+}
+.inference-page .chapter-number {
+  border-color: var(--inference-blue);
+  background: var(--inference-blue);
+  color: #fff;
+}
+.inference-page .chapter-head h1 {
+  max-width: 1050px;
+  font-size: clamp(68px, 8.8vw, 146px);
+  line-height: .82;
+  letter-spacing: -.055em;
+}
+.inference-page .chapter-deck {
+  max-width: 470px;
+  padding: 26px 0 24px 28px;
+  border-left: 1px solid var(--ink);
+  font-size: clamp(16px, 1.25vw, 21px);
+  line-height: 1.55;
+}
+
+.inference-page .open-data-rule {
+  gap: 30px;
+  margin-bottom: 12px;
+  padding: 24px 30px;
+  border: 0;
+  border-radius: 18px;
+  background: var(--inference-blue);
+  box-shadow: 0 18px 48px color-mix(in srgb, var(--inference-blue) 18%, transparent);
+}
+.inference-page .open-data-rule strong { font-size: clamp(23px, 2.2vw, 34px); }
+
+.inference-page .workload-tabs {
+  gap: 8px;
+  padding: 8px;
+  border: 1px solid var(--inference-edge);
+  border-bottom: 0;
+  border-radius: 22px 22px 0 0;
+  background: color-mix(in srgb, var(--chart-surface) 82%, transparent);
+}
+.inference-page .workload-tab {
+  min-height: 100px;
+  position: relative;
+  border: 0;
+  border-radius: 15px;
+  transition: background-color .2s ease, color .2s ease, transform .2s ease;
+}
+.inference-page .workload-tab:hover { transform: translateY(-2px); }
+.inference-page .workload-tab.is-active {
+  background: var(--chart-text);
+  color: var(--chart-surface);
+  box-shadow: inset 0 -3px 0 var(--chart-primary), 0 12px 28px color-mix(in srgb, var(--ink) 13%, transparent);
+}
+.inference-page .workload-tab.is-active .tab-index {
+  border-color: var(--chart-primary);
+  background: var(--chart-primary);
+  color: #10150e;
+}
+
+.inference-page .chart-shell {
+  overflow: hidden;
+  border-color: var(--inference-edge);
+  border-radius: 0 0 28px 28px;
+  box-shadow: 0 34px 90px color-mix(in srgb, var(--ink) 11%, transparent);
+}
+.inference-page .chart-header {
+  min-height: 112px;
+  align-items: center;
+  padding: 26px 34px;
+}
+.inference-page .chart-header h2 { font-size: clamp(27px, 2.5vw, 43px); }
+.inference-page .chart-reading {
+  min-width: 280px;
+  padding: 15px 18px;
+  border: 1px solid var(--chart-grid);
+  border-radius: 14px;
+  background: var(--chart-focus);
+}
+.inference-page .reading-value { font-size: clamp(40px, 3.6vw, 58px); }
+.inference-page .chart-stage { padding: 14px 28px 0; }
+.inference-page .mobile-chart-hint { display: none; }
+.inference-page .live-comparison { background: color-mix(in srgb, var(--chart-surface) 92%, var(--paper-deep)); }
+.inference-page .live-system { padding: 25px 34px 28px; }
+.inference-page .live-system-head { margin-bottom: 21px; }
+.inference-page .live-metric strong { font-size: clamp(30px, 3.2vw, 48px); }
+.inference-page .chart-controls {
+  min-height: 82px;
+  padding: 16px 34px;
+  background: var(--chart-surface);
+}
+.inference-page #speed-range { height: 30px; }
+.inference-page .legend-button { border-radius: 999px; }
+.inference-page .chart-footer { padding: 22px 34px; }
+
+.inference-page .inference-economics {
+  margin-top: clamp(110px, 10vw, 180px);
+  padding-top: clamp(68px, 6vw, 110px);
+  border: 0;
+  border-top: 1px solid var(--ink);
+}
+.inference-page .economics-head {
+  grid-template-columns: 150px minmax(420px, 1.2fr) minmax(320px, .8fr);
+  gap: clamp(30px, 4vw, 76px);
+  padding: 0 2vw clamp(54px, 6vw, 92px);
+  border: 0;
+}
+.inference-page .economics-head h2 {
+  max-width: 920px;
+  font-size: clamp(50px, 5.8vw, 92px);
+  line-height: .9;
+  letter-spacing: -.05em;
+}
+.inference-page .economics-head > p:last-child {
+  padding-top: 22px;
+  border-top: 1px solid var(--ink);
+  font-size: clamp(14px, 1.1vw, 18px);
+}
+.inference-page .economics-body {
+  grid-template-columns: minmax(390px, .72fr) minmax(0, 1.28fr);
+  gap: 16px;
+}
+.inference-page .economics-copy {
+  padding: clamp(34px, 3.4vw, 58px);
+  border: 0;
+  border-radius: 24px;
+  background: var(--inference-blue);
+  color: #fff;
+}
+.inference-page .economics-copy > p,
+.inference-page .economics-copy .economics-lede,
+.inference-page .economics-copy strong,
+.inference-page .economics-update span { color: #fff; }
+.inference-page .economics-copy > p { opacity: .78; font-size: clamp(13px, .92vw, 16px); }
+.inference-page .economics-copy .economics-lede { opacity: 1; font-size: clamp(17px, 1.25vw, 21px); }
+.inference-page .economics-equation {
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1.25fr);
+  gap: 10px 18px;
+  margin: 36px 0;
+  padding: 24px 0 27px;
+  border-color: rgba(255,255,255,.48);
+}
+.inference-page .economics-equation span {
+  grid-column: 1 / -1;
+  color: rgba(255,255,255,.66);
+}
+.inference-page .economics-equation strong {
+  font: 500 clamp(28px, 2.6vw, 46px)/.95 var(--serif);
+  letter-spacing: -.035em;
+}
+.inference-page .economics-equation i { color: rgba(255,255,255,.62); }
+.inference-page .economics-copy .economics-caveat {
+  padding: 18px 18px 18px 20px;
+  border-left: 3px solid var(--orange);
+  border-radius: 0 12px 12px 0;
+  background: rgba(0,0,0,.14);
+  opacity: 1;
+}
+.inference-page .economics-copy .economics-update { border-color: rgba(255,255,255,.3); }
+.inference-page .economics-figure {
+  overflow: hidden;
+  border: 1px solid var(--inference-edge);
+  border-radius: 24px;
+  box-shadow: 0 28px 72px color-mix(in srgb, var(--ink) 12%, transparent);
+}
+.inference-page .economics-figure-media { min-height: 520px; }
+.inference-page .economics-figure img { min-height: 520px; filter: saturate(.63) contrast(.98); }
+.inference-page .economics-figure figcaption { padding: 19px 22px; }
+
+@media (max-width: 1100px) {
+  .inference-page .chapter-head { grid-template-columns: 64px 1fr; }
+  .inference-page .chapter-head::after { display: none; }
+  .inference-page .chapter-deck { grid-column: 2; max-width: 620px; }
+  .inference-page .economics-head { grid-template-columns: 1fr 1fr; }
+  .inference-page .economics-head .kicker { grid-column: 1 / -1; }
+  .inference-page .economics-body { grid-template-columns: 1fr; }
+  .inference-page .economics-copy { order: 2; }
+  .inference-page .economics-figure { order: 1; }
+  .inference-page .economics-figure-media { min-height: 0; aspect-ratio: 2 / 1; }
+  .inference-page .economics-figure img { min-height: 0; }
+}
+
+@media (max-width: 700px) {
+  .inference-page .chapter { padding: 78px 14px 86px; }
+  .inference-page .chapter-head { min-height: 0; grid-template-columns: 1fr; margin-bottom: 54px; }
+  .inference-page .chapter-head h1 { font-size: clamp(60px, 19vw, 92px); line-height: .86; }
+  .inference-page .chapter-deck { grid-column: 1; padding: 20px 0 0; border: 0; border-top: 1px solid var(--ink); }
+  .inference-page .open-data-rule { gap: 12px; margin-bottom: 10px; padding: 20px; border-radius: 16px; }
+  .inference-page .open-data-rule strong { font-size: 25px; }
+  .inference-page .workload-tabs {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    border-radius: 18px 18px 0 0;
+  }
+  .inference-page .workload-tab {
+    min-width: min(78vw, 280px);
+    min-height: 86px;
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+  }
+  .inference-page .workload-tab:last-child { border: 0; }
+  .inference-page .chart-shell { border-radius: 0 0 20px 20px; }
+  .inference-page .chart-header { align-items: stretch; padding: 20px; }
+  .inference-page .chart-reading { min-width: 0; }
+  .inference-page .mobile-chart-hint {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 11px 20px;
+    border-bottom: 1px solid var(--line);
+    color: var(--chart-muted);
+    font: 9px var(--mono);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+  }
+  .inference-page .chart-stage { overflow-x: auto; padding: 8px 0 0; scrollbar-width: thin; }
+  .inference-page #frontier-chart { width: 720px; max-width: none; }
+  .inference-page .live-system { padding: 21px 20px 24px; }
+  .inference-page .chart-controls { padding: 17px 20px; }
+  .inference-page .chart-footer { padding: 20px; }
+  .inference-page .inference-economics { margin-top: 100px; padding-top: 62px; }
+  .inference-page .economics-head { grid-template-columns: 1fr; gap: 24px; padding: 0 6px 48px; }
+  .inference-page .economics-head .kicker { grid-column: 1; }
+  .inference-page .economics-head h2 { font-size: clamp(48px, 14vw, 68px); }
+  .inference-page .economics-head > p:last-child { padding-top: 18px; }
+  .inference-page .economics-body { gap: 10px; }
+  .inference-page .economics-copy { padding: 28px 22px 30px; border-radius: 18px; }
+  .inference-page .economics-equation { grid-template-columns: 1fr; gap: 11px; }
+  .inference-page .economics-equation span,
+  .inference-page .economics-equation strong,
+  .inference-page .economics-equation i { grid-column: 1; }
+  .inference-page .economics-equation i { transform: rotate(90deg); transform-origin: left center; }
+  .inference-page .economics-equation strong { font-size: 32px; }
+  .inference-page .economics-figure { border-radius: 18px; }
+  .inference-page .economics-figure-media { aspect-ratio: auto; overflow-x: auto; justify-content: start; }
+  .inference-page .economics-figure img { width: 720px; max-width: none; height: auto; }
+  .inference-page .economics-figure figcaption { flex-direction: column; padding: 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .inference-page .workload-tab { transition: none; }
+  .inference-page .workload-tab:hover { transform: none; }
+}
