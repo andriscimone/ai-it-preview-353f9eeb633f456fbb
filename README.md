@@ -4,6 +4,7 @@ Il sito introduce le scaling laws e la corsa tra energia, chip e algoritmi. La h
 
 - scala fisica dell'AI, con distinzione fra cluster interconnesso, sito in H100-equivalent e potenza;
 - confronto Ampere, Hopper, Blackwell e Rubin su memoria HBM, banda e NVLink;
+- stime di produzione, prezzo, TDP e deployment pubblico per visualizzare la crescita industriale delle quattro generazioni;
 - simulatore del progresso algoritmico e casi concreti di intelligenza per compute;
 - frontiera dell'inferenza per velocità percepita e token prodotti per megawatt.
 
