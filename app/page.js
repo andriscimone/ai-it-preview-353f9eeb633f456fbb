@@ -1,5 +1,8 @@
-import { redirect } from "next/navigation";
-
 export default function Home() {
-  redirect("/index.html");
+  return (
+    <main>
+      <meta httpEquiv="refresh" content="0; url=/chip.html" />
+      <a href="/chip.html">Apri il capitolo Chips</a>
+    </main>
+  );
 }
