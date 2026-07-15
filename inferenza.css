@@ -324,6 +324,7 @@
   padding: 0 2vw 42px;
 }
 .inference-page .parallel-story h3,
+.inference-page .sec-bench-study h3,
 .inference-page .multiagent-proof h3 {
   margin: 0;
   font: 500 clamp(46px, 5.6vw, 84px)/.9 var(--serif);
@@ -377,8 +378,62 @@
   padding: 22px 30px;
   background: var(--paper-deep);
 }
-.inference-page .parallel-story > footer span { font: 10px var(--mono); text-transform: uppercase; }
+.inference-page .parallel-story > footer span { font: 11px var(--mono); text-transform: uppercase; }
 .inference-page .parallel-story > footer p { max-width: 850px; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
+
+.inference-page .sec-bench-study { margin-top: clamp(110px, 10vw, 175px); }
+.inference-page .sec-bench-study > header {
+  display: grid;
+  grid-template-columns: minmax(440px, 1.15fr) minmax(320px, .85fr);
+  gap: 70px;
+  align-items: end;
+  padding: 0 2vw 44px;
+}
+.inference-page .sec-bench-study h3 { max-width: 900px; font-size: clamp(44px, 5vw, 72px); }
+.inference-page .sec-bench-study > header > p { margin: 0 0 5px; color: var(--muted); font-size: 14px; line-height: 1.68; }
+.inference-page .sec-bench-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(330px, .65fr);
+  border: 1px solid var(--ink);
+}
+.inference-page .sec-bench-figure { min-width: 0; margin: 0; border-right: 1px solid var(--ink); }
+.inference-page .sec-bench-mobile-hint { display: none; }
+.inference-page .sec-bench-media { background: #fff; }
+.inference-page .sec-bench-media img { width: 100%; height: auto; display: block; }
+.inference-page .sec-bench-figure figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 18px 22px;
+  border-top: 1px solid var(--ink);
+  color: var(--muted);
+  font: 11px/1.55 var(--mono);
+}
+.inference-page .sec-bench-figure figcaption strong { color: var(--ink); font-weight: 500; }
+.inference-page .sec-bench-figure figcaption a { flex: 0 0 auto; color: var(--ink); text-transform: uppercase; text-underline-offset: 5px; }
+.inference-page .sec-bench-commentary { padding: clamp(30px, 3.5vw, 58px); }
+.inference-page .sec-bench-lede { margin: 0; font: 400 clamp(25px, 2.7vw, 41px)/1.08 var(--serif); letter-spacing: -.025em; }
+.inference-page .sec-bench-lede strong { font-weight: 500; }
+.inference-page .sec-bench-commentary dl { margin: 42px 0; border-top: 1px solid var(--ink); }
+.inference-page .sec-bench-commentary dl > div {
+  display: grid;
+  grid-template-columns: 105px 1fr;
+  gap: 18px;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--ink);
+}
+.inference-page .sec-bench-commentary dt { color: var(--muted); font: 11px var(--mono); text-transform: uppercase; }
+.inference-page .sec-bench-commentary dd { margin: 0; display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+.inference-page .sec-bench-commentary dd strong { color: var(--inference-blue); font: 500 clamp(31px, 3vw, 48px)/1 var(--serif); }
+.inference-page .sec-bench-commentary dd span { color: var(--muted); font-size: 12px; }
+.inference-page .sec-bench-commentary > p:not(.sec-bench-lede) { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.68; }
+.inference-page .sec-bench-commentary > p strong { color: var(--ink); font-weight: 500; }
+.inference-page .sec-bench-commentary aside { margin-top: 34px; padding: 24px 0 0; border-top: 5px solid var(--orange); }
+.inference-page .sec-bench-commentary aside span { font: 500 11px var(--mono); text-transform: uppercase; }
+.inference-page .sec-bench-commentary aside p { margin: 13px 0 0; color: var(--muted); font-size: 12px; line-height: 1.63; }
+.inference-page .sec-bench-boundary { margin: 0; padding: 20px 30px; background: var(--paper-deep); color: var(--muted); font: 11px/1.6 var(--mono); }
+.inference-page .sec-bench-boundary strong { color: var(--ink); font-weight: 500; }
 
 .inference-page .compute-access {
   display: grid;
@@ -452,6 +507,9 @@
   .inference-page .compute-era { min-height: 330px; border-right: 0; border-bottom: 1px solid var(--ink); }
   .inference-page .compute-era:last-child { border-bottom: 0; }
   .inference-page .parallel-story > header { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .inference-page .sec-bench-study > header { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .inference-page .sec-bench-layout { grid-template-columns: 1fr; }
+  .inference-page .sec-bench-figure { border-right: 0; border-bottom: 1px solid var(--ink); }
   .inference-page .multiagent-proof li { grid-template-columns: 140px minmax(240px, .7fr) minmax(0, 1.3fr); }
   .inference-page .multiagent-proof li a { grid-column: 2; justify-self: start; }
 }
@@ -523,6 +581,7 @@
   .inference-page .parallel-story { margin-top: 90px; }
   .inference-page .parallel-story > header { grid-template-columns: 1fr; gap: 22px; padding: 0 6px 34px; }
   .inference-page .parallel-story h3,
+  .inference-page .sec-bench-study h3,
   .inference-page .multiagent-proof h3 { font-size: clamp(44px, 13vw, 64px); }
   .inference-page .parallel-axis { padding: 12px; }
   .inference-page .parallel-lanes { overflow-x: auto; overscroll-behavior-inline: contain; }
@@ -532,6 +591,17 @@
   .inference-page .lane-worker,
   .inference-page .lane-merge { padding: 7px 5px; font-size: 11px; }
   .inference-page .parallel-story > footer { grid-template-columns: 1fr; gap: 12px; padding: 20px; }
+  .inference-page .sec-bench-study { margin-top: 100px; }
+  .inference-page .sec-bench-study > header { grid-template-columns: 1fr; gap: 22px; padding: 0 6px 34px; }
+  .inference-page .sec-bench-mobile-hint { display: flex; justify-content: space-between; margin: 0; padding: 12px 18px; border-bottom: 1px solid var(--ink); font: 11px var(--mono); text-transform: uppercase; }
+  .inference-page .sec-bench-media { overflow-x: auto; overscroll-behavior-inline: contain; }
+  .inference-page .sec-bench-media img { width: 820px; max-width: none; }
+  .inference-page .sec-bench-figure figcaption { flex-direction: column; padding: 18px; }
+  .inference-page .sec-bench-figure figcaption a { align-self: flex-start; }
+  .inference-page .sec-bench-commentary { padding: 30px 20px; }
+  .inference-page .sec-bench-commentary dl > div { grid-template-columns: 88px 1fr; gap: 12px; }
+  .inference-page .sec-bench-commentary dd { align-items: flex-start; flex-direction: column; gap: 3px; }
+  .inference-page .sec-bench-boundary { padding: 20px; }
   .inference-page .compute-access { grid-template-columns: 1fr; margin-top: 90px; }
   .inference-page .compute-access-statement { padding: 30px 22px 38px; }
   .inference-page .compute-access blockquote { margin-top: 55px; font-size: 39px; }

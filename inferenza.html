@@ -8,7 +8,7 @@
     <meta id="theme-color" name="theme-color" content="#f2f0e8" /><link rel="icon" href="data:," /><title>Inferenza — AI.it</title>
     <script>(() => { try { const saved = localStorage.getItem("aiit-theme"); const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dataset.theme = saved || preferred; } catch (_) { document.documentElement.dataset.theme = "light"; } })();</script>
     <link rel="stylesheet" href="styles.css?v=inference-economics" />
-    <link rel="stylesheet" href="inferenza.css?v=reasoning-agents" />
+    <link rel="stylesheet" href="inferenza.css?v=sec-bench-agents" />
   </head>
   <body class="detail-page inference-page">
     <a class="skip-link" href="#top">Salta al contenuto</a><div class="noise" aria-hidden="true"></div>
@@ -121,6 +121,35 @@
             <footer><span>Più lavoro nello stesso intervallo</span><p>Non è un benchmark: il vantaggio appare soltanto quando il compito può essere diviso bene e i risultati possono essere ricomposti senza perdita.</p></footer>
           </section>
 
+          <section class="sec-bench-study" aria-labelledby="sec-bench-title">
+            <header>
+              <div><p class="kicker">Un caso concreto · dati OpenAI 2026</p><h3 id="sec-bench-title">Più agenti: risultati migliori, prima.</h3></div>
+              <p>SEC‑Bench Pro misura la capacità di generare prove di concetto su software complesso. Nel grafico lo stesso GPT‑5.6 Sol lavora da solo oppure coordina 4 o 16 agenti: aumentando il parallelismo, la curva sale e si sposta verso sinistra.</p>
+            </header>
+            <div class="sec-bench-layout">
+              <figure class="sec-bench-figure">
+                <p class="sec-bench-mobile-hint"><span>Scorri il grafico</span><span aria-hidden="true">→</span></p>
+                <div class="sec-bench-media">
+                  <img src="assets/sec-bench-pro-multi-agent.png" loading="lazy" decoding="async" alt="Grafico OpenAI SEC-Bench Pro: il punteggio di GPT-5.6 Sol cresce più rapidamente rispetto alla latenza simulata passando da uno a quattro e sedici agenti." />
+                </div>
+                <figcaption><span><strong>Eval del produttore.</strong> La configurazione a 16 agenti è mostrata come esperimento; Ultra usa quattro agenti per impostazione predefinita.</span><a href="https://openai.com/index/gpt-5-6/" target="_blank" rel="noreferrer">Fonte OpenAI ↗</a></figcaption>
+              </figure>
+              <div class="sec-bench-commentary">
+                <p class="sec-bench-lede"><strong>La velocità nasce dal parallelismo.</strong> Più agenti esplorano, verificano e correggono nello stesso intervallo invece di aspettare il proprio turno.</p>
+                <dl aria-label="Lettura approssimativa del grafico">
+                  <div><dt>16 agenti</dt><dd><strong>≈76%</strong><span>in circa 8 minuti</span></dd></div>
+                  <div><dt>1 agente</dt><dd><strong>≈71%</strong><span>in circa 20 minuti</span></dd></div>
+                </dl>
+                <p>In questa prova, una squadra di 16 agenti supera il 70% in meno della metà del tempo impiegato dall'agente singolo per arrivare appena sopra quella soglia. È un vantaggio di <strong>tempo trascorso e qualità raggiunta</strong>, non una riduzione del lavoro totale.</p>
+                <aside>
+                  <span>Il conto nascosto</span>
+                  <p>OpenAI calcola la latenza dal lead agent, ma somma nei token e nel costo API il lavoro di tutti gli agenti. Il risultato arriva prima perché si spende molto più compute contemporaneamente.</p>
+                </aside>
+              </div>
+            </div>
+            <p class="sec-bench-boundary"><strong>Come leggerlo:</strong> è un benchmark cyber interno pubblicato da OpenAI e usa latenza simulata. Mostra bene il meccanismo, ma non garantisce lo stesso vantaggio su attività che non possono essere divise in parti indipendenti.</p>
+          </section>
+
           <div class="compute-access">
             <div class="compute-access-statement">
               <p class="kicker">La nuova disuguaglianza del compute</p>
@@ -162,6 +191,7 @@
           <li><a href="https://openai.com/index/o1-and-new-tools-for-developers/" target="_blank" rel="noreferrer">OpenAI · o1 per sviluppatori</a><span>Parametro reasoning_effort e controllo del tempo dedicato al ragionamento.</span></li>
           <li><a href="https://openai.com/index/introducing-the-codex-app/" target="_blank" rel="noreferrer">OpenAI · Codex app</a><span>Gestione di più agenti in parallelo e worktree isolati.</span></li>
           <li><a href="https://openai.com/index/how-agents-are-transforming-work/" target="_blank" rel="noreferrer">OpenAI · How agents are transforming work</a><span>Dati interni 2026 sull'uso parallelo di Codex; evidenza del produttore.</span></li>
+          <li><a href="https://openai.com/index/gpt-5-6/" target="_blank" rel="noreferrer">OpenAI · GPT‑5.6 e modalità Ultra</a><span>SEC‑Bench Pro multi-agent, latenza del lead agent e costi/token cumulativi di tutti gli agenti.</span></li>
           <li><a href="https://www.anthropic.com/engineering/multi-agent-research-system" target="_blank" rel="noreferrer">Anthropic · Multi-agent Research</a><span>Architettura lead/subagent, eval interno, consumo di token e limiti dichiarati.</span></li>
           <li><a href="https://www.microsoft.com/en-us/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks/" target="_blank" rel="noreferrer">Microsoft Research · Magentic‑One</a><span>Orchestratore e agenti specializzati per compiti web e file.</span></li>
         </ol>
