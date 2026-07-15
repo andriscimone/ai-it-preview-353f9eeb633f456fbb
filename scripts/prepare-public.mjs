@@ -16,7 +16,6 @@ const files = [
   "guerra.html",
   "spooky-timeline.html",
   "app.js",
-  "spooky-timeline.js",
   "dossier.js",
   "energy-visuals.js",
   "algorithm-visuals.js",

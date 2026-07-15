@@ -13,12 +13,15 @@ La pagina `spooky-timeline.html` è un'easter egg della homepage.
 
 È un segreto narrativo, non un sistema di sicurezza. HTML, CSS e JavaScript vengono comunque inviati al browser e possono essere scoperti da una persona tecnica. Non inserire qui password, dati privati o informazioni sensibili.
 
+## Contenuto attuale
+
+La pagina è volutamente vuota: mostra soltanto il titolo `spooky timeline, not so distant` su una singola riga. Il contenuto verrà scritto manualmente in seguito.
+
 ## File
 
 - `index.html`, `styles.css`, `app.js`: gesto di sblocco.
-- `spooky-timeline.html`: contenuto e controllo iniziale dell'accesso.
-- `spooky-timeline.css`: stile responsive.
-- `spooky-timeline.js`: interazione della timeline.
+- `spooky-timeline.html`: titolo e controllo iniziale dell'accesso.
+- `spooky-timeline.css`: stile minimale e responsive.
 - `scripts/prepare-public.mjs` e `scripts/finalize-dist.mjs`: inclusione nella build pubblicata.
 
 ## Verifica manuale
