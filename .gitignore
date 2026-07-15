@@ -4,3 +4,6 @@
 .qa-chrome-energy/
 research/
 mistral-curve.webp
+.next/
+node_modules/
+public/
