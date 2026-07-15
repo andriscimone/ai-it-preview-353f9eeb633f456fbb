@@ -8,7 +8,7 @@
     <meta id="theme-color" name="theme-color" content="#f2f0e8" /><link rel="icon" href="data:," /><title>Inferenza — AI.it</title>
     <script>(() => { try { const saved = localStorage.getItem("aiit-theme"); const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dataset.theme = saved || preferred; } catch (_) { document.documentElement.dataset.theme = "light"; } })();</script>
     <link rel="stylesheet" href="styles.css?v=inference-economics" />
-    <link rel="stylesheet" href="inferenza.css?v=piaggio-sapphire" />
+    <link rel="stylesheet" href="inferenza.css?v=reasoning-agents" />
   </head>
   <body class="detail-page inference-page">
     <a class="skip-link" href="#top">Salta al contenuto</a><div class="noise" aria-hidden="true"></div>
@@ -72,6 +72,81 @@
             </figure>
           </div>
         </section>
+
+        <section class="compute-evolution" aria-labelledby="compute-evolution-title">
+          <header class="compute-evolution-head">
+            <p class="kicker">Dalla risposta alla forza-lavoro</p>
+            <h2 id="compute-evolution-title">Lo stesso modello non significa più lo stesso compute.</h2>
+            <div class="compute-evolution-intro">
+              <p>Per anni l'esperienza dominante è stata semplice: scegli un modello, invii una richiesta, ricevi una risposta. Prezzi, limiti e accesso non erano davvero uguali per tutti, ma <strong>a parità di modello il lavoro investito nella singola risposta era molto meno visibile e regolabile.</strong></p>
+              <p>Dal settembre 2024 la serie o di OpenAI ha reso esplicita una nuova leva: la qualità può crescere lasciando al modello più tempo e più compute durante la risposta. Oggi i sistemi multi-agent aggiungono una seconda dimensione: non solo pensare più a lungo, ma <strong>far lavorare più agenti contemporaneamente</strong>.</p>
+            </div>
+          </header>
+
+          <div class="compute-eras" aria-label="Tre fasi dell'evoluzione del compute durante l'inferenza">
+            <article class="compute-era">
+              <header><span>01 · fino al 2023</span><strong>Un modello, un percorso</strong></header>
+              <div class="era-diagram era-single" aria-hidden="true"><i>Prompt</i><b></b><em>GPT‑4</em><b></b><i>Risposta</i></div>
+              <p>Schema semplificato: la singola chiamata segue una traiettoria. Spendere di più permette più richieste o più accesso, non necessariamente più lavoro interno sulla stessa domanda.</p>
+            </article>
+            <article class="compute-era is-reasoning">
+              <header><span>02 · settembre 2024</span><strong>Più profondità</strong></header>
+              <div class="era-diagram era-reasoning" aria-hidden="true"><i>Prompt</i><span><b></b><b></b><b></b><b></b></span><i>Risposta</i></div>
+              <p>Con o1 il <i>test-time compute</i> diventa parte del prodotto: più tempo di ragionamento può migliorare il risultato, in cambio di più latenza e consumo.</p>
+            </article>
+            <article class="compute-era is-agents">
+              <header><span>03 · fine 2024 → oggi</span><strong>Più larghezza</strong></header>
+              <div class="era-diagram era-agents" aria-hidden="true"><em>Lead</em><span><b>R</b><b>D</b><b>V</b><b>C</b></span><i>Sintesi</i></div>
+              <p>Un coordinatore scompone il problema e assegna parti indipendenti a più agenti. Il budget cresce in parallelo: più capacità, ma anche più token e coordinamento.</p>
+            </article>
+          </div>
+          <p class="compute-eras-note"><strong>La svolta non cancella la precedente:</strong> ogni subagent può a sua volta essere un modello di ragionamento. Profondità e parallelismo si moltiplicano.</p>
+
+          <section class="parallel-story" aria-labelledby="parallel-story-title">
+            <header>
+              <div><p class="kicker">Infografica · schema concettuale</p><h3 id="parallel-story-title">Da più tempo a più larghezza</h3></div>
+              <p>Immagina una ricerca con quattro parti indipendenti. Un solo agente deve attraversarle una dopo l'altra. Una squadra può esplorarle insieme e lasciare al coordinatore la sintesi finale.</p>
+            </header>
+            <div class="parallel-axis"><span>Inizio</span><span>Tempo di attesa →</span><span>Consegna</span></div>
+            <div class="parallel-lanes" role="img" aria-label="Confronto concettuale: un agente svolge quattro fasi in sequenza; una squadra svolge ricerca, dati e verifica in parallelo e poi sintetizza">
+              <div class="lane-group lane-single">
+                <strong>Un agente</strong>
+                <span class="lane-block">Fonti</span><span class="lane-block">Dati</span><span class="lane-block">Verifica</span><span class="lane-block">Sintesi</span>
+              </div>
+              <div class="lane-group lane-team">
+                <strong>Squadra</strong>
+                <span class="lane-worker worker-a">Ricerca</span><span class="lane-worker worker-b">Dati</span><span class="lane-worker worker-c">Critico</span><span class="lane-merge">Sintesi del lead</span>
+              </div>
+            </div>
+            <footer><span>Più lavoro nello stesso intervallo</span><p>Non è un benchmark: il vantaggio appare soltanto quando il compito può essere diviso bene e i risultati possono essere ricomposti senza perdita.</p></footer>
+          </section>
+
+          <div class="compute-access">
+            <div class="compute-access-statement">
+              <p class="kicker">La nuova disuguaglianza del compute</p>
+              <blockquote>Non compri necessariamente un modello diverso.<br /><strong>Compri più lavoro dello stesso modello.</strong></blockquote>
+            </div>
+            <div class="compute-access-copy">
+              <p>La “democratizzazione” non è mai stata totale: già prima denaro e infrastruttura compravano più chiamate, priorità, fine-tuning e strumenti. La differenza emergente è più diretta. A parità di modello, chi ha più budget può assegnare <strong>più compute alla stessa task</strong>: prima aumentando il ragionamento, ora anche moltiplicando gli agenti.</p>
+              <div class="compute-access-formula" aria-label="Capacità effettiva uguale qualità del modello per compute per task per qualità del coordinamento"><span>Capacità effettiva</span><strong>modello × compute / task × coordinamento</strong></div>
+              <p>Questo può creare un divario concreto tra una risposta economica e una squadra di agenti che ricerca, calcola, contesta e verifica in parallelo. Ma più agenti non significa automaticamente più intelligenza: possono duplicare il lavoro, propagare errori o bloccarsi nella coordinazione.</p>
+            </div>
+          </div>
+
+          <section class="multiagent-proof" aria-labelledby="multiagent-proof-title">
+            <header><p class="kicker">Non è più soltanto una previsione</p><h3 id="multiagent-proof-title">Chi usa già questo approccio</h3></header>
+            <ol>
+              <li><span>OpenAI · Codex</span><h4>Agenti paralleli sullo stesso progetto</h4><p>L'app Codex gestisce più agenti in thread e worktree isolati. OpenAI riferisce che, nel giugno 2026, gli utenti interni al 99° percentile superavano regolarmente 60 ore di turni-agent al giorno distribuite su agenti paralleli.</p><a href="https://openai.com/index/introducing-the-codex-app/" target="_blank" rel="noreferrer">Fonte OpenAI ↗</a></li>
+              <li><span>Anthropic · Research</span><h4>Un lead, più ricercatori</h4><p>Il lead agent genera subagent specializzati che cercano simultaneamente. Anthropic riporta +90,2% nel proprio eval interno e fino al 90% di tempo in meno su ricerche complesse, ma circa 15× i token di una chat.</p><a href="https://www.anthropic.com/engineering/multi-agent-research-system" target="_blank" rel="noreferrer">Fonte Anthropic ↗</a></li>
+              <li><span>Microsoft Research · Magentic‑One</span><h4>Specialisti coordinati</h4><p>Un orchestratore dirige agenti distinti per browser, file, terminale e codice. È un sistema di ricerca open source: mostra il pattern in pratica, ma Microsoft avverte che resta lontano dall'affidabilità umana.</p><a href="https://www.microsoft.com/en-us/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks/" target="_blank" rel="noreferrer">Fonte Microsoft ↗</a></li>
+            </ol>
+          </section>
+
+          <aside class="multiagent-boundary" aria-label="Limiti dell'approccio multi-agent">
+            <strong>Il vero limite non è solo il denaro.</strong>
+            <p>Servono problemi divisibili, strumenti affidabili e un coordinatore capace. Anthropic osserva che i sistemi multi-agent funzionano meglio nelle ricerche “in ampiezza”; compiti con dipendenze strette o molto contesto condiviso possono invece peggiorare. I numeri sopra sono misure interne dei produttori, non una legge universale.</p>
+          </aside>
+        </section>
       </section>
 
       <section class="sources compact-sources" aria-labelledby="sources-title">
@@ -83,8 +158,14 @@
           <li><a href="https://developer.nvidia.com/blog/inside-nvidia-groq-3-lpx-the-low-latency-inference-accelerator-for-the-nvidia-vera-rubin-platform" target="_blank" rel="noreferrer">NVIDIA · Vera Rubin + Groq 3 LPX</a><span>Frontiera a 400 TPS/utente, throughput per MW e ipotesi sui prezzi per tier.</span></li>
           <li><a href="https://nvidianews.nvidia.com/news/vera-rubin-full-production-agentic-ai-factory" target="_blank" rel="noreferrer">NVIDIA Newsroom · Produzione Vera Rubin</a><span>Aggiornamento del 31 maggio 2026 e disponibilità prevista dall'autunno.</span></li>
           <li><a href="https://situational-awareness.ai/from-gpt-4-to-agi/" target="_blank" rel="noreferrer">Leopold Aschenbrenner · Counting the OOMs</a><span>Compute, efficienza algoritmica e scenario pubblicato nel 2024.</span></li>
+          <li><a href="https://openai.com/index/learning-to-reason-with-llms/" target="_blank" rel="noreferrer">OpenAI · Learning to reason with LLMs</a><span>Lancio di o1-preview, 12 settembre 2024, e relazione dichiarata tra tempo di ragionamento e prestazioni.</span></li>
+          <li><a href="https://openai.com/index/o1-and-new-tools-for-developers/" target="_blank" rel="noreferrer">OpenAI · o1 per sviluppatori</a><span>Parametro reasoning_effort e controllo del tempo dedicato al ragionamento.</span></li>
+          <li><a href="https://openai.com/index/introducing-the-codex-app/" target="_blank" rel="noreferrer">OpenAI · Codex app</a><span>Gestione di più agenti in parallelo e worktree isolati.</span></li>
+          <li><a href="https://openai.com/index/how-agents-are-transforming-work/" target="_blank" rel="noreferrer">OpenAI · How agents are transforming work</a><span>Dati interni 2026 sull'uso parallelo di Codex; evidenza del produttore.</span></li>
+          <li><a href="https://www.anthropic.com/engineering/multi-agent-research-system" target="_blank" rel="noreferrer">Anthropic · Multi-agent Research</a><span>Architettura lead/subagent, eval interno, consumo di token e limiti dichiarati.</span></li>
+          <li><a href="https://www.microsoft.com/en-us/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks/" target="_blank" rel="noreferrer">Microsoft Research · Magentic‑One</a><span>Orchestratore e agenti specializzati per compiti web e file.</span></li>
         </ol>
-        <p class="source-boundary">Le curve di inferenza sono digitalizzate dai grafici dei produttori e quindi approssimative. I claim NVIDIA restano dichiarazioni del produttore.</p>
+        <p class="source-boundary">Le curve di inferenza sono digitalizzate dai grafici dei produttori e quindi approssimative. I claim prestazionali di NVIDIA, OpenAI e Anthropic restano dichiarazioni o valutazioni interne dei rispettivi produttori.</p>
       </section>
       <nav class="chapter-next" aria-label="Continua la lettura"><a href="algoritmi.html">← Precedente: Algoritmi</a><a href="index.html">Torna alla Home →</a></nav>
     </main>
