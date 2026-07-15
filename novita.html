@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="La pagina Novità di AI.it, pronta per i prossimi aggiornamenti verificati." />
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+    <meta property="og:title" content="Novità — AI.it" />
+    <meta property="og:description" content="Un taccuino editoriale ancora da aggiornare." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="it_IT" />
+    <meta id="theme-color" name="theme-color" content="#f2f0e8" />
+    <link rel="icon" href="data:," />
+    <title>Novità — AI.it</title>
+    <script>(() => { try { const saved = localStorage.getItem("aiit-theme"); const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dataset.theme = saved || preferred; } catch (_) { document.documentElement.dataset.theme = "light"; } })();</script>
+    <link rel="stylesheet" href="styles.css?v=dossier-1" />
+    <link rel="stylesheet" href="altro.css?v=dossier-1" />
+  </head>
+  <body class="detail-page dossier-page news-page">
+    <a class="skip-link" href="#top">Salta al contenuto</a><div class="noise" aria-hidden="true"></div>
+    <header class="site-header"><a class="brand" href="index.html" aria-label="AI.it, homepage"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>AI.it</span></a><div class="header-actions"><div class="issue-label"><span>Dossier</span><strong>A1 / Novità</strong></div><button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false"><span class="theme-toggle-icon" aria-hidden="true">◐</span><span id="theme-toggle-label">Scuro</span></button></div></header>
+    <nav class="section-nav" aria-label="Sezioni del sito"><a href="index.html">Home</a><a href="energia.html">Energia</a><a href="chip.html">Chips</a><a href="algoritmi.html">Algoritmi</a><a href="inferenza.html">Inferenza</a><a href="altro.html" aria-current="page">Altro</a></nav>
+    <nav class="dossier-subnav" aria-label="Dossier della sezione Altro"><a href="altro.html">Panoramica</a><a href="novita.html" aria-current="page">Novità</a><a href="benchmark.html">Benchmark</a><a href="politica.html">Politica</a><a href="guerra.html">Guerra</a></nav>
+
+    <main id="top">
+      <section class="dossier-page-hero news-page-hero" aria-labelledby="news-title">
+        <div class="dossier-page-number">01</div>
+        <div data-dossier-reveal><p class="kicker">Un taccuino, non un flusso infinito</p><h1 id="news-title">Novità</h1></div>
+        <p class="dossier-page-deck" data-dossier-reveal>Questa pagina raccoglierà solo gli aggiornamenti che cambiano il modo in cui leggiamo capacità, infrastrutture e impatto dell'AI.</p>
+      </section>
+
+      <section class="news-placeholder" aria-labelledby="news-placeholder-title" data-dossier-reveal>
+        <div class="news-placeholder-status"><i aria-hidden="true"></i><span>Stato della pagina</span><strong>In attesa</strong></div>
+        <div class="news-placeholder-main"><span aria-hidden="true">01 / —</span><h2 id="news-placeholder-title">Da<br /><em>aggiornare.</em></h2><p>Nessuna notizia inserita per ora. È una scelta deliberata: meglio uno spazio onesto che una pagina riempita con rumore o titoli non verificati.</p></div>
+        <div class="news-placeholder-scan" aria-hidden="true"><i></i><i></i><i></i><i></i><span></span></div>
+      </section>
+
+      <section class="news-entry-rules" aria-labelledby="news-rules-title">
+        <header data-dossier-reveal><p class="kicker">Quando la aggiorneremo</p><h2 id="news-rules-title">Tre filtri prima di pubblicare.</h2></header>
+        <div class="news-rule-grid">
+          <article data-dossier-reveal><span>01</span><h3>Cambia il quadro</h3><p>Un annuncio entra solo se modifica capacità, costi, accesso, infrastrutture o regole in modo rilevante.</p></article>
+          <article data-dossier-reveal><span>02</span><h3>Ha una fonte</h3><p>Prima i documenti originali; poi, quando serve, una verifica giornalistica indipendente.</p></article>
+          <article data-dossier-reveal><span>03</span><h3>Ha una data</h3><p>Ogni aggiornamento mostrerà quando è accaduto e quando la pagina è stata verificata.</p></article>
+        </div>
+      </section>
+
+      <nav class="chapter-next" aria-label="Continua la lettura"><a href="altro.html">← Panoramica Altro</a><a href="benchmark.html">Prossimo: Benchmark →</a></nav>
+    </main>
+    <footer class="site-footer"><span>AI.it</span><span>Novità · Da aggiornare</span></footer>
+    <script src="app.js"></script><script src="dossier.js"></script>
+  </body>
+</html>

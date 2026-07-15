@@ -9,9 +9,18 @@ const files = [
   "chip.html",
   "algoritmi.html",
   "inferenza.html",
+  "altro.html",
+  "novita.html",
+  "benchmark.html",
+  "politica.html",
+  "guerra.html",
   "app.js",
+  "dossier.js",
   "energy-visuals.js",
+  "algorithm-visuals.js",
   "energy.css",
+  "algorithms.css",
+  "altro.css",
   "styles.css",
   "robots.txt"
 ];
