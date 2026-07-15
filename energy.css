@@ -280,42 +280,201 @@
 .energy-page .future-path {
   position: relative;
   overflow: hidden;
-  transition: background-color 180ms ease, transform 180ms ease;
+  background: color-mix(in srgb, var(--paper-deep) 96%, transparent);
+  transition: background-color 180ms ease;
 }
 
 .energy-page .future-path:hover {
   z-index: 2;
-  background: color-mix(in srgb, var(--paper-deep) 88%, var(--energy-lime));
-  transform: translateY(-5px);
+  background: color-mix(in srgb, var(--paper-deep) 92%, var(--energy-lime));
 }
 
-.energy-page .future-orbit {
-  border-radius: 18px;
-  box-shadow: inset 0 0 70px color-mix(in srgb, var(--energy-lime) 10%, transparent);
+.future-media {
+  margin: 28px 0 34px;
+  border: 1px solid var(--ink);
+  background: var(--chart-surface);
 }
 
-.energy-page .future-path-ground .future-orbit::after {
+.future-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.future-media-space { background: var(--feature-bg); }
+.future-media-space img { object-fit: contain; }
+
+.future-media figcaption {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 20px;
+  min-height: 72px;
+  padding: 15px 17px;
+  border-top: 1px solid var(--ink);
+  color: var(--muted);
+  font: 10px/1.55 var(--mono);
+}
+
+.future-media figcaption span {
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.future-path-ground .future-media figcaption { border-left: 3px solid var(--energy-lime); }
+.future-path-space .future-media figcaption { border-left: 3px solid var(--energy-warm); }
+
+.future-tech,
+.future-roadmap {
+  margin-top: 38px;
+  border-top: 1px solid var(--ink);
+}
+
+.future-block-head {
+  min-height: 62px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.future-block-head h4 {
+  margin: 0;
+  font: 500 12px var(--mono);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.future-block-head span {
+  color: var(--muted);
+  font: 9px var(--mono);
+  text-transform: uppercase;
+}
+
+.future-specs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.future-specs div {
+  min-width: 0;
+  min-height: 86px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 15px 16px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.future-specs dt {
+  color: var(--muted);
+  font: 9px var(--mono);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+.future-specs dd {
+  margin: 0;
+  font: 500 14px/1.35 var(--mono);
+}
+
+.future-tech-note {
+  margin: 0;
+  padding: 17px 18px;
+  border: 1px solid var(--line);
+  border-top: 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.62;
+}
+
+.future-roadmap ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+  background: linear-gradient(var(--line), var(--line)) 57px 0 / 1px 100% no-repeat;
+}
+
+.energy-page .future-roadmap li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr) 62px;
+  gap: 18px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.energy-page .future-roadmap li::before {
   content: "";
   width: 7px;
   height: 7px;
   position: absolute;
-  top: 32px;
-  left: 33px;
+  top: 23px;
+  left: 54px;
+  border: 1px solid var(--ink);
   border-radius: 50%;
-  background: var(--energy-lime);
-  box-shadow: 0 0 22px var(--energy-lime);
+  background: var(--paper-deep);
 }
 
-.energy-page .future-path-space .future-orbit::before {
-  content: "";
-  width: 84px;
-  height: 84px;
-  position: absolute;
-  top: -26px;
-  right: -18px;
-  border-radius: 50%;
-  background: var(--energy-warm);
-  box-shadow: 0 0 55px color-mix(in srgb, var(--energy-warm) 70%, transparent);
+.energy-page .future-roadmap li.is-done::before {
+  border-color: var(--energy-lime);
+  background: var(--energy-lime);
+}
+
+.energy-page .future-roadmap li.is-current::before,
+.energy-page .future-roadmap li.is-target::before {
+  box-shadow: 0 0 0 5px var(--chart-focus);
+}
+
+.future-roadmap time {
+  font: 500 12px var(--mono);
+}
+
+.energy-page .future-roadmap strong {
+  display: block;
+  font: 500 13px/1.35 var(--mono);
+}
+
+.future-roadmap p {
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.future-roadmap em {
+  align-self: start;
+  justify-self: end;
+  color: var(--muted);
+  font: 9px var(--mono);
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+.future-roadmap .is-target em,
+.future-roadmap .is-current em {
+  color: var(--energy-lime);
+}
+
+.future-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 22px;
+  margin-top: 28px;
+}
+
+.future-links a {
+  font: 10px var(--mono);
+  text-transform: uppercase;
+  text-underline-offset: 5px;
 }
 
 @media (max-width: 1100px) {
@@ -376,7 +535,24 @@
   .gdp-axis-label { font-size: 12px; }
   .gdp-zone-label, .gdp-trend-label { font-size: 11px; }
   .gdp-country-detail { margin-inline: 2px; }
-  .energy-page .future-path:hover { transform: none; }
+  .future-media { margin-top: 22px; }
+  .future-media figcaption {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .future-specs { grid-template-columns: 1fr; }
+  .future-specs div { min-height: 76px; }
+  .energy-page .future-roadmap li {
+    grid-template-columns: 62px minmax(0, 1fr);
+    gap: 14px;
+  }
+  .energy-page .future-roadmap li::before { left: 47px; }
+  .future-roadmap ol { background-position-x: 50px; }
+  .future-roadmap em {
+    grid-column: 2;
+    justify-self: start;
+    margin-top: -8px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
