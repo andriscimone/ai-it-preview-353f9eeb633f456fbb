@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Energia e infrastruttura AI: cluster, siti in H100-equivalent e potenza elettrica." />
+    <meta name="description" content="Perché l'energia sostiene ricchezza e AI: correlazione con il PIL, limiti di centrali e reti, fusione e compute orbitale." />
     <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
     <meta property="og:title" content="Energia — AI.it" />
-    <meta property="og:description" content="La scala fisica dell'intelligenza artificiale." />
+    <meta property="og:description" content="La scala fisica dell'intelligenza artificiale, dal PIL alle reti fino alle due scommesse per il futuro." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="it_IT" />
     <meta id="theme-color" name="theme-color" content="#f2f0e8" />
@@ -21,7 +21,7 @@
         } catch (_) { document.documentElement.dataset.theme = "light"; }
       })();
     </script>
-    <link rel="stylesheet" href="styles.css?v=a5e64cf" />
+    <link rel="stylesheet" href="styles.css?v=energia-0715" />
   </head>
   <body class="detail-page">
     <a class="skip-link" href="#top">Salta al contenuto</a>
@@ -44,6 +44,45 @@
           <div><p class="kicker">Dalla rete elettrica al cluster</p><h1 id="energy-title">La scala fisica<br />dell'AI</h1></div>
           <p class="chapter-deck">In meno di due anni siamo passati da centomila GPU interconnesse a campus da oltre un milione di H100-equivalent. Ma cluster, sito e gigawatt non sono la stessa cosa.</p>
         </div>
+
+        <section class="energy-primer" aria-labelledby="energy-primer-title">
+          <div class="energy-primer-lede">
+            <p class="kicker">Prima del compute viene la potenza</p>
+            <h2 id="energy-primer-title">L'energia non è un settore.<br />È ciò che rende possibili <em>tutti</em> gli altri.</h2>
+          </div>
+          <div class="energy-primer-copy">
+            <p>Ogni trasformazione economica è anche una trasformazione energetica. Cibo, acciaio, cemento, trasporti, ospedali, semiconduttori e data center sono modi diversi di convertire energia in servizi, beni e capacità produttiva.</p>
+            <p>Il denaro decide chi può usarla; non la sostituisce. Per questo la ricchezza per abitante e l'energia primaria per abitante si muovono insieme. La relazione non è perfetta — contano clima, industria, efficienza e commercio — e non prova da sola causalità. Ma il quadrante «molto ricco, pochissima energia» resta sostanzialmente vuoto.</p>
+          </div>
+          <aside class="unit-note" aria-label="Differenza tra potenza ed energia">
+            <span>Una distinzione utile</span>
+            <strong>TW ≠ TWh</strong>
+            <p>Il watt misura la potenza istantanea; il wattora l'energia accumulata nel tempo. Nel confronto tra Paesi usiamo kWh per persona, così la popolazione non domina il grafico.</p>
+          </aside>
+        </section>
+
+        <article class="gdp-energy-shell" aria-labelledby="gdp-energy-title">
+          <header class="gdp-energy-head">
+            <div>
+              <p class="kicker">Il famoso grafico energia–ricchezza</p>
+              <h2 id="gdp-energy-title">Non esistono Paesi ricchi che usano pochissima energia.</h2>
+            </div>
+            <div class="gdp-energy-reading">
+              <strong>≈18,7 <small>MWh/persona</small></strong>
+              <p>Nel 2024 è il valore più basso tra i Paesi sopra 40.000 $ internazionali di PIL pro capite. Non è una soglia naturale: è ciò che mostra il campione.</p>
+            </div>
+          </header>
+          <div class="gdp-energy-frame">
+            <iframe
+              src="https://ourworldindata.org/grapher/energy-use-per-person-vs-gdp-per-capita?tab=chart&amp;time=2024"
+              title="Consumo di energia primaria per persona rispetto al PIL pro capite nel 2024"
+            ></iframe>
+          </div>
+          <footer class="gdp-energy-foot">
+            <p>Assi logaritmici · energia primaria in kWh per persona · PIL pro capite a parità di potere d'acquisto, prezzi internazionali 2021. Passa sui punti per leggere i Paesi.</p>
+            <a href="https://ourworldindata.org/grapher/energy-use-per-person-vs-gdp-per-capita?tab=chart&amp;time=2024" target="_blank" rel="noreferrer">Apri dati e metodo ↗</a>
+          </footer>
+        </article>
 
         <div class="evidence-stats" aria-label="Numeri chiave dell'infrastruttura AI">
           <article><span>Capacità AI globale</span><strong>30 <small>GW</small></strong><p>Capacità nominale stimata, Q4 2025. Non è il consumo medio.</p></article>
@@ -79,6 +118,100 @@
           <article class="estimated"><span>Ordine di grandezza</span><strong>≈20 GW training + inference</strong><p>Derivazione da 30 GW × due terzi. Non esiste un censimento pubblico globale che separi con precisione training, esperimenti e inference.</p></article>
           <article><span>Da non usare</span><strong>415 TWh ≠ AI</strong><p>È il consumo elettrico di tutti i data center nel 2024 secondo IEA, non dell'AI soltanto.</p></article>
         </div>
+
+        <section class="grid-bottleneck" aria-labelledby="grid-bottleneck-title">
+          <header>
+            <div>
+              <p class="kicker">Il collo di bottiglia non è ordinare le GPU</p>
+              <h2 id="grid-bottleneck-title">La centrale può non arrivare.<br />La rete arriva ancora dopo.</h2>
+            </div>
+            <p>Un data center può essere progettato e costruito in 1–3 anni. Una nuova rete richiede spesso 5–15 anni tra pianificazione, permessi e lavori. Nel mezzo ci sono trasformatori, cavi e turbine con consegne pluriennali.</p>
+          </header>
+
+          <div class="build-race" role="img" aria-label="Confronto dei tempi tipici: data center da uno a tre anni, rinnovabili da uno a cinque anni, nuova rete da cinque a quindici anni">
+            <div class="build-race-axis" aria-hidden="true"><span>0</span><span>5 anni</span><span>10</span><span>15</span></div>
+            <div class="build-race-row">
+              <span>Data center</span><i style="--start: 0; --duration: 20%"></i><strong>1–3 anni</strong>
+            </div>
+            <div class="build-race-row">
+              <span>Solare / eolico</span><i style="--start: 0; --duration: 33.333%"></i><strong>1–5 anni</strong>
+            </div>
+            <div class="build-race-row is-bottleneck">
+              <span>Nuova rete</span><i style="--start: 33.333%; --duration: 66.667%"></i><strong>5–15 anni</strong>
+            </div>
+          </div>
+
+          <div class="queue-callout">
+            <strong>2.500 GW</strong>
+            <p>di generazione, storage e grandi carichi — inclusi data center — risultavano bloccati nelle code di connessione mondiali secondo IEA Electricity 2026.</p>
+            <span>Non basta costruire energia. Bisogna riuscire a collegarla nel posto giusto e nel momento giusto.</span>
+          </div>
+        </section>
+
+        <section class="three-paradigms" aria-labelledby="paradigms-title">
+          <header>
+            <p class="kicker">I tre moltiplicatori del progresso AI</p>
+            <h2 id="paradigms-title">Tre curve crescono.<br />Una ha fondamenta di cemento.</h2>
+            <p>La domanda energetica dell'AI può crescere con il compute, ma l'offerta fisica non eredita automaticamente quella velocità. È per questo che, fra energia, chip e algoritmi, l'energia è oggi il paradigma più debole.</p>
+          </header>
+          <div class="paradigm-grid">
+            <article class="is-constraint">
+              <span>01 / Più energia</span>
+              <h3>Il limite fisico</h3>
+              <strong>5–15 anni</strong>
+              <p>per nuova rete. Servono siti, permessi, turbine, trasformatori, cavi e connessioni. La domanda può essere esponenziale; cantieri e autorizzazioni no.</p>
+            </article>
+            <article>
+              <span>02 / Chip migliori</span>
+              <h3>Il limite industriale</h3>
+              <strong>cicli di prodotto</strong>
+              <p>Più FLOPS, memoria e banda per watt fanno passare più intelligenza attraverso lo stesso megawatt, ma richiedono fab avanzate e packaging.</p>
+            </article>
+            <article>
+              <span>03 / Algoritmi migliori</span>
+              <h3>Il limite software</h3>
+              <strong>mesi, non decenni</strong>
+              <p>Quantizzazione, sparsità, distillazione e architetture migliori riducono il compute necessario. Il codice si replica quasi istantaneamente.</p>
+            </article>
+          </div>
+          <p class="paradigm-conclusion"><span>Conseguenza</span> Se chip e algoritmi accelerano più della potenza disponibile, ogni megawatt diventa più prezioso — e la geografia della rete decide dove può vivere il compute.</p>
+        </section>
+
+        <section class="energy-future" aria-labelledby="future-title">
+          <header>
+            <div class="chapter-number">F</div>
+            <div><p class="kicker">Futuro / due percorsi</p><h2 id="future-title">Portare nuova energia al compute.<br />O portare il compute <em>all'energia.</em></h2></div>
+            <p>Sono due scommesse concrete, entrambe con un primo traguardo dichiarato nel 2028. Nessuna delle due è ancora una soluzione dimostrata su scala AI.</p>
+          </header>
+
+          <div class="future-paths">
+            <article class="future-path future-path-ground">
+              <div class="future-path-top"><span>Path A · Sam Altman</span><strong>Terra</strong></div>
+              <div class="future-orbit" aria-hidden="true"><i></i><b></b><em>50 MW</em></div>
+              <h3>Creare abbondanza: Helion Energy</h3>
+              <p>La via terrestre associata ad Altman — investitore storico di Helion — punta a rendere la generazione più densa e continua. Helion progetta Orion, il primo impianto a fusione destinato a vendere elettricità a Microsoft: almeno 50 MW e avvio iniziale dichiarato nel 2028.</p>
+              <ul>
+                <li><span>Promessa</span><strong>potenza pulita, programmabile, vicino ai carichi</strong></li>
+                <li><span>Problema aperto</span><strong>fusione commerciale e scalabilità non ancora dimostrate</strong></li>
+              </ul>
+              <a href="https://www.helionenergy.com/orion" target="_blank" rel="noreferrer">Helion · Orion ↗</a>
+            </article>
+
+            <article class="future-path future-path-space">
+              <div class="future-path-top"><span>Path B · Elon Musk</span><strong>Orbita</strong></div>
+              <div class="future-orbit is-space" aria-hidden="true"><i></i><b></b><em>☀ → AI</em></div>
+              <h3>Inseguire il Sole: satelliti AI</h3>
+              <p>La via orbitale sposta i data center verso energia solare continua e raffreddamento radiativo. SpaceX ha depositato alla FCC un sistema fino a un milione di satelliti e dichiara i primi satelliti di compute AI già dal 2028.</p>
+              <ul>
+                <li><span>Promessa</span><strong>energia solare, modularità e rete laser globale</strong></li>
+                <li><span>Problema aperto</span><strong>lancio, radiazioni, calore, manutenzione e autorizzazioni</strong></li>
+              </ul>
+              <a href="https://docs.fcc.gov/public/attachments/DA-26-113A1.pdf" target="_blank" rel="noreferrer">FCC · domanda SpaceX ↗</a>
+            </article>
+          </div>
+
+          <p class="future-close">I due path non si escludono: il futuro più realistico potrebbe essere una combinazione di nuova generazione terrestre, reti più intelligenti, compute flessibile e una quota di infrastruttura orbitale. La domanda decisiva resta la stessa: <strong>dove troviamo il prossimo gigawatt utilizzabile?</strong></p>
+        </section>
       </section>
 
       <section class="sources compact-sources" aria-labelledby="sources-title">
@@ -88,8 +221,15 @@
           <li><a href="https://epoch.ai/data/ai-data-centers?tab=h100e&amp;view=graph" target="_blank" rel="noreferrer">Epoch AI · Database dei grandi siti AI</a><span>72 siti, 14,6 GW facility power, 11,2 GW IT power e record in H100-equivalent.</span></li>
           <li><a href="https://x.ai/colossus" target="_blank" rel="noreferrer">xAI · Colossus</a><span>200.000 GPU Hopper (H100+H200) dichiarate come singolo cluster interconnesso.</span></li>
           <li><a href="https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai" target="_blank" rel="noreferrer">IEA · Energy demand from AI</a><span>Consumo elettrico di tutti i data center e ruolo crescente dei server accelerati.</span></li>
+          <li><a href="https://ourworldindata.org/grapher/energy-use-per-person-vs-gdp-per-capita?tab=chart&amp;time=2024" target="_blank" rel="noreferrer">Our World in Data · Energia per persona vs PIL</a><span>Dati 2024: energia primaria pro capite e PIL pro capite PPP in dollari internazionali 2021.</span></li>
+          <li><a href="https://www.iea.org/reports/electricity-2026/grids" target="_blank" rel="noreferrer">IEA · Electricity 2026 / Grids</a><span>Oltre 2.500 GW in coda; reti nuove in 5–15 anni contro 1–3 anni per un data center.</span></li>
+          <li><a href="https://eta.lbl.gov/publications/queued-2025-edition-characteristics" target="_blank" rel="noreferrer">Berkeley Lab · Queued Up 2025</a><span>Negli USA il tempo mediano richiesta–operatività ha superato quattro anni per i progetti completati nel 2018–2024.</span></li>
+          <li><a href="https://www.helionenergy.com/about" target="_blank" rel="noreferrer">Helion · Team e investitori</a><span>La società elenca Sam Altman fra gli investitori e David Kirtley come cofondatore e CEO.</span></li>
+          <li><a href="https://www.helionenergy.com/orion" target="_blank" rel="noreferrer">Helion · Orion</a><span>Impianto a fusione da almeno 50 MW, con avvio iniziale dichiarato nel 2028 e Microsoft come cliente.</span></li>
+          <li><a href="https://docs.fcc.gov/public/attachments/DA-26-113A1.pdf" target="_blank" rel="noreferrer">FCC · SpaceX Orbital Data Center</a><span>Domanda accettata per esame: sistema NGSO fino a un milione di satelliti; non è un'autorizzazione finale.</span></li>
+          <li><a href="https://www.sec.gov/Archives/edgar/data/1181412/000162828026039276/spaceexplorationtechnologi.htm" target="_blank" rel="noreferrer">SpaceX · Prospetto SEC 2026</a><span>Compute orbitale dichiarato dal 2028; il documento lo classifica come previsione soggetta a rischi tecnici e regolatori.</span></li>
         </ol>
-        <p class="source-boundary">I dati distinguono capacità nominale, IT power e facility power. I claim xAI restano dichiarazioni del produttore; le stime Epoch sono indicate come tali. Dati consultati a luglio 2026.</p>
+        <p class="source-boundary">I dati distinguono capacità nominale, IT power e facility power. Correlazione non significa causalità. I claim xAI, Helion e SpaceX restano dichiarazioni dei produttori; le stime Epoch sono indicate come tali. Dati consultati il 15 luglio 2026.</p>
       </section>
 
       <nav class="chapter-next" aria-label="Continua la lettura"><a href="index.html">← Torna alla Home</a><a href="chip.html">Prossimo: Chips →</a></nav>
