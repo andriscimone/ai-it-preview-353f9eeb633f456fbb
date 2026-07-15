@@ -10,6 +10,8 @@ Il sito introduce le scaling laws e la corsa tra energia, chip e algoritmi. La h
 
 Le pagine sono `energia.html`, `chip.html`, `algoritmi.html` e `inferenza.html`. Tutte condividono navigazione, tema, stile editoriale e script, ma caricano soltanto il contenuto del capitolo scelto.
 
+Il capitolo Energia aggiunge una visualizzazione nativa e accessibile della relazione tra PIL ed energia. `energy.css` contiene soltanto lo stile di questa pagina; `energy-visuals.js` legge `assets/energy-gdp-2024.json` e disegna il grafico nel browser, senza backend o librerie esterne.
+
 Il quarto capitolo ricostruisce in modo interattivo la frontiera dell'efficienza nell'inferenza: velocità percepita (token in output al secondo per utente) contro capacità del sistema (token in output al secondo per megawatt).
 
 Apri direttamente `index.html` oppure avvia un server statico locale:
