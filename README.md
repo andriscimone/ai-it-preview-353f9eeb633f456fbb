@@ -8,9 +8,13 @@ Il sito introduce le scaling laws e la corsa tra energia, chip e algoritmi. La h
 - simulatore del progresso algoritmico e casi concreti di intelligenza per compute;
 - frontiera dell'inferenza per velocità percepita e token prodotti per megawatt.
 
-Le pagine sono `energia.html`, `chip.html`, `algoritmi.html` e `inferenza.html`. Tutte condividono navigazione, tema, stile editoriale e script, ma caricano soltanto il contenuto del capitolo scelto.
+I quattro capitoli principali sono `energia.html`, `chip.html`, `algoritmi.html` e `inferenza.html`. Tutti condividono navigazione, tema, stile editoriale e script, ma caricano soltanto il contenuto del capitolo scelto.
+
+L'area `altro.html` raccoglie dossier che cambiano più rapidamente: `novita.html`, `benchmark.html`, `politica.html` e `guerra.html`. `altro.css` contiene il loro sistema visuale condiviso; `dossier.js` gestisce le animazioni progressive, il lettore interattivo di METR e i filtri dei prodotti Anduril. La pagina Novità è intenzionalmente segnata come “Da aggiornare”.
 
 Il capitolo Energia aggiunge una visualizzazione nativa e accessibile della relazione tra PIL ed energia. `energy.css` contiene soltanto lo stile di questa pagina; `energy-visuals.js` legge `assets/energy-gdp-2024.json` e disegna il grafico nel browser, senza backend o librerie esterne.
+
+Il capitolo Algoritmi separa tre leve — compute grezzo, efficienza algoritmica e sblocco delle capacità — e cita il saggio *Situational Awareness: The Decade Ahead*. `algorithms.css` contiene il design specifico della pagina; `algorithm-visuals.js` gestisce gli esploratori interattivi e il confronto che rende visibile la riduzione dalla stima non ufficiale di 1.700B per GPT-4 fino a modelli da 2B capaci di raggiungere la sua baseline su GPQA Diamond, mentre il simulatore del tasso storico rimane nel file condiviso `app.js`.
 
 Il quarto capitolo ricostruisce in modo interattivo la frontiera dell'efficienza nell'inferenza: velocità percepita (token in output al secondo per utente) contro capacità del sistema (token in output al secondo per megawatt).
 

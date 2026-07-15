@@ -1,61 +1,297 @@
 <!doctype html>
 <html lang="it">
   <head>
-    <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Progresso algoritmico: quanto compute serve per raggiungere lo stesso obiettivo." />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Come algoritmi, post-training e tempo di ragionamento trasformano il compute grezzo in capacità utile." />
     <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
-    <meta property="og:title" content="Algoritmi — AI.it" /><meta property="og:description" content="Fare di più con gli stessi FLOP." /><meta property="og:type" content="website" /><meta property="og:locale" content="it_IT" />
-    <meta id="theme-color" name="theme-color" content="#f2f0e8" /><link rel="icon" href="data:," /><title>Algoritmi — AI.it</title>
-    <script>(() => { try { const saved = localStorage.getItem("aiit-theme"); const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dataset.theme = saved || preferred; } catch (_) { document.documentElement.dataset.theme = "light"; } })();</script>
+    <meta property="og:title" content="Algoritmi — AI.it" />
+    <meta property="og:description" content="Il compute che non si vede: efficienza, sblocco e ragionamento." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="it_IT" />
+    <meta id="theme-color" name="theme-color" content="#f2f0e8" />
+    <link rel="icon" href="data:," />
+    <title>Algoritmi — AI.it</title>
+    <script>
+      (() => {
+        try {
+          const saved = localStorage.getItem("aiit-theme");
+          const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+          document.documentElement.dataset.theme = saved || preferred;
+        } catch (_) { document.documentElement.dataset.theme = "light"; }
+      })();
+    </script>
     <link rel="stylesheet" href="styles.css?v=a5e64cf" />
+    <link rel="stylesheet" href="algorithms.css?v=0715a" />
   </head>
-  <body class="detail-page">
-    <a class="skip-link" href="#top">Salta al contenuto</a><div class="noise" aria-hidden="true"></div>
-    <header class="site-header"><a class="brand" href="index.html" aria-label="AI.it, homepage"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>AI.it</span></a><div class="header-actions"><div class="issue-label"><span>Capitolo</span><strong>03 / Algoritmi</strong></div><button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false"><span class="theme-toggle-icon" aria-hidden="true">◐</span><span id="theme-toggle-label">Scuro</span></button></div></header>
-    <nav class="section-nav" aria-label="Sezioni del sito"><a href="index.html">Home</a><a href="energia.html">Energia</a><a href="chip.html">Chips</a><a href="algoritmi.html" aria-current="page">Algoritmi</a><a href="inferenza.html">Inferenza</a></nav>
+  <body class="detail-page algorithm-page">
+    <a class="skip-link" href="#top">Salta al contenuto</a>
+    <div class="noise" aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="AI.it, homepage"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>AI.it</span></a>
+      <div class="header-actions">
+        <div class="issue-label"><span>Capitolo</span><strong>03 / Algoritmi</strong></div>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false"><span class="theme-toggle-icon" aria-hidden="true">◐</span><span id="theme-toggle-label">Scuro</span></button>
+      </div>
+    </header>
+    <nav class="section-nav" aria-label="Sezioni del sito"><a href="index.html">Home</a><a href="energia.html">Energia</a><a href="chip.html">Chips</a><a href="algoritmi.html" aria-current="page">Algoritmi</a><a href="inferenza.html">Inferenza</a><a href="altro.html">Altro</a></nav>
 
     <main id="top">
       <section class="chapter evidence-chapter algorithm-chapter" aria-labelledby="algorithm-title">
-        <div class="chapter-head">
+        <div class="chapter-head algorithm-hero">
           <div class="chapter-number">03</div>
-          <div><p class="kicker">Intelligenza per raw compute</p><h1 id="algorithm-title">Fare di più<br />con gli stessi FLOP</h1></div>
-          <p class="chapter-deck">L'evidenza storica più pulita misura quanto calcolo serve per raggiungere la stessa loss di pretraining: il fabbisogno si è dimezzato circa ogni otto mesi.</p>
+          <div class="algorithm-hero-copy">
+            <p class="kicker">Il compute che non si vede</p>
+            <h1 id="algorithm-title">Più capacità.<br /><em>Stessa macchina.</em></h1>
+          </div>
+          <p class="chapter-deck">L'hardware stabilisce quanta forza bruta è disponibile. Gli algoritmi decidono quanta intelligenza riusciamo a estrarne — e quanta ne sprechiamo.</p>
+          <div class="algorithm-hero-system" aria-hidden="true">
+            <span class="algorithm-core">CAPACITÀ</span>
+            <i class="algorithm-orbit orbit-compute"><b>COMPUTE</b></i>
+            <i class="algorithm-orbit orbit-efficiency"><b>EFFICIENZA</b></i>
+            <i class="algorithm-orbit orbit-unlock"><b>SBLOCCO</b></i>
+            <span class="algorithm-pulse pulse-one"></span><span class="algorithm-pulse pulse-two"></span><span class="algorithm-pulse pulse-three"></span>
+          </div>
         </div>
 
-        <article class="algorithm-lab" aria-labelledby="algorithm-lab-title">
-          <header class="evidence-header">
-            <div><p class="kicker">Simulatore del tasso storico</p><h2 id="algorithm-lab-title">Stesso target, meno compute</h2><p>Indice derivato dal tasso centrale Epoch, non la misura di uno specifico modello.</p></div>
-            <div class="algorithm-reading" aria-live="polite"><span>Compute richiesto</span><strong id="compute-required">100%</strong><small id="effective-multiplier">1× compute effettivo</small></div>
-          </header>
-          <div class="algorithm-stage">
-            <div class="compute-track" aria-hidden="true"><div id="compute-bar"></div><span>Budget raw compute invariato</span></div>
-            <label class="algorithm-range-label" for="algorithm-months"><span>Progresso algoritmico</span><strong><span id="algorithm-months-value">0</span> mesi</strong></label>
-            <input id="algorithm-months" type="range" min="0" max="40" step="1" value="0" />
-            <div class="algorithm-ticks" aria-hidden="true"><span>Oggi</span><span>8 mesi</span><span>16</span><span>24</span><span>32</span><span>40</span></div>
+        <nav class="algorithm-story-nav" aria-label="Dentro il capitolo">
+          <a href="#tre-leve"><span>01</span> Tre leve</a>
+          <a href="#efficienza"><span>02</span> Efficienza</a>
+          <a href="#sblocco"><span>03</span> Sblocco</a>
+          <a href="#limiti"><span>04</span> Limiti</a>
+        </nav>
+
+        <section class="algorithm-primer" aria-labelledby="primer-title">
+          <div class="algorithm-primer-lede">
+            <p class="kicker">Prima distinzione</p>
+            <h2 id="primer-title">Un algoritmo migliore funziona come un moltiplicatore del compute.</h2>
           </div>
-          <footer class="evidence-footer"><p>Studio su 231 valutazioni di language model, 2012–2023. Stima centrale: dimezzamento ogni 8 mesi; intervallo di confidenza 95%: 5–14 mesi.</p><a href="https://epoch.ai/publications/algorithmic-progress-in-language-models" target="_blank" rel="noreferrer">Leggi lo studio ↗</a></footer>
+          <div class="algorithm-primer-copy">
+            <p>Se un nuovo metodo raggiunge lo stesso risultato con un decimo dei calcoli, è come avere moltiplicato per dieci il budget disponibile. La GPU non cambia; cambia il valore che otteniamo da ogni operazione.</p>
+            <p>Questo “compute effettivo” è utile per ragionare, ma non è una quantità fisica misurata da un contatore. Dipende dal compito, dalla metrica e dal confronto scelto.</p>
+          </div>
+          <aside class="oom-note" aria-label="Definizione di ordine di grandezza">
+            <span>Unità di lettura</span>
+            <strong>1 OOM = 10×</strong>
+            <p>OOM significa <i>order of magnitude</i>: un ordine di grandezza. 2 OOM sono 100×; 3 OOM sono 1.000×.</p>
+          </aside>
+        </section>
+
+        <article class="progress-machine" id="tre-leve" aria-labelledby="progress-machine-title">
+          <header class="progress-machine-head">
+            <div><p class="kicker">Una mappa, non una somma perfetta</p><h2 id="progress-machine-title">Tre leve spingono le capacità.</h2></div>
+            <p>Seleziona una leva. La visualizzazione separa ciò che è fisico, ciò che è misurabile come efficienza e ciò che sblocca l'uso pratico di un modello.</p>
+          </header>
+          <div class="progress-machine-body">
+            <div class="progress-controls" role="group" aria-label="Leve del progresso AI">
+              <button type="button" data-progress-lever="compute" aria-pressed="false"><span>01</span><strong>Compute grezzo</strong><small>Chip, energia, tempo</small></button>
+              <button class="is-active" type="button" data-progress-lever="efficiency" aria-pressed="true"><span>02</span><strong>Efficienza</strong><small>Stesso target, meno FLOP</small></button>
+              <button type="button" data-progress-lever="unhobbling" aria-pressed="false"><span>03</span><strong>Sblocco</strong><small>Post-training, strumenti, contesto</small></button>
+            </div>
+            <div class="progress-visual" data-active-lever="efficiency" role="img" aria-label="Tre leve trasformano compute grezzo in capacità utile">
+              <div class="progress-axis" aria-hidden="true"><span>INPUT</span><i></i><span>OUTPUT</span></div>
+              <div class="progress-node node-compute"><span>01</span><strong>FLOP</strong></div>
+              <div class="progress-node node-efficiency"><span>02</span><strong>× algoritmo</strong></div>
+              <div class="progress-node node-unhobbling"><span>03</span><strong>× utilizzo</strong></div>
+              <div class="progress-output"><span>CAPACITÀ UTILE</span><b></b><b></b><b></b></div>
+            </div>
+            <aside class="progress-reading" aria-live="polite">
+              <span id="progress-reading-label">02 · Efficienza algoritmica</span>
+              <strong id="progress-reading-value">10× meno calcolo = +1 OOM effettivo</strong>
+              <p id="progress-reading-copy">È la leva più vicina a un confronto controllato: si fissa lo stesso obiettivo e si misura quanto compute serve per raggiungerlo.</p>
+              <small id="progress-reading-caveat">Misurabile solo se task, target e protocollo restano comparabili.</small>
+            </aside>
+          </div>
+          <footer class="progress-machine-foot"><p>Schema ispirato alla scomposizione “compute · algorithmic efficiency · unhobbling” proposta da Leopold Aschenbrenner.</p><a href="https://situational-awareness.ai/from-gpt-4-to-agi/" target="_blank" rel="noreferrer">Vai al capitolo originale ↗</a></footer>
         </article>
 
-        <div class="model-evidence" aria-label="Esempi di progresso dei modelli">
-          <article data-confidence="strong"><span class="confidence">Prova forte</span><h2>Loss uguale, FLOP normalizzati</h2><strong>−50% ogni 8 mesi</strong><p>Confronto omogeneo nello studio: è la misura più vicina a “stesso obiettivo, raw compute diverso”.</p></article>
-          <article data-confidence="proxy"><span class="confidence">Proxy</span><h2>PaLM → Phi-3-mini</h2><strong>540B → 3,8B</strong><p>Il modello più piccolo sopra il 60% MMLU si è ridotto di circa 142× nei parametri fra 2022 e 2024. Parametri e FLOP non sono la stessa cosa.</p></article>
-          <article data-confidence="limited"><span class="confidence">Non confrontabile</span><h2>GPT-4 → DeepSeek-V3</h2><strong>86,4 → 88,5 MMLU</strong><p>DeepSeek usa 37B parametri attivi per token, ma 671B totali. I FLOP e i parametri di GPT-4 non sono pubblici: non prova la parità di compute.</p></article>
+        <article class="algorithm-lab" id="efficienza" aria-labelledby="algorithm-lab-title">
+          <header class="evidence-header">
+            <div><p class="kicker">100 blocchi oggi, quanti domani?</p><h2 id="algorithm-lab-title">Stesso target, meno compute</h2><p>Ogni quadratino rappresenta un blocco del compute che serve oggi. Sposta il tempo e guarda quanti blocchi restano necessari per raggiungere lo stesso risultato.</p></div>
+          </header>
+          <div class="algorithm-stage">
+            <div class="algorithm-answer" aria-live="polite">
+              <span id="algorithm-answer-time">Oggi</span>
+              <p>Per raggiungere <b>lo stesso target</b> servono <strong id="algorithm-answer-compute">100 blocchi su 100</strong>.</p>
+            </div>
+
+            <div class="compute-comparison">
+              <figure class="compute-snapshot compute-snapshot-today">
+                <header><span>Punto di partenza</span><strong>Oggi · 100%</strong></header>
+                <div class="compute-tile-grid" id="compute-grid-today" role="img" aria-label="Oggi servono tutti i 100 blocchi di compute"></div>
+                <figcaption>100 blocchi necessari</figcaption>
+              </figure>
+
+              <div class="compute-divider" aria-hidden="true"><span id="algorithm-divisor">÷ 1</span><i>stesso<br />risultato</i></div>
+
+              <figure class="compute-snapshot compute-snapshot-future">
+                <header><span id="algorithm-future-label">Con il tasso storico</span><strong id="compute-required">100%</strong></header>
+                <div class="compute-tile-grid" id="compute-grid-future" role="img" aria-label="Oggi servono 100 blocchi di compute"></div>
+                <figcaption><span><i class="tile-key is-required"></i>serve ancora</span><span><i class="tile-key is-freed"></i>compute liberato</span></figcaption>
+              </figure>
+            </div>
+
+            <div class="compute-payoff">
+              <div><span>Compute liberato</span><strong id="compute-freed">0%</strong><small>del budget iniziale</small></div>
+              <p>Oppure, mantenendo lo stesso budget di oggi, puoi ottenere un lavoro equivalente a <strong id="effective-multiplier">1×</strong>.</p>
+            </div>
+
+            <div class="algorithm-control">
+              <label class="algorithm-range-label" for="algorithm-months"><span>Fai avanzare il tempo</span><strong><span id="algorithm-months-value">0</span> mesi</strong></label>
+              <input id="algorithm-months" type="range" min="0" max="40" step="1" value="0" />
+              <div class="algorithm-presets" aria-label="Scorciatoie temporali">
+                <button class="is-active" type="button" data-algorithm-months="0" aria-pressed="true">Oggi</button>
+                <button type="button" data-algorithm-months="8" aria-pressed="false">8 mesi</button>
+                <button type="button" data-algorithm-months="16" aria-pressed="false">16 mesi</button>
+                <button type="button" data-algorithm-months="24" aria-pressed="false">24 mesi</button>
+                <button type="button" data-algorithm-months="32" aria-pressed="false">32 mesi</button>
+                <button type="button" data-algorithm-months="40" aria-pressed="false">40 mesi</button>
+              </div>
+            </div>
+          </div>
+          <footer class="evidence-footer"><p>È un simulatore del tasso storico, non una previsione: Epoch AI analizza 231 stime su language model fra 2012 e 2023. Stima centrale: dimezzamento ogni 8 mesi; intervallo di confidenza 95%: 5–14 mesi.</p><a href="https://epoch.ai/publications/algorithmic-progress-in-language-models" target="_blank" rel="noreferrer">Studio e metodo ↗</a></footer>
+        </article>
+
+        <article class="benchmark-atlas" id="benchmark-modelli" aria-labelledby="benchmark-atlas-title">
+          <header class="benchmark-atlas-intro">
+            <p class="kicker">La scala, finalmente visibile</p>
+            <h2 id="benchmark-atlas-title">Da 1.700 miliardi a 2.</h2>
+            <p>Non è una classifica: seguiamo quanto si è ristretto il modello necessario per <strong>raggiungere o superare il 39% di GPT-4 su GPQA Diamond</strong>.</p>
+          </header>
+
+          <div class="benchmark-explorer">
+            <div class="benchmark-chart-head">
+              <div><span>Confronto diretto con la stima di GPT-4</span><strong id="benchmark-current-summary">1.700B → 2B</strong></div>
+              <p>Scegli una tappa: la visualizzazione si restringe insieme al modello.</p>
+            </div>
+
+            <nav class="benchmark-milestones" id="benchmark-milestones" aria-label="Tappe della miniaturizzazione"></nav>
+
+            <div class="benchmark-shrink-stage" id="benchmark-shrink-stage" role="img" aria-label="Confronto tra la stima di 1.700 miliardi di parametri di GPT-4 e il modello selezionato">
+              <div class="benchmark-origin">
+                <span>Punto di partenza · 2023</span>
+                <strong>1.700B</strong>
+                <small>GPT-4 · stima totale non ufficiale</small>
+              </div>
+              <div class="benchmark-ratio">
+                <strong id="benchmark-ratio">850×</strong>
+                <span id="benchmark-ratio-label">meno parametri</span>
+              </div>
+              <div class="benchmark-selected-mass">
+                <span id="benchmark-selected-label">Marzo 2026 · Qwen3.5-2B</span>
+                <strong id="benchmark-selected-size">2B</strong>
+                <small>parametri attivi / effettivi pubblicati</small>
+              </div>
+            </div>
+
+            <div class="benchmark-scale" aria-live="polite">
+              <div><span>GPT-4 stimato = 100%</span><strong id="benchmark-remaining-label">Al modello selezionato resta lo 0,12%</strong></div>
+              <div class="benchmark-scale-track" aria-hidden="true"><i id="benchmark-scale-remnant"></i></div>
+              <div class="benchmark-scale-caption"><span>1.700B</span><span id="benchmark-scale-end">2B</span></div>
+            </div>
+
+            <div class="benchmark-zoom" aria-label="Passaggi di scala">
+              <span id="benchmark-zoom-label">Per arrivarci servono tre zoom di scala</span>
+              <div id="benchmark-zoom-steps"></div>
+            </div>
+
+            <aside class="benchmark-detail" id="benchmark-detail" aria-live="polite">
+              <div class="benchmark-detail-score"><span>Parametri del modello</span><strong id="benchmark-detail-size">2B</strong></div>
+              <div class="benchmark-detail-copy">
+                <span id="benchmark-detail-date">2 marzo 2026 · Qwen</span>
+                <h3 id="benchmark-detail-name">Qwen3.5-2B</h3>
+                <p class="benchmark-detail-result"><strong id="benchmark-detail-score">51,6%</strong> GPQA Diamond <i>·</i> soglia GPT-4: 39%</p>
+                <p id="benchmark-detail-note">Con due miliardi di parametri supera la baseline GPT-4 del paper. Il risultato usa la modalità di ragionamento pubblicata nel model card.</p>
+              </div>
+              <a id="benchmark-detail-source" href="https://huggingface.co/Qwen/Qwen3.5-2B" target="_blank" rel="noreferrer">Apri model card e risultati ↗</a>
+            </aside>
+          </div>
+
+          <footer class="benchmark-footer">
+            <p><strong>Confronto d'ordine di grandezza:</strong> 1.700B è una stima non ufficiale dei parametri totali di GPT-4; i modelli piccoli riportano parametri densi, attivi o effettivi. Il confronto rende visibile la scala, ma non misura direttamente energia, velocità o costo.</p>
+            <a href="https://arxiv.org/abs/2311.12022" target="_blank" rel="noreferrer"><span>Il target del 2023</span> Paper GPQA ↗</a>
+          </footer>
+        </article>
+
+        <section class="unhobbling-story" id="sblocco" aria-labelledby="unhobbling-title">
+          <header>
+            <div><p class="kicker">La seconda metà della storia</p><h2 id="unhobbling-title">Non basta addestrare un modello migliore. Bisogna renderlo capace di usare ciò che sa.</h2></div>
+            <p>Aschenbrenner chiama <i>unhobbling</i> gli interventi che liberano capacità latenti: non aggiungono necessariamente un nuovo pretraining gigantesco, ma cambiano il modo in cui il modello risponde, ragiona e agisce.</p>
+          </header>
+          <div class="unlock-lab">
+            <div class="unlock-controls" role="group" aria-label="Tecniche che sbloccano capacità">
+              <button class="is-active" type="button" data-unlock="posttraining" aria-pressed="true"><span>01</span> Post-training</button>
+              <button type="button" data-unlock="reasoning" aria-pressed="false"><span>02</span> Ragionamento</button>
+              <button type="button" data-unlock="scaffolding" aria-pressed="false"><span>03</span> Scaffolding</button>
+              <button type="button" data-unlock="tools" aria-pressed="false"><span>04</span> Strumenti</button>
+              <button type="button" data-unlock="context" aria-pressed="false"><span>05</span> Contesto</button>
+            </div>
+            <div class="unlock-stage" data-unlock-stage="posttraining" aria-hidden="true"><span class="unlock-core">MODELLO BASE</span><i></i><i></i><i></i><b>CAPACITÀ UTILE</b></div>
+            <aside class="unlock-reading" aria-live="polite">
+              <span id="unlock-kicker">01 · Post-training</span>
+              <h3 id="unlock-title">Imparare a rispondere all'intento umano</h3>
+              <p id="unlock-copy">Tecniche come RLHF e fine-tuning trasformano un predittore di testo grezzo in un assistente più utile e controllabile.</p>
+              <small id="unlock-caveat">Il guadagno dipende dalle preferenze e dalle valutazioni usate: non equivale automaticamente a più conoscenza.</small>
+            </aside>
+          </div>
+          <div class="unlock-evidence">
+            <strong>5–30×</strong>
+            <p>Nel saggio, una rassegna Epoch AI viene riassunta con guadagni di compute effettivo tipici di 5–30× su diversi benchmark per tecniche come scaffolding e strumenti.</p>
+            <span>È un intervallo trasversale a test diversi, non una legge universale né un moltiplicatore da sommare meccanicamente.</span>
+          </div>
+        </section>
+
+        <section class="thinking-budget" aria-labelledby="thinking-budget-title">
+          <header><p class="kicker">Train-time ≠ test-time</p><h2 id="thinking-budget-title">Un modello può migliorare anche spendendo più compute <em>dopo</em> la domanda.</h2></header>
+          <div class="thinking-budget-body">
+            <p>Il pretraining costruisce il modello. Il test-time compute è il lavoro svolto quando il modello risponde: cercare alternative, controllare errori, usare strumenti, correggersi. È come concedere più tempo per pensare allo stesso cervello.</p>
+            <div class="thinking-ladder" role="img" aria-label="Analogia proposta nel saggio tra più token di ragionamento e più tempo dedicato a un problema">
+              <div><span>centinaia di token</span><i style="--thinking: 8%"></i><strong>pochi minuti</strong></div>
+              <div><span>migliaia</span><i style="--thinking: 22%"></i><strong>mezz'ora</strong></div>
+              <div><span>decine di migliaia</span><i style="--thinking: 43%"></i><strong>mezza giornata</strong></div>
+              <div><span>centinaia di migliaia</span><i style="--thinking: 68%"></i><strong>una settimana</strong></div>
+              <div><span>milioni</span><i style="--thinking: 100%"></i><strong>mesi</strong></div>
+            </div>
+          </div>
+          <footer><p><strong>Attenzione:</strong> questa scala è un'analogia dell'autore, basata sull'ipotesi di circa 100 token al minuto umano. Non dimostra che un milione di token equivalga davvero a mesi di lavoro umano.</p><a href="https://situational-awareness.ai/from-gpt-4-to-agi/" target="_blank" rel="noreferrer">Situational Awareness, pp. 34–37 ↗</a></footer>
+        </section>
+
+        <div class="model-evidence" aria-label="Tre livelli di evidenza sul progresso algoritmico">
+          <article data-confidence="strong"><span class="confidence">Misura longitudinale</span><h2>Stesso target di loss</h2><strong>−50% compute / 8 mesi</strong><p>La stima Epoch confronta la quantità di calcolo necessaria per raggiungere lo stesso livello di performance nel periodo studiato.</p></article>
+          <article data-confidence="proxy"><span class="confidence">Confronto di scala</span><h2>Livello GPT-4 su GPQA</h2><strong>≈850× meno</strong><p>Dalla stima non ufficiale di 1.700B per GPT-4 ai 2B pubblicati per Qwen3.5-2B, mantenendo almeno la baseline del 39% sul benchmark.</p></article>
+          <article data-confidence="limited"><span class="confidence">Interpretazione</span><h2>Dal chatbot all'agente</h2><strong>guadagno non unico</strong><p>Post-training, strumenti e ragionamento possono sbloccare capacità, ma non esiste una sola conversione affidabile in FLOP effettivi.</p></article>
         </div>
 
-        <div class="same-gpu-rule"><span>La risposta alla domanda “sulla stessa GPU?”</span><h2>Stessa GPU non significa stesso raw compute.</h2><p>Bisogna fissare modello, precisione, numero di token, batch, durata e FLOP effettivi. Un modello moderno può essere più capace sullo stesso hardware, ma i dati pubblici non permettono un confronto GPT-4 contro modelli 2026 a FLOP identici.</p></div>
+        <section class="algorithm-limits" id="limiti" aria-labelledby="algorithm-limits-title">
+          <div><span>La regola per non confondersi</span><h2 id="algorithm-limits-title">“Stessa GPU” non significa “stesso compute”.</h2></div>
+          <div class="algorithm-limit-grid">
+            <article><span>01</span><strong>Fissa il compito</strong><p>Loss, accuratezza, qualità percepita e capacità agentica misurano cose diverse.</p></article>
+            <article><span>02</span><strong>Fissa il budget</strong><p>Precisione, token, batch, tempo di risposta e numero di campioni cambiano i FLOP.</p></article>
+            <article><span>03</span><strong>Fissa il confine</strong><p>Training, post-training e inferenza non vanno mescolati in un unico numero senza metodo.</p></article>
+            <article><span>04</span><strong>Mostra l'incertezza</strong><p>I laboratori pubblicano pochi dati sui modelli di frontiera; molte ricostruzioni restano stime.</p></article>
+          </div>
+        </section>
       </section>
 
       <section class="sources compact-sources" aria-labelledby="sources-title">
         <h2 id="sources-title">Fonti del capitolo</h2>
         <ol>
-          <li><a href="https://epoch.ai/publications/algorithmic-progress-in-language-models" target="_blank" rel="noreferrer">Epoch AI · Progresso algoritmico nei language model</a><span>Dimezzamento del compute richiesto circa ogni otto mesi nel periodo studiato.</span></li>
-          <li><a href="https://hai.stanford.edu/ai-index/2025-ai-index-report/technical-performance" target="_blank" rel="noreferrer">Stanford HAI · AI Index 2025</a><span>PaLM 540B contro Phi-3-mini 3,8B sopra la soglia del 60% MMLU.</span></li>
-          <li><a href="https://arxiv.org/abs/2412.19437" target="_blank" rel="noreferrer">DeepSeek · V3 Technical Report</a><span>88,5 MMLU, 671B parametri totali e 37B attivi per token.</span></li>
-          <li><a href="https://cdn.openai.com/papers/gpt-4.pdf" target="_blank" rel="noreferrer">OpenAI · GPT-4 Technical Report</a><span>86,4 MMLU; parametri e compute non pubblicati.</span></li>
+          <li><a href="https://situational-awareness.ai/from-gpt-4-to-agi/" target="_blank" rel="noreferrer">Aschenbrenner · Situational Awareness, cap. I</a><span>Sezioni “Algorithmic efficiencies” e “Unhobbling”, pp. 22–39 del PDF. È la fonte primaria per la scomposizione in tre leve e per i casi storici riportati.</span></li>
+          <li><a href="https://situational-awareness.ai/" target="_blank" rel="noreferrer">Situational Awareness · sito ufficiale</a><span>Edizione web completa del saggio <i>The Decade Ahead</i>, pubblicato da Leopold Aschenbrenner nel giugno 2024.</span></li>
+          <li><a href="https://epoch.ai/publications/algorithmic-progress-in-language-models" target="_blank" rel="noreferrer">Epoch AI · Progresso algoritmico nei language model</a><span>231 stime, 2012–2023; dimezzamento del compute richiesto circa ogni otto mesi, con ampio intervallo d'incertezza.</span></li>
+          <li><a href="https://arxiv.org/abs/2311.12022" target="_blank" rel="noreferrer">Rein et al. · GPQA Diamond</a><span>Paper che introduce il benchmark: 198 domande scientifiche nella selezione Diamond, baseline GPT-4 al 39% e fascia degli esperti PhD fra 65% e 74%.</span></li>
+          <li><a href="https://github.com/deepseek-ai/DeepSeek-R1" target="_blank" rel="noreferrer">DeepSeek · R1 Distill</a><span>Dimensioni e risultati GPQA Diamond dei modelli distillati da 1,5B, 7B, 8B, 14B, 32B e 70B.</span></li>
+          <li><a href="https://huggingface.co/Qwen/Qwen3.5-2B" target="_blank" rel="noreferrer">Qwen · Qwen3.5-2B</a><span>Model card ufficiale: 2 miliardi di parametri e 51,6% su GPQA in modalità di ragionamento.</span></li>
+          <li><a href="https://ai.google.dev/gemma/docs/core/model_card_4" target="_blank" rel="noreferrer">Google DeepMind · Gemma 4</a><span>Parametri effettivi, parametri totali e risultati GPQA per la famiglia aperta Gemma 4.</span></li>
+          <li><a href="https://hai.stanford.edu/ai-index/2025-ai-index-report/technical-performance" target="_blank" rel="noreferrer">Stanford HAI · AI Index 2025</a><span>Contesto indipendente sulla rapida riduzione delle dimensioni necessarie per superare determinate soglie di benchmark.</span></li>
+          <li><a href="https://arxiv.org/abs/2203.15556" target="_blank" rel="noreferrer">Hoffmann et al. · Chinchilla scaling laws</a><span>Mostra perché dati e parametri devono essere bilanciati: un esempio di miglioramento della ricetta di training.</span></li>
         </ol>
+        <p class="source-boundary">Le proiezioni temporali di <i>Situational Awareness</i> rappresentano la tesi dell'autore, non un consenso scientifico. In questa pagina usiamo il saggio per spiegare i meccanismi e segnaliamo separatamente misure, stime e interpretazioni.</p>
       </section>
       <nav class="chapter-next" aria-label="Continua la lettura"><a href="chip.html">← Precedente: Chips</a><a href="inferenza.html">Prossimo: Inferenza →</a></nav>
     </main>
-    <footer class="site-footer"><span>AI.it</span><span>Algoritmi · 03</span></footer><script src="app.js"></script>
+    <footer class="site-footer"><span>AI.it</span><span>Algoritmi · 03</span></footer>
+    <script src="app.js"></script>
+    <script src="algorithm-visuals.js"></script>
   </body>
 </html>

@@ -735,20 +735,55 @@ document.querySelectorAll("[data-chip]").forEach(button => {
 });
 
 const algorithmRange = document.getElementById("algorithm-months");
+const algorithmPresetButtons = [...document.querySelectorAll("[data-algorithm-months]")];
+const computeGridToday = document.getElementById("compute-grid-today");
+const computeGridFuture = document.getElementById("compute-grid-future");
+
+function makeComputeTiles(grid, className = "") {
+  if (!grid || grid.children.length) return;
+  const fragment = document.createDocumentFragment();
+  for (let index = 0; index < 100; index += 1) {
+    const tile = document.createElement("i");
+    tile.setAttribute("aria-hidden", "true");
+    if (className) tile.className = className;
+    fragment.appendChild(tile);
+  }
+  grid.appendChild(fragment);
+}
+
+makeComputeTiles(computeGridToday);
+makeComputeTiles(computeGridFuture, "is-required");
 
 function renderAlgorithm() {
   const months = Number(algorithmRange.value);
   const multiplier = 2 ** (months / 8);
   const compute = 100 / multiplier;
+  const freed = 100 - compute;
+  const requiredTiles = Math.max(1, Math.round(compute));
   const computeDigits = Number.isInteger(compute) ? 0 : (compute >= 10 ? 1 : 2);
   document.getElementById("algorithm-months-value").textContent = months.toLocaleString("it-IT");
   document.getElementById("compute-required").textContent = `${itNumber(compute, computeDigits)}%`;
-  document.getElementById("effective-multiplier").textContent = `${itNumber(multiplier, multiplier < 10 ? 1 : 0)}× compute effettivo`;
-  document.getElementById("compute-bar").style.width = `${compute}%`;
+  document.getElementById("effective-multiplier").textContent = `${itNumber(multiplier, multiplier < 10 ? 1 : 0)}×`;
+  document.getElementById("compute-freed").textContent = `${itNumber(freed, freed >= 10 ? 0 : 1)}%`;
+  document.getElementById("algorithm-divisor").textContent = `÷ ${itNumber(multiplier, multiplier < 10 ? 1 : 0)}`;
+  document.getElementById("algorithm-answer-time").textContent = months === 0 ? "Oggi" : `Dopo ${months.toLocaleString("it-IT")} mesi`;
+  document.getElementById("algorithm-future-label").textContent = months === 0 ? "Con il tasso storico" : `Dopo ${months.toLocaleString("it-IT")} mesi`;
+  document.getElementById("algorithm-answer-compute").textContent = `${compute === 100 ? "100" : `circa ${itNumber(compute, computeDigits)}`} blocchi su 100`;
+  [...computeGridFuture.children].forEach((tile, index) => tile.classList.toggle("is-required", index < requiredTiles));
+  computeGridFuture.setAttribute("aria-label", `${months === 0 ? "Oggi" : `Dopo ${months} mesi`} servono circa ${itNumber(compute, computeDigits)} blocchi di compute su 100 per lo stesso target`);
+  algorithmPresetButtons.forEach(button => {
+    const selected = Number(button.dataset.algorithmMonths) === months;
+    button.classList.toggle("is-active", selected);
+    button.setAttribute("aria-pressed", String(selected));
+  });
   algorithmRange.setAttribute("aria-valuetext", `${months} mesi: ${itNumber(compute, 1)} per cento del compute richiesto`);
 }
 
 if (algorithmRange) algorithmRange.addEventListener("input", renderAlgorithm);
+algorithmPresetButtons.forEach(button => button.addEventListener("click", () => {
+  algorithmRange.value = button.dataset.algorithmMonths;
+  renderAlgorithm();
+}));
 
 function applyTheme(theme, persist = false) {
   const isDark = theme === "dark";

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="I dossier in evoluzione di AI.it: novità, benchmark, politica e sistemi autonomi per la difesa." />
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+    <meta property="og:title" content="Altro — AI.it" />
+    <meta property="og:description" content="Quattro dossier per seguire ciò che cambia più velocemente nell'intelligenza artificiale." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="it_IT" />
+    <meta id="theme-color" name="theme-color" content="#f2f0e8" />
+    <link rel="icon" href="data:," />
+    <title>Altro — AI.it</title>
+    <script>
+      (() => {
+        try {
+          const saved = localStorage.getItem("aiit-theme");
+          const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+          document.documentElement.dataset.theme = saved || preferred;
+        } catch (_) { document.documentElement.dataset.theme = "light"; }
+      })();
+    </script>
+    <link rel="stylesheet" href="styles.css?v=dossier-1" />
+    <link rel="stylesheet" href="altro.css?v=dossier-1" />
+  </head>
+  <body class="detail-page dossier-page dossier-index-page">
+    <a class="skip-link" href="#top">Salta al contenuto</a>
+    <div class="noise" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="AI.it, homepage"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>AI.it</span></a>
+      <div class="header-actions">
+        <div class="issue-label"><span>Area</span><strong>A / Altro</strong></div>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false"><span class="theme-toggle-icon" aria-hidden="true">◐</span><span id="theme-toggle-label">Scuro</span></button>
+      </div>
+    </header>
+    <nav class="section-nav" aria-label="Sezioni del sito"><a href="index.html">Home</a><a href="energia.html">Energia</a><a href="chip.html">Chips</a><a href="algoritmi.html">Algoritmi</a><a href="inferenza.html">Inferenza</a><a href="altro.html" aria-current="page">Altro</a></nav>
+    <nav class="dossier-subnav" aria-label="Dossier della sezione Altro"><a href="altro.html" aria-current="page">Panoramica</a><a href="novita.html">Novità</a><a href="benchmark.html">Benchmark</a><a href="politica.html">Politica</a><a href="guerra.html">Guerra</a></nav>
+
+    <main id="top">
+      <section class="dossier-landing-hero" aria-labelledby="dossier-title">
+        <div class="dossier-landing-copy" data-dossier-reveal>
+          <p class="kicker">Dossier aperti · aggiornati nel tempo</p>
+          <h1 id="dossier-title">Altre mappe<br /><em>per capire l'AI.</em></h1>
+          <p>Non tutto entra nei quattro capitoli principali. Qui seguiamo i temi che cambiano più in fretta: valutazioni delle capacità, decisioni politiche e uso militare dei sistemi autonomi.</p>
+          <div class="dossier-landing-meta"><span>04 percorsi</span><span>Fonti visibili</span><span>Stato dichiarato</span></div>
+        </div>
+
+        <div class="dossier-radar" aria-label="Mappa dei quattro dossier" data-dossier-reveal>
+          <div class="dossier-radar-grid" aria-hidden="true"></div>
+          <span class="radar-axis radar-axis-one"></span><span class="radar-axis radar-axis-two"></span>
+          <div class="radar-core"><span>AI.it</span><strong>ALTRO</strong></div>
+          <a class="radar-node radar-news" href="novita.html"><small>01</small><strong>Novità</strong></a>
+          <a class="radar-node radar-benchmark" href="benchmark.html"><small>02</small><strong>METR</strong></a>
+          <a class="radar-node radar-politics" href="politica.html"><small>03</small><strong>Politica</strong></a>
+          <a class="radar-node radar-war" href="guerra.html"><small>04</small><strong>Guerra</strong></a>
+        </div>
+      </section>
+
+      <section class="dossier-route-section" aria-labelledby="dossier-routes-title">
+        <header class="dossier-section-head" data-dossier-reveal>
+          <div><span class="dossier-section-index">A.01</span><p class="kicker">Scegli una direzione</p></div>
+          <h2 id="dossier-routes-title">Quattro dossier,<br /><em>quattro domande.</em></h2>
+          <p>Ogni pagina dichiara il proprio stato. Una pagina vuota resta vuota; una stima resta una stima; una dichiarazione aziendale non diventa un fatto indipendente.</p>
+        </header>
+
+        <div class="dossier-route-grid">
+          <a class="dossier-route-card route-news" href="novita.html" data-dossier-reveal>
+            <span class="dossier-card-index">01 / Taccuino</span><span class="dossier-status is-pending"><i></i> Da aggiornare</span>
+            <h3>Novità</h3><p>Una pagina pronta a raccogliere solo gli aggiornamenti che cambiano davvero il quadro.</p>
+            <span class="dossier-card-open">Apri <b aria-hidden="true">↗</b></span>
+          </a>
+          <a class="dossier-route-card route-benchmark" href="benchmark.html" data-dossier-reveal>
+            <span class="dossier-card-index">02 / Misurare</span><span class="dossier-status"><i></i> METR in primo piano</span>
+            <h3>Benchmark</h3><p>Che cosa misurano i test, dove ingannano e perché il time horizon di METR è diverso da una classifica.</p>
+            <span class="dossier-card-open">Esplora <b aria-hidden="true">↗</b></span>
+          </a>
+          <a class="dossier-route-card route-politics" href="politica.html" data-dossier-reveal>
+            <span class="dossier-card-index">03 / Potere</span><span class="dossier-status"><i></i> Aggiornato 15.07.26</span>
+            <h3>Politica</h3><p>Fable, Mythos e la nuova domanda: chi decide quando un modello non è più un software normale?</p>
+            <span class="dossier-card-open">Leggi la storia <b aria-hidden="true">↗</b></span>
+          </a>
+          <a class="dossier-route-card route-war" href="guerra.html" data-dossier-reveal>
+            <span class="dossier-card-index">04 / Autonomia</span><span class="dossier-status"><i></i> Anduril + Lattice</span>
+            <h3>Guerra</h3><p>Il software che collega sensori, droni, intercettori, velivoli e sistemi subacquei.</p>
+            <span class="dossier-card-open">Mappa i sistemi <b aria-hidden="true">↗</b></span>
+          </a>
+        </div>
+      </section>
+
+      <section class="dossier-editorial-rule" aria-labelledby="editorial-rule-title" data-dossier-reveal>
+        <span>La regola editoriale</span>
+        <h2 id="editorial-rule-title">Capire senza trasformare tutto in tifo.</h2>
+        <div><p>Queste pagine parlano di capacità, potere e armi. Separiamo ciò che è verificato, ciò che viene dichiarato da aziende e governi, e ciò che resta un'interpretazione.</p><p>Andrea non si presenta come ricercatore o sviluppatore professionista: questo è un percorso di apprendimento pubblico, costruito per rendere temi difficili più leggibili.</p></div>
+      </section>
+
+      <nav class="chapter-next" aria-label="Continua la lettura"><a href="index.html">← Torna alla Home</a><a href="novita.html">Primo dossier: Novità →</a></nav>
+    </main>
+    <footer class="site-footer"><span>AI.it</span><span>Altro · Dossier aperti</span></footer>
+    <script src="app.js"></script>
+    <script src="dossier.js"></script>
+  </body>
+</html>

@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Introduzione ai benchmark AI e guida visuale al task-completion time horizon di METR." />
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+    <meta property="og:title" content="Benchmark — AI.it" />
+    <meta property="og:description" content="METR misura non quanto sa un'AI, ma quanto a lungo riesce a portare avanti un compito." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="it_IT" />
+    <meta id="theme-color" name="theme-color" content="#f2f0e8" />
+    <link rel="icon" href="data:," />
+    <title>Benchmark — AI.it</title>
+    <script>(() => { try { const saved = localStorage.getItem("aiit-theme"); const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dataset.theme = saved || preferred; } catch (_) { document.documentElement.dataset.theme = "light"; } })();</script>
+    <link rel="stylesheet" href="styles.css?v=dossier-1" />
+    <link rel="stylesheet" href="altro.css?v=dossier-1" />
+  </head>
+  <body class="detail-page dossier-page benchmark-page">
+    <a class="skip-link" href="#top">Salta al contenuto</a><div class="noise" aria-hidden="true"></div>
+    <header class="site-header"><a class="brand" href="index.html" aria-label="AI.it, homepage"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>AI.it</span></a><div class="header-actions"><div class="issue-label"><span>Dossier</span><strong>A2 / Benchmark</strong></div><button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false"><span class="theme-toggle-icon" aria-hidden="true">◐</span><span id="theme-toggle-label">Scuro</span></button></div></header>
+    <nav class="section-nav" aria-label="Sezioni del sito"><a href="index.html">Home</a><a href="energia.html">Energia</a><a href="chip.html">Chips</a><a href="algoritmi.html">Algoritmi</a><a href="inferenza.html">Inferenza</a><a href="altro.html" aria-current="page">Altro</a></nav>
+    <nav class="dossier-subnav" aria-label="Dossier della sezione Altro"><a href="altro.html">Panoramica</a><a href="novita.html">Novità</a><a href="benchmark.html" aria-current="page">Benchmark</a><a href="politica.html">Politica</a><a href="guerra.html">Guerra</a></nav>
+
+    <main id="top">
+      <section class="benchmark-hero" aria-labelledby="benchmark-title">
+        <div class="benchmark-hero-copy" data-dossier-reveal><p class="kicker">Misurare senza confondere il numero con la realtà</p><h1 id="benchmark-title">Un benchmark è<br /><em>un esame, non una pagella.</em></h1><p>Serve a isolare una capacità e renderla confrontabile. Ma il risultato dipende dalle domande, dagli strumenti concessi, dal modo in cui si assegna il punteggio e da quanto il test assomiglia al mondo reale.</p></div>
+        <div class="benchmark-hero-sheet" aria-label="Quattro domande da fare davanti a ogni benchmark" data-dossier-reveal>
+          <span class="sheet-label">Prima del punteggio</span>
+          <ol><li><span>01</span>Che cosa misura?</li><li><span>02</span>Su quali compiti?</li><li><span>03</span>Con quali strumenti?</li><li><span>04</span>Dove smette di valere?</li></ol>
+          <strong>Il contesto<br />è parte del dato.</strong>
+        </div>
+      </section>
+
+      <section class="benchmark-primer" aria-labelledby="benchmark-primer-title">
+        <header data-dossier-reveal><span>Benchmark / sostantivo</span><h2 id="benchmark-primer-title">Una prova costruita per rendere <em>visibile una differenza.</em></h2><p>Accuratezza, velocità, costo, robustezza e autonomia non sono la stessa cosa. Nessun numero le riassume tutte.</p></header>
+        <div class="benchmark-primer-grid">
+          <article data-dossier-reveal><span>Misura</span><strong>Una capacità</strong><p>Il test deve dichiarare quale comportamento prova a osservare.</p></article>
+          <article data-dossier-reveal><span>Fissa</span><strong>Le condizioni</strong><p>Modello, prompt, strumenti, budget e criterio di successo cambiano il risultato.</p></article>
+          <article data-dossier-reveal><span>Confronta</span><strong>Come con come</strong><p>Versioni e setup diversi possono rendere una classifica solo apparentemente precisa.</p></article>
+          <article data-dossier-reveal><span>Limita</span><strong>La conclusione</strong><p>Superare un test non equivale a saper fare bene ogni compito simile nel mondo reale.</p></article>
+        </div>
+      </section>
+
+      <section class="metr-intro" aria-labelledby="metr-title">
+        <div class="metr-wordmark" aria-hidden="true" data-dossier-reveal><span>M</span><span>E</span><span>T</span><span>R</span></div>
+        <div class="metr-intro-copy" data-dossier-reveal><p class="kicker">Il benchmark principale · Time Horizon 1.1</p><h2 id="metr-title">Non quanto sa.<br /><em>Quanto a lungo riesce a continuare.</em></h2><p>METR è l'organizzazione. <strong>Time Horizon 1.1</strong> è la suite di valutazione. La metrica si chiama <strong>task-completion time horizon</strong>: traduce le prestazioni di un agente AI nel tempo che un esperto umano impiegherebbe per completare compiti della stessa difficoltà.</p></div>
+        <aside class="metr-definition" data-dossier-reveal><span>P50 / esempio</span><strong>2 ore</strong><p>Su compiti della suite che richiedono circa due ore a un esperto, l'agente è stimato riuscire una volta su due.</p><small>Non significa che l'AI lavori per due ore né che sappia fare qualunque lavoro umano di due ore.</small></aside>
+      </section>
+
+      <section class="metr-method" aria-labelledby="metr-method-title">
+        <header data-dossier-reveal><p class="kicker">Come nasce il numero</p><h2 id="metr-method-title">Dal compito umano<br />all'incrocio del <em>50%.</em></h2></header>
+        <ol class="metr-method-flow">
+          <li data-dossier-reveal><span>01</span><div class="method-glyph glyph-human" aria-hidden="true"><i></i><i></i><i></i></div><h3>Tempo umano</h3><p>Si stima quanto impiega un professionista con poco contesto sul progetto.</p></li>
+          <li data-dossier-reveal><span>02</span><div class="method-glyph glyph-agent" aria-hidden="true"><i></i><i></i><i></i></div><h3>Tentativi AI</h3><p>L'agente prova ogni task più volte con strumenti e uno scaffold operativo.</p></li>
+          <li data-dossier-reveal><span>03</span><div class="method-glyph glyph-score" aria-hidden="true"><i></i><i></i><i></i></div><h3>Riuscito / fallito</h3><p>Un criterio automatico assegna l'esito a ogni tentativo.</p></li>
+          <li data-dossier-reveal><span>04</span><div class="method-glyph glyph-curve" aria-hidden="true"><i></i><i></i><i></i></div><h3>Curva logistica</h3><p>Il punto in cui la probabilità stimata incrocia il 50% diventa il P50 time horizon.</p></li>
+        </ol>
+        <p class="metr-suite-note" data-dossier-reveal><strong>228 task.</strong> Soprattutto software engineering, machine learning e cybersecurity: compiti autocontenuti, verificabili e più puliti del lavoro quotidiano.</p>
+      </section>
+
+      <section class="metr-lab" aria-labelledby="metr-lab-title">
+        <header class="metr-lab-head" data-dossier-reveal><div><p class="kicker">Time Horizon 1.1 · P50</p><h2 id="metr-lab-title">Da quattro minuti<br />a un’intera giornata.</h2></div><p>Ogni riga è un modello, ordinato per data di uscita. Più la barra arriva a destra, più è lungo il compito umano su cui l’agente ha il 50% di probabilità stimata di riuscire.</p></header>
+        <div class="metr-timeline" data-dossier-reveal>
+          <div class="metr-chart-guide" aria-hidden="true">
+            <span class="metr-guide-copy">Uscita</span><span class="metr-guide-model">Modello</span>
+            <div class="metr-axis"><span style="--tick: 0%">1 min</span><span style="--tick: 30.4%">10 min</span><span style="--tick: 54.1%">1 h</span><span style="--tick: 72.5%">4 h</span><span class="is-limit" style="--tick: 90.8%">16 h</span><span style="--tick: 100%">32 h</span></div>
+            <span class="metr-guide-value">P50</span>
+          </div>
+
+          <ol class="metr-model-list" aria-label="Confronto cronologico dei time horizon P50">
+            <li><button type="button" class="metr-model-row" data-metr-model="gpt4" data-metr-minutes="3.987" aria-pressed="false"><span class="metr-row-date"><b>2023</b><small>OpenAI</small></span><strong class="metr-row-name">GPT‑4</strong><span class="metr-row-track" aria-hidden="true"><i></i><b></b></span><span class="metr-row-value">4 min</span></button></li>
+            <li><button type="button" class="metr-model-row" data-metr-model="gpt4o" data-metr-minutes="6.991" aria-pressed="false"><span class="metr-row-date"><b>2024</b><small>OpenAI</small></span><strong class="metr-row-name">GPT‑4o</strong><span class="metr-row-track" aria-hidden="true"><i></i><b></b></span><span class="metr-row-value">7 min</span></button></li>
+            <li><button type="button" class="metr-model-row" data-metr-model="sonnet35" data-metr-minutes="11.395" aria-pressed="false"><span class="metr-row-date"><b>2024</b><small>Anthropic</small></span><strong class="metr-row-name">Claude 3.5 Sonnet</strong><span class="metr-row-track" aria-hidden="true"><i></i><b></b></span><span class="metr-row-value">11 min</span></button></li>
+            <li><button type="button" class="metr-model-row" data-metr-model="o1" data-metr-minutes="38.832" aria-pressed="false"><span class="metr-row-date"><b>2024</b><small>OpenAI</small></span><strong class="metr-row-name">o1</strong><span class="metr-row-track" aria-hidden="true"><i></i><b></b></span><span class="metr-row-value">39 min</span></button></li>
+            <li><button type="button" class="metr-model-row" data-metr-model="sonnet37" data-metr-minutes="60.389" aria-pressed="false"><span class="metr-row-date"><b>2025</b><small>Anthropic</small></span><strong class="metr-row-name">Claude 3.7 Sonnet</strong><span class="metr-row-track" aria-hidden="true"><i></i><b></b></span><span class="metr-row-value">1 ora</span></button></li>
+            <li><button type="button" class="metr-model-row" data-metr-model="o3" data-metr-minutes="119.733" aria-pressed="false"><span class="metr-row-date"><b>2025</b><small>OpenAI</small></span><strong class="metr-row-name">o3</strong><span class="metr-row-track" aria-hidden="true"><i></i><b></b></span><span class="metr-row-value">2 ore</span></button></li>
+            <li><button type="button" class="metr-model-row" data-metr-model="gpt5" data-metr-minutes="203.013" aria-pressed="false"><span class="metr-row-date"><b>2025</b><small>OpenAI</small></span><strong class="metr-row-name">GPT‑5</strong><span class="metr-row-track" aria-hidden="true"><i></i><b></b></span><span class="metr-row-value">3 h 23</span></button></li>
+            <li><button type="button" class="metr-model-row" data-metr-model="opus45" data-metr-minutes="292.995" aria-pressed="false"><span class="metr-row-date"><b>2025</b><small>Anthropic</small></span><strong class="metr-row-name">Claude Opus 4.5</strong><span class="metr-row-track" aria-hidden="true"><i></i><b></b></span><span class="metr-row-value">4 h 53</span></button></li>
+            <li><button type="button" class="metr-model-row" data-metr-model="opus46" data-metr-minutes="718.807" aria-pressed="false"><span class="metr-row-date"><b>2026</b><small>Anthropic</small></span><strong class="metr-row-name">Claude Opus 4.6</strong><span class="metr-row-track" aria-hidden="true"><i></i><b></b></span><span class="metr-row-value">12 ore</span></button></li>
+            <li><button type="button" class="metr-model-row" data-metr-model="gemini31" data-metr-minutes="384.147" aria-pressed="false"><span class="metr-row-date"><b>2026</b><small>Google</small></span><strong class="metr-row-name">Gemini 3.1 Pro</strong><span class="metr-row-track" aria-hidden="true"><i></i><b></b></span><span class="metr-row-value">6 h 24</span></button></li>
+            <li><button type="button" class="metr-model-row is-active" data-metr-model="gpt54" data-metr-minutes="341.735" aria-pressed="true"><span class="metr-row-date"><b>2026</b><small>OpenAI</small></span><strong class="metr-row-name">GPT‑5.4</strong><span class="metr-row-track" aria-hidden="true"><i></i><b></b></span><span class="metr-row-value">5 h 42</span></button></li>
+            <li><button type="button" class="metr-model-row is-beyond" data-metr-model="mythos" data-metr-minutes="1044.780" aria-pressed="false"><span class="metr-row-date"><b>2026</b><small>Anthropic</small></span><strong class="metr-row-name">Mythos Preview <sup>*</sup></strong><span class="metr-row-track" aria-hidden="true"><i></i><b></b></span><span class="metr-row-value">17 h 25*</span></button></li>
+          </ol>
+
+          <div class="metr-selection" aria-live="polite">
+            <div><span>Modello selezionato</span><strong id="metr-reading-name">GPT‑5.4</strong><small id="metr-reading-date">5 marzo 2026 · OpenAI</small></div>
+            <p id="metr-reading-copy">Su compiti che richiedono circa <strong>5 ore e 42 minuti</strong> a un esperto, l’agente ha una probabilità stimata del 50% di riuscire.</p>
+            <aside><span>Incertezza 95%</span><strong id="metr-reading-ci">3 h 07 – 12 h 49</strong><small id="metr-reading-status">È un intervallo ampio: non leggere pochi minuti di differenza come una classifica definitiva.</small></aside>
+          </div>
+          <p class="metr-saturation-note"><span aria-hidden="true"></span><strong>La fascia corallo inizia a 16 ore.</strong> Oltre questa parete METR considera l’attuale suite poco affidabile: Mythos è un segnale di saturazione, non un record preciso.</p>
+        </div>
+        <footer class="metr-lab-foot"><p>Le 12 righe usano le stime centrali P50 del dataset ufficiale TH1.1. L’ordine è cronologico, non una graduatoria: una data più recente non garantisce una barra più lunga.</p><a href="https://metr.org/time-horizons/" target="_blank" rel="noreferrer">Apri il dashboard METR ↗</a></footer>
+      </section>
+
+      <section class="metr-doubling" aria-labelledby="doubling-title">
+        <div data-dossier-reveal><p class="kicker">Il trend storico</p><h2 id="doubling-title">Circa ogni sette mesi,<br /><em>il righello raddoppia.</em></h2><p>Dal 2019 il time horizon dei sistemi di frontiera è cresciuto approssimativamente lungo una curva esponenziale. Nel confronto ibrido TH1/TH1.1, METR stima un raddoppio in circa 196 giorni.</p></div>
+        <div class="doubling-ladder" aria-label="Esempio di sei raddoppi consecutivi del tempo umano equivalente" data-dossier-reveal><div><span>1</span><small>min</small></div><i>×2</i><div><span>2</span><small>min</small></div><i>×2</i><div><span>4</span><small>min</small></div><i>×2</i><div><span>8</span><small>min</small></div><i>×2</i><div><span>16</span><small>min</small></div><i>×2</i><div><span>32</span><small>min</small></div></div>
+        <p class="doubling-caveat" data-dossier-reveal><strong>È una descrizione del passato, non una previsione.</strong> Un raddoppio del time horizon non equivale a raddoppiare “l'intelligenza”, la produttività, l'automazione o i posti di lavoro sostituibili.</p>
+      </section>
+
+      <section class="metr-limits" aria-labelledby="metr-limits-title">
+        <header data-dossier-reveal><span>La parte più importante del benchmark</span><h2 id="metr-limits-title">Dove il numero<br /><em>smette di parlare.</em></h2></header>
+        <div class="metr-limit-grid">
+          <article data-dossier-reveal><span>50%</span><h3>È una monetina</h3><p>P50 significa riuscire una volta su due: non è l'affidabilità richiesta a un professionista.</p></article>
+          <article data-dossier-reveal><span>16 h</span><h3>La suite satura</h3><p>Sopra questa soglia METR considera le misure non affidabili con i task attuali.</p></article>
+          <article data-dossier-reveal><span>5 / 31</span><h3>Pochi task lunghi misurati</h3><p>Solo cinque task da almeno otto ore hanno una durata ottenuta direttamente da esseri umani; gli altri usano stime.</p></article>
+          <article data-dossier-reveal><span>3 domini</span><h3>Non è tutto il lavoro</h3><p>Software, ML e cyber non rappresentano medicina, politica, grafica, relazioni o conoscenza aziendale.</p></article>
+        </div>
+        <aside class="metr-sol-case" data-dossier-reveal><span>Caso limite · 26 giugno 2026</span><h3>GPT‑5.6 Sol non entra nella classifica.</h3><p>METR ha pubblicato una valutazione più recente, ma dice che nessuna stima ottenuta è robusta: il risultato cambia molto a seconda di come vengono trattati i tentativi di aggirare il test. Il dato corretto da mostrare è quindi l'incertezza.</p><a href="https://metr.org/blog/2026-06-26-gpt-5-6-sol/" target="_blank" rel="noreferrer">Leggi la valutazione ↗</a></aside>
+      </section>
+
+      <section class="sources compact-sources" aria-labelledby="benchmark-sources-title">
+        <h2 id="benchmark-sources-title">Fonti del dossier</h2>
+        <ol>
+          <li><a href="https://metr.org/time-horizons/" target="_blank" rel="noreferrer">METR · Task-Completion Time Horizons</a><span>Definizione, dashboard pubblico, metodologia, FAQ e limite delle 16 ore.</span></li>
+          <li><a href="https://metr.org/blog/2026-1-29-time-horizon-1-1/" target="_blank" rel="noreferrer">METR · Time Horizon 1.1</a><span>228 task, trend di raddoppio, composizione della suite e confronto con TH1.</span></li>
+          <li><a href="https://metr.org/assets/benchmark_results_1_1.yaml" target="_blank" rel="noreferrer">METR · Dati TH1.1</a><span>Stime P50/P80 e intervalli di confidenza usati nel grafico.</span></li>
+          <li><a href="https://github.com/METR/eval-analysis-public" target="_blank" rel="noreferrer">METR · Codice e dati pubblici</a><span>Repository ufficiale per riprodurre e ispezionare l'analisi.</span></li>
+          <li><a href="https://metr.org/notes/2026-01-22-time-horizon-limitations/" target="_blank" rel="noreferrer">METR · Limiti del time horizon</a><span>Cosa la metrica significa e cosa non permette di concludere.</span></li>
+          <li><a href="https://arxiv.org/abs/2503.14499" target="_blank" rel="noreferrer">Kwa et al. · Measuring AI Ability to Complete Long Tasks</a><span>Paper aggiornato con metodo statistico e trend storico.</span></li>
+        </ol>
+        <p class="source-boundary">Le stime cambiano quando METR aggiorna task, scaffold e metodo. Per questo la pagina distingue il segnale generale dalle piccole differenze fra modelli.</p>
+      </section>
+
+      <nav class="chapter-next" aria-label="Continua la lettura"><a href="novita.html">← Precedente: Novità</a><a href="politica.html">Prossimo: Politica →</a></nav>
+    </main>
+    <footer class="site-footer"><span>AI.it</span><span>Benchmark · METR / TH1.1</span></footer>
+    <script src="app.js"></script><script src="dossier.js"></script>
+  </body>
+</html>
