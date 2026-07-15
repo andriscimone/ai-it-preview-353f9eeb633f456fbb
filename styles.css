@@ -184,13 +184,16 @@
   margin-top: 70px;
   border: 0;
   border-radius: 26px;
+  color: #f5f7ef;
   background:
     radial-gradient(circle at 82% 18%, color-mix(in srgb, var(--chip-violet) 40%, transparent), transparent 32%),
     var(--chip-night);
   box-shadow: 0 30px 80px color-mix(in srgb, var(--ink) 18%, transparent);
 }
 .chip-page .chip-scale-takeaway > div { min-height: 240px; padding: 32px 34px; }
-.chip-page .chip-scale-takeaway strong { color: var(--green); text-shadow: 0 0 34px color-mix(in srgb, var(--green) 28%, transparent); }
+.chip-page .chip-scale-takeaway span,
+.chip-page .chip-scale-takeaway small { color: #f5f7ef; opacity: .72; }
+.chip-page .chip-scale-takeaway strong { color: #b9f43a; text-shadow: 0 0 34px rgba(185, 244, 58, .25); }
 
 .chip-page .production-shell,
 .chip-page .pressure-shell {
