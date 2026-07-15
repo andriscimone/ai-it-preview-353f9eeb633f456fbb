@@ -8,8 +8,9 @@
     <meta id="theme-color" name="theme-color" content="#f2f0e8" /><link rel="icon" href="data:," /><title>Inferenza — AI.it</title>
     <script>(() => { try { const saved = localStorage.getItem("aiit-theme"); const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dataset.theme = saved || preferred; } catch (_) { document.documentElement.dataset.theme = "light"; } })();</script>
     <link rel="stylesheet" href="styles.css?v=inference-economics" />
+    <link rel="stylesheet" href="inferenza.css?v=editorial-lab" />
   </head>
-  <body class="detail-page">
+  <body class="detail-page inference-page">
     <a class="skip-link" href="#top">Salta al contenuto</a><div class="noise" aria-hidden="true"></div>
     <header class="site-header"><a class="brand" href="index.html" aria-label="AI.it, homepage"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>AI.it</span></a><div class="header-actions"><div class="issue-label"><span>Capitolo</span><strong>04 / Inferenza</strong></div><button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false"><span class="theme-toggle-icon" aria-hidden="true">◐</span><span id="theme-toggle-label">Scuro</span></button></div></header>
     <nav class="section-nav" aria-label="Sezioni del sito"><a href="index.html">Home</a><a href="energia.html">Energia</a><a href="chip.html">Chips</a><a href="algoritmi.html">Algoritmi</a><a href="inferenza.html" aria-current="page">Inferenza</a></nav>
@@ -35,7 +36,7 @@
             <div><div class="status-line"><span class="status-dot"></span><span id="chart-status">Proiezione NVIDIA · dati ricostruiti</span></div><h2 id="chart-title">Kimi K2 Thinking · input 32K / output 8K</h2></div>
             <div class="chart-reading" id="chart-reading" aria-live="polite"><span class="reading-label">A <strong id="reading-speed">225</strong> tok/s/utente</span><strong class="reading-value" id="reading-ratio">7,8×</strong><span class="reading-caption" id="reading-caption">più token per megawatt</span></div>
           </header>
-          <div class="chart-body" id="chart-body"><div class="chart-stage"><svg id="frontier-chart" viewBox="0 0 1100 700" role="img" aria-labelledby="svg-title svg-desc"><title id="svg-title">Frontiera della velocità e dell'efficienza energetica nell'inferenza</title><desc id="svg-desc">Le curve confrontano i token al secondo per megawatt a diverse velocità per utente, nello scenario selezionato.</desc></svg><div class="chart-tooltip" id="chart-tooltip" role="status" hidden></div></div></div>
+          <div class="chart-body" id="chart-body"><p class="mobile-chart-hint">Scorri il grafico in orizzontale <span aria-hidden="true">→</span></p><div class="chart-stage"><svg id="frontier-chart" viewBox="0 0 1100 700" role="img" aria-labelledby="svg-title svg-desc"><title id="svg-title">Frontiera della velocità e dell'efficienza energetica nell'inferenza</title><desc id="svg-desc">Le curve confrontano i token al secondo per megawatt a diverse velocità per utente, nello scenario selezionato.</desc></svg><div class="chart-tooltip" id="chart-tooltip" role="status" hidden></div></div></div>
           <div class="live-comparison" id="live-comparison" aria-live="polite"></div>
           <div class="chart-controls" id="chart-controls">
             <label class="range-label" for="speed-range"><span>Imposta la velocità</span><strong><span id="range-value">225</span> tok/s/utente</strong></label>
