@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Frontiera dell'inferenza: velocità per utente e token prodotti per megawatt." />
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+    <meta property="og:title" content="Inferenza — AI.it" /><meta property="og:description" content="Responsiveness e throughput sulla stessa curva." /><meta property="og:type" content="website" /><meta property="og:locale" content="it_IT" />
+    <meta id="theme-color" name="theme-color" content="#f2f0e8" /><link rel="icon" href="data:," /><title>Inferenza — AI.it</title>
+    <script>(() => { try { const saved = localStorage.getItem("aiit-theme"); const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dataset.theme = saved || preferred; } catch (_) { document.documentElement.dataset.theme = "light"; } })();</script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="detail-page">
+    <a class="skip-link" href="#top">Salta al contenuto</a><div class="noise" aria-hidden="true"></div>
+    <header class="site-header"><a class="brand" href="index.html" aria-label="AI.it, homepage"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>AI.it</span></a><div class="header-actions"><div class="issue-label"><span>Capitolo</span><strong>04 / Inferenza</strong></div><button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false"><span class="theme-toggle-icon" aria-hidden="true">◐</span><span id="theme-toggle-label">Scuro</span></button></div></header>
+    <nav class="section-nav" aria-label="Sezioni del sito"><a href="index.html">Indice</a><a href="energia.html">Energia</a><a href="chip.html">Chip</a><a href="algoritmi.html">Algoritmi</a><a href="inferenza.html" aria-current="page">Inferenza</a></nav>
+
+    <main id="top">
+      <section class="chapter" aria-labelledby="frontier-title">
+        <div class="chapter-head">
+          <div class="chapter-number">04</div>
+          <div><p class="kicker">Responsiveness × throughput</p><h1 id="frontier-title">La frontiera<br />dell'inferenza</h1></div>
+          <p class="chapter-deck">Sposta il cursore: sull'asse orizzontale vedi quanto risponde veloce, su quello verticale quanti token produce per megawatt.</p>
+        </div>
+
+        <div class="open-data-rule"><span>Regola del grafico</span><strong>Solo modelli aperti con una curva pubblica.</strong><p>Niente modelli chiusi, niente record di velocità senza il dato energetico, niente coordinate inventate.</p></div>
+
+        <div class="workload-tabs" aria-label="Scenario del benchmark">
+          <button class="workload-tab is-active" type="button" aria-pressed="true" data-scene="rubin"><span class="tab-index">A</span><span><strong>Kimi K2 Thinking</strong><small>Blackwell → Vera Rubin</small></span></button>
+          <button class="workload-tab" type="button" aria-pressed="false" data-scene="blackwell"><span class="tab-index">B</span><span><strong>DeepSeek R1</strong><small>Hopper → Blackwell Ultra</small></span></button>
+          <button class="workload-tab" type="button" aria-pressed="false" data-scene="mistral"><span class="tab-index">C</span><span><strong>Mistral Large 3</strong><small>H200 → GB200</small></span></button>
+        </div>
+
+        <article class="chart-shell" aria-labelledby="chart-title">
+          <header class="chart-header">
+            <div><div class="status-line"><span class="status-dot"></span><span id="chart-status">Proiezione NVIDIA · dati ricostruiti</span></div><h2 id="chart-title">Kimi K2 Thinking · input 32K / output 8K</h2></div>
+            <div class="chart-reading" id="chart-reading" aria-live="polite"><span class="reading-label">A <strong id="reading-speed">225</strong> tok/s/utente</span><strong class="reading-value" id="reading-ratio">7,8×</strong><span class="reading-caption" id="reading-caption">più token per megawatt</span></div>
+          </header>
+          <div class="chart-body" id="chart-body"><div class="chart-stage"><svg id="frontier-chart" viewBox="0 0 1100 700" role="img" aria-labelledby="svg-title svg-desc"><title id="svg-title">Frontiera della velocità e dell'efficienza energetica nell'inferenza</title><desc id="svg-desc">Le curve confrontano i token al secondo per megawatt a diverse velocità per utente, nello scenario selezionato.</desc></svg><div class="chart-tooltip" id="chart-tooltip" role="status" hidden></div></div></div>
+          <div class="live-comparison" id="live-comparison" aria-live="polite"></div>
+          <div class="chart-controls" id="chart-controls">
+            <label class="range-label" for="speed-range"><span>Imposta la velocità</span><strong><span id="range-value">225</span> tok/s/utente</strong></label>
+            <input id="speed-range" type="range" min="50" max="440" step="5" value="225" />
+            <div class="legend" id="chart-legend" aria-label="Sistemi visibili"></div>
+          </div>
+          <footer class="chart-footer"><p id="chart-note">Stesso modello, stesso input e stesso output. Le curve sono ricostruite dalla Figura 38 di NVIDIA: i valori intermedi sono stime.</p><button class="method-button" type="button" id="method-open" aria-expanded="false" aria-controls="method-panel">Come abbiamo fatto i conti <span aria-hidden="true">↗</span></button></footer>
+        </article>
+
+        <div class="takeaway-grid" id="takeaway-grid">
+          <article><span class="takeaway-index">01 — Guarda a destra</span><h2>Qui senti la velocità.</h2><p>I token al secondo per utente sono il ritmo della risposta. Intorno a 50 si legge bene; sopra 200 sembra quasi istantanea.</p></article>
+          <article><span class="takeaway-index">02 — Guarda in alto</span><h2>Qui vedi quanto rende.</h2><p>I token al secondo per megawatt dicono quanta inferenza puoi produrre quando l'energia è il vero limite.</p></article>
+          <article><span class="takeaway-index">03 — Guarda la curva</span><h2>Il record singolo non basta.</h2><p>Una nuova architettura conta davvero quando sposta tutta la frontiera, non solo quando vince un benchmark scelto bene.</p></article>
+        </div>
+      </section>
+
+      <section class="sources compact-sources" aria-labelledby="sources-title">
+        <h2 id="sources-title">Fonti del capitolo</h2>
+        <ol>
+          <li><a href="https://developer.nvidia.com/blog/inside-the-nvidia-rubin-platform-six-new-chips-one-ai-supercomputer/" target="_blank" rel="noreferrer">NVIDIA · Dentro Vera Rubin</a><span>Curva Kimi K2 Thinking, Figura 38.</span></li>
+          <li><a href="https://www.nvidia.com/en-us/data-center/gb300-nvl72/" target="_blank" rel="noreferrer">NVIDIA · GB300 NVL72</a><span>Curva pubblica su DeepSeek R1: Hopper contro Blackwell Ultra.</span></li>
+          <li><a href="https://developer.nvidia.com/blog/nvidia-accelerated-mistral-3-open-models-deliver-efficiency-accuracy-at-any-scale/" target="_blank" rel="noreferrer">NVIDIA · Mistral 3 open models</a><span>Curva pubblica Mistral Large 3, NVFP4, input 8K / output 1K.</span></li>
+          <li><a href="https://situational-awareness.ai/from-gpt-4-to-agi/" target="_blank" rel="noreferrer">Leopold Aschenbrenner · Counting the OOMs</a><span>Compute, efficienza algoritmica e scenario pubblicato nel 2024.</span></li>
+        </ol>
+        <p class="source-boundary">Le curve di inferenza sono digitalizzate dai grafici dei produttori e quindi approssimative. I claim NVIDIA restano dichiarazioni del produttore.</p>
+      </section>
+      <nav class="chapter-next" aria-label="Continua la lettura"><a href="algoritmi.html">← Precedente: Algoritmi</a><a href="index.html">Torna all'indice →</a></nav>
+    </main>
+    <footer class="site-footer"><span>AI.it</span><span>Inferenza · 04</span></footer>
+
+    <div class="method-overlay" id="method-overlay" hidden>
+      <button class="overlay-scrim" type="button" aria-label="Chiudi la metodologia"></button>
+      <aside class="method-panel" id="method-panel" role="dialog" aria-modal="true" aria-labelledby="method-title">
+        <button class="method-close" type="button" id="method-close" aria-label="Chiudi la metodologia">×</button>
+        <p class="kicker">Come leggere il grafico</p><h2 id="method-title">Non è la solita classifica.</h2>
+        <div class="method-content">
+          <h3>Solo curve che esistono davvero</h3><p>Nel grafico entrano soltanto modelli aperti per cui una fonte pubblica mostra l'intera relazione tra TPS per utente e TPS per megawatt.</p>
+          <h3>Uno scenario alla volta</h3><p>Modello, lunghezza di input e output, precisione, batching, software e confine energetico cambiano la curva. Per questo i tre scenari non sono una classifica tra modelli.</p>
+          <h3>Dati ricostruiti, non grezzi</h3><p>Le curve sono state digitalizzate dai grafici NVIDIA per renderle interattive. I valori sono arrotondati e i punti intermedi sono stime.</p>
+          <h3>Proiezione o misurazione?</h3><p>Alcune piattaforme future sono presentate dai produttori come proiezioni. Lo status compare sempre sopra al grafico.</p>
+        </div>
+      </aside>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

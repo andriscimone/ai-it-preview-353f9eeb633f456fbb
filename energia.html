@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Energia e infrastruttura AI: cluster, siti in H100-equivalent e potenza elettrica." />
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+    <meta property="og:title" content="Energia — AI.it" />
+    <meta property="og:description" content="La scala fisica dell'intelligenza artificiale." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="it_IT" />
+    <meta id="theme-color" name="theme-color" content="#f2f0e8" />
+    <link rel="icon" href="data:," />
+    <title>Energia — AI.it</title>
+    <script>
+      (() => {
+        try {
+          const saved = localStorage.getItem("aiit-theme");
+          const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+          document.documentElement.dataset.theme = saved || preferred;
+        } catch (_) { document.documentElement.dataset.theme = "light"; }
+      })();
+    </script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="detail-page">
+    <a class="skip-link" href="#top">Salta al contenuto</a>
+    <div class="noise" aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="AI.it, homepage"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>AI.it</span></a>
+      <div class="header-actions">
+        <div class="issue-label"><span>Capitolo</span><strong>01 / Energia</strong></div>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false"><span class="theme-toggle-icon" aria-hidden="true">◐</span><span id="theme-toggle-label">Scuro</span></button>
+      </div>
+    </header>
+    <nav class="section-nav" aria-label="Sezioni del sito">
+      <a href="index.html">Indice</a><a href="energia.html" aria-current="page">Energia</a><a href="chip.html">Chip</a><a href="algoritmi.html">Algoritmi</a><a href="inferenza.html">Inferenza</a>
+    </nav>
+
+    <main id="top">
+      <section class="chapter evidence-chapter energy-chapter" aria-labelledby="energy-title">
+        <div class="chapter-head">
+          <div class="chapter-number">01</div>
+          <div><p class="kicker">Dalla rete elettrica al cluster</p><h1 id="energy-title">La scala fisica<br />dell'AI</h1></div>
+          <p class="chapter-deck">In meno di due anni siamo passati da centomila GPU interconnesse a campus da oltre un milione di H100-equivalent. Ma cluster, sito e gigawatt non sono la stessa cosa.</p>
+        </div>
+
+        <div class="evidence-stats" aria-label="Numeri chiave dell'infrastruttura AI">
+          <article><span>Capacità AI globale</span><strong>30 <small>GW</small></strong><p>Capacità nominale stimata, Q4 2025. Non è il consumo medio.</p></article>
+          <article><span>Cluster esplicito</span><strong>200K <small>GPU Hopper</small></strong><p>Colossus 1, descritto da xAI come singolo cluster interconnesso.</p></article>
+          <article><span>Più grande sito</span><strong>1,11M <small>H100-eq</small></strong><p>Colossus 2 nel database Epoch. Un sito può contenere più cluster.</p></article>
+        </div>
+
+        <article class="evidence-shell energy-shell" aria-labelledby="energy-chart-title">
+          <header class="evidence-header">
+            <div><p class="kicker">Cambia definizione, cambia il numero</p><h2 id="energy-chart-title">Record del più grande sito AI</h2><p id="energy-chart-subtitle">Compute installato in H100-equivalent · agosto 2024 – luglio 2026</p></div>
+            <div class="evidence-tabs" aria-label="Misura dell'infrastruttura">
+              <button type="button" class="evidence-tab is-active" aria-pressed="true" data-energy-view="site">Sito</button>
+              <button type="button" class="evidence-tab" aria-pressed="false" data-energy-view="cluster">Cluster</button>
+              <button type="button" class="evidence-tab" aria-pressed="false" data-energy-view="power">Potenza</button>
+            </div>
+          </header>
+          <div class="energy-visual-grid">
+            <div class="evidence-chart-stage">
+              <svg id="energy-chart" viewBox="0 0 980 580" role="img" aria-labelledby="energy-svg-title energy-svg-desc"><title id="energy-svg-title">Crescita dell'infrastruttura AI</title><desc id="energy-svg-desc">Il grafico cambia tra sito in H100-equivalent, cluster interconnesso e potenza nominale.</desc></svg>
+              <div class="chart-tooltip" id="energy-tooltip" role="status" hidden></div>
+            </div>
+            <aside class="definition-panel" aria-live="polite">
+              <span id="energy-definition-label">La misura corretta</span><h3 id="energy-definition-title">H100-equivalent di un sito</h3>
+              <p id="energy-definition-copy">Normalizza chip diversi rispetto alla capacità FP8 di una H100. Misura la scala di un campus, non il numero di GPU fisiche e neppure un singolo job coerente.</p>
+              <div class="definition-rule" id="energy-definition-rule"><strong>Non chiamarlo coherent cluster.</strong><span>Un sito può ospitare più fabric e più cluster.</span></div>
+            </aside>
+          </div>
+          <footer class="evidence-footer"><p id="energy-chart-note">La serie Epoch misura il record di compute installato in un singolo sito. L'ultimo punto è una stima corrente del database.</p><a href="https://epoch.ai/data-insights/largest-data-center-compute" id="energy-source-link" target="_blank" rel="noreferrer">Fonte e dati ↗</a></footer>
+        </article>
+
+        <div class="boundary-grid">
+          <article><span>Misurato nel dataset</span><strong>14,6 GW facility</strong><p>72 grandi siti tracciati da Epoch, di cui 11,2 GW sono potenza IT.</p></article>
+          <article class="estimated"><span>Ordine di grandezza</span><strong>≈20 GW training + inference</strong><p>Derivazione da 30 GW × due terzi. Non esiste un censimento pubblico globale che separi con precisione training, esperimenti e inference.</p></article>
+          <article><span>Da non usare</span><strong>415 TWh ≠ AI</strong><p>È il consumo elettrico di tutti i data center nel 2024 secondo IEA, non dell'AI soltanto.</p></article>
+        </div>
+      </section>
+
+      <section class="sources compact-sources" aria-labelledby="sources-title">
+        <h2 id="sources-title">Fonti del capitolo</h2>
+        <ol>
+          <li><a href="https://epoch.ai/data-insights/ai-datacenter-power" target="_blank" rel="noreferrer">Epoch AI · Potenza globale dei data center AI</a><span>Circa 30 GW di capacità nominale nel Q4 2025; stima basata sui chip venduti.</span></li>
+          <li><a href="https://epoch.ai/data/ai-data-centers?tab=h100e&amp;view=graph" target="_blank" rel="noreferrer">Epoch AI · Database dei grandi siti AI</a><span>72 siti, 14,6 GW facility power, 11,2 GW IT power e record in H100-equivalent.</span></li>
+          <li><a href="https://x.ai/colossus" target="_blank" rel="noreferrer">xAI · Colossus</a><span>200.000 GPU Hopper (H100+H200) dichiarate come singolo cluster interconnesso.</span></li>
+          <li><a href="https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai" target="_blank" rel="noreferrer">IEA · Energy demand from AI</a><span>Consumo elettrico di tutti i data center e ruolo crescente dei server accelerati.</span></li>
+        </ol>
+        <p class="source-boundary">I dati distinguono capacità nominale, IT power e facility power. I claim xAI restano dichiarazioni del produttore; le stime Epoch sono indicate come tali. Dati consultati a luglio 2026.</p>
+      </section>
+
+      <nav class="chapter-next" aria-label="Continua la lettura"><a href="index.html">← Torna all'indice</a><a href="chip.html">Prossimo: Chip →</a></nav>
+    </main>
+    <footer class="site-footer"><span>AI.it</span><span>Energia · 01</span></footer>
+    <script src="app.js"></script>
+  </body>
+</html>

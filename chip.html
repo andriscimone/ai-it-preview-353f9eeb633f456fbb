@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Ampere, Hopper, Blackwell e Rubin a confronto su memoria, banda e interconnessione." />
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+    <meta property="og:title" content="Chip — AI.it" /><meta property="og:description" content="Quattro salti di architettura per l'AI." /><meta property="og:type" content="website" /><meta property="og:locale" content="it_IT" />
+    <meta id="theme-color" name="theme-color" content="#f2f0e8" />
+    <link rel="icon" href="data:," /><title>Chip — AI.it</title>
+    <script>
+      (() => { try { const saved = localStorage.getItem("aiit-theme"); const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dataset.theme = saved || preferred; } catch (_) { document.documentElement.dataset.theme = "light"; } })();
+    </script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="detail-page">
+    <a class="skip-link" href="#top">Salta al contenuto</a><div class="noise" aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="AI.it, homepage"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>AI.it</span></a>
+      <div class="header-actions"><div class="issue-label"><span>Capitolo</span><strong>02 / Chip</strong></div><button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false"><span class="theme-toggle-icon" aria-hidden="true">◐</span><span id="theme-toggle-label">Scuro</span></button></div>
+    </header>
+    <nav class="section-nav" aria-label="Sezioni del sito"><a href="index.html">Indice</a><a href="energia.html">Energia</a><a href="chip.html" aria-current="page">Chip</a><a href="algoritmi.html">Algoritmi</a><a href="inferenza.html">Inferenza</a></nav>
+
+    <main id="top">
+      <section class="chapter evidence-chapter chip-chapter" aria-labelledby="chip-title">
+        <div class="chapter-head">
+          <div class="chapter-number">02</div>
+          <div><p class="kicker">Ampere → Hopper → Blackwell → Rubin</p><h1 id="chip-title">Quattro salti<br />di architettura</h1></div>
+          <p class="chapter-deck">I FLOP sono solo una parte della storia. La vera accelerazione arriva quando precisione, memoria HBM e interconnessione migliorano insieme.</p>
+        </div>
+
+        <div class="chip-tabs" aria-label="Generazioni NVIDIA">
+          <button type="button" class="chip-tab is-active" aria-pressed="true" data-chip="ampere"><span>2020</span><strong>Ampere</strong><small>A100</small></button>
+          <button type="button" class="chip-tab" aria-pressed="false" data-chip="hopper"><span>2022</span><strong>Hopper</strong><small>H100</small></button>
+          <button type="button" class="chip-tab" aria-pressed="false" data-chip="blackwell"><span>2024</span><strong>Blackwell</strong><small>B200</small></button>
+          <button type="button" class="chip-tab" aria-pressed="false" data-chip="rubin"><span>2026</span><strong>Rubin</strong><small>Preliminare</small></button>
+        </div>
+
+        <article class="chip-lab" aria-labelledby="chip-lab-title">
+          <header class="chip-lab-head"><div><p class="kicker" id="chip-generation">2020 · A100 80GB SXM</p><h2 id="chip-lab-title">Ampere</h2></div><p id="chip-summary">Il punto di partenza: 80 GB HBM2e, Tensor Core maturi e NVLink da 600 GB/s. Non supporta ancora FP8.</p></header>
+          <div class="chip-lab-body">
+            <div class="chip-bars" id="chip-bars" aria-label="Confronto normalizzato delle generazioni"></div>
+            <aside class="chip-detail" aria-live="polite">
+              <div class="chip-detail-hero"><span id="chip-detail-label">Picco nativo</span><strong id="chip-detail-peak">0,312 PF</strong><small id="chip-detail-precision">FP16/BF16 denso</small></div>
+              <dl>
+                <div><dt>Memoria</dt><dd id="chip-detail-memory">80 GB</dd></div><div><dt>Banda HBM</dt><dd id="chip-detail-bandwidth">2,039 TB/s</dd></div><div><dt>NVLink</dt><dd id="chip-detail-nvlink">0,6 TB/s</dd></div><div><dt>TDP</dt><dd id="chip-detail-tdp">400 W</dd></div><div><dt>Transistor</dt><dd id="chip-detail-transistors">54,2 miliardi</dd></div><div><dt>Stato</dt><dd id="chip-detail-status">Prodotto</dd></div>
+              </dl>
+              <p class="chip-detail-note" id="chip-detail-note">Base di confronto. Le barre mostrano memoria, banda HBM e NVLink rispetto ad A100 = 1.</p>
+            </aside>
+          </div>
+          <footer class="evidence-footer"><p>Il picco tensoriale cambia precisione fra le generazioni: FP16, FP8, FP4 e NVFP4 non sono direttamente comparabili. Per questo il grafico normalizza soltanto memoria e fabric.</p><a href="https://www.nvidia.com/en-us/data-center/a100/" id="chip-source-link" target="_blank" rel="noreferrer">Scheda ufficiale ↗</a></footer>
+        </article>
+
+        <div class="architecture-story">
+          <article><span>01</span><h2>Precisione</h2><p>Hopper introduce FP8; Blackwell spinge FP4 e introduce NVFP4 per l'inference; Rubin estende NVFP4 al training. Più operazioni entrano nello stesso watt, con gestione numerica dedicata.</p></article>
+          <article><span>02</span><h2>Memoria</h2><p>La banda HBM cresce da 2,0 a 22 TB/s per GPU: quasi 11×. È ciò che mantiene alimentati i Tensor Core e muove pesi e KV cache.</p></article>
+          <article><span>03</span><h2>Rete</h2><p>NVLink sale da 0,6 a 3,6 TB/s per GPU. Il rack diventa l'unità di calcolo e decine di GPU possono comportarsi come un acceleratore unico.</p></article>
+          <article><span>04</span><h2>Co-design</h2><p>NVIDIA dichiara fino a 3× training e 15× inference per DGX B200 contro DGX H100; Rubin promette fino a 4× meno GPU per alcuni training MoE. Sono claim workload-specific.</p></article>
+        </div>
+      </section>
+
+      <section class="sources compact-sources" aria-labelledby="sources-title">
+        <h2 id="sources-title">Fonti del capitolo</h2>
+        <ol>
+          <li><a href="https://www.nvidia.com/en-us/data-center/a100/" target="_blank" rel="noreferrer">NVIDIA · A100</a><span>Specifiche Ampere: memoria HBM2e, banda, NVLink e TDP.</span></li>
+          <li><a href="https://www.nvidia.com/en-us/data-center/h100/" target="_blank" rel="noreferrer">NVIDIA · H100</a><span>Specifiche Hopper e Transformer Engine FP8.</span></li>
+          <li><a href="https://www.nvidia.com/en-us/data-center/dgx-b200/" target="_blank" rel="noreferrer">NVIDIA · DGX B200</a><span>Specifiche Blackwell, HBM3e, NVLink e claim di training/inference.</span></li>
+          <li><a href="https://www.nvidia.com/en-gb/data-center/vera-rubin-nvl72/" target="_blank" rel="noreferrer">NVIDIA · Vera Rubin NVL72</a><span>Specifiche preliminari Rubin: HBM4, NVFP4 e fabric rack-scale.</span></li>
+        </ol>
+        <p class="source-boundary">Il picco tensoriale cambia precisione fra le generazioni. I claim prestazionali restano workload-specific e sono presentati come dichiarazioni del produttore.</p>
+      </section>
+      <nav class="chapter-next" aria-label="Continua la lettura"><a href="energia.html">← Precedente: Energia</a><a href="algoritmi.html">Prossimo: Algoritmi →</a></nav>
+    </main>
+    <footer class="site-footer"><span>AI.it</span><span>Chip · 02</span></footer><script src="app.js"></script>
+  </body>
+</html>

@@ -3,18 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="AI.it spiega la corsa all'intelligenza artificiale: scaling laws, energia, chip, algoritmi e curve reali di inferenza per modelli aperti."
-    />
+    <meta name="description" content="AI.it spiega la corsa all'intelligenza artificiale attraverso energia, chip, algoritmi e inferenza." />
     <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
     <meta property="og:title" content="AI.it — Capire la corsa all'intelligenza artificiale" />
-    <meta property="og:description" content="Scaling laws, energia, chip, algoritmi e curve reali di inferenza per modelli aperti." />
+    <meta property="og:description" content="Quattro percorsi per capire energia, chip, algoritmi e inferenza." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="it_IT" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="AI.it — Capire la corsa all'intelligenza artificiale" />
-    <meta name="twitter:description" content="Scaling laws, energia, chip, algoritmi e curve reali di inferenza per modelli aperti." />
     <meta id="theme-color" name="theme-color" content="#f2f0e8" />
     <link rel="icon" href="data:," />
     <title>AI.it — Capire la corsa all'intelligenza artificiale</title>
@@ -31,11 +26,11 @@
     </script>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="home-page">
     <a class="skip-link" href="#top">Salta al contenuto</a>
     <div class="noise" aria-hidden="true"></div>
     <header class="site-header">
-      <a class="brand" href="#top" aria-label="AI.it, homepage">
+      <a class="brand" href="index.html" aria-label="AI.it, homepage">
         <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
         <span>AI.it</span>
       </a>
@@ -47,415 +42,63 @@
         </button>
       </div>
     </header>
+    <nav class="section-nav" aria-label="Sezioni del sito">
+      <a href="index.html" aria-current="page">Indice</a>
+      <a href="energia.html">Energia</a>
+      <a href="chip.html">Chip</a>
+      <a href="algoritmi.html">Algoritmi</a>
+      <a href="inferenza.html">Inferenza</a>
+    </nav>
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div class="eyebrow"><span>Capire l'intelligenza artificiale, senza fumo</span><span>Luglio 2026</span></div>
         <h1 id="hero-title">L'AI sta<br /><em>scalando.</em></h1>
         <div class="hero-copy">
-          <p>
-            Modelli più capaci, data center più grandi, risposte più veloci. Non è una singola invenzione: è una corsa industriale tra energia, chip e algoritmi.
-          </p>
-          <a href="#corsa" class="text-link">Capisci cosa sta succedendo <span aria-hidden="true">↓</span></a>
+          <p>Modelli più capaci, data center più grandi, risposte più veloci. Non è una singola invenzione: è una corsa industriale tra energia, chip e algoritmi.</p>
+          <a href="#percorsi" class="text-link">Scegli da dove iniziare <span aria-hidden="true">↓</span></a>
         </div>
       </section>
 
-      <section class="race-section" id="corsa" aria-labelledby="race-title">
+      <section class="race-section route-section" id="percorsi" aria-labelledby="routes-title">
         <div class="race-head">
           <div class="chapter-number">00</div>
           <div>
-            <p class="kicker">Le scaling laws, in pratica</p>
-            <h2 id="race-title">Tre motori.<br />Una corsa sola.</h2>
+            <p class="kicker">Quattro capitoli, quattro pagine</p>
+            <h2 id="routes-title">Esplora senza<br />perderti.</h2>
           </div>
           <div class="race-intro">
-            <p>
-              Le scaling laws dicono una cosa semplice: aumentando il compute, i modelli tendono a migliorare in modo abbastanza regolare. Oggi si scala prima del training, dopo il training e perfino mentre il modello “pensa” alla risposta.
-            </p>
-            <p>
-              Il risultato è molto concreto: servono più elettricità e più infrastrutture, ma anche chip e software capaci di spremere più intelligenza da ogni watt.
-            </p>
+            <p>Ogni tema vive ora in una pagina dedicata. Puoi entrare direttamente nel capitolo che ti interessa e tornare qui in qualsiasi momento.</p>
+            <p>I dati e le interazioni non sono stati ridotti: è cambiata soltanto l'architettura del sito.</p>
           </div>
         </div>
 
-        <div class="race-drivers" aria-label="I tre motori della corsa all'AI">
-          <details class="driver-panel" data-driver="energia">
-            <summary>
-              <span class="driver-index">01</span>
-              <h3>Energia</h3>
-              <p>I cluster non crescono nel vuoto. Servono rete, centrali, trasformatori, raffreddamento e anni di permessi.</p>
-              <div class="driver-summary-bottom"><strong>Più MW disponibili</strong><span class="driver-toggle"><i>Apri</i><b>Chiudi</b> ↓</span></div>
-            </summary>
-            <div class="driver-body">
-              <div class="driver-body-copy">
-                <p class="kicker">Come entreremo nel tema</p>
-                <h4>Dalla rete elettrica al token.</h4>
-                <p>Confronteremo cluster interconnessi, siti in H100-equivalent e gigawatt nominali senza mischiare grandezze diverse.</p>
-                <a class="text-link driver-link" href="#energia">Vai ai dati sull'energia <span aria-hidden="true">↓</span></a>
-              </div>
-              <div class="driver-point-map">
-                <div class="driver-point-track" role="group" aria-label="Punti della filiera energetica">
-                  <button type="button" class="driver-point is-active" aria-pressed="true" data-label="Rete" data-copy="La corsa parte dalla disponibilità reale di energia: connessioni alla rete, tempi di costruzione e continuità della fornitura."><span></span>Rete</button>
-                  <button type="button" class="driver-point" aria-pressed="false" data-label="Data center" data-copy="Trasformazione, distribuzione e raffreddamento consumano una parte della potenza prima che arrivi ai chip."><span></span>Data center</button>
-                  <button type="button" class="driver-point" aria-pressed="false" data-label="Token" data-copy="Il dato finale è quanta inferenza utile riesci a produrre con ogni megawatt disponibile."><span></span>Token</button>
-                </div>
-                <div class="driver-point-info" aria-live="polite"><span>Punto selezionato</span><h5>Rete</h5><p>La corsa parte dalla disponibilità reale di energia: connessioni alla rete, tempi di costruzione e continuità della fornitura.</p></div>
-              </div>
-            </div>
-          </details>
-
-          <details class="driver-panel" data-driver="chip">
-            <summary>
-              <span class="driver-index">02</span>
-              <h3>Chip</h3>
-              <p>Non basta consumare di più: bisogna produrre più token per watt, spostare dati più in fretta e tenere le GPU occupate.</p>
-              <div class="driver-summary-bottom"><strong>Più compute per watt</strong><span class="driver-toggle"><i>Apri</i><b>Chiudi</b> ↓</span></div>
-            </summary>
-            <div class="driver-body">
-              <div class="driver-body-copy">
-                <p class="kicker">Come entreremo nel tema</p>
-                <h4>Un chip non lavora da solo.</h4>
-                <p>Mettiamo Ampere, Hopper, Blackwell e Rubin sulla stessa scala per capire dove crescono memoria, banda e rete.</p>
-                <a class="text-link driver-link" href="#chip">Confronta le generazioni <span aria-hidden="true">↓</span></a>
-              </div>
-              <div class="driver-point-map">
-                <div class="driver-point-track" role="group" aria-label="Punti del sistema di calcolo">
-                  <button type="button" class="driver-point is-active" aria-pressed="true" data-label="Compute" data-copy="I Tensor Core fanno i calcoli, ma la potenza teorica conta solo se il resto del sistema riesce ad alimentarla."><span></span>Compute</button>
-                  <button type="button" class="driver-point" aria-pressed="false" data-label="Memoria" data-copy="I pesi del modello e la KV cache devono muoversi rapidamente: la banda di memoria può diventare il vero limite."><span></span>Memoria</button>
-                  <button type="button" class="driver-point" aria-pressed="false" data-label="Rete" data-copy="Nei sistemi rack-scale, l'interconnessione decide quanto bene decine di chip riescono a comportarsi come un unico acceleratore."><span></span>Rete</button>
-                </div>
-                <div class="driver-point-info" aria-live="polite"><span>Punto selezionato</span><h5>Compute</h5><p>I Tensor Core fanno i calcoli, ma la potenza teorica conta solo se il resto del sistema riesce ad alimentarla.</p></div>
-              </div>
-            </div>
-          </details>
-
-          <details class="driver-panel" data-driver="algoritmi">
-            <summary>
-              <span class="driver-index">03</span>
-              <h3>Algoritmi</h3>
-              <p>Una buona idea può valere come nuovo hardware: meno calcolo per la stessa qualità significa “compute effettivo” gratis.</p>
-              <div class="driver-summary-bottom"><strong>Più capacità per FLOP</strong><span class="driver-toggle"><i>Apri</i><b>Chiudi</b> ↓</span></div>
-            </summary>
-            <div class="driver-body">
-              <div class="driver-body-copy">
-                <p class="kicker">Come entreremo nel tema</p>
-                <h4>Fare di più con lo stesso silicio.</h4>
-                <p>Separiamo il vero progresso a parità di calcolo dai confronti che usano soltanto costo, parametri o benchmark diversi.</p>
-                <a class="text-link driver-link" href="#algoritmi">Misura il progresso <span aria-hidden="true">↓</span></a>
-              </div>
-              <div class="driver-point-map">
-                <div class="driver-point-track" role="group" aria-label="Fasi dell'efficienza algoritmica">
-                  <button type="button" class="driver-point is-active" aria-pressed="true" data-label="Training" data-copy="Architettura, dati e ricette di training determinano quanta capacità ottieni dal budget di calcolo iniziale."><span></span>Training</button>
-                  <button type="button" class="driver-point" aria-pressed="false" data-label="Post-training" data-copy="Fine-tuning e reinforcement learning trasformano un modello base in un sistema più utile, preciso e controllabile."><span></span>Post-training</button>
-                  <button type="button" class="driver-point" aria-pressed="false" data-label="Inference" data-copy="Quantizzazione, batching, caching e test-time compute cambiano costo, velocità e qualità quando il modello viene usato."><span></span>Inference</button>
-                </div>
-                <div class="driver-point-info" aria-live="polite"><span>Punto selezionato</span><h5>Training</h5><p>Architettura, dati e ricette di training determinano quanta capacità ottieni dal budget di calcolo iniziale.</p></div>
-              </div>
-            </div>
-          </details>
+        <div class="route-grid" aria-label="Capitoli di AI.it">
+          <a class="route-card route-card-energy" href="energia.html">
+            <span class="driver-index">01</span>
+            <div><span class="kicker">Rete → data center → token</span><h3>Energia</h3><p>Cluster, siti in H100-equivalent e gigawatt: grandezze diverse, spiegate senza mescolarle.</p></div>
+            <strong>Apri il capitolo <span aria-hidden="true">→</span></strong>
+          </a>
+          <a class="route-card" href="chip.html">
+            <span class="driver-index">02</span>
+            <div><span class="kicker">Ampere → Rubin</span><h3>Chip</h3><p>Memoria, banda HBM, interconnessione e precisione attraverso quattro generazioni NVIDIA.</p></div>
+            <strong>Apri il capitolo <span aria-hidden="true">→</span></strong>
+          </a>
+          <a class="route-card" href="algoritmi.html">
+            <span class="driver-index">03</span>
+            <div><span class="kicker">Intelligenza per compute</span><h3>Algoritmi</h3><p>Quanto rapidamente diminuisce il calcolo necessario per raggiungere lo stesso obiettivo.</p></div>
+            <strong>Apri il capitolo <span aria-hidden="true">→</span></strong>
+          </a>
+          <a class="route-card" href="inferenza.html">
+            <span class="driver-index">04</span>
+            <div><span class="kicker">Responsiveness × throughput</span><h3>Inferenza</h3><p>Curve interattive per confrontare velocità percepita e token prodotti per megawatt.</p></div>
+            <strong>Apri il capitolo <span aria-hidden="true">→</span></strong>
+          </a>
         </div>
-      </section>
-
-      <section class="chapter evidence-chapter energy-chapter" id="energia" aria-labelledby="energy-title">
-        <div class="chapter-head">
-          <div class="chapter-number">01</div>
-          <div>
-            <p class="kicker">Dalla rete elettrica al cluster</p>
-            <h2 id="energy-title">La scala fisica<br />dell'AI</h2>
-          </div>
-          <p class="chapter-deck">
-            In meno di due anni siamo passati da centomila GPU interconnesse a campus da oltre un milione di H100-equivalent. Ma cluster, sito e gigawatt non sono la stessa cosa.
-          </p>
-        </div>
-
-        <div class="evidence-stats" aria-label="Numeri chiave dell'infrastruttura AI">
-          <article><span>Capacità AI globale</span><strong>30 <small>GW</small></strong><p>Capacità nominale stimata, Q4 2025. Non è il consumo medio.</p></article>
-          <article><span>Cluster esplicito</span><strong>200K <small>GPU Hopper</small></strong><p>Colossus 1, descritto da xAI come singolo cluster interconnesso.</p></article>
-          <article><span>Più grande sito</span><strong>1,11M <small>H100-eq</small></strong><p>Colossus 2 nel database Epoch. Un sito può contenere più cluster.</p></article>
-        </div>
-
-        <article class="evidence-shell energy-shell" aria-labelledby="energy-chart-title">
-          <header class="evidence-header">
-            <div>
-              <p class="kicker">Cambia definizione, cambia il numero</p>
-              <h3 id="energy-chart-title">Record del più grande sito AI</h3>
-              <p id="energy-chart-subtitle">Compute installato in H100-equivalent · agosto 2024 – luglio 2026</p>
-            </div>
-            <div class="evidence-tabs" aria-label="Misura dell'infrastruttura">
-              <button type="button" class="evidence-tab is-active" aria-pressed="true" data-energy-view="site">Sito</button>
-              <button type="button" class="evidence-tab" aria-pressed="false" data-energy-view="cluster">Cluster</button>
-              <button type="button" class="evidence-tab" aria-pressed="false" data-energy-view="power">Potenza</button>
-            </div>
-          </header>
-          <div class="energy-visual-grid">
-            <div class="evidence-chart-stage">
-              <svg id="energy-chart" viewBox="0 0 980 580" role="img" aria-labelledby="energy-svg-title energy-svg-desc">
-                <title id="energy-svg-title">Crescita dell'infrastruttura AI</title>
-                <desc id="energy-svg-desc">Il grafico cambia tra sito in H100-equivalent, cluster interconnesso e potenza nominale.</desc>
-              </svg>
-              <div class="chart-tooltip" id="energy-tooltip" role="status" hidden></div>
-            </div>
-            <aside class="definition-panel" aria-live="polite">
-              <span id="energy-definition-label">La misura corretta</span>
-              <h4 id="energy-definition-title">H100-equivalent di un sito</h4>
-              <p id="energy-definition-copy">Normalizza chip diversi rispetto alla capacità FP8 di una H100. Misura la scala di un campus, non il numero di GPU fisiche e neppure un singolo job coerente.</p>
-              <div class="definition-rule" id="energy-definition-rule"><strong>Non chiamarlo coherent cluster.</strong><span>Un sito può ospitare più fabric e più cluster.</span></div>
-            </aside>
-          </div>
-          <footer class="evidence-footer">
-            <p id="energy-chart-note">La serie Epoch misura il record di compute installato in un singolo sito. L'ultimo punto è una stima corrente del database.</p>
-            <a href="https://epoch.ai/data-insights/largest-data-center-compute" id="energy-source-link" target="_blank" rel="noreferrer">Fonte e dati ↗</a>
-          </footer>
-        </article>
-
-        <div class="boundary-grid">
-          <article><span>Misurato nel dataset</span><strong>14,6 GW facility</strong><p>72 grandi siti tracciati da Epoch, di cui 11,2 GW sono potenza IT.</p></article>
-          <article class="estimated"><span>Ordine di grandezza</span><strong>≈20 GW training + inference</strong><p>Derivazione da 30 GW × due terzi. Non esiste un censimento pubblico globale che separi con precisione training, esperimenti e inference.</p></article>
-          <article><span>Da non usare</span><strong>415 TWh ≠ AI</strong><p>È il consumo elettrico di tutti i data center nel 2024 secondo IEA, non dell'AI soltanto.</p></article>
-        </div>
-      </section>
-
-      <section class="chapter evidence-chapter chip-chapter" id="chip" aria-labelledby="chip-title">
-        <div class="chapter-head">
-          <div class="chapter-number">02</div>
-          <div>
-            <p class="kicker">Ampere → Hopper → Blackwell → Rubin</p>
-            <h2 id="chip-title">Quattro salti<br />di architettura</h2>
-          </div>
-          <p class="chapter-deck">
-            I FLOP sono solo una parte della storia. La vera accelerazione arriva quando precisione, memoria HBM e interconnessione migliorano insieme.
-          </p>
-        </div>
-
-        <div class="chip-tabs" aria-label="Generazioni NVIDIA">
-          <button type="button" class="chip-tab is-active" aria-pressed="true" data-chip="ampere"><span>2020</span><strong>Ampere</strong><small>A100</small></button>
-          <button type="button" class="chip-tab" aria-pressed="false" data-chip="hopper"><span>2022</span><strong>Hopper</strong><small>H100</small></button>
-          <button type="button" class="chip-tab" aria-pressed="false" data-chip="blackwell"><span>2024</span><strong>Blackwell</strong><small>B200</small></button>
-          <button type="button" class="chip-tab" aria-pressed="false" data-chip="rubin"><span>2026</span><strong>Rubin</strong><small>Preliminare</small></button>
-        </div>
-
-        <article class="chip-lab" aria-labelledby="chip-lab-title">
-          <header class="chip-lab-head">
-            <div><p class="kicker" id="chip-generation">2020 · A100 80GB SXM</p><h3 id="chip-lab-title">Ampere</h3></div>
-            <p id="chip-summary">Il punto di partenza: 80 GB HBM2e, Tensor Core maturi e NVLink da 600 GB/s. Non supporta ancora FP8.</p>
-          </header>
-          <div class="chip-lab-body">
-            <div class="chip-bars" id="chip-bars" aria-label="Confronto normalizzato delle generazioni"></div>
-            <aside class="chip-detail" aria-live="polite">
-              <div class="chip-detail-hero"><span id="chip-detail-label">Picco nativo</span><strong id="chip-detail-peak">0,312 PF</strong><small id="chip-detail-precision">FP16/BF16 denso</small></div>
-              <dl>
-                <div><dt>Memoria</dt><dd id="chip-detail-memory">80 GB</dd></div>
-                <div><dt>Banda HBM</dt><dd id="chip-detail-bandwidth">2,039 TB/s</dd></div>
-                <div><dt>NVLink</dt><dd id="chip-detail-nvlink">0,6 TB/s</dd></div>
-                <div><dt>TDP</dt><dd id="chip-detail-tdp">400 W</dd></div>
-                <div><dt>Transistor</dt><dd id="chip-detail-transistors">54,2 miliardi</dd></div>
-                <div><dt>Stato</dt><dd id="chip-detail-status">Prodotto</dd></div>
-              </dl>
-              <p class="chip-detail-note" id="chip-detail-note">Base di confronto. Le barre mostrano memoria, banda HBM e NVLink rispetto ad A100 = 1.</p>
-            </aside>
-          </div>
-          <footer class="evidence-footer">
-            <p>Il picco tensoriale cambia precisione fra le generazioni: FP16, FP8, FP4 e NVFP4 non sono direttamente comparabili. Per questo il grafico normalizza soltanto memoria e fabric.</p>
-            <a href="https://www.nvidia.com/en-us/data-center/a100/" id="chip-source-link" target="_blank" rel="noreferrer">Scheda ufficiale ↗</a>
-          </footer>
-        </article>
-
-        <div class="architecture-story">
-          <article><span>01</span><h3>Precisione</h3><p>Hopper introduce FP8; Blackwell spinge FP4 e introduce NVFP4 per l'inference; Rubin estende NVFP4 al training. Più operazioni entrano nello stesso watt, con gestione numerica dedicata.</p></article>
-          <article><span>02</span><h3>Memoria</h3><p>La banda HBM cresce da 2,0 a 22 TB/s per GPU: quasi 11×. È ciò che mantiene alimentati i Tensor Core e muove pesi e KV cache.</p></article>
-          <article><span>03</span><h3>Rete</h3><p>NVLink sale da 0,6 a 3,6 TB/s per GPU. Il rack diventa l'unità di calcolo e decine di GPU possono comportarsi come un acceleratore unico.</p></article>
-          <article><span>04</span><h3>Co-design</h3><p>NVIDIA dichiara fino a 3× training e 15× inference per DGX B200 contro DGX H100; Rubin promette fino a 4× meno GPU per alcuni training MoE. Sono claim workload-specific.</p></article>
-        </div>
-      </section>
-
-      <section class="chapter evidence-chapter algorithm-chapter" id="algoritmi" aria-labelledby="algorithm-title">
-        <div class="chapter-head">
-          <div class="chapter-number">03</div>
-          <div>
-            <p class="kicker">Intelligenza per raw compute</p>
-            <h2 id="algorithm-title">Fare di più<br />con gli stessi FLOP</h2>
-          </div>
-          <p class="chapter-deck">
-            L'evidenza storica più pulita misura quanto calcolo serve per raggiungere la stessa loss di pretraining: il fabbisogno si è dimezzato circa ogni otto mesi.
-          </p>
-        </div>
-
-        <article class="algorithm-lab" aria-labelledby="algorithm-lab-title">
-          <header class="evidence-header">
-            <div><p class="kicker">Simulatore del tasso storico</p><h3 id="algorithm-lab-title">Stesso target, meno compute</h3><p>Indice derivato dal tasso centrale Epoch, non la misura di uno specifico modello.</p></div>
-            <div class="algorithm-reading" aria-live="polite"><span>Compute richiesto</span><strong id="compute-required">100%</strong><small id="effective-multiplier">1× compute effettivo</small></div>
-          </header>
-          <div class="algorithm-stage">
-            <div class="compute-track" aria-hidden="true"><div id="compute-bar"></div><span>Budget raw compute invariato</span></div>
-            <label class="algorithm-range-label" for="algorithm-months"><span>Progresso algoritmico</span><strong><span id="algorithm-months-value">0</span> mesi</strong></label>
-            <input id="algorithm-months" type="range" min="0" max="40" step="1" value="0" />
-            <div class="algorithm-ticks" aria-hidden="true"><span>Oggi</span><span>8 mesi</span><span>16</span><span>24</span><span>32</span><span>40</span></div>
-          </div>
-          <footer class="evidence-footer">
-            <p>Studio su 231 valutazioni di language model, 2012–2023. Stima centrale: dimezzamento ogni 8 mesi; intervallo di confidenza 95%: 5–14 mesi.</p>
-            <a href="https://epoch.ai/publications/algorithmic-progress-in-language-models" target="_blank" rel="noreferrer">Leggi lo studio ↗</a>
-          </footer>
-        </article>
-
-        <div class="model-evidence" aria-label="Esempi di progresso dei modelli">
-          <article data-confidence="strong"><span class="confidence">Prova forte</span><h3>Loss uguale, FLOP normalizzati</h3><strong>−50% ogni 8 mesi</strong><p>Confronto omogeneo nello studio: è la misura più vicina a “stesso obiettivo, raw compute diverso”.</p></article>
-          <article data-confidence="proxy"><span class="confidence">Proxy</span><h3>PaLM → Phi-3-mini</h3><strong>540B → 3,8B</strong><p>Il modello più piccolo sopra il 60% MMLU si è ridotto di circa 142× nei parametri fra 2022 e 2024. Parametri e FLOP non sono la stessa cosa.</p></article>
-          <article data-confidence="limited"><span class="confidence">Non confrontabile</span><h3>GPT-4 → DeepSeek-V3</h3><strong>86,4 → 88,5 MMLU</strong><p>DeepSeek usa 37B parametri attivi per token, ma 671B totali. I FLOP e i parametri di GPT-4 non sono pubblici: non prova la parità di compute.</p></article>
-        </div>
-
-        <div class="same-gpu-rule">
-          <span>La risposta alla domanda “sulla stessa GPU?”</span>
-          <h3>Stessa GPU non significa stesso raw compute.</h3>
-          <p>Bisogna fissare modello, precisione, numero di token, batch, durata e FLOP effettivi. Un modello moderno può essere più capace sullo stesso hardware, ma i dati pubblici non permettono un confronto GPT-4 contro modelli 2026 a FLOP identici.</p>
-        </div>
-      </section>
-
-      <section class="chapter" id="frontier" aria-labelledby="frontier-title">
-        <div class="chapter-head">
-          <div class="chapter-number">04</div>
-          <div>
-            <p class="kicker">Responsiveness × throughput</p>
-            <h2 id="frontier-title">La frontiera dell'inferenza</h2>
-          </div>
-          <p class="chapter-deck">
-            Sposta il cursore: sull'asse orizzontale vedi quanto risponde veloce, su quello verticale quanti token produce per megawatt.
-          </p>
-        </div>
-
-        <div class="open-data-rule">
-          <span>Regola del grafico</span>
-          <strong>Solo modelli aperti con una curva pubblica.</strong>
-          <p>Niente modelli chiusi, niente record di velocità senza il dato energetico, niente coordinate inventate.</p>
-        </div>
-
-        <div class="workload-tabs" aria-label="Scenario del benchmark">
-          <button class="workload-tab is-active" type="button" aria-pressed="true" data-scene="rubin">
-            <span class="tab-index">A</span>
-            <span><strong>Kimi K2 Thinking</strong><small>Blackwell → Vera Rubin</small></span>
-          </button>
-          <button class="workload-tab" type="button" aria-pressed="false" data-scene="blackwell">
-            <span class="tab-index">B</span>
-            <span><strong>DeepSeek R1</strong><small>Hopper → Blackwell Ultra</small></span>
-          </button>
-          <button class="workload-tab" type="button" aria-pressed="false" data-scene="mistral">
-            <span class="tab-index">C</span>
-            <span><strong>Mistral Large 3</strong><small>H200 → GB200</small></span>
-          </button>
-        </div>
-
-        <article class="chart-shell" aria-labelledby="chart-title">
-          <header class="chart-header">
-            <div>
-              <div class="status-line"><span class="status-dot"></span><span id="chart-status">Proiezione NVIDIA · dati ricostruiti</span></div>
-              <h3 id="chart-title">Kimi K2 Thinking · input 32K / output 8K</h3>
-            </div>
-            <div class="chart-reading" id="chart-reading" aria-live="polite">
-              <span class="reading-label">A <strong id="reading-speed">225</strong> tok/s/utente</span>
-              <strong class="reading-value" id="reading-ratio">7,8×</strong>
-              <span class="reading-caption" id="reading-caption">più token per megawatt</span>
-            </div>
-          </header>
-
-          <div class="chart-body" id="chart-body">
-            <div class="chart-stage">
-              <svg id="frontier-chart" viewBox="0 0 1100 700" role="img" aria-labelledby="svg-title svg-desc">
-                <title id="svg-title">Frontiera della velocità e dell'efficienza energetica nell'inferenza</title>
-                <desc id="svg-desc">Le curve confrontano i token al secondo per megawatt a diverse velocità per utente, nello scenario selezionato.</desc>
-              </svg>
-              <div class="chart-tooltip" id="chart-tooltip" role="status" hidden></div>
-            </div>
-          </div>
-
-          <div class="live-comparison" id="live-comparison" aria-live="polite"></div>
-
-          <div class="chart-controls" id="chart-controls">
-            <label class="range-label" for="speed-range">
-              <span>Imposta la velocità</span>
-              <strong><span id="range-value">225</span> tok/s/utente</strong>
-            </label>
-            <input id="speed-range" type="range" min="50" max="440" step="5" value="225" />
-            <div class="legend" id="chart-legend" aria-label="Sistemi visibili"></div>
-          </div>
-
-          <footer class="chart-footer">
-            <p id="chart-note">
-              Stesso modello, stesso input e stesso output. Le curve sono ricostruite dalla Figura 38 di NVIDIA: i valori intermedi sono stime.
-            </p>
-            <button class="method-button" type="button" id="method-open" aria-expanded="false" aria-controls="method-panel">
-              Come abbiamo fatto i conti <span aria-hidden="true">↗</span>
-            </button>
-          </footer>
-        </article>
-
-        <div class="takeaway-grid" id="takeaway-grid">
-          <article>
-            <span class="takeaway-index">01 — Guarda a destra</span>
-            <h3>Qui senti la velocità.</h3>
-            <p>I token al secondo per utente sono il ritmo della risposta. Intorno a 50 si legge bene; sopra 200 sembra quasi istantanea.</p>
-          </article>
-          <article>
-            <span class="takeaway-index">02 — Guarda in alto</span>
-            <h3>Qui vedi quanto rende.</h3>
-            <p>I token al secondo per megawatt dicono quanta inferenza puoi produrre quando l'energia è il vero limite.</p>
-          </article>
-          <article>
-            <span class="takeaway-index">03 — Guarda la curva</span>
-            <h3>Il record singolo non basta.</h3>
-            <p>Una nuova architettura conta davvero quando sposta tutta la frontiera, non solo quando vince un benchmark scelto bene.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="next-chapter" aria-label="Principio guida del sito">
-        <span>Il filo che unisce tutto</span>
-        <h2>Più energia compra più compute.<br /><em>Chip e algoritmi decidono quanto vale.</em></h2>
-        <div><span>∞</span><p>Energia × silicio × efficienza algoritmica</p></div>
-      </section>
-
-      <section class="sources" aria-labelledby="sources-title">
-        <h2 id="sources-title">Fonti, senza fumo</h2>
-        <ol>
-          <li><a href="https://situational-awareness.ai/from-gpt-4-to-agi/" target="_blank" rel="noreferrer">Leopold Aschenbrenner · Counting the OOMs</a><span>Compute, efficienza algoritmica e “unhobbling”; scenario pubblicato nel 2024.</span></li>
-          <li><a href="https://developer.nvidia.com/blog/inside-the-nvidia-rubin-platform-six-new-chips-one-ai-supercomputer/" target="_blank" rel="noreferrer">NVIDIA · Dentro Vera Rubin</a><span>Tre forme di scaling e curva Kimi K2 Thinking, Figura 38.</span></li>
-          <li><a href="https://www.nvidia.com/en-us/data-center/gb300-nvl72/" target="_blank" rel="noreferrer">NVIDIA · GB300 NVL72</a><span>Curva pubblica su DeepSeek R1: Hopper contro Blackwell Ultra.</span></li>
-          <li><a href="https://developer.nvidia.com/blog/nvidia-accelerated-mistral-3-open-models-deliver-efficiency-accuracy-at-any-scale/" target="_blank" rel="noreferrer">NVIDIA · Mistral 3 open models</a><span>Curva pubblica Mistral Large 3, NVFP4, input 8K / output 1K.</span></li>
-          <li><a href="https://epoch.ai/data-insights/ai-datacenter-power" target="_blank" rel="noreferrer">Epoch AI · Potenza globale dei data center AI</a><span>Circa 30 GW di capacità nominale nel Q4 2025; stima basata sui chip venduti.</span></li>
-          <li><a href="https://epoch.ai/data/ai-data-centers?tab=h100e&amp;view=graph" target="_blank" rel="noreferrer">Epoch AI · Database dei grandi siti AI</a><span>72 siti, 14,6 GW facility power, 11,2 GW IT power e record in H100-equivalent.</span></li>
-          <li><a href="https://x.ai/colossus" target="_blank" rel="noreferrer">xAI · Colossus</a><span>200.000 GPU Hopper (H100+H200) dichiarate come singolo cluster interconnesso.</span></li>
-          <li><a href="https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai" target="_blank" rel="noreferrer">IEA · Energy demand from AI</a><span>Consumo elettrico di tutti i data center e ruolo crescente dei server accelerati.</span></li>
-          <li><a href="https://www.nvidia.com/en-us/data-center/a100/" target="_blank" rel="noreferrer">NVIDIA · A100</a><span>Specifiche Ampere: memoria HBM2e, banda, NVLink e TDP.</span></li>
-          <li><a href="https://www.nvidia.com/en-us/data-center/h100/" target="_blank" rel="noreferrer">NVIDIA · H100</a><span>Specifiche Hopper e Transformer Engine FP8.</span></li>
-          <li><a href="https://www.nvidia.com/en-us/data-center/dgx-b200/" target="_blank" rel="noreferrer">NVIDIA · DGX B200</a><span>Specifiche Blackwell, HBM3e, NVLink e claim di training/inference.</span></li>
-          <li><a href="https://www.nvidia.com/en-gb/data-center/vera-rubin-nvl72/" target="_blank" rel="noreferrer">NVIDIA · Vera Rubin NVL72</a><span>Specifiche preliminari Rubin: HBM4, NVFP4 e fabric rack-scale.</span></li>
-          <li><a href="https://epoch.ai/publications/algorithmic-progress-in-language-models" target="_blank" rel="noreferrer">Epoch AI · Progresso algoritmico nei language model</a><span>Dimezzamento del compute richiesto circa ogni otto mesi nel periodo studiato.</span></li>
-          <li><a href="https://hai.stanford.edu/ai-index/2025-ai-index-report/technical-performance" target="_blank" rel="noreferrer">Stanford HAI · AI Index 2025</a><span>PaLM 540B contro Phi-3-mini 3,8B sopra la soglia del 60% MMLU.</span></li>
-          <li><a href="https://arxiv.org/abs/2412.19437" target="_blank" rel="noreferrer">DeepSeek · V3 Technical Report</a><span>88,5 MMLU, 671B parametri totali e 37B attivi per token.</span></li>
-          <li><a href="https://cdn.openai.com/papers/gpt-4.pdf" target="_blank" rel="noreferrer">OpenAI · GPT-4 Technical Report</a><span>86,4 MMLU; parametri e compute non pubblicati.</span></li>
-        </ol>
-        <p class="source-boundary">Le curve di inferenza sono digitalizzate dai grafici dei produttori e quindi approssimative. I dati energia distinguono capacità nominale, IT power e facility power. I claim NVIDIA e xAI restano dichiarazioni dei produttori; le stime Epoch sono indicate come tali. Dati Epoch consultati a luglio 2026; il database è aggiornato di continuo.</p>
       </section>
     </main>
 
     <footer class="site-footer"><span>AI.it</span><span>Prototipo editoriale · 2026</span></footer>
-
-    <div class="method-overlay" id="method-overlay" hidden>
-      <button class="overlay-scrim" type="button" aria-label="Chiudi la metodologia"></button>
-      <aside class="method-panel" id="method-panel" role="dialog" aria-modal="true" aria-labelledby="method-title">
-        <button class="method-close" type="button" id="method-close" aria-label="Chiudi la metodologia">×</button>
-        <p class="kicker">Come leggere il grafico</p>
-        <h2 id="method-title">Non è la solita classifica.</h2>
-        <div class="method-content">
-          <h3>Solo curve che esistono davvero</h3>
-          <p>Nel grafico entrano soltanto modelli aperti per cui una fonte pubblica mostra l'intera relazione tra TPS per utente e TPS per megawatt.</p>
-          <h3>Uno scenario alla volta</h3>
-          <p>Modello, lunghezza di input e output, precisione, batching, software e confine energetico cambiano la curva. Per questo i tre tab non sono una classifica tra modelli.</p>
-          <h3>Dati ricostruiti, non grezzi</h3>
-          <p>Le curve sono state digitalizzate dai grafici NVIDIA per renderle interattive. I valori sono arrotondati e i punti intermedi sono stime: servono a capire forma e ordine di grandezza.</p>
-          <h3>Proiezione o misurazione?</h3>
-          <p>Alcune piattaforme future sono presentate dai produttori come proiezioni. Lo status compare sempre sopra al grafico; non trattiamo una proiezione commerciale come un benchmark indipendente.</p>
-        </div>
-      </aside>
-    </div>
-
     <script src="app.js"></script>
   </body>
 </html>

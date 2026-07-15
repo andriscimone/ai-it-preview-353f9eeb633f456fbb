@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Progresso algoritmico: quanto compute serve per raggiungere lo stesso obiettivo." />
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+    <meta property="og:title" content="Algoritmi — AI.it" /><meta property="og:description" content="Fare di più con gli stessi FLOP." /><meta property="og:type" content="website" /><meta property="og:locale" content="it_IT" />
+    <meta id="theme-color" name="theme-color" content="#f2f0e8" /><link rel="icon" href="data:," /><title>Algoritmi — AI.it</title>
+    <script>(() => { try { const saved = localStorage.getItem("aiit-theme"); const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dataset.theme = saved || preferred; } catch (_) { document.documentElement.dataset.theme = "light"; } })();</script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="detail-page">
+    <a class="skip-link" href="#top">Salta al contenuto</a><div class="noise" aria-hidden="true"></div>
+    <header class="site-header"><a class="brand" href="index.html" aria-label="AI.it, homepage"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>AI.it</span></a><div class="header-actions"><div class="issue-label"><span>Capitolo</span><strong>03 / Algoritmi</strong></div><button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false"><span class="theme-toggle-icon" aria-hidden="true">◐</span><span id="theme-toggle-label">Scuro</span></button></div></header>
+    <nav class="section-nav" aria-label="Sezioni del sito"><a href="index.html">Indice</a><a href="energia.html">Energia</a><a href="chip.html">Chip</a><a href="algoritmi.html" aria-current="page">Algoritmi</a><a href="inferenza.html">Inferenza</a></nav>
+
+    <main id="top">
+      <section class="chapter evidence-chapter algorithm-chapter" aria-labelledby="algorithm-title">
+        <div class="chapter-head">
+          <div class="chapter-number">03</div>
+          <div><p class="kicker">Intelligenza per raw compute</p><h1 id="algorithm-title">Fare di più<br />con gli stessi FLOP</h1></div>
+          <p class="chapter-deck">L'evidenza storica più pulita misura quanto calcolo serve per raggiungere la stessa loss di pretraining: il fabbisogno si è dimezzato circa ogni otto mesi.</p>
+        </div>
+
+        <article class="algorithm-lab" aria-labelledby="algorithm-lab-title">
+          <header class="evidence-header">
+            <div><p class="kicker">Simulatore del tasso storico</p><h2 id="algorithm-lab-title">Stesso target, meno compute</h2><p>Indice derivato dal tasso centrale Epoch, non la misura di uno specifico modello.</p></div>
+            <div class="algorithm-reading" aria-live="polite"><span>Compute richiesto</span><strong id="compute-required">100%</strong><small id="effective-multiplier">1× compute effettivo</small></div>
+          </header>
+          <div class="algorithm-stage">
+            <div class="compute-track" aria-hidden="true"><div id="compute-bar"></div><span>Budget raw compute invariato</span></div>
+            <label class="algorithm-range-label" for="algorithm-months"><span>Progresso algoritmico</span><strong><span id="algorithm-months-value">0</span> mesi</strong></label>
+            <input id="algorithm-months" type="range" min="0" max="40" step="1" value="0" />
+            <div class="algorithm-ticks" aria-hidden="true"><span>Oggi</span><span>8 mesi</span><span>16</span><span>24</span><span>32</span><span>40</span></div>
+          </div>
+          <footer class="evidence-footer"><p>Studio su 231 valutazioni di language model, 2012–2023. Stima centrale: dimezzamento ogni 8 mesi; intervallo di confidenza 95%: 5–14 mesi.</p><a href="https://epoch.ai/publications/algorithmic-progress-in-language-models" target="_blank" rel="noreferrer">Leggi lo studio ↗</a></footer>
+        </article>
+
+        <div class="model-evidence" aria-label="Esempi di progresso dei modelli">
+          <article data-confidence="strong"><span class="confidence">Prova forte</span><h2>Loss uguale, FLOP normalizzati</h2><strong>−50% ogni 8 mesi</strong><p>Confronto omogeneo nello studio: è la misura più vicina a “stesso obiettivo, raw compute diverso”.</p></article>
+          <article data-confidence="proxy"><span class="confidence">Proxy</span><h2>PaLM → Phi-3-mini</h2><strong>540B → 3,8B</strong><p>Il modello più piccolo sopra il 60% MMLU si è ridotto di circa 142× nei parametri fra 2022 e 2024. Parametri e FLOP non sono la stessa cosa.</p></article>
+          <article data-confidence="limited"><span class="confidence">Non confrontabile</span><h2>GPT-4 → DeepSeek-V3</h2><strong>86,4 → 88,5 MMLU</strong><p>DeepSeek usa 37B parametri attivi per token, ma 671B totali. I FLOP e i parametri di GPT-4 non sono pubblici: non prova la parità di compute.</p></article>
+        </div>
+
+        <div class="same-gpu-rule"><span>La risposta alla domanda “sulla stessa GPU?”</span><h2>Stessa GPU non significa stesso raw compute.</h2><p>Bisogna fissare modello, precisione, numero di token, batch, durata e FLOP effettivi. Un modello moderno può essere più capace sullo stesso hardware, ma i dati pubblici non permettono un confronto GPT-4 contro modelli 2026 a FLOP identici.</p></div>
+      </section>
+
+      <section class="sources compact-sources" aria-labelledby="sources-title">
+        <h2 id="sources-title">Fonti del capitolo</h2>
+        <ol>
+          <li><a href="https://epoch.ai/publications/algorithmic-progress-in-language-models" target="_blank" rel="noreferrer">Epoch AI · Progresso algoritmico nei language model</a><span>Dimezzamento del compute richiesto circa ogni otto mesi nel periodo studiato.</span></li>
+          <li><a href="https://hai.stanford.edu/ai-index/2025-ai-index-report/technical-performance" target="_blank" rel="noreferrer">Stanford HAI · AI Index 2025</a><span>PaLM 540B contro Phi-3-mini 3,8B sopra la soglia del 60% MMLU.</span></li>
+          <li><a href="https://arxiv.org/abs/2412.19437" target="_blank" rel="noreferrer">DeepSeek · V3 Technical Report</a><span>88,5 MMLU, 671B parametri totali e 37B attivi per token.</span></li>
+          <li><a href="https://cdn.openai.com/papers/gpt-4.pdf" target="_blank" rel="noreferrer">OpenAI · GPT-4 Technical Report</a><span>86,4 MMLU; parametri e compute non pubblicati.</span></li>
+        </ol>
+      </section>
+      <nav class="chapter-next" aria-label="Continua la lettura"><a href="chip.html">← Precedente: Chip</a><a href="inferenza.html">Prossimo: Inferenza →</a></nav>
+    </main>
+    <footer class="site-footer"><span>AI.it</span><span>Algoritmi · 03</span></footer><script src="app.js"></script>
+  </body>
+</html>

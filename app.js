@@ -392,7 +392,7 @@ function showTooltip(event, html) {
   tooltip.style.left = `${Math.max(8, Math.min(stage.width - width - 8, target.left - stage.left + 14))}px`;
   tooltip.style.top = `${Math.max(8, target.top - stage.top - tooltip.offsetHeight - 10)}px`;
 }
-function hideTooltip() { tooltip.hidden = true; }
+function hideTooltip() { if (tooltip) tooltip.hidden = true; }
 
 function render() {
   const scene = scenes[activeScene];
@@ -426,8 +426,10 @@ function setScene(key) {
   render();
 }
 
-range.addEventListener("input", render);
-document.querySelectorAll(".workload-tab").forEach(tab => tab.addEventListener("click", () => setScene(tab.dataset.scene)));
+if (range) {
+  range.addEventListener("input", render);
+  document.querySelectorAll(".workload-tab").forEach(tab => tab.addEventListener("click", () => setScene(tab.dataset.scene)));
+}
 
 document.querySelectorAll(".driver-point-track").forEach(track => {
   const panel = track.closest(".driver-body");
@@ -511,7 +513,7 @@ function showEnergyTooltip(event, html) {
   energyTooltip.style.top = `${Math.max(8, target.top - stage.top - energyTooltip.offsetHeight - 10)}px`;
 }
 
-function hideEnergyTooltip() { energyTooltip.hidden = true; }
+function hideEnergyTooltip() { if (energyTooltip) energyTooltip.hidden = true; }
 
 function energyGeometry() {
   const mobile = window.innerWidth <= 600;
@@ -731,7 +733,7 @@ function renderAlgorithm() {
   algorithmRange.setAttribute("aria-valuetext", `${months} mesi: ${itNumber(compute, 1)} per cento del compute richiesto`);
 }
 
-algorithmRange.addEventListener("input", renderAlgorithm);
+if (algorithmRange) algorithmRange.addEventListener("input", renderAlgorithm);
 
 function applyTheme(theme, persist = false) {
   const isDark = theme === "dark";
@@ -749,15 +751,15 @@ function applyTheme(theme, persist = false) {
 themeToggle.addEventListener("click", () => {
   const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
   applyTheme(next, true);
-  render();
-  renderEnergy();
+  if (svg) render();
+  if (energySvg) renderEnergy();
 });
 
 window.addEventListener("resize", () => {
   clearTimeout(resizeTimer);
   resizeTimer = setTimeout(() => {
-    render();
-    renderEnergy();
+    if (svg) render();
+    if (energySvg) renderEnergy();
   }, 120);
 });
 
@@ -765,8 +767,8 @@ const overlay = document.getElementById("method-overlay");
 const methodOpen = document.getElementById("method-open");
 const methodClose = document.getElementById("method-close");
 const methodPanel = document.getElementById("method-panel");
-const backgroundRegions = [document.querySelector("header"), document.querySelector("main")];
 const focusableSelector = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+const backgroundRegions = [document.querySelector("header"), document.querySelector(".section-nav"), document.querySelector("main")].filter(Boolean);
 function openMethod() {
   overlay.hidden = false;
   methodOpen.setAttribute("aria-expanded", "true");
@@ -781,24 +783,26 @@ function closeMethod() {
   document.body.style.overflow = "";
   methodOpen.focus();
 }
-methodOpen.addEventListener("click", openMethod);
-methodClose.addEventListener("click", closeMethod);
-document.querySelector(".overlay-scrim").addEventListener("click", closeMethod);
-document.addEventListener("keydown", event => {
-  if (event.key === "Escape" && !overlay.hidden) closeMethod();
-  if (event.key !== "Tab" || overlay.hidden) return;
-  const focusable = [...methodPanel.querySelectorAll(focusableSelector)].filter(node => !node.hidden);
-  if (!focusable.length) return;
-  const first = focusable[0];
-  const last = focusable.at(-1);
-  if (event.shiftKey && (document.activeElement === first || !methodPanel.contains(document.activeElement))) {
-    event.preventDefault();
-    last.focus();
-  } else if (!event.shiftKey && (document.activeElement === last || !methodPanel.contains(document.activeElement))) {
-    event.preventDefault();
-    first.focus();
-  }
-});
+if (overlay) {
+  methodOpen.addEventListener("click", openMethod);
+  methodClose.addEventListener("click", closeMethod);
+  document.querySelector(".overlay-scrim").addEventListener("click", closeMethod);
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && !overlay.hidden) closeMethod();
+    if (event.key !== "Tab" || overlay.hidden) return;
+    const focusable = [...methodPanel.querySelectorAll(focusableSelector)].filter(node => !node.hidden);
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable.at(-1);
+    if (event.shiftKey && (document.activeElement === first || !methodPanel.contains(document.activeElement))) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && (document.activeElement === last || !methodPanel.contains(document.activeElement))) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
+}
 
 document.addEventListener("click", event => {
   if (!event.target.closest(".chart-point")) hideTooltip();
@@ -806,7 +810,7 @@ document.addEventListener("click", event => {
 });
 
 applyTheme(document.documentElement.dataset.theme || "light");
-setScene("rubin");
-renderEnergy();
-renderChip();
-renderAlgorithm();
+if (svg) setScene("rubin");
+if (energySvg) renderEnergy();
+if (document.getElementById("chip-bars")) renderChip();
+if (algorithmRange) renderAlgorithm();

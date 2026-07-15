@@ -1,11 +1,13 @@
 # AI.it — capire la corsa all'intelligenza artificiale
 
-Il sito introduce le scaling laws e la corsa tra energia, chip e algoritmi. Le tre aree conducono ora a capitoli interattivi completi:
+Il sito introduce le scaling laws e la corsa tra energia, chip e algoritmi. La homepage funziona come indice e conduce a quattro pagine tematiche indipendenti:
 
 - scala fisica dell'AI, con distinzione fra cluster interconnesso, sito in H100-equivalent e potenza;
 - confronto Ampere, Hopper, Blackwell e Rubin su memoria HBM, banda e NVLink;
 - simulatore del progresso algoritmico e casi concreti di intelligenza per compute;
 - frontiera dell'inferenza per velocità percepita e token prodotti per megawatt.
+
+Le pagine sono `energia.html`, `chip.html`, `algoritmi.html` e `inferenza.html`. Tutte condividono navigazione, tema, stile editoriale e script, ma caricano soltanto il contenuto del capitolo scelto.
 
 Il quarto capitolo ricostruisce in modo interattivo la frontiera dell'efficienza nell'inferenza: velocità percepita (token in output al secondo per utente) contro capacità del sistema (token in output al secondo per megawatt).
 
