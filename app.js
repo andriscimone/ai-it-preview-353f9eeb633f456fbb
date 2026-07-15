@@ -110,6 +110,13 @@ const legend = document.getElementById("chart-legend");
 const tooltip = document.getElementById("chart-tooltip");
 const chartReading = document.getElementById("chart-reading");
 const liveComparison = document.getElementById("live-comparison");
+const chartBody = document.getElementById("chart-body");
+const chartControls = document.getElementById("chart-controls");
+if (chartBody && chartReading && chartControls && liveComparison) {
+  chartBody.after(chartReading);
+  chartReading.after(chartControls);
+  chartControls.after(liveComparison);
+}
 const themeToggle = document.getElementById("theme-toggle");
 const themeToggleLabel = document.getElementById("theme-toggle-label");
 const themeToggleIcon = themeToggle.querySelector(".theme-toggle-icon");
@@ -222,12 +229,12 @@ function chartGeometry() {
   return {
     mobile,
     width,
-    height: 700,
+    height: 520,
     plot: {
       left: mobile ? 142 : 210,
       right: width - (mobile ? 30 : 48),
-      top: 170,
-      bottom: 555
+      top: 100,
+      bottom: 365
     }
   };
 }
@@ -248,7 +255,7 @@ function addChartDefs() {
 
 function renderChartHeading(scene, width) {
   const center = width / 2;
-  svg.appendChild(el("text", { x: center, y: 76, "text-anchor": "middle", fill: "var(--chart-primary)", "font-family": "Manrope", "font-size": "22", "font-weight": "600" }, scene.chartSubtitle));
+  svg.appendChild(el("text", { x: center, y: 52, "text-anchor": "middle", fill: "var(--chart-primary)", "font-family": "Manrope", "font-size": "20", "font-weight": "600" }, scene.chartSubtitle));
 }
 
 function renderAxes(scene, plot, xScale, yScale, geometry) {
@@ -275,9 +282,17 @@ function renderAxes(scene, plot, xScale, yScale, geometry) {
   const calloutX = geometry.mobile ? 48 : 42;
   axes.appendChild(el("text", { x: calloutX, y: 260, "text-anchor": "middle", fill: "var(--chart-text)", "font-family": "Manrope", "font-size": geometry.mobile ? "17" : "16", "font-weight": "600" }, "PIÙ IN ALTO"));
   axes.appendChild(el("text", { x: calloutX, y: 281, "text-anchor": "middle", fill: "var(--chart-text)", "font-family": "Manrope", "font-size": geometry.mobile ? "17" : "16", "font-weight": "600" }, "È MEGLIO"));
-  axes.appendChild(el("line", { x1: calloutX, x2: calloutX, y1: 365, y2: 315, stroke: "var(--chart-axis)", "stroke-width": "5", "marker-end": "url(#focus-arrow)" }));
+  axes.appendChild(el("line", { x1: calloutX, x2: calloutX, y1: 286, y2: 240, stroke: "var(--chart-axis)", "stroke-width": "4", "marker-end": "url(#focus-arrow)" }));
   axes.appendChild(el("text", { x: calloutX, y: 422, "text-anchor": "middle", fill: "var(--chart-text)", "font-family": "Manrope", "font-size": geometry.mobile ? "18" : "17", "font-weight": "600" }, "THROUGHPUT"));
   axes.appendChild(el("text", { x: calloutX, y: 448, "text-anchor": "middle", fill: "var(--chart-text)", "font-family": "DM Mono", "font-size": geometry.mobile ? "17" : "15" }, "TPS / MW"));
+  axes.querySelectorAll("text").forEach(node => {
+    if (Number(node.getAttribute("x")) !== calloutX) return;
+    const y = Number(node.getAttribute("y"));
+    if (y === 260) node.setAttribute("y", "176");
+    if (y === 281) node.setAttribute("y", "197");
+    if (y === 422) node.setAttribute("y", "326");
+    if (y === 448) node.setAttribute("y", "349");
+  });
   svg.appendChild(axes);
 }
 
