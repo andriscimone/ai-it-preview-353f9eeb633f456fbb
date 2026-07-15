@@ -877,3 +877,28 @@ if (homeRevealItems.length && "IntersectionObserver" in window) {
   }, { rootMargin: "0px 0px -8%", threshold: 0.08 });
   homeRevealItems.forEach(item => homeRevealObserver.observe(item));
 }
+
+const secretWord = document.getElementById("secret-word");
+if (secretWord) {
+  const requiredClicks = 7;
+  const clickWindow = 2200;
+  let secretClicks = [];
+  let listeningTimer;
+
+  secretWord.addEventListener("click", () => {
+    const now = performance.now();
+    secretClicks = secretClicks.filter(time => now - time <= clickWindow);
+    secretClicks.push(now);
+    secretWord.classList.toggle("is-listening", secretClicks.length >= 4);
+    clearTimeout(listeningTimer);
+    listeningTimer = setTimeout(() => {
+      secretClicks = [];
+      secretWord.classList.remove("is-listening");
+    }, clickWindow);
+
+    if (secretClicks.length < requiredClicks) return;
+    try { sessionStorage.setItem("aiit-spooky-pass", String(Date.now())); } catch (_) {}
+    document.body.classList.add("secret-unlocking");
+    window.setTimeout(() => window.location.assign("spooky-timeline.html"), 420);
+  });
+}

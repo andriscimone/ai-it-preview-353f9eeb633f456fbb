@@ -32,13 +32,16 @@ const routeFiles = [
   "benchmark.html",
   "politica.html",
   "guerra.html",
+  "spooky-timeline.html",
   "app.js",
+  "spooky-timeline.js",
   "dossier.js",
   "energy-visuals.js",
   "algorithm-visuals.js",
   "energy.css",
   "algorithms.css",
   "altro.css",
+  "spooky-timeline.css",
   "styles.css",
   "robots.txt"
 ];
