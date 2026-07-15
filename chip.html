@@ -11,9 +11,9 @@
     <script>
       (() => { try { const saved = localStorage.getItem("aiit-theme"); const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dataset.theme = saved || preferred; } catch (_) { document.documentElement.dataset.theme = "light"; } })();
     </script>
-    <link rel="stylesheet" href="styles.css?v=a5e64d0" />
+    <link rel="stylesheet" href="styles.css?v=chip-studio-1" />
   </head>
-  <body class="detail-page">
+  <body class="detail-page chip-page">
     <a class="skip-link" href="#top">Salta al contenuto</a><div class="noise" aria-hidden="true"></div>
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="AI.it, homepage"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>AI.it</span></a>
@@ -29,6 +29,12 @@
           <p class="chapter-deck">I FLOP sono solo una parte della storia. La vera accelerazione arriva quando precisione, memoria HBM e interconnessione migliorano insieme.</p>
         </div>
 
+        <nav class="chip-story-nav" aria-label="Indice del capitolo Chips">
+          <a href="#architecture-lab"><span>01</span>Architettura</a>
+          <a href="#production"><span>02</span>Produzione</a>
+          <a href="#deployment"><span>03</span>Deployment</a>
+        </nav>
+
         <div class="chip-tabs" aria-label="Generazioni NVIDIA">
           <button type="button" class="chip-tab is-active" aria-pressed="true" data-chip="ampere"><span>2020</span><strong>Ampere</strong><small>A100</small></button>
           <button type="button" class="chip-tab" aria-pressed="false" data-chip="hopper"><span>2022</span><strong>Hopper</strong><small>H100</small></button>
@@ -36,7 +42,7 @@
           <button type="button" class="chip-tab" aria-pressed="false" data-chip="rubin"><span>2026</span><strong>Rubin</strong><small>In produzione</small></button>
         </div>
 
-        <article class="chip-lab" aria-labelledby="chip-lab-title">
+        <article class="chip-lab" id="architecture-lab" aria-labelledby="chip-lab-title">
           <header class="chip-lab-head"><div><p class="kicker" id="chip-generation">2020 · A100 80GB SXM</p><h2 id="chip-lab-title">Ampere</h2></div><p id="chip-summary">Il punto di partenza: 80 GB HBM2e, Tensor Core maturi e NVLink da 600 GB/s. Non supporta ancora FP8.</p></header>
           <div class="chip-lab-body">
             <div class="chip-bars" id="chip-bars" aria-label="Confronto normalizzato delle generazioni"></div>
@@ -51,7 +57,7 @@
           <footer class="evidence-footer"><p>Il picco tensoriale cambia precisione fra le generazioni: FP16, FP8, FP4 e NVFP4 non sono direttamente comparabili. Per questo il grafico normalizza soltanto memoria e fabric.</p><a href="https://www.nvidia.com/en-us/data-center/a100/" id="chip-source-link" target="_blank" rel="noreferrer">Scheda ufficiale ↗</a></footer>
         </article>
 
-        <section class="chip-scale" aria-labelledby="chip-scale-title">
+        <section class="chip-scale" id="production" aria-labelledby="chip-scale-title">
           <header class="chip-scale-head">
             <div>
               <p class="kicker">La corsa industriale</p>
@@ -127,7 +133,7 @@
             </div>
           </article>
 
-          <section class="deployment-story" aria-labelledby="deployment-title">
+          <section class="deployment-story" id="deployment" aria-labelledby="deployment-title">
             <header><div><p class="kicker">Deployment pubblico / non mercato totale</p><h3 id="deployment-title">Dal supercomputer al rollout globale</h3></div><p>Le disclosure non sono omogenee e fotografano momenti diversi del ramp. Non vanno sommate; mostrano però come ogni generazione arrivi più rapidamente a cluster enormi e a più operatori.</p></header>
             <div class="deployment-grid">
               <article>
