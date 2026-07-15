@@ -259,6 +259,111 @@ main { overflow: hidden; }
   letter-spacing: .06em;
 }
 
+.intro-section {
+  padding: 120px 5vw 96px;
+  border-bottom: 1px solid var(--line);
+  background: var(--paper-deep);
+}
+.intro-head {
+  display: grid;
+  grid-template-columns: 82px minmax(360px, 1fr) minmax(300px, 500px);
+  gap: 30px;
+  align-items: end;
+}
+.intro-head h2 {
+  margin: 0;
+  max-width: 900px;
+  font: 500 clamp(50px, 6.5vw, 96px)/.9 var(--serif);
+  letter-spacing: -.04em;
+}
+.intro-lede p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.65;
+}
+.intro-lede p + p {
+  margin-top: 16px;
+  color: var(--muted);
+}
+.intro-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 390px);
+  gap: 42px;
+  align-items: start;
+  margin-top: 70px;
+}
+.intro-essay {
+  columns: 2 360px;
+  column-gap: 44px;
+  max-width: 1040px;
+}
+.intro-essay p {
+  break-inside: avoid;
+  margin: 0 0 18px;
+  font-size: 16px;
+  line-height: 1.72;
+}
+.intro-essay p:nth-child(2),
+.intro-essay .intro-close {
+  font: 500 clamp(25px, 2.8vw, 39px)/1.08 var(--serif);
+  letter-spacing: -.02em;
+}
+.intro-essay .intro-close {
+  margin-top: 34px;
+  color: var(--orange);
+}
+.italy-facts {
+  display: grid;
+  gap: 0;
+  border: 1px solid var(--ink);
+  background: var(--cream);
+}
+.italy-facts article {
+  min-height: 198px;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  border-bottom: 1px solid var(--ink);
+}
+.italy-facts article:last-child { border-bottom: 0; }
+.italy-facts article:nth-child(2) { background: var(--green); color: #191915; }
+.italy-facts article:nth-child(4) { background: var(--feature-bg); color: var(--feature-text); }
+.italy-facts span {
+  font: 10px var(--mono);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+.italy-facts strong {
+  display: block;
+  margin: 36px 0 12px;
+  font: 500 clamp(31px, 3.5vw, 49px)/.94 var(--serif);
+  letter-spacing: -.035em;
+}
+.italy-facts p {
+  margin: auto 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+.italy-facts article:nth-child(2) p { color: rgba(25,25,21,.68); }
+.italy-facts article:nth-child(4) p { color: rgba(242,245,236,.68); }
+.intro-sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  align-items: center;
+  margin-top: 52px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  font: 10px var(--mono);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.intro-sources span { color: var(--muted); }
+.intro-sources a {
+  text-underline-offset: 4px;
+}
+
 .race-section { padding: 130px 5vw 150px; border-bottom: 1px solid var(--line); }
 .race-head {
   display: grid;
@@ -584,6 +689,14 @@ main { overflow: hidden; }
 @media (max-width: 900px) {
   .hero { min-height: 670px; grid-template-columns: 1fr; }
   .hero-copy { max-width: 420px; margin-top: 60px; }
+  .intro-head { grid-template-columns: 55px 1fr; }
+  .intro-lede { grid-column: 2; margin-top: 18px; }
+  .intro-body { grid-template-columns: 1fr; }
+  .intro-essay { columns: 1; max-width: 720px; }
+  .italy-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .italy-facts article:nth-child(odd) { border-right: 1px solid var(--ink); }
+  .italy-facts article:nth-child(2) { border-right: 0; }
+  .italy-facts article:nth-child(3) { border-bottom: 0; }
   .race-head { grid-template-columns: 55px 1fr; }
   .race-intro { grid-column: 2; margin-top: 18px; }
   .race-drivers { grid-template-columns: 1fr; }
@@ -629,6 +742,23 @@ main { overflow: hidden; }
   .eyebrow span:last-child { display: none; }
   .hero h1 { font-size: clamp(60px, 20vw, 96px); }
   .hero::after { width: 85vw; right: -30vw; bottom: -12%; }
+  .intro-section { padding: 84px 20px 74px; }
+  .intro-head { grid-template-columns: 1fr; }
+  .intro-lede { grid-column: 1; }
+  .intro-body { margin-top: 46px; gap: 34px; }
+  .intro-essay p { font-size: 15px; line-height: 1.68; }
+  .italy-facts { grid-template-columns: 1fr; }
+  .italy-facts article,
+  .italy-facts article:nth-child(odd),
+  .italy-facts article:nth-child(2),
+  .italy-facts article:nth-child(3) {
+    min-height: 176px;
+    border-right: 0;
+    border-bottom: 1px solid var(--ink);
+  }
+  .italy-facts article:last-child { border-bottom: 0; }
+  .italy-facts strong { margin-top: 28px; }
+  .intro-sources { align-items: flex-start; flex-direction: column; }
   .race-section { padding: 90px 20px 100px; }
   .race-head { grid-template-columns: 1fr; }
   .race-intro { grid-column: 1; }
