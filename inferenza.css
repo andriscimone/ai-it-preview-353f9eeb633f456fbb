@@ -1,12 +1,12 @@
 /* Inferenza — laboratorio editoriale. Regole isolate per non cambiare le altre pagine. */
 .inference-page {
-  --inference-blue: #1d5fd1;
+  --inference-blue: #196eca;
   --inference-blue-soft: color-mix(in srgb, var(--inference-blue) 11%, var(--paper));
   --inference-edge: color-mix(in srgb, var(--ink) 16%, transparent);
 }
 
 :root[data-theme="dark"] .inference-page {
-  --inference-blue: #4d8ff7;
+  --inference-blue: #196eca;
   --inference-blue-soft: color-mix(in srgb, var(--inference-blue) 9%, var(--paper));
   --inference-edge: color-mix(in srgb, var(--ink) 18%, transparent);
 }
