@@ -10,6 +10,8 @@ const files = [
   "algoritmi.html",
   "inferenza.html",
   "app.js",
+  "energy-visuals.js",
+  "energy.css",
   "styles.css",
   "robots.txt"
 ];

@@ -22,8 +22,9 @@
       })();
     </script>
     <link rel="stylesheet" href="styles.css?v=energia-0715" />
+    <link rel="stylesheet" href="energy.css?v=0715b" />
   </head>
-  <body class="detail-page">
+  <body class="detail-page energy-page">
     <a class="skip-link" href="#top">Salta al contenuto</a>
     <div class="noise" aria-hidden="true"></div>
     <header class="site-header">
@@ -43,6 +44,14 @@
           <div class="chapter-number">01</div>
           <div><p class="kicker">Dalla rete elettrica al cluster</p><h1 id="energy-title">La scala fisica<br />dell'AI</h1></div>
           <p class="chapter-deck">In meno di due anni siamo passati da centomila GPU interconnesse a campus da oltre un milione di H100-equivalent. Ma cluster, sito e gigawatt non sono la stessa cosa.</p>
+          <div class="energy-hero-system" aria-hidden="true">
+            <span class="energy-hero-core">ENERGIA</span>
+            <i class="energy-hero-ring energy-hero-ring-one"></i>
+            <i class="energy-hero-ring energy-hero-ring-two"></i>
+            <b class="energy-hero-node energy-hero-node-chip">CHIP</b>
+            <b class="energy-hero-node energy-hero-node-code">ALGORITMI</b>
+            <b class="energy-hero-node energy-hero-node-grid">RETE</b>
+          </div>
         </div>
 
         <section class="energy-primer" aria-labelledby="energy-primer-title">
@@ -72,14 +81,25 @@
               <p>Nel 2024 è il valore più basso tra i Paesi sopra 40.000 $ internazionali di PIL pro capite. Non è una soglia naturale: è ciò che mostra il campione.</p>
             </div>
           </header>
-          <div class="gdp-energy-frame">
-            <iframe
-              src="https://ourworldindata.org/grapher/energy-use-per-person-vs-gdp-per-capita?tab=chart&amp;time=2024"
-              title="Consumo di energia primaria per persona rispetto al PIL pro capite nel 2024"
-            ></iframe>
+          <div class="gdp-energy-frame" id="gdp-energy-frame">
+            <div class="gdp-chart-controls" aria-label="Metti in evidenza un Paese">
+              <span>Segui un Paese</span>
+              <button type="button" class="is-active" aria-pressed="true" data-gdp-country="ITA">Italia</button>
+              <button type="button" aria-pressed="false" data-gdp-country="USA">USA</button>
+              <button type="button" aria-pressed="false" data-gdp-country="CHN">Cina</button>
+              <button type="button" aria-pressed="false" data-gdp-country="IND">India</button>
+              <button type="button" aria-pressed="false" data-gdp-country="NOR">Norvegia</button>
+            </div>
+            <svg id="gdp-energy-chart" viewBox="0 0 1120 620" role="img" aria-labelledby="gdp-svg-title gdp-svg-desc">
+              <title id="gdp-svg-title">Energia primaria per persona e PIL pro capite nel 2024</title>
+              <desc id="gdp-svg-desc">Ogni punto rappresenta un Paese. Il grafico mostra una relazione positiva: i Paesi più ricchi tendono a usare più energia per persona.</desc>
+            </svg>
+            <div class="gdp-chart-tooltip" id="gdp-chart-tooltip" role="status" hidden></div>
+            <p class="gdp-country-detail" id="gdp-country-detail" aria-live="polite">Caricamento dei dati…</p>
+            <noscript><p class="gdp-chart-fallback">Attiva JavaScript per esplorare il grafico, oppure apri i dati originali dalla fonte.</p></noscript>
           </div>
           <footer class="gdp-energy-foot">
-            <p>Assi logaritmici · energia primaria in kWh per persona · PIL pro capite a parità di potere d'acquisto, prezzi internazionali 2021. Passa sui punti per leggere i Paesi.</p>
+            <p>Assi logaritmici · energia primaria in kWh per persona · PIL pro capite a parità di potere d'acquisto, prezzi internazionali 2021. Tocca o passa sui punti per leggere i Paesi.</p>
             <a href="https://ourworldindata.org/grapher/energy-use-per-person-vs-gdp-per-capita?tab=chart&amp;time=2024" target="_blank" rel="noreferrer">Apri dati e metodo ↗</a>
           </footer>
         </article>
@@ -236,5 +256,6 @@
     </main>
     <footer class="site-footer"><span>AI.it</span><span>Energia · 01</span></footer>
     <script src="app.js"></script>
+    <script src="energy-visuals.js?v=0715b"></script>
   </body>
 </html>
