@@ -7,3 +7,5 @@ mistral-curve.webp
 .next/
 node_modules/
 public/
+out/
+dist/
