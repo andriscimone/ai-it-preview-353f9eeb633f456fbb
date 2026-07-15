@@ -7,7 +7,7 @@
     <meta property="og:title" content="Inferenza — AI.it" /><meta property="og:description" content="Responsiveness e throughput sulla stessa curva." /><meta property="og:type" content="website" /><meta property="og:locale" content="it_IT" />
     <meta id="theme-color" name="theme-color" content="#f2f0e8" /><link rel="icon" href="data:," /><title>Inferenza — AI.it</title>
     <script>(() => { try { const saved = localStorage.getItem("aiit-theme"); const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dataset.theme = saved || preferred; } catch (_) { document.documentElement.dataset.theme = "light"; } })();</script>
-    <link rel="stylesheet" href="styles.css?v=a5e64cf" />
+    <link rel="stylesheet" href="styles.css?v=inference-economics" />
   </head>
   <body class="detail-page">
     <a class="skip-link" href="#top">Salta al contenuto</a><div class="noise" aria-hidden="true"></div>
@@ -45,11 +45,33 @@
           <footer class="chart-footer"><p id="chart-note">Stesso modello, stesso input e stesso output. Le curve sono ricostruite dalla Figura 38 di NVIDIA: i valori intermedi sono stime.</p><button class="method-button" type="button" id="method-open" aria-expanded="false" aria-controls="method-panel">Come abbiamo fatto i conti <span aria-hidden="true">↗</span></button></footer>
         </article>
 
-        <div class="takeaway-grid" id="takeaway-grid">
-          <article><span class="takeaway-index">01 — Guarda a destra</span><h2>Qui senti la velocità.</h2><p>I token al secondo per utente sono il ritmo della risposta. Intorno a 50 si legge bene; sopra 200 sembra quasi istantanea.</p></article>
-          <article><span class="takeaway-index">02 — Guarda in alto</span><h2>Qui vedi quanto rende.</h2><p>I token al secondo per megawatt dicono quanta inferenza puoi produrre quando l'energia è il vero limite.</p></article>
-          <article><span class="takeaway-index">03 — Guarda la curva</span><h2>Il record singolo non basta.</h2><p>Una nuova architettura conta davvero quando sposta tutta la frontiera, non solo quando vince un benchmark scelto bene.</p></article>
-        </div>
+        <section class="inference-economics" aria-labelledby="economics-title">
+          <header class="economics-head">
+            <p class="kicker">Perché il grafico interattivo conta</p>
+            <h2 id="economics-title">La velocità ha un costo.<br />La curva mostra quanto.</h2>
+            <p>Un record di token al secondo, da solo, non dice quanto costa servire quella risposta a milioni di utenti. Il cursore tiene ferma la velocità percepita e confronta quanti token l'intero sistema riesce a distribuire con lo stesso megawatt.</p>
+          </header>
+
+          <div class="economics-body">
+            <div class="economics-copy">
+              <p class="economics-lede">A <strong>400 token/s per utente</strong>, NVIDIA stima che Vera Rubin NVL72 insieme a Groq 3 LPX produca fino a <strong>35× più token per megawatt</strong> di GB200 Blackwell NVL72. A parità di velocità, l'inverso della produttività energetica equivale a circa <strong>1/35 dell'energia per token</strong>: quasi il 97% in meno.</p>
+              <div class="economics-equation" aria-label="A parità di velocità, trentacinque volte più token per megawatt implica circa un trentacinquesimo dell'energia per token">
+                <span>Stessa velocità</span><strong>35× token / MW</strong><i aria-hidden="true">→</i><strong>≈ −97% energia / token</strong>
+              </div>
+              <p>Questo non significa automaticamente “35× meno costo totale”: hardware, raffreddamento, rete, memoria e utilizzo restano fuori dal rapporto. Il claim più ampio di NVIDIA per Vera Rubin è fino a <strong>un decimo del costo per token</strong> rispetto a Blackwell; è una proiezione del produttore, non ancora un benchmark indipendente.</p>
+              <p class="economics-caveat"><strong>Attenzione ai dollari nell'immagine.</strong> Il salto da <b>$3</b> a <b>$150 per milione di token</b> è 50×, ma rappresenta prezzi ipotetici di servizi diversi — modelli, contesti e velocità diversi — non il costo misurato per distribuire lo stesso token. È proprio questa distinzione che il grafico interattivo rende visibile: bisogna confrontare lo stesso punto operativo.</p>
+              <p class="economics-update"><span>Aggiornamento · 31 maggio 2026</span>NVIDIA dichiara Vera Rubin in avvio della piena produzione; le prime spedizioni sono previste dall'autunno. Le curve LPX restano “projected performance subject to change”.</p>
+            </div>
+
+            <figure class="economics-figure" id="economics-figure">
+              <div class="economics-figure-media">
+                <span class="economics-figure-stamp">Claim del produttore · dati proiettati</span>
+                <img src="assets/rubin-lpx-inference-economics.png" loading="lazy" decoding="async" alt="Grafico NVIDIA: throughput per megawatt in funzione dei token al secondo per utente per Blackwell, Rubin e Rubin con Groq 3 LPX." />
+              </div>
+              <figcaption><span>Figura del produttore, riquadrata come documento e non come annuncio.</span><a href="https://developer.nvidia.com/blog/inside-nvidia-groq-3-lpx-the-low-latency-inference-accelerator-for-the-nvidia-vera-rubin-platform" target="_blank" rel="noreferrer">Apri la fonte e le ipotesi ↗</a></figcaption>
+            </figure>
+          </div>
+        </section>
       </section>
 
       <section class="sources compact-sources" aria-labelledby="sources-title">
@@ -58,6 +80,8 @@
           <li><a href="https://developer.nvidia.com/blog/inside-the-nvidia-rubin-platform-six-new-chips-one-ai-supercomputer/" target="_blank" rel="noreferrer">NVIDIA · Dentro Vera Rubin</a><span>Curva Kimi K2 Thinking, Figura 38.</span></li>
           <li><a href="https://www.nvidia.com/en-us/data-center/gb300-nvl72/" target="_blank" rel="noreferrer">NVIDIA · GB300 NVL72</a><span>Curva pubblica su DeepSeek R1: Hopper contro Blackwell Ultra.</span></li>
           <li><a href="https://developer.nvidia.com/blog/nvidia-accelerated-mistral-3-open-models-deliver-efficiency-accuracy-at-any-scale/" target="_blank" rel="noreferrer">NVIDIA · Mistral 3 open models</a><span>Curva pubblica Mistral Large 3, NVFP4, input 8K / output 1K.</span></li>
+          <li><a href="https://developer.nvidia.com/blog/inside-nvidia-groq-3-lpx-the-low-latency-inference-accelerator-for-the-nvidia-vera-rubin-platform" target="_blank" rel="noreferrer">NVIDIA · Vera Rubin + Groq 3 LPX</a><span>Frontiera a 400 TPS/utente, throughput per MW e ipotesi sui prezzi per tier.</span></li>
+          <li><a href="https://nvidianews.nvidia.com/news/vera-rubin-full-production-agentic-ai-factory" target="_blank" rel="noreferrer">NVIDIA Newsroom · Produzione Vera Rubin</a><span>Aggiornamento del 31 maggio 2026 e disponibilità prevista dall'autunno.</span></li>
           <li><a href="https://situational-awareness.ai/from-gpt-4-to-agi/" target="_blank" rel="noreferrer">Leopold Aschenbrenner · Counting the OOMs</a><span>Compute, efficienza algoritmica e scenario pubblicato nel 2024.</span></li>
         </ol>
         <p class="source-boundary">Le curve di inferenza sono digitalizzate dai grafici dei produttori e quindi approssimative. I claim NVIDIA restano dichiarazioni del produttore.</p>
