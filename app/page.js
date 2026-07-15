@@ -1,8 +1,8 @@
 export default function Home() {
   return (
     <main>
-      <meta httpEquiv="refresh" content="0; url=/chip.html" />
-      <a href="/chip.html">Apri il capitolo Chips</a>
+      <meta httpEquiv="refresh" content="0; url=/index.html" />
+      <a href="/index.html">Apri la homepage di AI.it</a>
     </main>
   );
 }

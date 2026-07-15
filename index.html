@@ -6,7 +6,7 @@
     <meta name="description" content="AI.it spiega la corsa all'intelligenza artificiale attraverso energia, chip, algoritmi e inferenza." />
     <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
     <meta property="og:title" content="AI.it — Capire la corsa all'intelligenza artificiale" />
-    <meta property="og:description" content="Quattro percorsi per capire energia, chip, algoritmi e inferenza." />
+    <meta property="og:description" content="Quattro percorsi visuali per capire energia, chip, algoritmi e inferenza." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="it_IT" />
     <meta name="twitter:card" content="summary" />
@@ -24,25 +24,26 @@
         }
       })();
     </script>
-    <link rel="stylesheet" href="styles.css?v=a5e64cf" />
+    <link rel="stylesheet" href="styles.css?v=home-b2" />
   </head>
   <body class="home-page">
-    <a class="skip-link" href="#top">Salta al contenuto</a>
+    <a class="skip-link" href="#contenuto">Salta al contenuto</a>
     <div class="noise" aria-hidden="true"></div>
-    <header class="site-header">
+
+    <header class="site-header home-header">
       <a class="brand" href="index.html" aria-label="AI.it, homepage">
         <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
         <span>AI.it</span>
       </a>
       <div class="header-actions">
-        <div class="issue-label"><span>Osservatorio</span><strong>01 / La corsa</strong></div>
+        <div class="issue-label"><span>Osservatorio indipendente</span><strong>01 / La corsa</strong></div>
         <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false">
           <span class="theme-toggle-icon" aria-hidden="true">◐</span>
           <span id="theme-toggle-label">Scuro</span>
         </button>
       </div>
     </header>
-    <nav class="section-nav" aria-label="Sezioni del sito">
+    <nav class="section-nav home-nav" aria-label="Sezioni del sito">
       <a href="index.html" aria-current="page">Home</a>
       <a href="energia.html">Energia</a>
       <a href="chip.html">Chips</a>
@@ -50,122 +51,163 @@
       <a href="inferenza.html">Inferenza</a>
     </nav>
 
-    <main id="top">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="eyebrow"><span>Capire l'intelligenza artificiale, senza fumo</span><span>Luglio 2026</span></div>
-        <h1 id="hero-title"><span>L'AI sta</span><em>scalando.</em></h1>
-        <div class="hero-copy">
-          <p>Modelli più capaci, data center più grandi, risposte più veloci. Non è una singola invenzione: è una corsa industriale tra energia, chip e algoritmi.</p>
-          <a href="#premessa" class="text-link">Parti dalla premessa <span aria-hidden="true">↓</span></a>
+    <main id="contenuto">
+      <section class="home-hero" aria-labelledby="hero-title">
+        <div class="home-hero-copy" data-reveal>
+          <div class="home-hero-meta">
+            <span>Un atlante visuale dell'AI</span>
+            <span>Edizione 01 · 2026</span>
+          </div>
+          <p class="home-hero-kicker">Capire la macchina dietro la magia</p>
+          <h1 id="hero-title">L'AI sta<br /><em>cambiando scala.</em></h1>
+          <p class="home-hero-deck">Non è una singola invenzione. È un sistema industriale in cui energia, chip, algoritmi e velocità di risposta si spingono a vicenda.</p>
+          <div class="home-hero-actions">
+            <a class="home-primary-action" href="energia.html">Inizia il viaggio <span aria-hidden="true">↗</span></a>
+            <a class="home-secondary-action" href="#mappa">Guarda la mappa <span aria-hidden="true">↓</span></a>
+          </div>
+          <p class="home-byline">Un progetto di Andrea, che impara in pubblico e prova a rendere l'AI leggibile anche a chi non lavora nel settore.</p>
+        </div>
+
+        <div class="home-system" aria-label="Mappa dei quattro fattori che fanno scalare l'intelligenza artificiale" data-reveal>
+          <div class="system-topline"><span>Il sistema</span><span class="system-live"><i aria-hidden="true"></i> in movimento</span></div>
+          <div class="system-orbit">
+            <svg viewBox="0 0 620 620" role="img" aria-labelledby="system-title system-desc">
+              <title id="system-title">I quattro motori dell'AI</title>
+              <desc id="system-desc">Energia, chip, algoritmi e inferenza convergono nel sistema AI e si influenzano reciprocamente.</desc>
+              <circle class="orbit-ring orbit-ring-outer" cx="310" cy="310" r="245" />
+              <circle class="orbit-ring orbit-ring-inner" cx="310" cy="310" r="150" />
+              <path class="orbit-path" d="M310 65 C420 90 530 195 555 310 C530 430 430 530 310 555 C190 530 90 430 65 310 C90 190 190 90 310 65Z" />
+              <path class="orbit-cross" d="M310 65V555M65 310H555" />
+              <g class="system-core">
+                <circle cx="310" cy="310" r="88" />
+                <text x="310" y="296">SISTEMA</text>
+                <text class="system-core-main" x="310" y="340">AI</text>
+              </g>
+              <circle class="orbit-pulse pulse-one" cx="310" cy="65" r="7" />
+              <circle class="orbit-pulse pulse-two" cx="555" cy="310" r="7" />
+              <circle class="orbit-pulse pulse-three" cx="310" cy="555" r="7" />
+              <circle class="orbit-pulse pulse-four" cx="65" cy="310" r="7" />
+            </svg>
+            <a class="system-node system-node-energy" href="energia.html"><small>01</small><strong>Energia</strong><span>alimenta</span></a>
+            <a class="system-node system-node-chip" href="chip.html"><small>02</small><strong>Chip</strong><span>calcolano</span></a>
+            <a class="system-node system-node-algorithms" href="algoritmi.html"><small>03</small><strong>Algoritmi</strong><span>moltiplicano</span></a>
+            <a class="system-node system-node-inference" href="inferenza.html"><small>04</small><strong>Inferenza</strong><span>consegna</span></a>
+          </div>
+          <div class="system-caption"><span>Quattro capitoli</span><p>Un'unica domanda: da dove arriva il progresso?</p></div>
+        </div>
+
+        <div class="home-signal-strip" aria-label="Principi editoriali">
+          <span>01 · Dati prima delle opinioni</span>
+          <span>02 · Stime dichiarate</span>
+          <span>03 · Interazioni che spiegano</span>
+          <span>04 · Zero fumo</span>
         </div>
       </section>
 
-      <section class="intro-section" id="premessa" aria-labelledby="intro-title">
-        <div class="intro-head">
-          <div class="chapter-number">00</div>
-          <div>
-            <p class="kicker">Per chi pensa che sia solo hype</p>
-            <h2 id="intro-title">Non è un gadget.<br />È produttività.</h2>
-          </div>
-          <div class="intro-lede">
-            <p>Questa premessa è per chi ha sempre visto l'AI come l'ennesima moda: immagini buffe, chatbot, piccoli trucchi utili ogni tanto e poco altro.</p>
-            <p>Il punto vero è diverso: l'AI inizia a toccare il lavoro cognitivo, cioè il modo in cui trasformiamo informazione in valore economico.</p>
-          </div>
+      <section class="home-premise" id="premessa" aria-labelledby="premise-title">
+        <div class="premise-marker" aria-hidden="true"><span>00</span><i></i></div>
+        <div class="premise-title" data-reveal>
+          <p class="kicker">La premessa</p>
+          <h2 id="premise-title">Non è un gadget.<br /><em>È produttività.</em></h2>
         </div>
+        <div class="premise-copy" data-reveal>
+          <p class="premise-lede">La superficie sono chatbot, immagini e piccoli trucchi. La trasformazione più importante è sotto: sistemi che iniziano a svolgere parti del lavoro cognitivo.</p>
+          <p>Per l'Italia questo significa capire se l'AI può aiutare persone, imprese e pubblica amministrazione a produrre più valore, proprio mentre demografia e crescita mettono il Paese sotto pressione.</p>
+          <details class="home-manifesto">
+            <summary><span>Leggi la premessa completa</span><i aria-hidden="true">+</i></summary>
+            <div class="manifesto-body">
+              <p>Negli ultimi anni molti hanno guardato l'intelligenza artificiale come l'ennesima moda di internet: un generatore di immagini, un chatbot che scrive email, un piccolo jackpot tecnologico buono per fare due trucchi e poi tornare alla vita normale.</p>
+              <p>Questo è probabilmente il più grande errore di lettura del nostro tempo.</p>
+              <p>L'AI non è interessante soltanto perché può scrivere una poesia, riassumere un PDF o creare una foto finta. Quella è la superficie. La parte importante è che stiamo iniziando a costruire sistemi capaci di leggere, scrivere, programmare, analizzare dati, progettare, cercare soluzioni e assistere decisioni.</p>
+              <p>Per un Paese come l'Italia non è un tema da nerd. È un tema di stipendi, sanità, pensioni, imprese e futuro dei figli. La popolazione invecchia, i giovani sono meno numerosi e chi lavora dovrà sostenere un peso crescente.</p>
+              <p>Le opzioni sono difficili: aumentare le entrate, ridurre le prestazioni, lavorare più a lungo, attrarre lavoratori oppure produrre più valore con meno persone. L'intelligenza artificiale entra qui.</p>
+              <p>Non perché sia una bacchetta magica, né perché ogni azienda debba diventare una startup. Entra perché, se usata bene, può aumentare la produttività di persone, uffici, imprese e pubblica amministrazione.</p>
+              <p>Può aiutare una PMI a gestire clienti e magazzino, automatizzare preventivi, fare formazione interna e ridurre errori ripetitivi. Può far lavorare meglio chi già lavora.</p>
+              <p>Il punto non è «ti piace ChatGPT?». Il punto è cosa succede a un Paese che tratta l'AI come un giocattolo mentre altri la usano per produrre di più, decidere più velocemente e creare nuove imprese.</p>
+              <p>L'Italia non deve essere ingenuamente pro-AI. Deve capire dove la tecnologia crea valore, dove crea rischio, dove sostituisce lavoro, dove lo potenzia e dove serve regolazione.</p>
+              <p class="manifesto-close">Il vero pericolo non è che tutti inizino a usare l'AI. È che la usino solo gli altri.</p>
+            </div>
+          </details>
+        </div>
+      </section>
 
-        <div class="intro-body">
-          <article class="intro-essay">
-            <p>Negli ultimi anni molti hanno guardato l'intelligenza artificiale come l'ennesima moda di internet: un generatore di immagini buffe, un chatbot che scrive email, uno strumento per studenti pigri, un piccolo jackpot tecnologico buono per fare due trucchi e poi tornare alla vita normale.</p>
-            <p>Questo è probabilmente il più grande errore di lettura del nostro tempo.</p>
-            <p>L'AI non è interessante perché oggi può scrivere una poesia, riassumere un PDF o creare una foto finta. Quella è la superficie. La parte importante è che stiamo iniziando a costruire sistemi capaci di fare lavoro cognitivo: leggere, scrivere, programmare, analizzare dati, progettare, cercare soluzioni, automatizzare processi, assistere decisioni.</p>
-            <p>Per un Paese come l'Italia, questo non è un tema da nerd. È un tema da pensioni, stipendi, sanità, tasse, imprese, futuro dei figli.</p>
-            <p>Il nostro problema non è solo che "l'economia cresce poco". Il problema è che l'Italia sta entrando in una fase demografica durissima. La generazione dei baby boomer sta andando in pensione. La popolazione anziana cresce, i giovani sono meno numerosi, e chi lavora dovrà sostenere un peso sempre più grande.</p>
-            <p>Il sistema pensionistico italiano si regge in larga parte su un patto implicito: chi lavora oggi finanzia chi è in pensione oggi. Ma se i pensionati aumentano e i lavoratori non aumentano abbastanza, quel patto diventa sempre più pesante. Non è una questione ideologica. È aritmetica.</p>
-            <p>A quel punto le scelte diventano brutali: alzare le tasse, tagliare le prestazioni, aumentare il debito, lavorare più a lungo, importare lavoratori, oppure produrre molto più valore con meno persone.</p>
-            <p>L'intelligenza artificiale entra qui.</p>
-            <p>Non perché sia una bacchetta magica. Non perché risolva automaticamente i problemi italiani. E non perché ogni azienda debba diventare una startup di San Francisco. Entra perché, se usata bene, può aumentare la produttività di persone, uffici, imprese e pubblica amministrazione.</p>
-            <p>Può far fare a un piccolo studio professionale il lavoro che prima richiedeva un team più grande. Può aiutare una PMI a esportare, automatizzare preventivi, gestire clienti, analizzare magazzini, scrivere codice, fare formazione interna. Può ridurre sprechi burocratici, tempi morti, errori ripetitivi. Può far lavorare meglio chi già lavora.</p>
-            <p>E in un Paese vecchio, indebitato e a bassa crescita, la produttività non è una parola da economisti. È la differenza tra restare a galla e farsi schiacciare.</p>
-            <p>Il punto, quindi, non è "ti piace o non ti piace ChatGPT?". Il punto è: se il resto del mondo usa l'AI per produrre di più, decidere più velocemente, fare ricerca, tagliare costi, creare nuove imprese e aumentare il valore del lavoro umano, cosa succede a un Paese che la tratta come un giocattolo, una minaccia o una perdita di tempo?</p>
-            <p>Succede che resta indietro.</p>
-            <p>Restare indietro, per l'Italia, non significa solo avere meno app fighe. Significa avere meno crescita, meno salari reali, meno margine fiscale, meno capacità di pagare pensioni e sanità, meno potere contrattuale nel mondo.</p>
-            <p>Questo è il punto da capire: l'AI non va presa sul serio perché è simpatica. Va presa sul serio perché il nostro modello economico è già sotto pressione, e l'arrivo di una tecnologia capace di automatizzare pezzi crescenti del lavoro intellettuale può allargare il divario tra chi la adotta e chi la subisce.</p>
-            <p>L'Italia non deve diventare ingenuamente "pro AI" a prescindere. Deve diventare adulta. Deve capire dove l'AI crea valore, dove crea rischio, dove sostituisce lavoro, dove lo potenzia, dove serve regolazione e dove invece la burocrazia rischia di impedirci di usarla proprio mentre ne avremmo più bisogno.</p>
-            <p class="intro-close">Il vero pericolo non è che tutti inizino a usare l'AI. Il vero pericolo è che la usino solo gli altri.</p>
+      <section class="home-evidence" aria-labelledby="evidence-title">
+        <div class="evidence-intro" data-reveal>
+          <p class="kicker">Perché riguarda l'Italia</p>
+          <h2 id="evidence-title">La pressione è già visibile.</h2>
+          <p>Questi dati non dimostrano che l'AI risolverà il problema. Spiegano perché la produttività conta.</p>
+        </div>
+        <div class="evidence-grid">
+          <article class="evidence-card evidence-card-feature" data-reveal>
+            <span class="evidence-index">01 / Demografia</span>
+            <strong>24,3%</strong>
+            <h3>Over 65 oggi</h3>
+            <p>ISTAT proietta il 34,6% nel 2050. La popolazione attiva scenderebbe dal 63,5% al 54,3%.</p>
+            <a href="https://www.istat.it/wp-content/uploads/2025/07/Report_Population-and-household-projections_Base-112024.pdf" target="_blank" rel="noreferrer">Fonte ISTAT <span aria-hidden="true">↗</span></a>
           </article>
-
-          <aside class="italy-facts" aria-label="Dati Italia">
-            <article>
-              <span>Over 65</span>
-              <strong>24,3% oggi</strong>
-              <p>ISTAT proietta il 34,6% nel 2050. La popolazione attiva scenderebbe dal 63,5% al 54,3%.</p>
-            </article>
-            <article>
-              <span>Dipendenza anziani</span>
-              <strong>39,0%</strong>
-              <p>Nel 2025 Eurostat colloca l'Italia al livello più alto dell'UE: meno di tre persone in età lavorativa per ogni over 65.</p>
-            </article>
-            <article>
-              <span>Pensioni pubbliche</span>
-              <strong>circa 16% PIL</strong>
-              <p>Secondo l'OCSE, l'Italia è seconda solo alla Grecia nell'area OECD per spesa pensionistica pubblica.</p>
-            </article>
-            <article>
-              <span>Crescita 2026</span>
-              <strong>0,5%</strong>
-              <p>La fotografia OECD è crescita debole, produttività lenta e adozione AI ancora bassa nelle imprese piccole.</p>
-            </article>
-          </aside>
-        </div>
-
-        <div class="intro-sources">
-          <span>Fonti principali</span>
-          <a href="https://www.istat.it/wp-content/uploads/2025/07/Report_Population-and-household-projections_Base-112024.pdf" target="_blank" rel="noreferrer">ISTAT demografia</a>
-          <a href="https://ec.europa.eu/eurostat/statistics-explained/index.php?etrans=pt&amp;title=Population_structure_and_ageing" target="_blank" rel="noreferrer">Eurostat ageing</a>
-          <a href="https://www.oecd.org/en/publications/pensions-at-a-glance-2025-country-notes_8a53ef12-en/italy_3dd0d4fa-en.html" target="_blank" rel="noreferrer">OECD pensioni</a>
-          <a href="https://www.oecd.org/en/topics/sub-issues/economic-surveys/italy-economic-snapshot.html" target="_blank" rel="noreferrer">OECD crescita</a>
+          <article class="evidence-card" data-reveal>
+            <span class="evidence-index">02 / Lavoro</span>
+            <strong>39,0%</strong>
+            <h3>Dipendenza anziani</h3>
+            <p>Nel 2025 Eurostat colloca l'Italia al livello più alto dell'UE: meno di tre persone in età lavorativa per ogni over 65.</p>
+            <a href="https://ec.europa.eu/eurostat/statistics-explained/index.php?etrans=pt&amp;title=Population_structure_and_ageing" target="_blank" rel="noreferrer">Fonte Eurostat <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="evidence-card" data-reveal>
+            <span class="evidence-index">03 / Welfare</span>
+            <strong>≈ 16%</strong>
+            <h3>Pensioni / PIL</h3>
+            <p>Secondo l'OCSE, l'Italia è seconda solo alla Grecia nell'area OECD per spesa pensionistica pubblica.</p>
+            <a href="https://www.oecd.org/en/publications/pensions-at-a-glance-2025-country-notes_8a53ef12-en/italy_3dd0d4fa-en.html" target="_blank" rel="noreferrer">Fonte OECD <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="evidence-card evidence-card-dark" data-reveal>
+            <span class="evidence-index">04 / Economia</span>
+            <strong>0,5%</strong>
+            <h3>Crescita 2026</h3>
+            <p>La fotografia OECD è di crescita debole, produttività lenta e adozione AI ancora bassa nelle imprese piccole.</p>
+            <a href="https://www.oecd.org/en/topics/sub-issues/economic-surveys/italy-economic-snapshot.html" target="_blank" rel="noreferrer">Fonte OECD <span aria-hidden="true">↗</span></a>
+          </article>
         </div>
       </section>
 
-      <section class="race-section route-section" id="percorsi" aria-labelledby="routes-title">
-        <div class="race-head">
-          <div class="chapter-number">00</div>
-          <div>
-            <p class="kicker">Quattro capitoli, quattro pagine</p>
-            <h2 id="routes-title">Esplora senza<br />perderti.</h2>
-          </div>
-          <div class="race-intro">
-            <p>Ogni tema vive ora in una pagina dedicata. Puoi entrare direttamente nel capitolo che ti interessa e tornare qui in qualsiasi momento.</p>
-            <p>I dati e le interazioni non sono stati ridotti: è cambiata soltanto l'architettura del sito.</p>
-          </div>
-        </div>
+      <section class="home-routes" id="mappa" aria-labelledby="routes-title">
+        <header class="routes-header" data-reveal>
+          <div><span class="routes-count">04</span><p class="kicker">Capitoli interattivi</p></div>
+          <h2 id="routes-title">Segui la corsa,<br /><em>pezzo per pezzo.</em></h2>
+          <p>Puoi leggerli in ordine oppure entrare dal tema che ti interessa. Ogni capitolo separa dati osservati, stime e dichiarazioni dei produttori.</p>
+        </header>
 
-        <div class="route-grid" aria-label="Capitoli di AI.it">
-          <a class="route-card route-card-energy" href="energia.html">
-            <span class="driver-index">01</span>
-            <div><span class="kicker">Rete → data center → token</span><h3>Energia</h3><p>Cluster, siti in H100-equivalent e gigawatt: grandezze diverse, spiegate senza mescolarle.</p></div>
-            <strong>Apri il capitolo <span aria-hidden="true">→</span></strong>
+        <div class="home-route-list">
+          <a class="home-route home-route-energy" href="energia.html" data-reveal>
+            <div class="route-copy"><span class="route-number">01</span><p class="kicker">La base fisica</p><h3>Energia</h3><p>Dal gigawatt ai token: distingui rete, sito e cluster senza confondere le scale.</p></div>
+            <div class="route-visual route-energy-visual" aria-hidden="true"><i></i><i></i><i></i><i></i><b></b></div>
+            <span class="route-open">Apri il capitolo <b aria-hidden="true">↗</b></span>
           </a>
-          <a class="route-card" href="chip.html">
-            <span class="driver-index">02</span>
-            <div><span class="kicker">Ampere → Rubin</span><h3>Chips</h3><p>Memoria, banda HBM, interconnessione e precisione attraverso quattro generazioni NVIDIA.</p></div>
-            <strong>Apri il capitolo <span aria-hidden="true">→</span></strong>
+          <a class="home-route home-route-chip" href="chip.html" data-reveal>
+            <div class="route-copy"><span class="route-number">02</span><p class="kicker">Il motore di calcolo</p><h3>Chips</h3><p>Memoria, banda e interconnessione attraverso quattro generazioni NVIDIA.</p></div>
+            <div class="route-visual route-chip-visual" aria-hidden="true"><span></span><span></span><span></span><span></span><i></i></div>
+            <span class="route-open">Apri il capitolo <b aria-hidden="true">↗</b></span>
           </a>
-          <a class="route-card" href="algoritmi.html">
-            <span class="driver-index">03</span>
-            <div><span class="kicker">Intelligenza per compute</span><h3>Algoritmi</h3><p>Quanto rapidamente diminuisce il calcolo necessario per raggiungere lo stesso obiettivo.</p></div>
-            <strong>Apri il capitolo <span aria-hidden="true">→</span></strong>
+          <a class="home-route home-route-algorithms" href="algoritmi.html" data-reveal>
+            <div class="route-copy"><span class="route-number">03</span><p class="kicker">L'efficienza invisibile</p><h3>Algoritmi</h3><p>Quanto cala il calcolo necessario per raggiungere lo stesso risultato.</p></div>
+            <div class="route-visual route-algorithm-visual" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+            <span class="route-open">Apri il capitolo <b aria-hidden="true">↗</b></span>
           </a>
-          <a class="route-card" href="inferenza.html">
-            <span class="driver-index">04</span>
-            <div><span class="kicker">Responsiveness × throughput</span><h3>Inferenza</h3><p>Curve interattive per confrontare velocità percepita e token prodotti per megawatt.</p></div>
-            <strong>Apri il capitolo <span aria-hidden="true">→</span></strong>
+          <a class="home-route home-route-inference" href="inferenza.html" data-reveal>
+            <div class="route-copy"><span class="route-number">04</span><p class="kicker">La risposta che percepisci</p><h3>Inferenza</h3><p>Velocità per utente e capacità del sistema, confrontate sulla stessa frontiera.</p></div>
+            <div class="route-visual route-inference-visual" aria-hidden="true"><svg viewBox="0 0 300 150"><path d="M5 130 C45 125 54 75 94 92 S140 116 166 58 S224 86 295 18" /><circle cx="94" cy="92" r="5" /><circle cx="166" cy="58" r="5" /><circle cx="295" cy="18" r="5" /></svg></div>
+            <span class="route-open">Apri il capitolo <b aria-hidden="true">↗</b></span>
           </a>
         </div>
+      </section>
+
+      <section class="home-closing" aria-labelledby="closing-title">
+        <p class="kicker">La tesi del progetto</p>
+        <h2 id="closing-title">Per capire l'AI non basta guardare il modello.</h2>
+        <div><p>Bisogna seguire l'intero sistema: la corrente che entra, il silicio che calcola, il software che migliora e i token che arrivano all'utente.</p><a href="energia.html">Comincia dall'energia <span aria-hidden="true">→</span></a></div>
       </section>
     </main>
 
-    <footer class="site-footer"><span>AI.it</span><span>Prototipo editoriale · 2026</span></footer>
+    <footer class="site-footer home-footer"><span>AI.it</span><span>Imparare in pubblico · 2026</span><a href="#contenuto">Torna su ↑</a></footer>
     <script src="app.js"></script>
   </body>
 </html>

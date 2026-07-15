@@ -829,3 +829,16 @@ if (svg) setScene("rubin");
 if (energySvg) renderEnergy();
 if (document.getElementById("chip-bars")) renderChip();
 if (algorithmRange) renderAlgorithm();
+
+const homeRevealItems = [...document.querySelectorAll(".home-page [data-reveal]")];
+if (homeRevealItems.length && "IntersectionObserver" in window) {
+  document.body.classList.add("reveal-ready");
+  const homeRevealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-visible");
+      homeRevealObserver.unobserve(entry.target);
+    });
+  }, { rootMargin: "0px 0px -8%", threshold: 0.08 });
+  homeRevealItems.forEach(item => homeRevealObserver.observe(item));
+}

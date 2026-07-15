@@ -57,6 +57,6 @@ const routes = Object.fromEntries(routeFiles.map(file => {
 
 const worker = `const routes=${JSON.stringify(routes)};
 function decode(value){const binary=atob(value);const bytes=new Uint8Array(binary.length);for(let i=0;i<binary.length;i++)bytes[i]=binary.charCodeAt(i);return bytes;}
-export default {async fetch(request){const url=new URL(request.url);if(url.pathname==="/")return Response.redirect(new URL("/chip.html",url),302);let path=decodeURIComponent(url.pathname);if(!routes[path]&&!path.includes("."))path+=".html";const asset=routes[path];if(!asset)return new Response("Not found",{status:404});const mutable=asset.type.startsWith("text/html")||asset.type.startsWith("text/css")||asset.type.startsWith("text/javascript");return new Response(decode(asset.body),{headers:{"content-type":asset.type,"cache-control":mutable?"no-cache":"public, max-age=31536000, immutable"}});}};`;
+export default {async fetch(request){const url=new URL(request.url);if(url.pathname==="/")return Response.redirect(new URL("/index.html",url),302);let path=decodeURIComponent(url.pathname);if(!routes[path]&&!path.includes("."))path+=".html";const asset=routes[path];if(!asset)return new Response("Not found",{status:404});const mutable=asset.type.startsWith("text/html")||asset.type.startsWith("text/css")||asset.type.startsWith("text/javascript");return new Response(decode(asset.body),{headers:{"content-type":asset.type,"cache-control":mutable?"no-cache":"public, max-age=31536000, immutable"}});}};`;
 
 writeFileSync(join(target, "server", "index.js"), worker);
