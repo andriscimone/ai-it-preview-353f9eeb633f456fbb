@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Ampere, Hopper, Blackwell e Rubin a confronto su memoria, banda e interconnessione." />
+    <meta name="description" content="Ampere, Hopper, Blackwell e Rubin a confronto: architettura, costo, potenza, produzione e deployment." />
     <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
-    <meta property="og:title" content="Chips — AI.it" /><meta property="og:description" content="Quattro salti di architettura per l'AI." /><meta property="og:type" content="website" /><meta property="og:locale" content="it_IT" />
+    <meta property="og:title" content="Chips — AI.it" /><meta property="og:description" content="GPU sempre più costose ed energivore, prodotte e installate su scala crescente." /><meta property="og:type" content="website" /><meta property="og:locale" content="it_IT" />
     <meta id="theme-color" name="theme-color" content="#f2f0e8" />
     <link rel="icon" href="data:," /><title>Chips — AI.it</title>
     <script>
       (() => { try { const saved = localStorage.getItem("aiit-theme"); const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dataset.theme = saved || preferred; } catch (_) { document.documentElement.dataset.theme = "light"; } })();
     </script>
-    <link rel="stylesheet" href="styles.css?v=a5e64cf" />
+    <link rel="stylesheet" href="styles.css?v=a5e64d0" />
   </head>
   <body class="detail-page">
     <a class="skip-link" href="#top">Salta al contenuto</a><div class="noise" aria-hidden="true"></div>
@@ -33,7 +33,7 @@
           <button type="button" class="chip-tab is-active" aria-pressed="true" data-chip="ampere"><span>2020</span><strong>Ampere</strong><small>A100</small></button>
           <button type="button" class="chip-tab" aria-pressed="false" data-chip="hopper"><span>2022</span><strong>Hopper</strong><small>H100</small></button>
           <button type="button" class="chip-tab" aria-pressed="false" data-chip="blackwell"><span>2024</span><strong>Blackwell</strong><small>B200</small></button>
-          <button type="button" class="chip-tab" aria-pressed="false" data-chip="rubin"><span>2026</span><strong>Rubin</strong><small>Preliminare</small></button>
+          <button type="button" class="chip-tab" aria-pressed="false" data-chip="rubin"><span>2026</span><strong>Rubin</strong><small>In produzione</small></button>
         </div>
 
         <article class="chip-lab" aria-labelledby="chip-lab-title">
@@ -51,6 +51,102 @@
           <footer class="evidence-footer"><p>Il picco tensoriale cambia precisione fra le generazioni: FP16, FP8, FP4 e NVFP4 non sono direttamente comparabili. Per questo il grafico normalizza soltanto memoria e fabric.</p><a href="https://www.nvidia.com/en-us/data-center/a100/" id="chip-source-link" target="_blank" rel="noreferrer">Scheda ufficiale ↗</a></footer>
         </article>
 
+        <section class="chip-scale" aria-labelledby="chip-scale-title">
+          <header class="chip-scale-head">
+            <div>
+              <p class="kicker">La corsa industriale</p>
+              <h2 id="chip-scale-title">Più costosi. Più energivori.<br />Eppure ne escono <em>sempre di più.</em></h2>
+            </div>
+            <p>NVIDIA non pubblica le unità vendute né un listino uniforme. Le stime di Epoch AI ricostruiscono spedizioni, prezzo d'acquisto e potenza da bilanci e segnali di filiera. Il risultato è il paradosso centrale: il costo per chip sale, ma la domanda fa crescere ancora più rapidamente la fabbrica.</p>
+          </header>
+
+          <div class="chip-scale-takeaway" aria-label="Sintesi del confronto tra Ampere e Blackwell">
+            <div><span>Unità annue stimate</span><strong>4,6×</strong><small>0,70M → 3,22M</small></div>
+            <div><span>TDP per chip</span><strong>3,2×</strong><small>400 W → ≈1,29 kW</small></div>
+            <div><span>TDP aggregato dei chip spediti</span><strong>≈15×</strong><small>0,28 → 4,17 GW nominali</small></div>
+          </div>
+
+          <article class="production-shell" aria-labelledby="production-title">
+            <header class="production-head">
+              <div><p class="kicker">Produzione / stima mediana</p><h3 id="production-title">La scala annuale non si ferma</h3></div>
+              <div class="production-legend" aria-label="Legenda"><span><i></i>Stima mediana</span><span><i></i>Intervallo 5°–95° percentile</span></div>
+            </header>
+            <div class="production-chart" role="img" aria-label="Spedizioni annue stimate: 702 mila A100 nel 2022, 2,67 milioni di H100 e H200 nel 2024, 3,22 milioni di B200 e B300 nel 2025. Rubin è in piena produzione nel 2026, ma non ha ancora una stima pubblica di volume.">
+              <div class="production-axis" aria-hidden="true"><span>0</span><span>1M</span><span>2M</span><span>3M</span><span>4M unità</span></div>
+              <div class="production-row">
+                <div class="production-label"><strong>Ampere</strong><span>A100 · 2022</span></div>
+                <div class="production-track"><i class="production-range" style="--range-left:13.49%; --range-width:9.31%"></i><b style="--bar-width:17.56%"></b></div>
+                <div class="production-value"><strong>0,70M</strong><span>0,54–0,91M</span></div>
+              </div>
+              <div class="production-row">
+                <div class="production-label"><strong>Hopper</strong><span>H100/H200 · 2024</span></div>
+                <div class="production-track"><i class="production-range" style="--range-left:56.88%; --range-width:21.51%"></i><b style="--bar-width:66.80%"></b></div>
+                <div class="production-value"><strong>2,67M</strong><span>2,28–3,14M</span></div>
+              </div>
+              <div class="production-row is-current">
+                <div class="production-label"><strong>Blackwell</strong><span>B200/B300 · 2025</span></div>
+                <div class="production-track"><i class="production-range" style="--range-left:68.72%; --range-width:25.70%"></i><b style="--bar-width:80.55%"></b></div>
+                <div class="production-value"><strong>3,22M</strong><span>2,75–3,78M</span></div>
+              </div>
+              <div class="production-row is-forecast">
+                <div class="production-label"><strong>Rubin</strong><span>Rubin GPU · 2026</span></div>
+                <div class="production-track"><b></b><span>PIENA PRODUZIONE · VOLUMI N.D.</span></div>
+                <div class="production-value"><strong>H2 2026</strong><span>prime disponibilità</span></div>
+              </div>
+            </div>
+            <footer class="production-foot"><p>Il confronto usa un anno completo rappresentativo della scala di ciascuna generazione. Non sono totali cumulativi. Il TDP aggregato è unità × TDP del chip: indica potenza nominale installabile, non consumo elettrico reale né facility power.</p><a href="https://epoch.ai/data/ai-chip-sales-documentation/downloads" target="_blank" rel="noreferrer">Dataset Epoch AI ↗</a></footer>
+          </article>
+
+          <article class="pressure-shell" aria-labelledby="pressure-title">
+            <header class="pressure-head"><div><p class="kicker">Tre curve, stessa direzione</p><h3 id="pressure-title">Il prezzo non frena i volumi</h3></div><p>Ogni colonna normalizza le tre misure al massimo osservato. Blackwell combina B200 e B300: prezzo e TDP sono medie ponderate per le spedizioni 2025.</p></header>
+            <div class="pressure-grid">
+              <section class="pressure-generation">
+                <header><span>2022</span><h4>A100</h4></header>
+                <div><span>Prezzo/chip</span><i><b style="--pressure:28%"></b></i><strong>≈$12K</strong></div>
+                <div><span>TDP/chip</span><i><b style="--pressure:29%"></b></i><strong>400 W</strong></div>
+                <div><span>Unità/anno</span><i><b style="--pressure:22%"></b></i><strong>0,70M</strong></div>
+              </section>
+              <section class="pressure-generation">
+                <header><span>2024</span><h4>H100/H200</h4></header>
+                <div><span>Prezzo/chip</span><i><b style="--pressure:58%"></b></i><strong>≈$25K</strong></div>
+                <div><span>TDP/chip</span><i><b style="--pressure:50%"></b></i><strong>700 W</strong></div>
+                <div><span>Unità/anno</span><i><b style="--pressure:83%"></b></i><strong>2,67M</strong></div>
+              </section>
+              <section class="pressure-generation is-current">
+                <header><span>2025</span><h4>B200/B300</h4></header>
+                <div><span>Prezzo/chip</span><i><b style="--pressure:93%"></b></i><strong>≈$39,8K</strong></div>
+                <div><span>TDP/chip</span><i><b style="--pressure:92%"></b></i><strong>≈1,29 kW</strong></div>
+                <div><span>Unità/anno</span><i><b style="--pressure:100%"></b></i><strong>3,22M</strong></div>
+              </section>
+              <section class="pressure-generation is-undisclosed">
+                <header><span>2026</span><h4>Rubin</h4></header>
+                <div><span>Prezzo/chip</span><i><b></b></i><strong>N.D.</strong></div>
+                <div><span>TDP/chip</span><i><b></b></i><strong>N.D.</strong></div>
+                <div><span>Produzione</span><i><b></b></i><strong>RAMP</strong></div>
+              </section>
+            </div>
+          </article>
+
+          <section class="deployment-story" aria-labelledby="deployment-title">
+            <header><div><p class="kicker">Deployment pubblico / non mercato totale</p><h3 id="deployment-title">Dal supercomputer al rollout globale</h3></div><p>Le disclosure non sono omogenee e fotografano momenti diversi del ramp. Non vanno sommate; mostrano però come ogni generazione arrivi più rapidamente a cluster enormi e a più operatori.</p></header>
+            <div class="deployment-grid">
+              <article>
+                <span>2022 · Ampere</span><strong>6.080</strong><h4>A100 nel Meta RSC</h4><p>Prima fase installata; la seconda fase annunciata puntava a circa 16.000 GPU.</p><a href="https://s201.q4cdn.com/141608511/files/doc_presentations/2022/02/NVDA-F4Q22-Investor-Presentation-FINAL.pdf" target="_blank" rel="noreferrer">NVIDIA / Meta ↗</a>
+              </article>
+              <article>
+                <span>2024 · Hopper</span><strong>100.000</strong><h4>GPU operative in Colossus</h4><p>xAI e NVIDIA hanno portato il cluster online in 122 giorni; l'espansione annunciata era a 200.000 Hopper.</p><a href="https://nvidianews.nvidia.com/news/spectrum-x-ethernet-networking-xai-colossus" target="_blank" rel="noreferrer">NVIDIA / xAI ↗</a>
+              </article>
+              <article>
+                <span>2025 · Blackwell Ultra</span><strong>&gt;4.600</strong><h4>GB300 nel primo cluster Azure</h4><p>Microsoft lo descrive come primo passo verso centinaia di migliaia di Blackwell Ultra nei suoi data center.</p><a href="https://azure.microsoft.com/en-us/blog/microsoft-azure-delivers-the-first-large-scale-cluster-with-nvidia-gb300-nvl72-for-openai-workloads/" target="_blank" rel="noreferrer">Microsoft Azure ↗</a>
+              </article>
+              <article class="is-rubin">
+                <span>2026 · Rubin</span><strong>8 cloud</strong><h4>nella prima ondata</h4><p>AWS, Google Cloud, Microsoft, OCI, CoreWeave, Lambda, Nebius e Nscale; quantità di GPU non ancora pubblicate.</p><a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Kicks-Off-the-Next-Generation-of-AI-With-Rubin--Six-New-Chips-One-Incredible-AI-Supercomputer/default.aspx" target="_blank" rel="noreferrer">NVIDIA · Rubin readiness ↗</a>
+              </article>
+            </div>
+            <p class="deployment-close"><strong>Rubin è già una macchina industriale prima del rollout:</strong> NVIDIA dichiara oltre 350 fabbriche in 30 Paesi coinvolte nel ramp, con disponibilità dei sistemi dai partner nella seconda metà del 2026.</p>
+          </section>
+        </section>
+
         <div class="architecture-story">
           <article><span>01</span><h2>Precisione</h2><p>Hopper introduce FP8; Blackwell spinge FP4 e introduce NVFP4 per l'inference; Rubin estende NVFP4 al training. Più operazioni entrano nello stesso watt, con gestione numerica dedicata.</p></article>
           <article><span>02</span><h2>Memoria</h2><p>La banda HBM cresce da 2,0 a 22 TB/s per GPU: quasi 11×. È ciò che mantiene alimentati i Tensor Core e muove pesi e KV cache.</p></article>
@@ -66,8 +162,13 @@
           <li><a href="https://www.nvidia.com/en-us/data-center/h100/" target="_blank" rel="noreferrer">NVIDIA · H100</a><span>Specifiche Hopper e Transformer Engine FP8.</span></li>
           <li><a href="https://www.nvidia.com/en-us/data-center/dgx-b200/" target="_blank" rel="noreferrer">NVIDIA · DGX B200</a><span>Specifiche Blackwell, HBM3e, NVLink e claim di training/inference.</span></li>
           <li><a href="https://www.nvidia.com/en-gb/data-center/vera-rubin-nvl72/" target="_blank" rel="noreferrer">NVIDIA · Vera Rubin NVL72</a><span>Specifiche preliminari Rubin: HBM4, NVFP4 e fabric rack-scale.</span></li>
+          <li><a href="https://epoch.ai/data/ai-chip-sales-documentation/downloads" target="_blank" rel="noreferrer">Epoch AI · AI Chip Production</a><span>Stime di spedizioni, prezzo e TDP per A100, H100/H200, B200 e B300; dataset aggiornato l'11 giugno 2026.</span></li>
+          <li><a href="https://s201.q4cdn.com/141608511/files/doc_presentations/2022/02/NVDA-F4Q22-Investor-Presentation-FINAL.pdf" target="_blank" rel="noreferrer">NVIDIA · Meta RSC</a><span>6.080 A100 installate nella prima fase e circa 16.000 previste nella seconda.</span></li>
+          <li><a href="https://nvidianews.nvidia.com/news/spectrum-x-ethernet-networking-xai-colossus" target="_blank" rel="noreferrer">NVIDIA · xAI Colossus</a><span>100.000 GPU Hopper operative e raddoppio annunciato a 200.000.</span></li>
+          <li><a href="https://azure.microsoft.com/en-us/blog/microsoft-azure-delivers-the-first-large-scale-cluster-with-nvidia-gb300-nvl72-for-openai-workloads/" target="_blank" rel="noreferrer">Microsoft Azure · GB300 NVL72</a><span>Primo cluster di produzione con oltre 4.600 Blackwell Ultra e piano di rollout globale.</span></li>
+          <li><a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Vera-Rubin-Ramps-Into-Full-Production-to-Power-Agentic-AI-Factories-Worldwide/default.aspx" target="_blank" rel="noreferrer">NVIDIA · Vera Rubin ramp</a><span>Piena produzione, oltre 350 fabbriche in 30 Paesi e primi deployment cloud nel 2026.</span></li>
         </ol>
-        <p class="source-boundary">Il picco tensoriale cambia precisione fra le generazioni. I claim prestazionali restano workload-specific e sono presentati come dichiarazioni del produttore.</p>
+        <p class="source-boundary">NVIDIA non pubblica volumi unitari o listini uniformi: produzione, prezzi e intervalli sono stime Epoch AI. I deployment sono esempi pubblici, non quote di mercato né totali cumulativi. I claim prestazionali e di ramp restano dichiarazioni dei produttori. Dati consultati il 15 luglio 2026.</p>
       </section>
       <nav class="chapter-next" aria-label="Continua la lettura"><a href="energia.html">← Precedente: Energia</a><a href="algoritmi.html">Prossimo: Algoritmi →</a></nav>
     </main>

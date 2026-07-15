@@ -670,7 +670,7 @@ const chips = {
   },
   rubin: {
     architecture: "Rubin", generation: "2026 · Rubin GPU", summary: "HBM4 da 288 GB, 22 TB/s e NVLink 6 da 3,6 TB/s per GPU. Il progetto nasce direttamente come sistema rack-scale.",
-    memory: 288, bandwidth: 22, nvlink: 3.6, peak: 35, precision: "NVFP4 training denso", tdp: "Non pubblicato", transistors: "336 miliardi", status: "Preliminare · H2 2026", note: "NVIDIA dichiara fino a 4× meno GPU per alcuni training MoE e 10× meno costo per token rispetto a Blackwell. Servono benchmark indipendenti.", source: "https://www.nvidia.com/en-gb/data-center/vera-rubin-nvl72/"
+    memory: 288, bandwidth: 22, nvlink: 3.6, peak: 35, precision: "NVFP4 training denso", tdp: "Non pubblicato", transistors: "336 miliardi", status: "Piena produzione · H2 2026", note: "NVIDIA dichiara la piattaforma in piena produzione e i primi sistemi dai partner nella seconda metà del 2026. Prezzo, TDP e volumi unitari non sono ancora pubblici.", source: "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Vera-Rubin-Ramps-Into-Full-Production-to-Power-Agentic-AI-Factories-Worldwide/default.aspx"
   }
 };
 
