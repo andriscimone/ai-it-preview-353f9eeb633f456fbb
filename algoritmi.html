@@ -72,8 +72,107 @@
           <article class="algorithm-essay" aria-label="Premessa discorsiva sulla natura degli algoritmi di intelligenza artificiale">
             <p class="algorithm-essay-lede">La parola <em>algoritmo</em> fa pensare a una ricetta: una sequenza precisa di istruzioni che prende qualcosa in ingresso, esegue una serie di passaggi e restituisce un risultato. Per gran parte della storia dell'informatica, capire un programma ha significato proprio questo: leggere le regole scritte da un essere umano e seguirle fino alla conclusione.</p>
 
-            <div class="algorithm-essay-sections">
-              <section>
+            <div class="algorithm-essay-layout">
+              <aside class="algorithm-story-stage" id="algorithm-story-stage" aria-label="Dimostrazione visiva che accompagna la lettura">
+                <header class="story-stage-header">
+                  <span id="story-stage-index">Passaggio 1 di 5</span>
+                  <strong id="story-stage-title">Conosci la regola. Conosci il risultato.</strong>
+                </header>
+
+                <div class="story-stage-viewport" data-active-story="equation">
+                  <section class="story-scene story-equation is-active" data-story-scene="equation">
+                    <div class="story-equation-formula"><span>regola scritta</span><strong>y = 2x + 1</strong></div>
+                    <svg class="story-equation-chart" viewBox="0 0 520 500" role="img" aria-labelledby="story-equation-title story-equation-desc">
+                      <title id="story-equation-title">Grafico della retta y uguale due x più uno</title>
+                      <desc id="story-equation-desc">La linea viene disegnata durante lo scorrimento. Un punto mostra la coppia scelta con il controllo x.</desc>
+                      <g class="story-chart-grid">
+                        <path d="M70 70V430M110 70V430M150 70V430M190 70V430M230 70V430M270 70V430M310 70V430M350 70V430M390 70V430M430 70V430M470 70V430" />
+                        <path d="M70 70H470M70 142H470M70 214H470M70 286H470M70 358H470M70 430H470" />
+                      </g>
+                      <path class="story-chart-axis" d="M70 304H482M230 442V58" />
+                      <text class="story-axis-label" x="488" y="300">x</text><text class="story-axis-label" x="239" y="53">y</text>
+                      <path id="story-equation-line" class="story-equation-line" d="M70 430L470 70" />
+                      <circle id="story-equation-point" class="story-equation-point" cx="390" cy="142" r="9" />
+                      <text id="story-equation-point-label" class="story-point-label" x="406" y="126">x 4 → y 9</text>
+                    </svg>
+                    <div class="story-equation-control">
+                      <label for="story-equation-x">Scegli l'input <strong>x = <output id="story-equation-x-value">4</output></strong></label>
+                      <input id="story-equation-x" type="range" min="-4" max="6" step="1" value="4" />
+                      <p><span>il programma applica ×2 +1</span><strong>y = <output id="story-equation-y">9</output></strong></p>
+                    </div>
+                  </section>
+
+                  <section class="story-scene story-rules" data-story-scene="rules" aria-hidden="true">
+                    <div class="rules-question"><span>input</span><strong>Questa foto contiene un gatto?</strong></div>
+                    <div class="rules-machine" aria-label="Una catena crescente di regole esplicite">
+                      <span data-rule-order="0">SE vedo due orecchie</span>
+                      <span data-rule-order="1">SE riconosco i baffi</span>
+                      <span data-rule-order="2">SE la luce è sufficiente</span>
+                      <span data-rule-order="3">SE non è di profilo</span>
+                      <span data-rule-order="4">SE non è nascosto</span>
+                      <span data-rule-order="5">SE non assomiglia a una volpe</span>
+                    </div>
+                    <div class="rules-answer"><span>output</span><strong>?</strong><p>Un caso nuovo rompe una regola che sembrava funzionare.</p></div>
+                  </section>
+
+                  <section class="story-scene story-training" data-story-scene="training" aria-hidden="true">
+                    <div class="training-reading"><span>tentativo <output id="story-training-step">1</output></span><strong>errore <output id="story-training-error">8,4</output></strong></div>
+                    <svg class="story-training-chart" viewBox="0 0 520 500" role="img" aria-labelledby="story-training-title story-training-desc">
+                      <title id="story-training-title">Una regola appresa dagli esempi</title>
+                      <desc id="story-training-desc">Una linea inizialmente sbagliata si avvicina ai punti di esempio mentre l'errore diminuisce.</desc>
+                      <path class="story-chart-axis" d="M62 438H478M74 450V54" />
+                      <g class="story-training-points">
+                        <circle cx="98" cy="394" r="7"/><circle cx="142" cy="354" r="7"/><circle cx="185" cy="323" r="7"/>
+                        <circle cx="229" cy="274" r="7"/><circle cx="273" cy="250" r="7"/><circle cx="317" cy="201" r="7"/>
+                        <circle cx="361" cy="168" r="7"/><circle cx="405" cy="126" r="7"/><circle cx="449" cy="92" r="7"/>
+                      </g>
+                      <g class="story-training-residuals">
+                        <path id="training-error-a" d="M142 354V256"/><path id="training-error-b" d="M273 250V279"/><path id="training-error-c" d="M405 126V302"/>
+                      </g>
+                      <path id="story-training-line" class="story-training-line" d="M78 244L464 326" />
+                    </svg>
+                    <p>Gli esempi non dicono <em>come</em> rispondere. L'errore modifica poco alla volta i pesi.</p>
+                  </section>
+
+                  <section class="story-scene story-probability" data-story-scene="probability" aria-hidden="true">
+                    <div class="probability-prompt"><span>contesto</span><p>Il cielo oggi è…</p></div>
+                    <div class="story-probability-bars" aria-label="Esempio illustrativo di probabilità per il prossimo token">
+                      <div data-probability="58"><span>blu</span><i></i><strong>58%</strong></div>
+                      <div data-probability="22"><span>sereno</span><i></i><strong>22%</strong></div>
+                      <div data-probability="13"><span>grigio</span><i></i><strong>13%</strong></div>
+                      <div data-probability="7"><span>immenso</span><i></i><strong>7%</strong></div>
+                    </div>
+                    <div class="probability-output"><span>non una risposta fissa</span><strong id="probability-selected-token">4 continuazioni possibili</strong></div>
+                  </section>
+
+                  <section class="story-scene story-attention" data-story-scene="attention" aria-hidden="true">
+                    <p class="attention-sentence">La <span>chiave</span> non apriva la porta perché <strong>era</strong> piegata.</p>
+                    <svg class="story-attention-map" viewBox="0 0 520 420" role="img" aria-labelledby="story-attention-title story-attention-desc">
+                      <title id="story-attention-title">Relazioni di attenzione tra parole</title>
+                      <desc id="story-attention-desc">La parola era assegna più peso a chiave e piegata per costruire il significato nel contesto.</desc>
+                      <g class="attention-links">
+                        <path data-attention-order="0" d="M275 255Q170 112 82 255"/>
+                        <path data-attention-order="1" d="M275 255Q382 112 455 255"/>
+                        <path data-attention-order="2" d="M275 255Q255 188 217 255"/>
+                        <path data-attention-order="3" d="M275 255Q330 190 360 255"/>
+                      </g>
+                      <g class="attention-tokens">
+                        <text x="54" y="280">chiave</text><text x="187" y="280">porta</text>
+                        <text class="is-query" x="255" y="280">era</text><text x="414" y="280">piegata</text>
+                      </g>
+                    </svg>
+                    <div class="attention-reading"><span>“era” pesa il contesto</span><strong>chiave 46% · piegata 38%</strong></div>
+                  </section>
+                </div>
+
+                <footer class="story-stage-footer">
+                  <div class="story-stage-progress" aria-hidden="true"><i id="story-stage-progress"></i></div>
+                  <p id="story-stage-caption">Qui la regola è leggibile: lo stesso input attraversa sempre gli stessi passaggi.</p>
+                </footer>
+              </aside>
+
+              <div class="algorithm-essay-sections">
+              <section data-story-step="equation">
                 <span>01</span>
                 <div>
                   <h3>L'algoritmo a cui siamo abituati</h3>
@@ -83,7 +182,7 @@
                 </div>
               </section>
 
-              <section>
+              <section data-story-step="rules">
                 <span>02</span>
                 <div>
                   <h3>Il problema delle regole che non sappiamo scrivere</h3>
@@ -93,7 +192,7 @@
                 </div>
               </section>
 
-              <section>
+              <section data-story-step="training">
                 <span>03</span>
                 <div>
                   <h3>Dal programmare una risposta all'addestrare un comportamento</h3>
@@ -104,7 +203,7 @@
                 </div>
               </section>
 
-              <section>
+              <section data-story-step="probability">
                 <span>04</span>
                 <div>
                   <h3>Probabilistico non significa casuale senza logica</h3>
@@ -114,7 +213,7 @@
                 </div>
               </section>
 
-              <section>
+              <section data-story-step="attention">
                 <span>05</span>
                 <div>
                   <h3>Il Transformer rende questo processo scalabile</h3>
@@ -123,6 +222,7 @@
                   <p>Il Transformer non ha inventato l'apprendimento automatico e non ha reso intelligenti le macchine da un giorno all'altro. Ha fornito però una struttura estremamente adatta a essere ampliata. Pretraining, fine-tuning, feedback umano, dati sintetici, strumenti e ragionamento durante l'inferenza si sono poi accumulati sopra quella base.</p>
                 </div>
               </section>
+              </div>
             </div>
 
             <footer>

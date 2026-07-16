@@ -48,6 +48,173 @@ generationModeButtons.forEach(button => button.addEventListener("click", () => {
 document.getElementById("generate-samples")?.addEventListener("click", renderModelSamples);
 updateClassicEquation();
 
+const storyStage = document.getElementById("algorithm-story-stage");
+const storyViewport = storyStage?.querySelector(".story-stage-viewport");
+const storySteps = [...document.querySelectorAll("[data-story-step]")];
+const storyScenes = [...document.querySelectorAll("[data-story-scene]")];
+const storyEquationInput = document.getElementById("story-equation-x");
+const storyReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+let activeStoryKey = "equation";
+let storyFrameRequested = false;
+
+const storySceneCopy = {
+  equation: {
+    index: "Passaggio 1 di 5",
+    title: "Conosci la regola. Conosci il risultato.",
+    caption: "Qui la regola è leggibile: lo stesso input attraversa sempre gli stessi passaggi."
+  },
+  rules: {
+    index: "Passaggio 2 di 5",
+    title: "Ma per molte domande la regola non la conosciamo.",
+    caption: "Aggiungere condizioni a mano non risolve il problema: il mondo reale produce sempre un caso non previsto."
+  },
+  training: {
+    index: "Passaggio 3 di 5",
+    title: "Allora mostriamo esempi e correggiamo l'errore.",
+    caption: "Addestrare significa ripetere questo ciclo milioni di volte: tentativo, errore, piccola correzione."
+  },
+  probability: {
+    index: "Passaggio 4 di 5",
+    title: "La risposta diventa una distribuzione, non una certezza.",
+    caption: "Le percentuali sono illustrative: mostrano che il modello valuta più continuazioni prima di sceglierne una."
+  },
+  attention: {
+    index: "Passaggio 5 di 5",
+    title: "Il Transformer decide dove guardare nel contesto.",
+    caption: "L'attenzione non comprende come una persona: calcola quali relazioni aiutano di più a costruire la rappresentazione."
+  }
+};
+
+function clampStory(value, min = 0, max = 1) {
+  return Math.min(max, Math.max(min, value));
+}
+
+function updateStoryEquation() {
+  if (!storyEquationInput) return;
+  const x = Number(storyEquationInput.value);
+  const y = (2 * x) + 1;
+  const chartX = 70 + ((x + 4) / 10) * 400;
+  const chartY = 430 - ((y + 7) / 20) * 360;
+  const point = document.getElementById("story-equation-point");
+  const pointLabel = document.getElementById("story-equation-point-label");
+  document.getElementById("story-equation-x-value").textContent = String(x);
+  document.getElementById("story-equation-y").textContent = String(y);
+  point?.setAttribute("cx", String(chartX));
+  point?.setAttribute("cy", String(chartY));
+  if (pointLabel) {
+    pointLabel.textContent = `x ${x} → y ${y}`;
+    pointLabel.setAttribute("x", String(chartX > 370 ? chartX - 92 : chartX + 16));
+    pointLabel.setAttribute("y", String(chartY < 105 ? chartY + 30 : chartY - 16));
+  }
+}
+
+function setStoryScene(key) {
+  const copy = storySceneCopy[key];
+  if (!copy || !storyStage || !storyViewport) return;
+  activeStoryKey = key;
+  storyViewport.dataset.activeStory = key;
+  document.getElementById("story-stage-index").textContent = copy.index;
+  document.getElementById("story-stage-title").textContent = copy.title;
+  document.getElementById("story-stage-caption").textContent = copy.caption;
+  storyScenes.forEach(scene => {
+    const selected = scene.dataset.storyScene === key;
+    scene.classList.toggle("is-active", selected);
+    scene.setAttribute("aria-hidden", String(!selected));
+  });
+}
+
+function updateStoryMotion(key, rawProgress) {
+  const progress = storyReducedMotion.matches ? 1 : clampStory(rawProgress);
+  if (key === "equation") {
+    const line = document.getElementById("story-equation-line");
+    const point = document.getElementById("story-equation-point");
+    const label = document.getElementById("story-equation-point-label");
+    if (line) line.style.strokeDashoffset = String(540 * (1 - progress));
+    const pointProgress = clampStory((progress - .24) / .18);
+    if (point) point.style.opacity = String(pointProgress);
+    if (label) label.style.opacity = String(pointProgress);
+  }
+
+  if (key === "rules") {
+    document.querySelectorAll("[data-rule-order]").forEach(rule => {
+      const order = Number(rule.dataset.ruleOrder);
+      const localProgress = clampStory((progress - order * .1) / .22);
+      rule.style.opacity = String(localProgress);
+      rule.style.transform = `translateX(${(1 - localProgress) * -18}px)`;
+    });
+  }
+
+  if (key === "training") {
+    const start = { y1: 244, y2: 326 };
+    const end = { y1: 414, y2: 79 };
+    const y1 = start.y1 + (end.y1 - start.y1) * progress;
+    const y2 = start.y2 + (end.y2 - start.y2) * progress;
+    const line = document.getElementById("story-training-line");
+    line?.setAttribute("d", `M78 ${y1}L464 ${y2}`);
+    const predictedY = x => y1 + ((x - 78) / (464 - 78)) * (y2 - y1);
+    document.getElementById("training-error-a")?.setAttribute("d", `M142 354V${predictedY(142)}`);
+    document.getElementById("training-error-b")?.setAttribute("d", `M273 250V${predictedY(273)}`);
+    document.getElementById("training-error-c")?.setAttribute("d", `M405 126V${predictedY(405)}`);
+    document.getElementById("story-training-step").textContent = String(1 + Math.round(progress * 999));
+    document.getElementById("story-training-error").textContent = (8.4 - progress * 7.6).toFixed(1).replace(".", ",");
+  }
+
+  if (key === "probability") {
+    document.querySelectorAll("[data-probability]").forEach(bar => {
+      const target = Number(bar.dataset.probability);
+      bar.querySelector("i").style.width = `${target * progress}%`;
+    });
+    document.getElementById("probability-selected-token").textContent = progress > .72 ? "output più probabile: “blu”" : "4 continuazioni possibili";
+  }
+
+  if (key === "attention") {
+    document.querySelectorAll("[data-attention-order]").forEach(link => {
+      const order = Number(link.dataset.attentionOrder);
+      const localProgress = clampStory((progress - order * .12) / .42);
+      link.style.strokeDashoffset = String(440 * (1 - localProgress));
+    });
+  }
+}
+
+function renderStoryFromScroll() {
+  storyFrameRequested = false;
+  if (!storyStage || !storySteps.length) return;
+  if (window.innerWidth <= 900) {
+    setStoryScene("equation");
+    updateStoryMotion("equation", 1);
+    document.getElementById("story-stage-progress").style.width = "20%";
+    return;
+  }
+
+  const readingLine = window.innerHeight * .46;
+  let activeIndex = 0;
+  storySteps.forEach((step, index) => {
+    if (step.getBoundingClientRect().top <= readingLine) activeIndex = index;
+  });
+  const activeStep = storySteps[activeIndex];
+  const rect = activeStep.getBoundingClientRect();
+  const progress = clampStory((window.innerHeight * .7 - rect.top) / Math.max(rect.height, window.innerHeight * .62));
+  const key = activeStep.dataset.storyStep;
+  if (key !== activeStoryKey) setStoryScene(key);
+  updateStoryMotion(key, progress);
+  const chapterProgress = ((activeIndex + progress) / storySteps.length) * 100;
+  document.getElementById("story-stage-progress").style.width = `${chapterProgress}%`;
+}
+
+function requestStoryFrame() {
+  if (storyFrameRequested) return;
+  storyFrameRequested = true;
+  requestAnimationFrame(renderStoryFromScroll);
+}
+
+storyEquationInput?.addEventListener("input", updateStoryEquation);
+window.addEventListener("scroll", requestStoryFrame, { passive: true });
+window.addEventListener("resize", requestStoryFrame);
+storyReducedMotion.addEventListener("change", requestStoryFrame);
+updateStoryEquation();
+setStoryScene("equation");
+requestStoryFrame();
+
 const progressCopy = {
   compute: {
     label: "01 · Compute grezzo",
