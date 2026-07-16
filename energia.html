@@ -21,8 +21,8 @@
         } catch (_) { document.documentElement.dataset.theme = "light"; }
       })();
     </script>
-    <link rel="stylesheet" href="styles.css?v=energia-0715" />
-    <link rel="stylesheet" href="energy.css?v=0716a" />
+    <link rel="stylesheet" href="styles.css?v=energia-0716b" />
+    <link rel="stylesheet" href="energy.css?v=0716b" />
   </head>
   <body class="detail-page energy-page">
     <a class="skip-link" href="#top">Salta al contenuto</a>
@@ -184,9 +184,9 @@
 
         <article class="evidence-shell energy-shell" aria-labelledby="energy-chart-title">
           <header class="evidence-header">
-            <div><p class="kicker">Cambia definizione, cambia il numero</p><h2 id="energy-chart-title">Record del più grande sito AI</h2><p id="energy-chart-subtitle">Compute installato in H100-equivalent · agosto 2024 – luglio 2026</p></div>
+            <div><p class="kicker">La scala cambia con la lente</p><h2 id="energy-chart-title">Un campus AI ha superato il milione di H100-equivalent</h2><p id="energy-chart-subtitle">Sito fisico · non un singolo cluster · stima Epoch, agosto 2024 – luglio 2026</p></div>
             <div class="evidence-tabs" aria-label="Misura dell'infrastruttura">
-              <button type="button" class="evidence-tab is-active" aria-pressed="true" data-energy-view="site">Sito</button>
+              <button type="button" class="evidence-tab is-active" aria-pressed="true" data-energy-view="site">Campus</button>
               <button type="button" class="evidence-tab" aria-pressed="false" data-energy-view="cluster">Cluster</button>
               <button type="button" class="evidence-tab" aria-pressed="false" data-energy-view="power">Potenza</button>
             </div>
@@ -197,12 +197,13 @@
               <div class="chart-tooltip" id="energy-tooltip" role="status" hidden></div>
             </div>
             <aside class="definition-panel" aria-live="polite">
-              <span id="energy-definition-label">La misura corretta</span><h3 id="energy-definition-title">H100-equivalent di un sito</h3>
-              <p id="energy-definition-copy">Normalizza chip diversi rispetto alla capacità FP8 di una H100. Misura la scala di un campus, non il numero di GPU fisiche e neppure un singolo job coerente.</p>
+              <div class="definition-measure"><span id="energy-definition-label">Scala del campus</span><strong id="energy-definition-value">1,11M <small>H100-eq</small></strong></div>
+              <div class="definition-explainer"><span>Cosa conta</span><h3 id="energy-definition-title">Tutto il compute installato nello stesso sito</h3>
+              <p id="energy-definition-copy">Normalizza chip diversi rispetto alla capacità FP8 di una H100. È una misura della scala fisica del campus, non del numero reale di GPU.</p></div>
               <div class="definition-rule" id="energy-definition-rule"><strong>Non chiamarlo coherent cluster.</strong><span>Un sito può ospitare più fabric e più cluster.</span></div>
             </aside>
           </div>
-          <footer class="evidence-footer"><p id="energy-chart-note">La serie Epoch misura il record di compute installato in un singolo sito. L'ultimo punto è una stima corrente del database.</p><a href="https://epoch.ai/data-insights/largest-data-center-compute" id="energy-source-link" target="_blank" rel="noreferrer">Fonte e dati ↗</a></footer>
+          <footer class="evidence-footer"><p id="energy-chart-note">Il dato racconta quanto compute è concentrato nello stesso luogo. Non dice quante GPU possano lavorare tutte insieme sullo stesso modello.</p><a href="https://epoch.ai/data-insights/largest-data-center-compute" id="energy-source-link" target="_blank" rel="noreferrer">Fonte e dati ↗</a></footer>
         </article>
 
         <div class="boundary-grid">
@@ -381,7 +382,7 @@
       <nav class="chapter-next" aria-label="Continua la lettura"><a href="index.html">← Torna alla Home</a><a href="chip.html">Prossimo: Chips →</a></nav>
     </main>
     <footer class="site-footer"><span>AI.it</span><span>Energia · 01</span></footer>
-    <script src="app.js"></script>
+    <script src="app.js?v=energia-0716b"></script>
     <script src="energy-visuals.js?v=0716a"></script>
   </body>
 </html>

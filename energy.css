@@ -839,6 +839,169 @@
   text-underline-offset: 5px;
 }
 
+/* Il confronto infrastrutturale è una lettura editoriale, non una classifica. */
+.energy-page .energy-shell {
+  overflow: hidden;
+  border-color: var(--line);
+  border-radius: 20px;
+}
+
+.energy-page .energy-shell .evidence-header {
+  min-height: 250px;
+  align-items: center;
+  gap: 48px;
+  padding: 46px 48px;
+}
+
+.energy-page .energy-shell .evidence-header > div:first-child {
+  max-width: 790px;
+}
+
+.energy-page .energy-shell .evidence-header h2 {
+  max-width: 760px;
+  font-size: clamp(45px, 5.6vw, 78px);
+  line-height: .9;
+}
+
+.energy-page .energy-shell .evidence-header > div:first-child > p:last-child {
+  max-width: 680px;
+  margin-top: 18px;
+}
+
+.energy-page .energy-shell .evidence-tabs {
+  flex: 0 0 auto;
+  padding: 5px;
+  border-color: var(--chart-grid);
+  border-radius: 999px;
+}
+
+.energy-page .energy-shell .evidence-tab {
+  min-width: 94px;
+  min-height: 39px;
+  padding: 10px 15px;
+  border: 0;
+  border-radius: 999px;
+}
+
+.energy-page .energy-shell .evidence-tab.is-active {
+  background: var(--energy-lime);
+  color: #111510;
+}
+
+.energy-page .energy-visual-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.energy-page .energy-shell .evidence-chart-stage {
+  padding: 12px 34px 0;
+  background-image: linear-gradient(var(--chart-grid) 1px, transparent 1px), linear-gradient(90deg, var(--chart-grid) 1px, transparent 1px);
+  background-size: 62px 62px;
+}
+
+.energy-page .energy-shell #energy-chart {
+  min-height: 0;
+}
+
+.energy-site-area {
+  fill: var(--chart-focus);
+}
+
+.energy-site-line {
+  fill: none;
+  stroke: var(--chart-primary);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.energy-page .energy-shell .definition-panel {
+  display: grid;
+  grid-template-columns: minmax(190px, .72fr) minmax(280px, 1.2fr) minmax(250px, .85fr);
+  gap: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+  border-left: 0;
+  background: var(--paper-deep);
+}
+
+.definition-measure,
+.definition-explainer,
+.energy-page .energy-shell .definition-rule {
+  min-height: 220px;
+  padding: 28px 30px;
+}
+
+.definition-measure,
+.definition-explainer {
+  border-right: 1px solid var(--line);
+}
+
+.definition-measure span,
+.definition-explainer > span {
+  display: block;
+  color: var(--chart-muted);
+  font: 10px var(--mono);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.definition-measure strong {
+  display: block;
+  margin-top: 40px;
+  color: var(--energy-lime);
+  font: 500 clamp(46px, 5.3vw, 76px)/.84 var(--serif);
+  letter-spacing: -.045em;
+}
+
+.definition-measure strong small {
+  display: block;
+  margin-top: 14px;
+  color: var(--chart-muted);
+  font: 500 11px var(--mono);
+  letter-spacing: .03em;
+  text-transform: uppercase;
+}
+
+.energy-page .definition-explainer h3 {
+  max-width: 500px;
+  margin: 36px 0 14px;
+  font-size: clamp(28px, 3vw, 42px);
+}
+
+.energy-page .definition-explainer p {
+  max-width: 570px;
+  margin: 0;
+  color: var(--chart-muted);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.energy-page .energy-shell .definition-rule {
+  margin: 0;
+  border-top: 0;
+}
+
+.energy-page .energy-shell .definition-rule::before {
+  content: "Cosa non dimostra";
+  display: block;
+  margin-bottom: 40px;
+  color: var(--chart-muted);
+  font: 10px var(--mono);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.energy-page .energy-shell .definition-rule strong {
+  max-width: 300px;
+  color: var(--chart-text);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.energy-page .energy-shell .evidence-footer {
+  padding: 20px 30px;
+}
+
 @media (max-width: 1100px) {
   .energy-page .chapter-head {
     min-height: 390px;
@@ -946,6 +1109,45 @@
   .gdp-axis-label { font-size: 12px; }
   .gdp-zone-label, .gdp-trend-label { font-size: 11px; }
   .gdp-country-detail { margin-inline: 2px; }
+  .energy-page .energy-shell { border-radius: 14px; }
+  .energy-page .energy-shell .evidence-header {
+    min-height: 0;
+    gap: 30px;
+    padding: 28px 20px 22px;
+  }
+  .energy-page .energy-shell .evidence-header h2 {
+    font-size: clamp(42px, 13.2vw, 61px);
+  }
+  .energy-page .energy-shell .evidence-tabs {
+    width: 100%;
+  }
+  .energy-page .energy-shell .evidence-tab {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+  .energy-page .energy-shell .evidence-chart-stage {
+    padding: 2px 6px 0;
+    background-size: 34px 34px;
+  }
+  .energy-page .energy-shell .definition-panel {
+    grid-template-columns: 1fr;
+  }
+  .definition-measure,
+  .definition-explainer,
+  .energy-page .energy-shell .definition-rule {
+    min-height: 0;
+    padding: 24px 22px;
+  }
+  .definition-measure,
+  .definition-explainer {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .definition-measure strong { margin-top: 26px; font-size: 62px; }
+  .definition-measure strong small { display: inline; margin: 0 0 0 7px; }
+  .energy-page .definition-explainer h3 { margin-top: 28px; }
+  .energy-page .energy-shell .definition-rule::before { margin-bottom: 28px; }
+  .energy-page .energy-shell .evidence-footer { padding: 18px 20px; }
   .future-media { margin-top: 22px; }
   .future-media figcaption {
     grid-template-columns: 1fr;
