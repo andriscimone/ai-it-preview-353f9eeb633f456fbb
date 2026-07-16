@@ -59,3 +59,119 @@ metrButtons.forEach(button => {
   button.style.setProperty("--metr-row", metrPosition(Number(button.dataset.metrMinutes)));
   button.addEventListener("click", () => renderMetrModel(button.dataset.metrModel));
 });
+
+const arcLeaderboardData = {
+  arc2: {
+    label: "ARC-AGI-2",
+    ariaLabel: "Classifica ARC-AGI-2",
+    threshold: 85,
+    thresholdLabel: "Soglia premio · 85%",
+    note: "<strong>ARC‑AGI‑2:</strong> la soglia dell’85% era il traguardo del Grand Prize, non una definizione di AGI. I risultati della leaderboard aperta non vanno confusi con quelli della competizione privata.",
+    systems: [
+      { id: "sol-max", name: "GPT‑5.6 Sol · Max", org: "OpenAI", date: "9 luglio 2026", score: 92.5, setup: "reasoning Max" },
+      { id: "gpt55-xhigh", name: "GPT‑5.5 · xHigh", org: "OpenAI", date: "22 aprile 2026", score: 85.0, setup: "reasoning xHigh" },
+      { id: "gemini3-deep", name: "Gemini 3 Deep Think", org: "Google", date: "12 febbraio 2026", score: 84.6, setup: "Deep Think · 2/26" },
+      { id: "terra-max", name: "GPT‑5.6 Terra · Max", org: "OpenAI", date: "9 luglio 2026", score: 83.9, setup: "reasoning Max" },
+      { id: "gpt54-pro", name: "GPT‑5.4 Pro · xHigh", org: "OpenAI", date: "4 marzo 2026", score: 83.3, setup: "reasoning xHigh" },
+      { id: "gemini31", name: "Gemini 3.1 Pro", org: "Google", date: "19 febbraio 2026", score: 77.1, setup: "Preview" },
+      { id: "claude47", name: "Claude 4.7 · Max", org: "Anthropic", date: "16 aprile 2026", score: 75.8, setup: "reasoning Max" }
+    ]
+  },
+  arc3: {
+    label: "ARC-AGI-3",
+    ariaLabel: "Classifica ARC-AGI-3",
+    threshold: 100,
+    thresholdLabel: "Umani · 100%",
+    note: "<strong>ARC‑AGI‑3:</strong> il punteggio premia sia i livelli completati sia l’efficienza delle azioni. La leaderboard ufficiale usa ambienti semi-privati; i risultati sui giochi pubblici non sono una misura valida del progresso generale.",
+    systems: [
+      { id: "sol-max", name: "GPT‑5.6 Sol · Max", org: "OpenAI", date: "9 luglio 2026", score: 7.8, setup: "reasoning Max" },
+      { id: "opus48", name: "Claude Opus 4.8 · High", org: "Anthropic", date: "1 giugno 2026", score: 1.5, setup: "reasoning High" },
+      { id: "terra-max", name: "GPT‑5.6 Terra · Max", org: "OpenAI", date: "9 luglio 2026", score: 0.8, setup: "reasoning Max" },
+      { id: "opus46", name: "Claude Opus 4.6 · Max", org: "Anthropic", date: "17 dicembre 2025", score: 0.5, setup: "reasoning Max" },
+      { id: "gpt55", name: "GPT‑5.5 · High", org: "OpenAI", date: "23 aprile 2026", score: 0.4, setup: "reasoning High" },
+      { id: "gemini31", name: "Gemini 3.1 Pro", org: "Google", date: "5 marzo 2026", score: 0.4, setup: "Preview" },
+      { id: "gpt54", name: "GPT‑5.4 · High", org: "OpenAI", date: "5 marzo 2026", score: 0.2, setup: "reasoning High" },
+      { id: "grok420", name: "Grok 4.20 · Reasoning", org: "xAI", date: "5 marzo 2026", score: 0.1, setup: "Beta reasoning" }
+    ]
+  }
+};
+
+const arcViewButtons = [...document.querySelectorAll("[data-arc-view]")];
+const arcRankingStage = document.querySelector(".arc-ranking-stage");
+const arcRankingList = document.getElementById("arc-ranking-list");
+const arcThresholdLabel = document.getElementById("arc-threshold-label");
+const arcDetailName = document.getElementById("arc-detail-name");
+const arcDetailOrg = document.getElementById("arc-detail-org");
+const arcDetailScore = document.getElementById("arc-detail-score");
+const arcDetailRank = document.getElementById("arc-detail-rank");
+const arcDetailCopy = document.getElementById("arc-detail-copy");
+const arcRankingNote = document.getElementById("arc-ranking-note");
+let activeArcView = "arc2";
+let activeArcSystem = "sol-max";
+
+function arcScore(value) {
+  return `${value.toLocaleString("it-IT", { minimumFractionDigits: 1, maximumFractionDigits: 1 })}%`;
+}
+
+function selectArcSystem(id) {
+  const benchmark = arcLeaderboardData[activeArcView];
+  const index = benchmark.systems.findIndex(system => system.id === id);
+  const system = benchmark.systems[index];
+  if (!system) return;
+
+  activeArcSystem = id;
+  arcRankingList?.querySelectorAll(".arc-rank-row").forEach(button => {
+    const selected = button.dataset.arcSystem === id;
+    button.classList.toggle("is-active", selected);
+    button.setAttribute("aria-pressed", String(selected));
+  });
+
+  arcDetailName.textContent = system.name;
+  arcDetailOrg.textContent = `${system.org} · ${system.date} · ${system.setup}`;
+  arcDetailScore.textContent = arcScore(system.score);
+  arcDetailRank.textContent = `${index + 1}° nella selezione`;
+  arcDetailCopy.textContent = activeArcView === "arc2"
+    ? `Risolve esattamente ${arcScore(system.score)} dei task nella valutazione semi-privata. Il punteggio non descrive conoscenza generale né lavoro autonomo.`
+    : `Ottiene ${arcScore(system.score)} combinando livelli completati ed efficienza delle azioni su ambienti semi-privati. Il 100% corrisponde alla prestazione umana di riferimento.`;
+}
+
+function renderArcLeaderboard(view) {
+  const benchmark = arcLeaderboardData[view];
+  if (!benchmark || !arcRankingList || !arcRankingStage) return;
+
+  activeArcView = view;
+  activeArcSystem = benchmark.systems[0].id;
+  arcRankingStage.style.setProperty("--arc-threshold", `${benchmark.threshold}%`);
+  arcRankingStage.classList.toggle("is-arc3", view === "arc3");
+  arcThresholdLabel.textContent = benchmark.thresholdLabel;
+  arcRankingList.setAttribute("aria-label", benchmark.ariaLabel);
+  arcRankingNote.innerHTML = benchmark.note;
+
+  arcRankingList.replaceChildren(...benchmark.systems.map((system, index) => {
+    const item = document.createElement("li");
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "arc-rank-row";
+    button.dataset.arcSystem = system.id;
+    button.setAttribute("aria-pressed", "false");
+    button.setAttribute("aria-label", `${index + 1}°: ${system.name}, ${arcScore(system.score)} su ${benchmark.label}`);
+    button.style.setProperty("--arc-score", `${system.score}%`);
+    button.innerHTML = `<span class="arc-rank-number">${String(index + 1).padStart(2, "0")}</span><span class="arc-rank-identity"><strong>${system.name}</strong><small>${system.org} · ${system.setup}</small></span><span class="arc-rank-track" aria-hidden="true"><i></i><b></b></span><strong class="arc-rank-score">${arcScore(system.score)}</strong>`;
+    button.addEventListener("click", () => selectArcSystem(system.id));
+    item.appendChild(button);
+    return item;
+  }));
+
+  arcViewButtons.forEach(button => {
+    const selected = button.dataset.arcView === view;
+    button.classList.toggle("is-active", selected);
+    button.setAttribute("aria-pressed", String(selected));
+  });
+  selectArcSystem(activeArcSystem);
+}
+
+arcViewButtons.forEach(button => {
+  button.addEventListener("click", () => renderArcLeaderboard(button.dataset.arcView));
+});
+
+if (arcRankingList) renderArcLeaderboard(activeArcView);
