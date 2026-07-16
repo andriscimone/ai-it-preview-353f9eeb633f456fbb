@@ -22,7 +22,7 @@
       })();
     </script>
     <link rel="stylesheet" href="styles.css?v=energia-0715" />
-    <link rel="stylesheet" href="energy.css?v=0715c" />
+    <link rel="stylesheet" href="energy.css?v=0716a" />
   </head>
   <body class="detail-page energy-page">
     <a class="skip-link" href="#top">Salta al contenuto</a>
@@ -54,9 +54,81 @@
           </div>
         </div>
 
+        <section class="energy-prologue" aria-labelledby="energy-prologue-title">
+          <header class="energy-prologue-head">
+            <p class="kicker">Premessa / la storia prima dell'AI</p>
+            <h2 id="energy-prologue-title">Prima dei gigawatt c'erano<br />il pane, il bue e il vento.</h2>
+            <p>La storia della civiltà è la storia di come abbiamo imparato a prendere energia da qualcosa di più grande del nostro corpo.</p>
+          </header>
+
+          <div class="energy-prologue-copy">
+            <p class="prologue-dropcap">Per quasi tutta la storia umana il primo motore siamo stati noi. Una dieta di riferimento da 2.000 chilocalorie contiene 8,4 megajoule: distribuiti sulle ventiquattro ore equivalgono a circa <strong>97 watt</strong>. È la potenza metabolica media che ci tiene vivi, non la forza utile disponibile alle braccia — quella è più bassa, intermittente e deve lasciare spazio al riposo.</p>
+            <p>Poi abbiamo cominciato a esternalizzare la fatica. Il fuoco trasformava legna in calore. Buoi e cavalli tiravano l'aratro e spostavano carichi. Mulini ad acqua e a vento continuavano a macinare anche quando le braccia si fermavano. Il vapore liberò la fabbrica dal fiume e dalle stagioni; l'elettricità rese la potenza trasportabile, divisibile e disponibile premendo un interruttore.</p>
+            <blockquote>Il vero salto non è stato consumare più calorie. È stato costruire una società capace di far lavorare, per ogni persona, un esercito invisibile di macchine.</blockquote>
+          </div>
+
+          <div class="power-ladder" aria-labelledby="power-ladder-title">
+            <header>
+              <div><p class="kicker">Ordini di grandezza</p><h3 id="power-ladder-title">Da un corpo a un sistema planetario</h3></div>
+              <p>Le potenze intermedie sono intervalli indicativi: animali e mulini non sono macchine standard e dipendono da durata, vento, acqua e costruzione.</p>
+            </header>
+            <ol aria-label="Aumento indicativo della potenza controllabile nel tempo">
+              <li style="--power-level: 8%"><span>01 · Corpo</span><strong>≈100 W</strong><p>Cibo trasformato in metabolismo. Il lavoro meccanico sostenibile è solo una frazione.</p><i aria-hidden="true"></i></li>
+              <li style="--power-level: 22%"><span>02 · Animale</span><strong>≈0,5–0,8 kW</strong><p>Un animale da tiro moltiplica la forza disponibile per arare e trasportare.</p><i aria-hidden="true"></i></li>
+              <li style="--power-level: 38%"><span>03 · Mulino</span><strong>≈1–10 kW</strong><p>Vento e acqua producono lavoro locale senza consumare cibo umano.</p><i aria-hidden="true"></i></li>
+              <li style="--power-level: 52%"><span>04 · Vapore</span><strong>≈10–100 kW</strong><p>Le prime macchine industriali concentrano potenza continua nello stesso luogo.</p><i aria-hidden="true"></i></li>
+              <li style="--power-level: 74%"><span>05 · Rete</span><strong>MW → GW</strong><p>Centrali, cavi e motori separano il luogo della generazione da quello dell'uso.</p><i aria-hidden="true"></i></li>
+              <li style="--power-level: 100%"><span>06 · Mondo</span><strong>≈21,3 TW</strong><p>Potenza primaria media implicita nel consumo energetico globale del 2024.</p><i aria-hidden="true"></i></li>
+            </ol>
+          </div>
+        </section>
+
+        <article class="energy-history-shell" aria-labelledby="energy-history-title">
+          <header class="energy-history-head">
+            <div>
+              <p class="kicker">1800–2024 / il grande decollo</p>
+              <h2 id="energy-history-title">La curva che ha cambiato<br />la scala del possibile.</h2>
+            </div>
+            <div class="energy-history-callout">
+              <strong>×33</strong>
+              <p>energia primaria globale rispetto al 1800: da circa 5.653 a 186.383 TWh l'anno.</p>
+            </div>
+          </header>
+
+          <div class="energy-history-controls" aria-label="Seleziona un anno nel grafico">
+            <span>Leggi un anno</span>
+            <button type="button" data-history-year="1800" aria-pressed="false">1800</button>
+            <button type="button" data-history-year="1900" aria-pressed="false">1900</button>
+            <button type="button" data-history-year="1950" aria-pressed="false">1950</button>
+            <button type="button" data-history-year="2000" aria-pressed="false">2000</button>
+            <button type="button" class="is-active" data-history-year="2024" aria-pressed="true">2024</button>
+          </div>
+
+          <div class="energy-history-stage" id="energy-history-stage">
+            <svg id="energy-history-chart" viewBox="0 0 1120 760" role="img" aria-labelledby="history-svg-title history-svg-desc">
+              <title id="history-svg-title">Consumo globale di energia primaria dal 1800 al 2024 e potenza media per persona</title>
+              <desc id="history-svg-desc">Il grafico superiore mostra l'aumento dell'energia globale per fonte. Quello inferiore mostra la potenza primaria media per persona e la confronta con circa 100 watt di energia alimentare.</desc>
+            </svg>
+            <div class="energy-history-tooltip" id="energy-history-tooltip" role="status" hidden></div>
+          </div>
+
+          <div class="energy-history-reading" id="energy-history-reading" aria-live="polite">
+            <span>2024</span><strong>186.383 TWh · 21,3 TW medi</strong><p>Nel 1800 la biomassa dominava quasi tutta la curva; oggi la scala è trentatré volte maggiore e il mix è molto più articolato.</p>
+          </div>
+
+          <div class="energy-history-legend" aria-label="Fonti energetiche rappresentate">
+            <span class="is-biomass"><i></i>Biomassa tradizionale</span><span class="is-coal"><i></i>Carbone</span><span class="is-oil"><i></i>Petrolio</span><span class="is-gas"><i></i>Gas</span><span class="is-hydro"><i></i>Idroelettrico</span><span class="is-nuclear"><i></i>Nucleare</span><span class="is-modern"><i></i>Rinnovabili moderne</span>
+          </div>
+
+          <footer class="energy-history-foot">
+            <p>Grafico superiore: energia primaria globale con metodo di sostituzione. Grafico inferiore: potenza media per persona derivata dividendo i TWh annui per popolazione e ore dell'anno. La linea da 100 W è il riferimento alimentare, non una serie storica.</p>
+            <a href="https://ourworldindata.org/energy-production-consumption" target="_blank" rel="noreferrer">Dati e metodo · Our World in Data ↗</a>
+          </footer>
+        </article>
+
         <section class="energy-primer" aria-labelledby="energy-primer-title">
           <div class="energy-primer-lede">
-            <p class="kicker">Prima del compute viene la potenza</p>
+            <p class="kicker">Dalla potenza alla prosperità</p>
             <h2 id="energy-primer-title">L'energia non è un settore.<br />È ciò che rende possibili <em>tutti</em> gli altri.</h2>
           </div>
           <div class="energy-primer-copy">
@@ -290,6 +362,9 @@
           <li><a href="https://x.ai/colossus" target="_blank" rel="noreferrer">xAI · Colossus</a><span>200.000 GPU Hopper (H100+H200) dichiarate come singolo cluster interconnesso.</span></li>
           <li><a href="https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai" target="_blank" rel="noreferrer">IEA · Energy demand from AI</a><span>Consumo elettrico di tutti i data center e ruolo crescente dei server accelerati.</span></li>
           <li><a href="https://ourworldindata.org/grapher/energy-use-per-person-vs-gdp-per-capita?tab=chart&amp;time=2024" target="_blank" rel="noreferrer">Our World in Data · Energia per persona vs PIL</a><span>Dati 2024: energia primaria pro capite e PIL pro capite PPP in dollari internazionali 2021.</span></li>
+          <li><a href="https://ourworldindata.org/energy-production-consumption" target="_blank" rel="noreferrer">Our World in Data · Energia globale dal 1800</a><span>Stime storiche di Vaclav Smil combinate con i dati aggiornati dell'Energy Institute; metodo di sostituzione.</span></li>
+          <li><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A52018XC0608%2801%29" target="_blank" rel="noreferrer">Commissione europea · 2.000 kcal di riferimento</a><span>8.400 kJ al giorno equivalgono a una potenza media di circa 97 W; è un calcolo fisico, non la potenza meccanica del corpo.</span></li>
+          <li><a href="https://www.eia.gov/energyexplained/wind/history-of-wind-power.php" target="_blank" rel="noreferrer">EIA · Storia dell'energia eolica</a><span>Uso storico del vento per navigazione, pompaggio, macinazione, segherie e infine generazione elettrica.</span></li>
           <li><a href="https://www.iea.org/reports/electricity-2026/grids" target="_blank" rel="noreferrer">IEA · Electricity 2026 / Grids</a><span>Oltre 2.500 GW in coda; reti nuove in 5–15 anni contro 1–3 anni per un data center.</span></li>
           <li><a href="https://eta.lbl.gov/publications/queued-2025-edition-characteristics" target="_blank" rel="noreferrer">Berkeley Lab · Queued Up 2025</a><span>Negli USA il tempo mediano richiesta–operatività ha superato quattro anni per i progetti completati nel 2018–2024.</span></li>
           <li><a href="https://www.helionenergy.com/about" target="_blank" rel="noreferrer">Helion · Team e investitori</a><span>La società elenca Sam Altman fra gli investitori e David Kirtley come cofondatore e CEO.</span></li>
@@ -300,13 +375,13 @@
           <li><a href="https://docs.fcc.gov/public/attachments/DA-26-113A1.pdf" target="_blank" rel="noreferrer">FCC · SpaceX Orbital Data Center</a><span>Domanda accettata per esame: sistema NGSO fino a un milione di satelliti; non è un'autorizzazione finale.</span></li>
           <li><a href="https://www.sec.gov/Archives/edgar/data/1181412/000162828026039276/spaceexplorationtechnologi.htm" target="_blank" rel="noreferrer">SpaceX · Prospetto SEC 2026</a><span>Piattaforma derivata da V3, circa 100 kW di compute per tonnellata, pannelli con circa 5× l'output di V3 e primi dispiegamenti dichiarati dal 2028. Sono previsioni soggette a rischi tecnici e regolatori.</span></li>
         </ol>
-        <p class="source-boundary">I dati distinguono capacità nominale, IT power e facility power. Correlazione non significa causalità. I claim xAI, Helion e SpaceX restano dichiarazioni dei produttori; le stime Epoch sono indicate come tali. Le timeline future separano fatti, target aziendali e scenari editoriali. Le specifiche stampate nel concept del satellite non sono state verificate e non vengono presentate come dati SpaceX. Dati consultati il 15 luglio 2026.</p>
+        <p class="source-boundary">I dati distinguono capacità nominale, IT power e facility power. Correlazione non significa causalità. Il grafico di lungo periodo misura il consumo globale di energia primaria, che su scala mondiale è la controparte osservabile dell'energia prodotta e utilizzata; non misura soltanto l'elettricità. Le potenze di animali, mulini e prime macchine sono ordini di grandezza illustrativi, non medie storiche globali. I claim xAI, Helion e SpaceX restano dichiarazioni dei produttori; le stime Epoch sono indicate come tali. Le timeline future separano fatti, target aziendali e scenari editoriali. Le specifiche stampate nel concept del satellite non sono state verificate e non vengono presentate come dati SpaceX. Dati consultati il 16 luglio 2026.</p>
       </section>
 
       <nav class="chapter-next" aria-label="Continua la lettura"><a href="index.html">← Torna alla Home</a><a href="chip.html">Prossimo: Chips →</a></nav>
     </main>
     <footer class="site-footer"><span>AI.it</span><span>Energia · 01</span></footer>
     <script src="app.js"></script>
-    <script src="energy-visuals.js?v=0715b"></script>
+    <script src="energy-visuals.js?v=0716a"></script>
   </body>
 </html>

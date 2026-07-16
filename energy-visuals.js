@@ -384,3 +384,415 @@
     resizeTimer = window.setTimeout(render, 120);
   });
 })();
+
+(() => {
+  const svg = document.querySelector("#energy-history-chart");
+  const stage = document.querySelector("#energy-history-stage");
+  const tooltip = document.querySelector("#energy-history-tooltip");
+  const reading = document.querySelector("#energy-history-reading");
+  const controls = [...document.querySelectorAll("[data-history-year]")];
+
+  if (!svg || !stage || !tooltip || !reading) return;
+
+  const NS = "http://www.w3.org/2000/svg";
+  const sources = [
+    { key: "bio", className: "is-biomass", label: "biomassa tradizionale" },
+    { key: "coal", className: "is-coal", label: "carbone" },
+    { key: "oil", className: "is-oil", label: "petrolio" },
+    { key: "gas", className: "is-gas", label: "gas" },
+    { key: "hydro", className: "is-hydro", label: "idroelettrico" },
+    { key: "nuclear", className: "is-nuclear", label: "nucleare" },
+    { key: "modern", className: "is-modern", label: "rinnovabili moderne" },
+  ];
+  const integer = new Intl.NumberFormat("it-IT", { maximumFractionDigits: 0 });
+  const decimal = new Intl.NumberFormat("it-IT", { maximumFractionDigits: 1 });
+  let dataset = [];
+  let selectedYear = 2024;
+  let layout = null;
+  let resizeTimer;
+
+  function make(tag, attributes = {}, text = "") {
+    const node = document.createElementNS(NS, tag);
+    Object.entries(attributes).forEach(([name, value]) => node.setAttribute(name, value));
+    if (text) node.textContent = text;
+    return node;
+  }
+
+  function linePath(points) {
+    return points.map((point, index) => (index ? "L " : "M ") + point[0] + " " + point[1]).join(" ");
+  }
+
+  function nearestRow(year) {
+    return dataset.reduce((nearest, row) =>
+      Math.abs(row.y - year) < Math.abs(nearest.y - year) ? row : nearest,
+    );
+  }
+
+  function populationRow(row) {
+    if (Number.isFinite(row.pw)) return row;
+    return [...dataset].reverse().find((candidate) => candidate.y <= row.y && Number.isFinite(candidate.pw));
+  }
+
+  function dominantSource(row) {
+    return sources.reduce((best, source) =>
+      Number(row[source.key]) > Number(row[best.key]) ? source : best,
+    );
+  }
+
+  function formatPower(value) {
+    if (!Number.isFinite(value)) return "dato non disponibile";
+    return value >= 1000 ? decimal.format(value / 1000) + " kW/persona" : integer.format(value) + " W/persona";
+  }
+
+  function showTooltip(event, row, perCapitaRow) {
+    const bounds = stage.getBoundingClientRect();
+    const source = dominantSource(row);
+    tooltip.innerHTML =
+      "<strong>" + row.y + "</strong>" +
+      "<span>" + integer.format(row.t) + " TWh · " + decimal.format(row.t / 8760) + " TW medi</span>" +
+      "<span>" + formatPower(perCapitaRow?.pw) + "</span>" +
+      "<span>Fonte maggiore: " + source.label + "</span>";
+    tooltip.hidden = false;
+    const desiredLeft = event.clientX - bounds.left + 16;
+    const desiredTop = event.clientY - bounds.top + 14;
+    const maxLeft = bounds.width - tooltip.offsetWidth - 12;
+    tooltip.style.left = Math.max(10, Math.min(desiredLeft, maxLeft)) + "px";
+    tooltip.style.top = Math.max(10, desiredTop) + "px";
+  }
+
+  function hideTooltip() {
+    tooltip.hidden = true;
+  }
+
+  function updateSelection(year, event) {
+    if (!dataset.length || !layout) return;
+    const row = nearestRow(Number(year));
+    const perCapita = populationRow(row);
+    const px = layout.x(row.y);
+    const topY = layout.yTop(row.t);
+    const personY = layout.yPerson(perCapita?.pw || 0);
+    selectedYear = row.y;
+
+    const line = svg.querySelector("#history-marker-line");
+    const topDot = svg.querySelector("#history-total-dot");
+    const personDot = svg.querySelector("#history-person-dot");
+    const label = svg.querySelector("#history-marker-label");
+    if (line) {
+      line.setAttribute("x1", px);
+      line.setAttribute("x2", px);
+    }
+    if (topDot) {
+      topDot.setAttribute("cx", px);
+      topDot.setAttribute("cy", topY);
+    }
+    if (personDot) {
+      personDot.setAttribute("cx", px);
+      personDot.setAttribute("cy", personY);
+    }
+    if (label) {
+      const nearRight = px > layout.right - 54;
+      label.setAttribute("x", px + (nearRight ? -8 : 8));
+      label.setAttribute("text-anchor", nearRight ? "end" : "start");
+      label.textContent = row.y;
+    }
+
+    controls.forEach((button) => {
+      const active = Number(button.dataset.historyYear) === row.y;
+      button.classList.toggle("is-active", active);
+      button.setAttribute("aria-pressed", String(active));
+    });
+
+    const source = dominantSource(row);
+    const factor = row.t / dataset[0].t;
+    const populationNote = perCapita?.y === row.y ? "" : " · dato pro capite " + perCapita?.y;
+    reading.innerHTML =
+      "<span>" + row.y + "</span>" +
+      "<strong>" + integer.format(row.t) + " TWh · " + decimal.format(row.t / 8760) + " TW medi</strong>" +
+      "<p>" + formatPower(perCapita?.pw) + populationNote + ". Fonte principale: " +
+      source.label + ". Scala globale: " + decimal.format(factor) + "× il 1800.</p>";
+
+    if (event) showTooltip(event, row, perCapita);
+  }
+
+  function render() {
+    if (!dataset.length) return;
+
+    const compact = window.innerWidth < 700;
+    const width = compact ? 720 : 1120;
+    const height = compact ? 860 : 760;
+    const left = compact ? 78 : 92;
+    const right = width - (compact ? 28 : 48);
+    const topPlot = {
+      top: 68,
+      bottom: compact ? 468 : 442,
+    };
+    const personPlot = {
+      top: compact ? 594 : 544,
+      bottom: compact ? 782 : 688,
+    };
+    const maxTotal = 200000;
+    const maxPerson = 3000;
+    const x = (year) => left + ((year - 1800) / (2024 - 1800)) * (right - left);
+    const yTop = (value) => topPlot.bottom - (value / maxTotal) * (topPlot.bottom - topPlot.top);
+    const yPerson = (value) =>
+      personPlot.bottom - (Math.min(value, maxPerson) / maxPerson) * (personPlot.bottom - personPlot.top);
+    const xTicks = compact ? [1800, 1900, 1950, 2000, 2024] : [1800, 1850, 1900, 1950, 2000, 2024];
+    const totalTicks = compact ? [0, 100000, 200000] : [0, 50000, 100000, 150000, 200000];
+    const personTicks = [0, 1000, 2000, 3000];
+
+    layout = { width, height, left, right, topPlot, personPlot, x, yTop, yPerson };
+    svg.replaceChildren();
+    svg.setAttribute("viewBox", "0 0 " + width + " " + height);
+    svg.append(
+      make("title", { id: "history-svg-title" }, "Consumo globale di energia primaria dal 1800 al 2024 e potenza media per persona"),
+      make(
+        "desc",
+        { id: "history-svg-desc" },
+        "Il grafico superiore mostra la crescita dell'energia globale per fonte. Quello inferiore mostra la potenza primaria media per persona e una linea di riferimento alimentare da cento watt.",
+      ),
+    );
+
+    totalTicks.forEach((tick) => {
+      const py = yTop(tick);
+      svg.append(
+        make("line", { class: "history-grid-line", x1: left, y1: py, x2: right, y2: py }),
+        make(
+          "text",
+          { class: "history-axis-text", x: left - 14, y: py + 4, "text-anchor": "end" },
+          tick === 0 ? "0" : tick / 1000 + "k",
+        ),
+      );
+    });
+
+    personTicks.forEach((tick) => {
+      const py = yPerson(tick);
+      svg.append(
+        make("line", { class: "history-grid-line", x1: left, y1: py, x2: right, y2: py }),
+        make(
+          "text",
+          { class: "history-axis-text", x: left - 14, y: py + 4, "text-anchor": "end" },
+          tick >= 1000 ? tick / 1000 + "k" : String(tick),
+        ),
+      );
+    });
+
+    xTicks.forEach((tick) => {
+      const px = x(tick);
+      svg.append(
+        make("line", {
+          class: "history-grid-line",
+          x1: px,
+          y1: topPlot.top,
+          x2: px,
+          y2: personPlot.bottom,
+        }),
+        make(
+          "text",
+          {
+            class: "history-axis-text",
+            x: px,
+            y: personPlot.bottom + 29,
+            "text-anchor": tick === 1800 ? "start" : tick === 2024 ? "end" : "middle",
+          },
+          String(tick),
+        ),
+      );
+    });
+
+    svg.append(
+      make(
+        "text",
+        { class: "history-axis-label", x: left, y: topPlot.top - 28 },
+        "ENERGIA PRIMARIA GLOBALE · TWh/ANNO",
+      ),
+      make(
+        "text",
+        { class: "history-axis-label", x: left, y: personPlot.top - 28 },
+        "POTENZA PRIMARIA MEDIA PER PERSONA · W",
+      ),
+      make("line", {
+        class: "history-axis-line",
+        x1: left,
+        y1: topPlot.bottom,
+        x2: right,
+        y2: topPlot.bottom,
+      }),
+      make("line", {
+        class: "history-axis-line",
+        x1: left,
+        y1: personPlot.bottom,
+        x2: right,
+        y2: personPlot.bottom,
+      }),
+    );
+
+    const cumulative = dataset.map(() => 0);
+    sources.forEach((source) => {
+      const lower = [...cumulative];
+      const upper = dataset.map((row, index) => {
+        cumulative[index] += Number(row[source.key]) || 0;
+        return cumulative[index];
+      });
+      const upperPoints = dataset.map((row, index) => [x(row.y), yTop(upper[index])]);
+      const lowerPoints = [...dataset]
+        .reverse()
+        .map((row, reverseIndex) => {
+          const index = dataset.length - 1 - reverseIndex;
+          return [x(row.y), yTop(lower[index])];
+        });
+      const path =
+        linePath(upperPoints) +
+        " " +
+        lowerPoints.map((point) => "L " + point[0] + " " + point[1]).join(" ") +
+        " Z";
+      svg.append(make("path", { class: "history-area " + source.className, d: path }));
+    });
+
+    svg.append(
+      make("path", {
+        class: "history-total-line",
+        d: linePath(dataset.map((row) => [x(row.y), yTop(row.t)])),
+      }),
+      make(
+        "text",
+        { class: "history-annotation", x: x(1800) + 8, y: yTop(dataset[0].t) - 12 },
+        "0,65 TW",
+      ),
+      make(
+        "text",
+        {
+          class: "history-annotation",
+          x: x(2024) - 14,
+          y: yTop(dataset[dataset.length - 1].t) + 28,
+          "text-anchor": "end",
+        },
+        "21,3 TW",
+      ),
+    );
+
+    const personRows = dataset.filter((row) => Number.isFinite(row.pw));
+    const personPoints = personRows.map((row) => [x(row.y), yPerson(row.pw)]);
+    const personArea =
+      linePath(personPoints) +
+      " L " + x(personRows[personRows.length - 1].y) + " " + personPlot.bottom +
+      " L " + x(personRows[0].y) + " " + personPlot.bottom +
+      " Z";
+    const foodY = yPerson(100);
+    svg.append(
+      make("path", { class: "history-person-area", d: personArea }),
+      make("path", { class: "history-person-line", d: linePath(personPoints) }),
+      make("line", {
+        class: "history-food-line",
+        x1: left,
+        y1: foodY,
+        x2: right,
+        y2: foodY,
+      }),
+      make(
+        "text",
+        { class: "history-food-label", x: right - 4, y: foodY - 8, "text-anchor": "end" },
+        "≈100 W · ENERGIA DAL CIBO",
+      ),
+    );
+
+    svg.append(
+      make("line", {
+        id: "history-marker-line",
+        class: "history-marker-line",
+        x1: right,
+        y1: topPlot.top,
+        x2: right,
+        y2: personPlot.bottom,
+      }),
+      make("circle", {
+        id: "history-total-dot",
+        class: "history-marker-dot",
+        cx: right,
+        cy: yTop(dataset[dataset.length - 1].t),
+        r: compact ? 7 : 6,
+      }),
+      make("circle", {
+        id: "history-person-dot",
+        class: "history-marker-dot",
+        cx: right,
+        cy: yPerson(personRows[personRows.length - 1].pw),
+        r: compact ? 7 : 6,
+      }),
+      make(
+        "text",
+        {
+          id: "history-marker-label",
+          class: "history-marker-label",
+          x: right - 8,
+          y: topPlot.top + 18,
+          "text-anchor": "end",
+        },
+        String(selectedYear),
+      ),
+    );
+
+    const hitArea = make("rect", {
+      class: "history-hit-area",
+      x: left,
+      y: topPlot.top,
+      width: right - left,
+      height: personPlot.bottom - topPlot.top,
+    });
+    hitArea.addEventListener("pointermove", (event) => {
+      const bounds = svg.getBoundingClientRect();
+      const svgX = ((event.clientX - bounds.left) / bounds.width) * width;
+      const year = 1800 + ((svgX - left) / (right - left)) * (2024 - 1800);
+      updateSelection(Math.max(1800, Math.min(2024, year)), event);
+    });
+    hitArea.addEventListener("pointerdown", (event) => {
+      const bounds = svg.getBoundingClientRect();
+      const svgX = ((event.clientX - bounds.left) / bounds.width) * width;
+      const year = 1800 + ((svgX - left) / (right - left)) * (2024 - 1800);
+      updateSelection(Math.max(1800, Math.min(2024, year)), event);
+    });
+    hitArea.addEventListener("pointerleave", hideTooltip);
+    svg.append(hitArea);
+
+    updateSelection(selectedYear);
+  }
+
+  controls.forEach((button) => {
+    button.addEventListener("click", () => {
+      hideTooltip();
+      updateSelection(Number(button.dataset.historyYear));
+    });
+  });
+
+  fetch("assets/world-energy-history.json")
+    .then((response) => {
+      if (!response.ok) throw new Error("dataset storico non disponibile");
+      return response.json();
+    })
+    .then((data) => {
+      dataset = data
+        .map((row) => ({
+          y: Number(row.y),
+          t: Number(row.t),
+          bio: Number(row.bio),
+          coal: Number(row.coal),
+          oil: Number(row.oil),
+          gas: Number(row.gas),
+          hydro: Number(row.hydro),
+          nuclear: Number(row.nuclear),
+          modern: Number(row.modern),
+          pw: row.pw == null ? null : Number(row.pw),
+        }))
+        .filter((row) => Number.isFinite(row.y) && Number.isFinite(row.t));
+      render();
+    })
+    .catch(() => {
+      reading.innerHTML =
+        "<span>Errore</span><strong>Il grafico storico non si è caricato.</strong>" +
+        "<p>I dati originali restano disponibili nel collegamento a Our World in Data.</p>";
+    });
+
+  window.addEventListener("resize", () => {
+    window.clearTimeout(resizeTimer);
+    resizeTimer = window.setTimeout(render, 120);
+  });
+})();
