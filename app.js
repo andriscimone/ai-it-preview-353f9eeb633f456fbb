@@ -479,32 +479,35 @@ const energySeries = [
 
 const energyViews = {
   site: {
-    title: "Record del più grande sito AI",
-    subtitle: "Compute installato in H100-equivalent · agosto 2024 – luglio 2026",
-    label: "La misura corretta",
-    definitionTitle: "H100-equivalent di un sito",
-    definitionCopy: "Normalizza chip diversi rispetto alla capacità FP8 di una H100. Misura la scala di un campus, non il numero di GPU fisiche e neppure un singolo job coerente.",
+    title: "Un campus AI ha superato il milione di H100-equivalent",
+    subtitle: "Sito fisico · non un singolo cluster · stima Epoch, agosto 2024 – luglio 2026",
+    label: "Scala del campus",
+    value: "1,11M <small>H100-eq</small>",
+    definitionTitle: "Tutto il compute installato nello stesso sito",
+    definitionCopy: "Normalizza chip diversi rispetto alla capacità FP8 di una H100. È una misura della scala fisica del campus, non del numero reale di GPU.",
     rule: "Non chiamarlo coherent cluster.",
     ruleCopy: "Un sito può ospitare più fabric e più cluster.",
-    note: "La serie Epoch misura il record di compute installato in un singolo sito. L'ultimo punto è una stima corrente del database. Dati Epoch consultati a luglio 2026; il database è aggiornato di continuo.",
+    note: "Il dato racconta quanto compute è concentrato nello stesso luogo. Non dice quante GPU possano lavorare tutte insieme sullo stesso modello.",
     source: "https://epoch.ai/data-insights/largest-data-center-compute"
   },
   cluster: {
-    title: "Cluster esplicitamente interconnesso",
+    title: "Il limite verificabile è 200.000 GPU nello stesso fabric",
     subtitle: "GPU Hopper (H100/H200) dichiarate nello stesso fabric · disclosure pubbliche xAI",
-    label: "La misura più vicina a coherent",
-    definitionTitle: "GPU nello stesso cluster di rete",
-    definitionCopy: "È la disclosure pubblica più vicina a un coherent cluster: le GPU sono descritte nello stesso sistema interconnesso. Non dimostra però che ogni training job le utilizzi tutte insieme.",
+    label: "Scala del cluster",
+    value: "200.000 <small>GPU</small>",
+    definitionTitle: "GPU dichiarate nello stesso sistema di rete",
+    definitionCopy: "È la misura pubblica più vicina a un cluster coerente. Descrive l'interconnessione, ma non dimostra che ogni training job utilizzi tutte le GPU insieme.",
     rule: "200.000 GPU Hopper è il limite verificabile.",
     ruleCopy: "xAI dichiara oggi più GPU complessive, ma non sempre esplicita un unico dominio coerente comparabile.",
     note: "NVIDIA descriveva Colossus con 100.000 GPU Hopper nell'ottobre 2024; il raddoppio dichiarato a 200.000 è un mix H100+H200.",
     source: "https://x.ai/colossus"
   },
   power: {
-    title: "Quanti gigawatt sono davvero AI?",
+    title: "La capacità AI mondiale stimata è 30 gigawatt",
     subtitle: "Capacità nominale, facility power e IT power · grandezze da non sommare",
-    label: "La domanda più difficile",
-    definitionTitle: "Training + inference non è misurato",
+    label: "Scala energetica",
+    value: "30 <small>GW</small>",
+    definitionTitle: "Capacità nominale, non consumo medio",
     definitionCopy: "Il numero globale pubblico più difendibile è 30 GW di capacità nominale AI a fine 2025. Circa 20 GW per training più inference è soltanto una derivazione dalla ripartizione approssimativa in terzi.",
     rule: "Capacità non significa consumo medio.",
     ruleCopy: "E 14,6 GW dei siti tracciati è un sottoinsieme dei 30 GW globali, non un valore da aggiungere.",
@@ -565,7 +568,10 @@ function renderEnergySite(geometry) {
   const points = energySeries.map((item, index) => [x(index), y(item.value)]);
   let path = `M ${points[0][0]} ${points[0][1]}`;
   points.slice(1).forEach(point => { path += ` L ${point[0]} ${point[1]}`; });
-  energySvg.appendChild(el("path", { d: path, fill: "none", stroke: "var(--chart-primary)", "stroke-width": "5", "stroke-linejoin": "round", "stroke-linecap": "round" }));
+  const areaPath = `${path} L ${points.at(-1)[0]} ${plot.bottom} L ${points[0][0]} ${plot.bottom} Z`;
+  energySvg.appendChild(el("path", { d: areaPath, class: "energy-site-area" }));
+  energySvg.appendChild(el("path", { d: path, class: "energy-site-line" }));
+  energySvg.appendChild(energyText(plot.left, plot.top - 25, "13,8× NEL DATASET", { fill: "var(--chart-text)", "font-size": "12", "font-weight": "600" }));
 
   energySeries.forEach((item, index) => {
     const [cx, cy] = points[index];
@@ -592,6 +598,7 @@ function renderEnergySite(geometry) {
     energySvg.appendChild(energyText(x(index), plot.bottom + 34, date.toLocaleDateString("it-IT", { month: "short", year: index === 0 || index === 9 ? "2-digit" : undefined }), { "text-anchor": "middle" }));
   });
   const last = energySeries.at(-1);
+  energySvg.appendChild(energyText(x(0) + 8, y(energySeries[0].value) - 18, "80K", { fill: "var(--chart-text)", "font-family": "Manrope", "font-size": "15", "font-weight": "600" }));
   energySvg.appendChild(energyText(x(9) - 10, y(last.value) - 22, "1,11M H100-eq", { "text-anchor": "end", fill: "var(--chart-text)", "font-family": "Manrope", "font-size": "18", "font-weight": "600" }));
 }
 
@@ -635,6 +642,7 @@ function renderEnergy() {
   document.getElementById("energy-chart-title").textContent = view.title;
   document.getElementById("energy-chart-subtitle").textContent = view.subtitle;
   document.getElementById("energy-definition-label").textContent = view.label;
+  document.getElementById("energy-definition-value").innerHTML = view.value;
   document.getElementById("energy-definition-title").textContent = view.definitionTitle;
   document.getElementById("energy-definition-copy").textContent = view.definitionCopy;
   document.querySelector("#energy-definition-rule strong").textContent = view.rule;
