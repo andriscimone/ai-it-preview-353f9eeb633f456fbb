@@ -48,15 +48,16 @@ const routeFiles = [
   "robots.txt"
 ];
 
-function collect(directory, prefix = "") {
+function collect(directory, prefix = "", include = () => true) {
   for (const name of readdirSync(join(root, directory))) {
     const relative = join(directory, name);
     const absolute = join(root, relative);
-    if (statSync(absolute).isDirectory()) collect(relative, join(prefix, name));
-    else routeFiles.push(relative);
+    if (statSync(absolute).isDirectory()) collect(relative, join(prefix, name), include);
+    else if (include(relative)) routeFiles.push(relative);
   }
 }
 
+collect("assets", "", file => !file.endsWith(".mp4"));
 collect("fonts");
 
 const routes = Object.fromEntries(routeFiles.map(file => {
