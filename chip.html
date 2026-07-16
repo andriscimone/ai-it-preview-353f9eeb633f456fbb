@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Ampere, Hopper, Blackwell e Rubin a confronto: architettura, costo, potenza, produzione e deployment." />
+    <meta name="description" content="Dalla nascita del computer al microprocessore di Federico Faggin, dalla legge di Moore alle GPU e alla nuova economia dei token." />
     <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
-    <meta property="og:title" content="Chips — AI.it" /><meta property="og:description" content="GPU sempre più costose ed energivore, prodotte e installate su scala crescente." /><meta property="og:type" content="website" /><meta property="og:locale" content="it_IT" />
+    <meta property="og:title" content="Dal computer al token — AI.it" /><meta property="og:description" content="Una storia dei chip: Faggin, legge di Moore, GPU parallele e l'economia dei token." /><meta property="og:type" content="website" /><meta property="og:locale" content="it_IT" />
     <meta id="theme-color" name="theme-color" content="#f2f0e8" />
-    <link rel="icon" href="data:," /><title>Chips — AI.it</title>
+    <link rel="icon" href="data:," /><title>Dal computer al token — AI.it</title>
     <script>
       (() => { try { const saved = localStorage.getItem("aiit-theme"); const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dataset.theme = saved || preferred; } catch (_) { document.documentElement.dataset.theme = "light"; } })();
     </script>
-    <link rel="stylesheet" href="styles.css?v=chip-studio-3" />
+    <link rel="stylesheet" href="styles.css?v=chip-studio-4" />
   </head>
   <body class="detail-page chip-page">
     <a class="skip-link" href="#top">Salta al contenuto</a><div class="noise" aria-hidden="true"></div>
@@ -22,10 +22,171 @@
     <nav class="section-nav" aria-label="Sezioni del sito"><a href="index.html">Home</a><a href="energia.html">Energia</a><a href="chip.html" aria-current="page">Chips</a><a href="algoritmi.html">Algoritmi</a><a href="inferenza.html">Inferenza</a><a href="altro.html">Altro</a></nav>
 
     <main id="top">
-      <section class="chapter evidence-chapter chip-chapter" aria-labelledby="chip-title">
+      <section class="chapter evidence-chapter chip-chapter" aria-labelledby="chip-history-title">
+        <article class="chip-history" id="history">
+          <header class="chip-history-hero">
+            <div class="history-hero-meta" aria-hidden="true"><span>1946 → 2026</span><span>Storia di una compressione</span></div>
+            <p class="kicker">Prima di Ampere</p>
+            <h1 id="chip-history-title">Dal computer<br />al <em>token.</em></h1>
+            <p class="history-hero-deck">Nel 1946 un computer occupava una stanza. Nel 1971 Federico Faggin contribuì a condensarne la funzione centrale in <strong>2.300 transistor</strong>. Oggi interi data center trasformano elettricità in parole, immagini e codice.</p>
+            <aside class="history-thesis">
+              <span>La tesi del capitolo</span>
+              <p>Mentre la crescita della produttività rallentava, l'informatica continuava la sua corsa esponenziale. È la lettura della stagnazione resa popolare da Peter Thiel: potente, controversa e da trattare come <strong>interpretazione</strong>, non come verdetto.</p>
+            </aside>
+            <div class="history-scroll-cue" aria-hidden="true"><i></i><span>Scorri la curva</span></div>
+          </header>
+
+          <ol class="chip-origin-timeline" aria-label="Sei passaggi dalla nascita del computer all'economia dei token">
+            <li><time>1946</time><span>La stanza</span><strong>ENIAC</strong><p>Un calcolatore elettronico general purpose riempie una sala e viene programmato ricablando pannelli.</p></li>
+            <li><time>1958</time><span>Il circuito</span><strong>Integrated circuit</strong><p>Kilby dimostra il circuito integrato; Noyce rende pratica la sua produzione su silicio.</p></li>
+            <li class="is-italian"><time>1971</time><span>Il chip</span><strong>Intel 4004</strong><p>La CPU entra in un singolo componente. A guidarne il progetto fisico è l'italiano Federico Faggin.</p></li>
+            <li><time>1999</time><span>Il parallelo</span><strong>GPU</strong><p>Il processore grafico nasce per eseguire molte operazioni simili nello stesso momento.</p></li>
+            <li><time>2006</time><span>Il linguaggio</span><strong>CUDA</strong><p>La GPU diventa programmabile per calcoli generali, non soltanto per disegnare pixel.</p></li>
+            <li><time>2022+</time><span>Il prodotto</span><strong>Token</strong><p>Il valore percepito si misura sempre più nell'output utile generato dall'intero sistema.</p></li>
+          </ol>
+
+          <aside class="faggin-spotlight" aria-labelledby="faggin-title">
+            <div class="faggin-stamp" aria-hidden="true"><span>VI</span><strong>1941</strong><i>→</i><span>CA</span><strong>1971</strong></div>
+            <div>
+              <p class="kicker">Vicenza → Silicon Valley</p>
+              <h2 id="faggin-title">Faggin non mise solo una CPU su un chip. Contribuì a renderla <em>fabbricabile.</em></h2>
+              <p>Federico Faggin sviluppò alla Fairchild la tecnologia MOS a porta di silicio e, in Intel, guidò l'implementazione del 4004. Il salto non fu soltanto concettuale: serviva una tecnologia abbastanza densa, veloce e ripetibile da trasformare un progetto in un prodotto.</p>
+              <a href="https://computerhistory.org/profile/federico-faggin/" target="_blank" rel="noreferrer">Profilo del Computer History Museum ↗</a>
+            </div>
+            <dl>
+              <div><dt>Transistor</dt><dd>2.300</dd></div>
+              <div><dt>Parole</dt><dd>4 bit</dd></div>
+              <div><dt>Anno</dt><dd>1971</dd></div>
+            </dl>
+          </aside>
+
+          <section class="history-panel moore-panel" aria-labelledby="moore-title">
+            <header>
+              <div><p class="kicker">01 / La curva</p><h2 id="moore-title">La legge economica<br />dentro il silicio</h2></div>
+              <p>Nel 1965 Gordon Moore osservò che il numero di componenti nel circuito dal costo minimo cresceva rapidamente. Non era una legge fisica: era una traiettoria industriale fatta di litografia, rendimento produttivo e investimenti.</p>
+            </header>
+            <div class="moore-figure">
+              <div class="figure-note"><span>Dati verificati</span><p>Transistor dichiarati per dispositivi selezionati. Scala logaritmica: ogni riga vale 100×.</p></div>
+              <svg class="moore-chart" viewBox="0 0 1000 470" role="img" aria-labelledby="moore-chart-title moore-chart-desc">
+                <title id="moore-chart-title">Crescita del numero di transistor dal 1971 al 2024</title>
+                <desc id="moore-chart-desc">Da 2.300 transistor nell'Intel 4004 a 208 miliardi nella GPU NVIDIA Blackwell, su scala logaritmica.</desc>
+                <g class="chart-grid">
+                  <line x1="70" y1="390" x2="950" y2="390"/><line x1="70" y1="305" x2="950" y2="305"/><line x1="70" y1="220" x2="950" y2="220"/><line x1="70" y1="135" x2="950" y2="135"/><line x1="70" y1="50" x2="950" y2="50"/>
+                  <text x="8" y="394">1K</text><text x="8" y="309">100K</text><text x="8" y="224">10M</text><text x="8" y="139">1B</text><text x="8" y="54">100B</text>
+                </g>
+                <path class="moore-area" d="M70 379 L186 332 L253 304 L435 248 L552 202 L884 62 L950 40 L950 390 L70 390 Z"/>
+                <path class="moore-line" d="M70 379 L186 332 L253 304 L435 248 L552 202 L884 62 L950 40"/>
+                <g class="moore-points">
+                  <g transform="translate(70 379)"><circle r="7"/><text x="0" y="-38"><tspan>1971 · 4004</tspan><tspan x="0" dy="17">2.300</tspan></text></g>
+                  <g transform="translate(186 332)"><circle r="7"/><text x="0" y="39"><tspan>1978 · 8086</tspan><tspan x="0" dy="17">29 mila</tspan></text></g>
+                  <g transform="translate(253 304)"><circle r="7"/><text x="0" y="-43"><tspan>1982 · 286</tspan><tspan x="0" dy="17">134 mila</tspan></text></g>
+                  <g transform="translate(435 248)"><circle r="7"/><text x="0" y="40"><tspan>1993 · Pentium</tspan><tspan x="0" dy="17">3,1 milioni</tspan></text></g>
+                  <g transform="translate(552 202)"><circle r="7"/><text x="0" y="-43"><tspan>2000 · Pentium 4</tspan><tspan x="0" dy="17">42 milioni</tspan></text></g>
+                  <g transform="translate(884 62)"><circle r="7"/><text class="align-end" x="-18" y="45"><tspan>2020 · A100</tspan><tspan x="-18" dy="17">54,2 miliardi</tspan></text></g>
+                  <g transform="translate(950 40)"><circle r="8"/><text class="align-end is-final" x="-18" y="-8"><tspan>2024 · Blackwell</tspan><tspan x="-18" dy="17">208 miliardi</tspan></text></g>
+                </g>
+              </svg>
+              <p class="chart-caveat">Il confronto attraversa CPU e GPU diverse: mostra l'ordine di grandezza della miniaturizzazione, non una classifica prestazionale omogenea.</p>
+            </div>
+            <div class="moore-equation" aria-label="Il numero di transistor cresce, il costo per funzione scende e il software si espande">
+              <div><span>Più transistor</span><strong>↑</strong></div><i>→</i><div><span>Costo per funzione</span><strong>↓</strong></div><i>→</i><div><span>Software ovunque</span><strong>↑</strong></div>
+            </div>
+          </section>
+
+          <section class="history-panel stagnation-panel" aria-labelledby="stagnation-title">
+            <header>
+              <div><p class="kicker">02 / Atomi e bit</p><h2 id="stagnation-title">La curva digitale corre.<br />L'economia rallenta.</h2></div>
+              <p>Negli Stati Uniti la crescita media annua della produttività del lavoro cala nettamente dopo il 1973. È il dato che rende intuitiva la tesi di Thiel: progresso ancora rapido nei <em>bit</em>, molto meno evidente nel mondo degli <em>atomi</em>.</p>
+            </header>
+            <div class="stagnation-layout">
+              <figure class="productivity-chart">
+                <figcaption><span>Produttività del lavoro USA</span><strong>Variazione media annua</strong><small>Settore privato non agricolo · BLS</small></figcaption>
+                <div class="productivity-row"><span>1948–60</span><i><b style="--value:84.8%"></b></i><strong>2,8%</strong></div>
+                <div class="productivity-row"><span>1960–73</span><i><b style="--value:90.9%"></b></i><strong>3,0%</strong></div>
+                <div class="productivity-break"><span>1973</span><i></i><em>la frattura</em></div>
+                <div class="productivity-row is-slow"><span>1973–81</span><i><b style="--value:33.3%"></b></i><strong>1,1%</strong></div>
+                <div class="productivity-row"><span>1981–97</span><i><b style="--value:51.5%"></b></i><strong>1,7%</strong></div>
+                <div class="productivity-row is-rebound"><span>1997–05</span><i><b style="--value:100%"></b></i><strong>3,3%</strong></div>
+                <div class="productivity-row is-slow"><span>2005–18</span><i><b style="--value:42.4%"></b></i><strong>1,4%</strong></div>
+              </figure>
+              <aside class="thiel-reading">
+                <span class="interpretation-label">Interpretazione</span>
+                <blockquote>Il progresso non sarebbe scomparso: si sarebbe ristretto soprattutto all'informatica.</blockquote>
+                <p>La miniaturizzazione ha continuato ad abbassare il costo del calcolo anche quando energia, trasporti, edilizia e altri settori fisici avanzavano più lentamente. È una chiave di lettura, non una dimostrazione causale.</p>
+                <a href="https://foundersfund.com/2017/01/manifesto/" target="_blank" rel="noreferrer">Founders Fund · What happened to the future? ↗</a>
+              </aside>
+            </div>
+            <p class="evidence-warning"><strong>Cosa prova il grafico:</strong> un rallentamento della produttività aggregata. <strong>Cosa non prova:</strong> che la legge di Moore fosse l'unico motore della crescita o che ogni tecnologia fuori dal digitale fosse ferma.</p>
+          </section>
+
+          <section class="history-panel parallel-panel" aria-labelledby="parallel-title">
+            <header>
+              <div><p class="kicker">03 / Il cambio di macchina</p><h2 id="parallel-title">La CPU segue il filo.<br />La GPU apre il ventaglio.</h2></div>
+              <p>Una CPU eccelle nel controllo e nelle sequenze complesse. Una GPU dedica più silicio a molte unità di calcolo che eseguono la stessa istruzione su dati diversi: esattamente il tipo di parallelismo richiesto dalle matrici del deep learning.</p>
+            </header>
+            <div class="parallel-comparison">
+              <article class="processor-card cpu-card">
+                <div class="processor-card-head"><span>CPU</span><strong>Pochi flussi complessi</strong></div>
+                <div class="cpu-visual" aria-hidden="true"><i></i><i></i><i></i><i></i><span>controllo<br />+ cache</span></div>
+                <ol aria-label="Esecuzione prevalentemente sequenziale"><li>Leggi</li><li>Decidi</li><li>Calcola</li><li>Ripeti</li></ol>
+                <p>Ottima per il sistema operativo, la logica del programma e i compiti che dipendono molto dal passo precedente.</p>
+              </article>
+              <div class="parallel-shift" aria-hidden="true"><span>1999</span><i>→</i><span>2006</span><small>GPU · CUDA</small></div>
+              <article class="processor-card gpu-card">
+                <div class="processor-card-head"><span>GPU</span><strong>Migliaia di thread paralleli</strong></div>
+                <div class="gpu-visual" aria-hidden="true">
+                  <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                  <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                </div>
+                <div class="matrix-flow" aria-label="Moltiplicazioni di matrici eseguite in parallelo"><span>[ pesi ]</span><b>×</b><span>[ dati ]</span><b>=</b><span>[ output ]</span></div>
+                <p>Perfetta quando milioni di operazioni simili possono essere distribuite insieme, come nel training e nell'inferenza dei modelli.</p>
+              </article>
+            </div>
+            <p class="diagram-note">Schema concettuale, non conteggio letterale dei core. CPU e GPU moderne collaborano: una orchestra, l'altra macina il lavoro parallelo.</p>
+          </section>
+
+          <section class="history-panel token-panel" aria-labelledby="token-title">
+            <header>
+              <div><p class="kicker">04 / La nuova unità</p><h2 id="token-title">Da transistor per dollaro<br />a token per megawatt</h2></div>
+              <p>Con l'AI generativa il chip non è più il prodotto finale. È un ingranaggio di una fabbrica che include memoria, rete, energia, modello e software. Il risultato vendibile è l'output: i token.</p>
+            </header>
+            <div class="economy-shift" aria-label="Evoluzione delle principali unità economiche del calcolo">
+              <article><span>1971 →</span><strong>transistor / €</strong><p>Quanta complessità entra in un chip al costo più basso.</p></article>
+              <i>→</i>
+              <article><span>2006 →</span><strong>FLOP / watt</strong><p>Quanto calcolo parallelo otteniamo dall'energia consumata.</p></article>
+              <i>→</i>
+              <article class="is-token"><span>2022 →</span><strong>token / € · s · MW</strong><p>Quanto output utile produce l'intero sistema per costo, tempo ed energia.</p></article>
+            </div>
+            <div class="token-evidence">
+              <div class="token-explainer">
+                <span class="interpretation-label">Definizione editoriale</span>
+                <h3>“Token economy” non è una nuova legge di natura.</h3>
+                <p>Qui indica un cambio di KPI: l'economia del sistema si giudica sempre più dal costo dell'output utile. Un token è un frammento di testo o codice elaborato dal modello; non misura da solo qualità, verità o valore.</p>
+                <p class="token-callout"><strong>Il paradosso:</strong> il prezzo per token può crollare mentre la domanda totale di chip, energia e data center continua a salire.</p>
+              </div>
+              <figure class="token-price-chart">
+                <figcaption><span>Declino annuo stimato del prezzo di inferenza</span><strong>9× → 900×</strong><small>Intervalli per attività · Epoch AI</small></figcaption>
+                <div class="token-axis" aria-hidden="true"><span>1×</span><span>10×</span><span>100×</span><span>1.000×</span></div>
+                <div class="token-range"><span>Conoscenza</span><i><b style="--left:31.8%; --width:21.6%"></b></i><strong>9–40×</strong></div>
+                <div class="token-range"><span>Scienza PhD</span><i><b style="--left:53.4%; --width:45.1%"></b></i><strong>40–900×</strong></div>
+                <div class="token-range"><span>Matematica</span><i><b style="--left:43.4%; --width:51.4%"></b></i><strong>20–700×</strong></div>
+                <div class="token-range"><span>Coding</span><i><b style="--left:31.8%; --width:21.6%"></b></i><strong>9–40×</strong></div>
+                <div class="token-range"><span>Chatbot</span><i><b style="--left:33.3%; --width:43.4%"></b></i><strong>10–200×</strong></div>
+                <p>Stime storiche, dipendenti dal task. Epoch AI avverte che i cali più rapidi sono recenti e potrebbero non continuare allo stesso ritmo.</p>
+              </figure>
+            </div>
+          </section>
+
+          <footer class="history-bridge">
+            <span>Il chip diventa fabbrica</span>
+            <h2>Ed è qui che iniziano<br />Ampere, Hopper, Blackwell e Rubin.</h2>
+            <a href="#architecture-lab">Entra nelle quattro generazioni ↓</a>
+          </footer>
+        </article>
+
         <div class="chapter-head">
           <div class="chapter-number">02</div>
-          <div><p class="kicker">Ampere → Hopper → Blackwell → Rubin</p><h1 id="chip-title">Quattro salti<br />di architettura</h1></div>
+          <div><p class="kicker">Ampere → Hopper → Blackwell → Rubin</p><h2 id="chip-title">Quattro salti<br />di architettura</h2></div>
           <p class="chapter-deck">I FLOP sono solo una parte della storia. La vera accelerazione arriva quando precisione, memoria HBM e interconnessione migliorano insieme.</p>
         </div>
 
@@ -164,6 +325,18 @@
       <section class="sources compact-sources" aria-labelledby="sources-title">
         <h2 id="sources-title">Fonti del capitolo</h2>
         <ol>
+          <li><a href="https://www.seas.upenn.edu/about/history-heritage/eniac/" target="_blank" rel="noreferrer">University of Pennsylvania · ENIAC</a><span>Storia del calcolatore elettronico general purpose presentato nel 1946.</span></li>
+          <li><a href="https://educationalgames.nobelprize.org/educational/physics/integrated_circuit/history/index.html" target="_blank" rel="noreferrer">Nobel Prize · Integrated circuit</a><span>Il circuito di Jack Kilby nel 1958 e il contributo di Robert Noyce alla produzione su silicio.</span></li>
+          <li><a href="https://computerhistory.org/profile/federico-faggin/" target="_blank" rel="noreferrer">Computer History Museum · Federico Faggin</a><span>Profilo biografico, tecnologia MOS a porta di silicio e ruolo nell'implementazione del 4004.</span></li>
+          <li><a href="https://www.intel.com/content/www/us/en/history/virtual-vault/articles/the-intel-4004.html" target="_blank" rel="noreferrer">Intel · The 4004</a><span>Storia del primo microprocessore general purpose e del team Faggin, Hoff, Mazor e Shima.</span></li>
+          <li><a href="https://software.intel.com/content/dam/www/public/us/en/documents/corporate-information/museum-transistors-to-transformations-brochure.pdf" target="_blank" rel="noreferrer">Intel Museum · Transistors to transformations</a><span>Conteggi dichiarati dei transistor per 4004, 8086, 286 e Pentium 4.</span></li>
+          <li><a href="https://download.intel.com/newsroom/2023/manufacturing/moores-law-electronics.pdf" target="_blank" rel="noreferrer">Gordon Moore · Cramming more components onto integrated circuits</a><span>Articolo originale del 1965 sulla crescita dei componenti nel circuito a costo minimo.</span></li>
+          <li><a href="https://www.bls.gov/opub/mlr/2021/article/the-us-productivity-slowdown-the-economy-wide-and-industry-level-analysis.htm" target="_blank" rel="noreferrer">U.S. Bureau of Labor Statistics · Productivity slowdown</a><span>Crescita media annua della produttività del lavoro USA nei periodi 1948–2018.</span></li>
+          <li><a href="https://foundersfund.com/2017/01/manifesto/" target="_blank" rel="noreferrer">Founders Fund · What happened to the future?</a><span>Fonte primaria della tesi sulla stagnazione tecnologica associata a Peter Thiel; nel capitolo è presentata come interpretazione controversa.</span></li>
+          <li><a href="https://www.nvidia.com/en-gb/about-nvidia/corporate-timeline/" target="_blank" rel="noreferrer">NVIDIA · Corporate timeline</a><span>Nascita della GPU nel 1999 e introduzione di CUDA nel 2006.</span></li>
+          <li><a href="https://docs.nvidia.com/cuda/cuda-programming-guide/01-introduction/introduction.html" target="_blank" rel="noreferrer">NVIDIA · CUDA Programming Guide</a><span>Architettura delle GPU per migliaia di thread paralleli e passaggio al general-purpose computing.</span></li>
+          <li><a href="https://epoch.ai/data-insights/llm-inference-price-trends" target="_blank" rel="noreferrer">Epoch AI · LLM inference price trends</a><span>Intervalli stimati del declino del prezzo di inferenza per conoscenza, scienza, matematica, coding e chatbot.</span></li>
+          <li><a href="https://www.nvidia.com/en-gb/data-center/technologies/blackwell-architecture/" target="_blank" rel="noreferrer">NVIDIA · Blackwell architecture</a><span>208 miliardi di transistor dichiarati per la GPU Blackwell.</span></li>
           <li><a href="https://www.nvidia.com/en-us/data-center/a100/" target="_blank" rel="noreferrer">NVIDIA · A100</a><span>Specifiche Ampere: memoria HBM2e, banda, NVLink e TDP.</span></li>
           <li><a href="https://www.nvidia.com/en-us/data-center/h100/" target="_blank" rel="noreferrer">NVIDIA · H100</a><span>Specifiche Hopper e Transformer Engine FP8.</span></li>
           <li><a href="https://www.nvidia.com/en-us/data-center/dgx-b200/" target="_blank" rel="noreferrer">NVIDIA · DGX B200</a><span>Specifiche Blackwell, HBM3e, NVLink e claim di training/inference.</span></li>
@@ -174,7 +347,7 @@
           <li><a href="https://nvidianews.nvidia.com/news/nvidia-partners-ai-infrastructure-america" target="_blank" rel="noreferrer">NVIDIA · xAI Colossus 2</a><span>Data center in costruzione a Memphis con oltre mezzo milione di GPU NVIDIA previste.</span></li>
           <li><a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Vera-Rubin-Ramps-Into-Full-Production-to-Power-Agentic-AI-Factories-Worldwide/default.aspx" target="_blank" rel="noreferrer">NVIDIA · Vera Rubin ramp</a><span>Piena produzione, oltre 350 fabbriche in 30 Paesi e primi deployment cloud nel 2026.</span></li>
         </ol>
-        <p class="source-boundary">NVIDIA non pubblica volumi unitari o listini uniformi: produzione, prezzi e intervalli sono stime Epoch AI. I deployment sono esempi pubblici, non quote di mercato né totali cumulativi. I claim prestazionali e di ramp restano dichiarazioni dei produttori. Dati consultati il 15 luglio 2026.</p>
+        <p class="source-boundary">La stagnazione tecnologica è una tesi interpretativa, non un fatto dimostrato dal solo grafico BLS. I confronti di transistor attraversano categorie diverse e mostrano ordini di grandezza, non prestazioni equivalenti. NVIDIA non pubblica volumi unitari o listini uniformi: produzione, prezzi e intervalli sono stime Epoch AI. I deployment sono esempi pubblici, non quote di mercato né totali cumulativi. Dati consultati il 16 luglio 2026.</p>
       </section>
       <nav class="chapter-next" aria-label="Continua la lettura"><a href="energia.html">← Precedente: Energia</a><a href="algoritmi.html">Prossimo: Algoritmi →</a></nav>
     </main>
