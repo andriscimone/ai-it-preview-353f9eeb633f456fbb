@@ -11,7 +11,7 @@
     <script>
       (() => { try { const saved = localStorage.getItem("aiit-theme"); const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dataset.theme = saved || preferred; } catch (_) { document.documentElement.dataset.theme = "light"; } })();
     </script>
-    <link rel="stylesheet" href="styles.css?v=chip-studio-4" />
+    <link rel="stylesheet" href="styles.css?v=chip-studio-5" />
   </head>
   <body class="detail-page chip-page">
     <a class="skip-link" href="#top">Salta al contenuto</a><div class="noise" aria-hidden="true"></div>
@@ -73,6 +73,16 @@
                 <g class="chart-grid">
                   <line x1="70" y1="390" x2="950" y2="390"/><line x1="70" y1="305" x2="950" y2="305"/><line x1="70" y1="220" x2="950" y2="220"/><line x1="70" y1="135" x2="950" y2="135"/><line x1="70" y1="50" x2="950" y2="50"/>
                   <text x="8" y="394">1K</text><text x="8" y="309">100K</text><text x="8" y="224">10M</text><text x="8" y="139">1B</text><text x="8" y="54">100B</text>
+                </g>
+                <g class="chart-x-axis" aria-hidden="true">
+                  <line x1="70" y1="390" x2="70" y2="399"/><text x="70" y="424">1971</text>
+                  <line x1="219" y1="390" x2="219" y2="399"/><text x="219" y="424">1980</text>
+                  <line x1="385" y1="390" x2="385" y2="399"/><text x="385" y="424">1990</text>
+                  <line x1="552" y1="390" x2="552" y2="399"/><text x="552" y="424">2000</text>
+                  <line x1="718" y1="390" x2="718" y2="399"/><text x="718" y="424">2010</text>
+                  <line x1="884" y1="390" x2="884" y2="399"/><text x="884" y="424">2020</text>
+                  <line x1="950" y1="390" x2="950" y2="399"/><text x="950" y="424">2024</text>
+                  <text class="axis-title" x="950" y="452">ANNO</text>
                 </g>
                 <path class="moore-area" d="M70 379 L186 332 L253 304 L435 248 L552 202 L884 62 L950 40 L950 390 L70 390 Z"/>
                 <path class="moore-line" d="M70 379 L186 332 L253 304 L435 248 L552 202 L884 62 L950 40"/>

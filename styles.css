@@ -208,7 +208,7 @@
   align-items: center;
   padding: 110px 5vw;
   color: #0b0d0b;
-  background: #b9f43a;
+  background: #d7ddc5;
 }
 .faggin-stamp {
   aspect-ratio: 1;
@@ -248,6 +248,9 @@
 .moore-chart { width: 100%; height: auto; overflow: visible; margin-top: 20px; }
 .moore-chart .chart-grid line { stroke: rgba(255,255,255,.12); stroke-width: 1; }
 .moore-chart .chart-grid text { fill: rgba(244,243,233,.4); font: 10px var(--mono); }
+.moore-chart .chart-x-axis line { stroke: rgba(244,243,233,.4); stroke-width: 1; }
+.moore-chart .chart-x-axis text { fill: rgba(244,243,233,.58); font: 10px var(--mono); text-anchor: middle; }
+.moore-chart .chart-x-axis .axis-title { fill: #b9f43a; font-size: 9px; font-weight: 600; text-anchor: end; letter-spacing: .08em; }
 .moore-area { fill: url(#none); fill: rgba(112,223,226,.07); }
 .moore-line { fill: none; stroke: #b9f43a; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
 .moore-points circle { fill: #0d100e; stroke: #b9f43a; stroke-width: 4; }
