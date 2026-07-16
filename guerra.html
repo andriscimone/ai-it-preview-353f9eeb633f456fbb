@@ -14,7 +14,7 @@
     <title>Guerra — AI.it</title>
     <script>(() => { try { const saved = localStorage.getItem("aiit-theme"); const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dataset.theme = saved || preferred; } catch (_) { document.documentElement.dataset.theme = "light"; } })();</script>
     <link rel="stylesheet" href="styles.css?v=dossier-1" />
-    <link rel="stylesheet" href="altro.css?v=war-2" />
+    <link rel="stylesheet" href="altro.css?v=war-3" />
   </head>
   <body class="detail-page dossier-page war-page">
     <a class="skip-link" href="#top">Salta al contenuto</a><div class="noise" aria-hidden="true"></div>
@@ -32,7 +32,7 @@
           <span class="verified-date">Panoramica verificata al 16 luglio 2026</span>
         </div>
         <div class="war-hero-sequence" aria-label="La velocità della nuova catena decisionale" data-dossier-reveal>
-          <span>01 · vedere</span><span>02 · collegare</span><span>03 · capire</span><span>04 · decidere</span><span>05 · agire</span>
+          <span><small>01</small><strong>Vedere</strong></span><span><small>02</small><strong>Collegare</strong></span><span><small>03</small><strong>Capire</strong></span><span><small>04</small><strong>Decidere</strong></span><span><small>05</small><strong>Agire</strong></span>
         </div>
       </section>
 
@@ -57,9 +57,56 @@
 
       <section class="palantir-section" aria-labelledby="palantir-title">
         <header class="palantir-head" data-dossier-reveal>
-          <div><p class="kicker">01 · capire e decidere</p><h2 id="palantir-title">PALANTIR<br /><em>costruisce il quadro.</em></h2></div>
-          <p>Palantir non costruisce il drone o il missile. Costruisce software che prova a collegare dati incompatibili, renderli leggibili e portarli dentro una decisione. Il prodotto non è una risposta automatica: è l’ambiente informativo in cui persone e sistemi lavorano.</p>
+          <div><p class="kicker">01 · Il software della decisione</p><h2 id="palantir-title">PALANTIR<br /><em>costruisce il quadro.</em></h2></div>
+          <p>Palantir non costruisce il drone o il missile. Costruisce il livello software che unisce sensori, immagini, mappe e rapporti, li rende leggibili e li porta dentro una decisione. È qui che la sua tecnologia più avanzata diventa importante: non aggiunge soltanto informazioni, prova a comprimere il tempo tra ciò che viene rilevato e ciò che un comando decide di fare.</p>
         </header>
+
+        <div class="palantir-origin" data-dossier-reveal>
+          <article>
+            <span>Il mito che ha costruito il nome</span>
+            <h3>“Hanno trovato<br />Bin Laden.”</h3>
+            <p>Palantir è spesso associata alla caccia a Osama bin Laden, anche perché il suo software era presente nel mondo dell’antiterrorismo statunitense. Ma la frase è più leggenda aziendale che fatto dimostrato: <strong>non esiste una conferma pubblica chiara che sia stata Palantir a localizzarlo.</strong></p>
+          </article>
+          <article>
+            <span>Che cosa sappiamo davvero</span>
+            <h3>Un mosaico, non<br />un algoritmo magico.</h3>
+            <p>La ricostruzione pubblica della CIA parla di anni di intelligence, analisi e lavoro sulla rete dei corrieri. La storia corretta è meno cinematografica ma più utile: Palantir è diventata potente perché aiuta persone e organizzazioni a collegare frammenti che, separati, dicono poco.</p>
+            <div class="palantir-origin-links"><a href="https://www.wired.com/story/joining-the-dots/" target="_blank" rel="noreferrer">Palantir nel centro antiterrorismo CIA ↗</a><a href="https://www.cia.gov/readingroom/docs/%5BAIN%5D%20FW%20UBL%20ANNIVERSARY-%5B16160429%5D.pdf" target="_blank" rel="noreferrer">Ricostruzione CIA ↗</a></div>
+          </article>
+        </div>
+
+        <section class="maven-focus" aria-labelledby="maven-focus-title" data-dossier-reveal>
+          <header class="maven-focus-head">
+            <div><p class="kicker">Maven Smart System</p><h3 id="maven-focus-title">NON UNA KILLSTREAK.<br /><em>Una kill chain reale.</em></h3></div>
+            <p>In una dimostrazione pubblica del 2026, un ufficiale del Pentagono riassume il passaggio dalla selezione di un veicolo a una proposta d’azione con tre gesti: <strong>«left click, right click, left click».</strong> Non è soltanto un’interfaccia più bella. È il tentativo di concentrare in una sola schermata un processo che prima richiedeva più sistemi e più passaggi.</p>
+          </header>
+
+          <div class="maven-three-clicks" aria-label="Sintesi ad alto livello del flusso mostrato nella dimostrazione di Maven">
+            <div><span>Click 01</span><strong>Seleziona</strong><p>Un oggetto già rilevato e identificato nel quadro operativo.</p></div>
+            <i aria-hidden="true">→</i>
+            <div><span>Click 02</span><strong>Apri l’azione</strong><p>Il sistema presenta opzioni e risorse disponibili.</p></div>
+            <i aria-hidden="true">→</i>
+            <div><span>Click 03</span><strong>Avvia il flusso</strong><p>La proposta entra nella catena di approvazione e targeting.</p></div>
+          </div>
+
+          <div class="war-video-comparison" aria-label="Confronto video tra la scorestreak Lodestar in Call of Duty Black Ops II e la dimostrazione del Maven Smart System">
+            <article class="war-video-panel war-video-fiction">
+              <header><span>Finzione · 2012</span><strong>Black Ops II · Lodestar</strong></header>
+              <div class="war-video-frame"><video controls preload="metadata" playsinline aria-label="Gameplay della scorestreak Lodestar in Call of Duty Black Ops II"><source src="assets/black-ops-2-lodestar.mp4" type="video/mp4" />Il browser non riesce a riprodurre questo video.</video></div>
+              <p>Il giocatore attiva il Lodestar e controlla dall’alto un sistema d’arma con un’interfaccia costruita per essere immediata e spettacolare. È finzione: errore, responsabilità e conseguenze reali restano fuori dallo schermo.</p>
+              <a href="assets/black-ops-2-lodestar.mp4" target="_blank" rel="noreferrer">Apri il video a schermo intero ↗</a>
+            </article>
+
+            <article class="war-video-panel war-video-reality">
+              <header><span>Dimostrazione pubblica · 2026</span><strong>Palantir · Maven Smart System</strong></header>
+              <div class="war-video-frame"><video controls preload="metadata" playsinline aria-label="Dimostrazione pubblica del Maven Smart System"><source src="assets/palantir-maven-three-clicks.mp4" type="video/mp4" />Il browser non riesce a riprodurre questo video.</video></div>
+              <p>La mappa reale è più ordinata: dati diversi vengono fusi, il veicolo viene isolato e il software propone una risorsa. L’interfaccia riduce l’attrito proprio dove le conseguenze non sono virtuali.</p>
+              <a href="assets/palantir-maven-three-clicks.mp4" target="_blank" rel="noreferrer">Apri il video a schermo intero ↗</a>
+            </article>
+          </div>
+
+          <aside class="maven-reality-check"><span>La distinzione decisiva</span><p><strong>Tre click non significano “un missile parte al terzo click”.</strong> La demo mostra una parte della kill chain — individuazione, proposta e avvio del flusso d’azione — dentro un ambiente commerciale e controllato. Restano autorizzazioni, regole d’ingaggio, qualità dei dati e responsabilità umane. La velocità dell’interfaccia non risolve nessuna di queste domande: rende solo più breve il tempo per porsele.</p></aside>
+        </section>
 
         <div class="palantir-scenarios">
           <article class="palantir-scenario" data-dossier-reveal>
@@ -146,6 +193,11 @@
       <section class="sources compact-sources war-sources" aria-labelledby="war-sources-title">
         <h2 id="war-sources-title">Fonti del dossier</h2>
         <ol>
+          <li><a href="https://www.youtube.com/watch?v=3O8isI3GJXU&amp;t=6740s" target="_blank" rel="noreferrer">Palantir · AIPCon 9, demo Maven</a><span>Dimostrazione pubblica del flusso di targeting e della sequenza descritta come tre click.</span></li>
+          <li><a href="https://www.businessinsider.tw/article/2526" target="_blank" rel="noreferrer">Business Insider Taiwan · La demo dei tre click</a><span>Resoconto della dimostrazione e del passaggio da più sistemi a un unico ambiente.</span></li>
+          <li><a href="https://www.wired.com/story/joining-the-dots/" target="_blank" rel="noreferrer">Wired · Palantir e l’antiterrorismo CIA</a><span>Presenza del software Palantir nel centro antiterrorismo e funzione di collegamento dei dati.</span></li>
+          <li><a href="https://www.cia.gov/readingroom/docs/%5BAIN%5D%20FW%20UBL%20ANNIVERSARY-%5B16160429%5D.pdf" target="_blank" rel="noreferrer">CIA · Ricostruzione della caccia a Bin Laden</a><span>Anni di operazioni e analisi d’intelligence, compreso il lavoro sulla rete dei corrieri.</span></li>
+          <li><a href="https://callofduty.fandom.com/wiki/Lodestar" target="_blank" rel="noreferrer">Call of Duty Wiki · Lodestar</a><span>Funzionamento della scorestreak usata nel confronto visivo.</span></li>
           <li><a href="https://www.ncia.nato.int/newsroom/news/nato-acquires-aienabled-warfighting-system" target="_blank" rel="noreferrer">NATO NCIA · Maven Smart System NATO</a><span>Acquisizione, impieghi dichiarati e ruolo nella fusione dei dati e nella pianificazione.</span></li>
           <li><a href="https://www.jwc.nato.int/article/jwc-integrate-maven/" target="_blank" rel="noreferrer">NATO JWC · Integrazione di MSS NATO</a><span>Addestramento e integrazione del sistema nelle esercitazioni dell’Alleanza.</span></li>
           <li><a href="https://www.army.mil/article-amp/274301/army_tactical_intelligence_targeting_access_node_titan_ground_station_prototype_award" target="_blank" rel="noreferrer">US Army · TITAN</a><span>Prototipi, sensori utilizzati e supporto all’intelligence e all’individuazione degli obiettivi.</span></li>
