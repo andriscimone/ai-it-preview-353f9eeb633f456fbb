@@ -8,7 +8,7 @@
     <meta id="theme-color" name="theme-color" content="#f2f0e8" /><link rel="icon" href="data:," /><title>Inferenza — AI.it</title>
     <script>(() => { try { const saved = localStorage.getItem("aiit-theme"); const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dataset.theme = saved || preferred; } catch (_) { document.documentElement.dataset.theme = "light"; } })();</script>
     <link rel="stylesheet" href="styles.css?v=inference-economics" />
-    <link rel="stylesheet" href="inferenza.css?v=sec-bench-agents" />
+    <link rel="stylesheet" href="inferenza.css?v=local-sovereignty" />
   </head>
   <body class="detail-page inference-page">
     <a class="skip-link" href="#top">Salta al contenuto</a><div class="noise" aria-hidden="true"></div>
@@ -176,6 +176,106 @@
             <p>Servono problemi divisibili, strumenti affidabili e un coordinatore capace. Anthropic osserva che i sistemi multi-agent funzionano meglio nelle ricerche “in ampiezza”; compiti con dipendenze strette o molto contesto condiviso possono invece peggiorare. I numeri sopra sono misure interne dei produttori, non una legge universale.</p>
           </aside>
         </section>
+
+        <section class="local-sovereignty" aria-labelledby="local-sovereignty-title">
+          <header class="local-sovereignty-head">
+            <p class="kicker">Capitolo finale · locale contro cloud</p>
+            <h2 id="local-sovereignty-title">Il cloud ti presta l'intelligenza. Il locale te la lascia possedere.</h2>
+            <div class="local-sovereignty-intro">
+              <p>I modelli di frontiera più desiderati non arrivano come un programma da installare: vivono nei data center di chi li costruisce. Il computer personale invia la richiesta, ma <strong>modello, inferenza, aggiornamenti e regole di accesso restano altrove</strong>.</p>
+              <p>Esistono ottimi modelli locali, ma il confine si muove continuamente. Quando l'hardware consumer recupera una generazione, il cloud ne presenta un'altra più grande, multimodale e agentica. La dipendenza non è un complotto: <strong>è una conseguenza dell'architettura</strong>.</p>
+            </div>
+          </header>
+
+          <div class="deployment-split" aria-label="Confronto tra inferenza cloud e inferenza locale">
+            <article class="deployment-side is-cloud">
+              <header><span>01 · Cloud</span><strong>Potenza in affitto</strong></header>
+              <div class="deployment-flow" aria-hidden="true"><i>Tu</i><b>→ rete →</b><em>Provider</em><b>→</b><i>Risposta</i></div>
+              <ul>
+                <li><span>Vantaggio</span><strong>modelli di frontiera, scala, strumenti aggiornati</strong></li>
+                <li><span>Dipendenza</span><strong>prezzo, limiti, versione, disponibilità, policy</strong></li>
+                <li><span>Fiducia</span><strong>devi accettare le garanzie del gestore</strong></li>
+              </ul>
+            </article>
+            <article class="deployment-side is-local">
+              <header><span>02 · Locale</span><strong>Potenza posseduta</strong></header>
+              <div class="deployment-flow" aria-hidden="true"><i>Tu</i><b>→</b><em>Modello + memoria</em><b>→</b><i>Risposta</i></div>
+              <ul>
+                <li><span>Vantaggio</span><strong>dati, memoria e continuità sotto il tuo controllo</strong></li>
+                <li><span>Limite</span><strong>RAM, acceleratore, energia e modelli più piccoli</strong></li>
+                <li><span>Fiducia</span><strong>puoi ispezionare, isolare e spegnere il sistema</strong></li>
+              </ul>
+            </article>
+          </div>
+          <p class="local-reality-check"><strong>La correzione importante:</strong> non è vero che “nulla gira in locale”. Per esempio gpt‑oss‑20b richiede circa 16 GB di memoria; il più grande gpt‑oss‑120b ne richiede circa 80 GB. Il problema è che l'esperienza locale più accessibile resta spesso indietro rispetto ai servizi cloud più capaci, soprattutto quando servono visione, video, strumenti e lunghi flussi agentici.</p>
+
+          <section class="moving-frontier" aria-labelledby="moving-frontier-title">
+            <header>
+              <div><p class="kicker">Il bersaglio si sposta</p><h3 id="moving-frontier-title">Il locale recupera. La frontiera riparte.</h3></div>
+              <p>Costruire un agente personale intorno a un solo modello è fragile. Il sistema deve poter sostituire il modello, conservando identità, memoria, permessi e strumenti.</p>
+            </header>
+            <ol class="frontier-cycle" aria-label="Ciclo tra nuovi modelli cloud e recupero dell'inferenza locale">
+              <li><span>01</span><strong>Nuova frontiera</strong><p>Un modello più capace nasce su cluster enormi.</p></li>
+              <li><span>02</span><strong>Cloud first</strong><p>Le persone lo usano attraverso un servizio remoto.</p></li>
+              <li><span>03</span><strong>Compressione</strong><p>Quantizzazione e modelli aperti riducono il divario.</p></li>
+              <li><span>04</span><strong>Locale utile</strong><p>L'hardware personale esegue una versione più piccola.</p></li>
+              <li><span>↻</span><strong>La frontiera si muove</strong><p>La generazione successiva riapre la distanza.</p></li>
+            </ol>
+          </section>
+
+          <section class="personal-root" aria-labelledby="personal-root-title">
+            <header>
+              <p class="kicker">Una possibile via d'uscita</p>
+              <h3 id="personal-root-title">Un agente locale come radice di fiducia.</h3>
+              <p>Non deve sapere tutto. Deve conoscere te, custodire le tue chiavi e decidere quali servizi esterni interrogare senza consegnare automaticamente tutta la tua vita a un singolo provider.</p>
+            </header>
+            <div class="trust-flow" role="img" aria-label="Foto, video, feed, email e servizi cloud vengono filtrati da un agente personale locale che controlla provenienza, confronto delle fonti, permessi e incertezza prima di presentarli alla persona">
+              <div class="mud-stream">
+                <span>Foto</span><span>Video</span><span>Feed</span><span>Email</span><span>Cloud</span>
+              </div>
+              <b aria-hidden="true">→</b>
+              <div class="local-core">
+                <span>Agente personale · locale</span>
+                <strong>Memoria + chiavi + preferenze</strong>
+                <ul><li>provenienza</li><li>fonti incrociate</li><li>sandbox</li><li>incertezza</li></ul>
+              </div>
+              <b aria-hidden="true">→</b>
+              <div class="human-core"><span>Decisione</span><strong>Tu</strong></div>
+            </div>
+            <div class="mud-thesis">
+              <blockquote>Deve nuotare nel fango digitale dove noi umani non riusciamo più a vedere il fondo.</blockquote>
+              <p>Ma non sarebbe un rilevatore magico di falsi. I detector degradano nel mondo reale: un agente credibile dovrebbe combinare provenienza e firme, standard come C2PA, confronto tra fonti, contesto e dichiarazioni esplicite di incertezza. <strong>Locale significa controllabile, non infallibile.</strong></p>
+            </div>
+          </section>
+
+          <section class="truffle-case" aria-labelledby="truffle-case-title">
+            <header>
+              <p class="kicker">Un tentativo da osservare</p>
+              <h3 id="truffle-case-title">Truffle¹ prova a costruire l'“exo‑corteccia” privata.</h3>
+            </header>
+            <div class="truffle-layout">
+              <figure>
+                <img src="assets/truffle-local-agent-prototype.png" loading="lazy" decoding="async" alt="Dispositivo Truffle dalla forma organica illuminato di viola, esposto su una base scura." />
+                <figcaption>Truffle¹, immagine fornita da Andrea. La presenza di un oggetto fisico non dimostra una produzione su larga scala.</figcaption>
+              </figure>
+              <div class="truffle-copy">
+                <p class="truffle-lede">L'idea è radicale e coerente: elaborazione locale, memoria sul dispositivo, strumenti installabili e un'intelligenza persistente che appartiene alla persona.</p>
+                <dl>
+                  <div><dt>Esiste</dt><dd>Il progetto pubblica aggiornamenti frequenti; le release note citano memoria embeddings locale, visione, strumenti e Qwen 3.6 sul dispositivo.</dd></div>
+                  <div><dt>Promette</dt><dd>Niente cloud o gatekeeper, dati conservati localmente e una rete distribuita tra più Truffle.</dd></div>
+                  <div><dt>Manca</dt><dd>La documentazione hardware pubblica dice ancora “coming soon”; mancano benchmark indipendenti, numeri di diffusione e prove di scala consumer.</dd></div>
+                </dl>
+                <p><strong>La lettura corretta oggi:</strong> Truffle è un prototipo-prodotto interessante e attivo, non la dimostrazione che il problema sia risolto. Le affermazioni più ambiziose restano claim del produttore.</p>
+                <a href="https://www.truffle.net/" target="_blank" rel="noreferrer">Apri il progetto Truffle ↗</a>
+              </div>
+            </div>
+          </section>
+
+          <aside class="local-field-note">
+            <strong>Un campo ancora piccolo, non vuoto.</strong>
+            <p>Truffle non è l'unico tentativo. Nel 2026 il progetto di ricerca OpenJarvis ha mostrato una strada diversa: ottimizzare insieme modello, motore, agenti, strumenti e memoria per ridurre il divario locale-cloud. Quello che resta raro è un prodotto consumer integrato, affidabile e verificabile che faccia tutto questo senza riportare silenziosamente i dati nel cloud.</p>
+          </aside>
+        </section>
       </section>
 
       <section class="sources compact-sources" aria-labelledby="sources-title">
@@ -194,8 +294,15 @@
           <li><a href="https://openai.com/index/gpt-5-6/" target="_blank" rel="noreferrer">OpenAI · GPT‑5.6 e modalità Ultra</a><span>SEC‑Bench Pro multi-agent, latenza del lead agent e costi/token cumulativi di tutti gli agenti.</span></li>
           <li><a href="https://www.anthropic.com/engineering/multi-agent-research-system" target="_blank" rel="noreferrer">Anthropic · Multi-agent Research</a><span>Architettura lead/subagent, eval interno, consumo di token e limiti dichiarati.</span></li>
           <li><a href="https://www.microsoft.com/en-us/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks/" target="_blank" rel="noreferrer">Microsoft Research · Magentic‑One</a><span>Orchestratore e agenti specializzati per compiti web e file.</span></li>
+          <li><a href="https://openai.com/index/introducing-gpt-oss/" target="_blank" rel="noreferrer">OpenAI · gpt‑oss</a><span>Modelli open-weight da circa 16 GB e 80 GB di memoria, come esempi dell'attuale spettro locale.</span></li>
+          <li><a href="https://www.truffle.net/" target="_blank" rel="noreferrer">Truffle · Private exo-cortex</a><span>Visione del prodotto: elaborazione, memoria e strumenti dichiarati come locali.</span></li>
+          <li><a href="https://docs.truffle.net/hardware/overview" target="_blank" rel="noreferrer">Truffle Docs · Hardware</a><span>Pagina hardware ancora indicata come “coming soon”.</span></li>
+          <li><a href="https://docs.truffle.net/release-notes" target="_blank" rel="noreferrer">Truffle Docs · Release notes</a><span>Aggiornamenti 2026 su modello locale, memoria, visione, strumenti e applicazioni.</span></li>
+          <li><a href="https://arxiv.org/abs/2605.17172" target="_blank" rel="noreferrer">OpenJarvis · Personal AI, On Personal Devices</a><span>Ricerca 2026 sulla distanza tra agenti cloud e sistemi personali eseguiti sul dispositivo.</span></li>
+          <li><a href="https://ai-challenges.nist.gov/forensics" target="_blank" rel="noreferrer">NIST · GenAI Deepfakes 2026</a><span>Degrado dei detector nel passaggio dai test accademici all'uso operativo.</span></li>
+          <li><a href="https://c2pa.org/specifications/specifications/1.3/explainer/_attachments/Explainer.pdf" target="_blank" rel="noreferrer">C2PA · Explainer</a><span>Provenienza e autenticità del contenuto come segnali, non come oracolo della verità.</span></li>
         </ol>
-        <p class="source-boundary">Le curve di inferenza sono digitalizzate dai grafici dei produttori e quindi approssimative. I claim prestazionali di NVIDIA, OpenAI e Anthropic restano dichiarazioni o valutazioni interne dei rispettivi produttori.</p>
+        <p class="source-boundary">Le curve di inferenza sono digitalizzate dai grafici dei produttori e quindi approssimative. I claim prestazionali di NVIDIA, OpenAI, Anthropic e Truffle restano dichiarazioni o valutazioni interne dei rispettivi produttori.</p>
       </section>
       <nav class="chapter-next" aria-label="Continua la lettura"><a href="algoritmi.html">← Precedente: Algoritmi</a><a href="index.html">Torna alla Home →</a></nav>
     </main>
