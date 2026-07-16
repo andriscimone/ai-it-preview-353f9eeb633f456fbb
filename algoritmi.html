@@ -55,11 +55,158 @@
         </div>
 
         <nav class="algorithm-story-nav" aria-label="Dentro il capitolo">
-          <a href="#tre-leve"><span>01</span> Tre leve</a>
-          <a href="#efficienza"><span>02</span> Efficienza</a>
-          <a href="#sblocco"><span>03</span> Sblocco</a>
-          <a href="#limiti"><span>04</span> Limiti</a>
+          <a href="#premessa"><span>01</span> Premessa</a>
+          <a href="#tre-leve"><span>02</span> Tre leve</a>
+          <a href="#efficienza"><span>03</span> Efficienza</a>
+          <a href="#sblocco"><span>04</span> Sblocco</a>
+          <a href="#limiti"><span>05</span> Limiti</a>
         </nav>
+
+        <section class="algorithm-origin" id="premessa" aria-labelledby="algorithm-origin-title">
+          <header class="algorithm-origin-head">
+            <p class="kicker">Prima di parlare di efficienza</p>
+            <h2 id="algorithm-origin-title">Prima scrivevamo le regole.<br /><em>Ora addestriamo i pesi.</em></h2>
+            <p>Nel software classico il programmatore descrive passo per passo la trasformazione dall'input all'output. In una rete neurale scrive l'architettura e il metodo di apprendimento, poi lascia che miliardi di parametri vengano regolati dagli esempi.</p>
+          </header>
+
+          <article class="algorithm-essay" aria-label="Premessa discorsiva sulla natura degli algoritmi di intelligenza artificiale">
+            <p class="algorithm-essay-lede">La parola <em>algoritmo</em> fa pensare a una ricetta: una sequenza precisa di istruzioni che prende qualcosa in ingresso, esegue una serie di passaggi e restituisce un risultato. Per gran parte della storia dell'informatica, capire un programma ha significato proprio questo: leggere le regole scritte da un essere umano e seguirle fino alla conclusione.</p>
+
+            <div class="algorithm-essay-sections">
+              <section>
+                <span>01</span>
+                <div>
+                  <h3>L'algoritmo a cui siamo abituati</h3>
+                  <p>Prendiamo una retta: <strong>y = 2x + 1</strong>. Se assegniamo a <em>x</em> il valore 4, non dobbiamo indovinare cosa succederà. Moltiplichiamo 4 per 2, aggiungiamo 1 e otteniamo 9. Conoscendo la regola e l'input possiamo ricavare l'output; osservando il calcolo possiamo anche spiegare esattamente perché il risultato sia 9 e non 8 o 10.</p>
+                  <p>Lo stesso principio vale per programmi molto più complessi. Un software per ordinare una lista, calcolare una rata o verificare un codice fiscale può contenere migliaia di istruzioni, condizioni e cicli. Ma ogni comportamento previsto nasce comunque da regole esplicite. A parità di programma, input e condizioni di esecuzione, il percorso rimane determinato.</p>
+                  <p>È qui che conviene separare due concetti spesso confusi. L'<strong>architettura di von Neumann</strong> descrive il modo in cui una macchina conserva istruzioni e dati in memoria e li fa eseguire da un processore. Non è il nome di questa certezza logica. Un algoritmo deterministico e una rete neurale possono essere eseguiti entrambi su hardware organizzato secondo quel modello.</p>
+                </div>
+              </section>
+
+              <section>
+                <span>02</span>
+                <div>
+                  <h3>Il problema delle regole che non sappiamo scrivere</h3>
+                  <p>Questo modo di programmare funziona benissimo quando conosciamo la procedura. Diventa molto meno pratico quando il compito è facile da svolgere per una persona, ma difficile da tradurre in istruzioni complete. Come scriviamo una regola capace di riconoscere ogni possibile gatto, fotografato da qualsiasi angolazione, con qualunque luce e davanti a qualsiasi sfondo? Come elenchiamo tutte le sfumature che rendono una frase ironica, aggressiva, affettuosa o ambigua?</p>
+                  <p>Per decenni una parte dell'intelligenza artificiale ha provato a costruire sistemi attraverso grandi collezioni di regole: <em>se accade questo, allora fai quello</em>. Erano sistemi utili in domini ristretti, ma fragili davanti a situazioni non previste. Il mondo reale contiene troppe eccezioni e troppe combinazioni perché una persona possa anticiparle tutte.</p>
+                  <p>Il machine learning cambia la domanda. Invece di chiedere al programmatore di descrivere ogni soluzione, gli chiede di progettare un procedimento attraverso cui la macchina possa <strong>ricavare una regolarità dagli esempi</strong>. Non scriviamo la regola “questa immagine contiene un gatto” per ogni immagine possibile: mostriamo molti esempi e costruiamo un sistema capace di modificarsi quando sbaglia.</p>
+                </div>
+              </section>
+
+              <section>
+                <span>03</span>
+                <div>
+                  <h3>Dal programmare una risposta all'addestrare un comportamento</h3>
+                  <p>Durante l'addestramento una rete neurale riceve un input, tenta una previsione e confronta il proprio risultato con l'obiettivo. La distanza fra previsione e risposta desiderata viene trasformata in un errore numerico. Attraverso la <em>backpropagation</em>, quell'errore attraversa la rete a ritroso e indica come modificare leggermente i pesi delle connessioni. Il processo viene ripetuto ancora e ancora, su enormi quantità di dati.</p>
+                  <p>All'inizio i pesi sono quasi privi di struttura utile. Dopo moltissime correzioni, alcune configurazioni diventano più efficaci di altre nel catturare forme, associazioni, strutture linguistiche e regolarità statistiche. Nessuno ha scritto una riga di codice che dica al modello che “Roma” è collegata a “Italia” o che un pronome può riferirsi a una parola apparsa molto prima nella frase. Queste relazioni sono distribuite nei pesi come risultato dell'addestramento.</p>
+                  <blockquote>Gli sviluppatori non scrivono ogni risposta. Scrivono lo scheletro, scelgono gli esempi, definiscono l'obiettivo e costruiscono il processo che modifica il modello.</blockquote>
+                  <p>Dire che questi sistemi vengono <strong>“allevati”</strong> è quindi una metafora sorprendentemente utile. Un allevatore non costruisce un organismo pezzo per pezzo, ma controlla ambiente, selezione e feedback. Allo stesso modo, chi sviluppa un modello decide architettura, dati, ordine degli esempi, funzione di perdita, ottimizzatore e criteri di valutazione. La metafora ha però un limite importante: nulla avviene spontaneamente o per magia. L'intero ambiente di apprendimento è una sofisticata costruzione ingegneristica.</p>
+                </div>
+              </section>
+
+              <section>
+                <span>04</span>
+                <div>
+                  <h3>Probabilistico non significa casuale senza logica</h3>
+                  <p>Un modello linguistico non contiene un archivio di frasi complete da recuperare. Davanti a un testo calcola invece una distribuzione di probabilità sui possibili token successivi. Dopo “Il cielo oggi è…”, potrebbe assegnare una probabilità alta a “blu”, una più bassa a “grigio” e una ancora diversa a “immenso”. Ogni nuovo token diventa parte del contesto e il processo ricomincia.</p>
+                  <p>Se scegliamo sempre il token con la probabilità più alta, il comportamento può risultare ripetibile. Se invece campioniamo dalla distribuzione, introduciamo variabilità: due esecuzioni dello stesso prompt possono prendere strade differenti. Parametri come la temperatura non aggiungono conoscenza; modificano quanto il sistema privilegi le opzioni più probabili rispetto a quelle meno attese.</p>
+                  <p>Questa natura probabilistica non rende il modello arbitrario. Le probabilità riflettono le regolarità apprese durante il training e il contesto fornito in quel momento. Ma rende più difficile spiegare una risposta come spiegheremmo il risultato di una formula. Possiamo ispezionare il processo, misurarlo e influenzarlo, senza trovare necessariamente una singola riga di codice che contenga la decisione finale.</p>
+                </div>
+              </section>
+
+              <section>
+                <span>05</span>
+                <div>
+                  <h3>Il Transformer rende questo processo scalabile</h3>
+                  <p>Le reti neurali per il linguaggio esistevano già prima del 2017, ma trattare sequenze lunghe era costoso e spesso richiedeva di procedere parola dopo parola. Nel paper <a href="https://papers.nips.cc/paper/7181-attention-is-all-you-need.pdf" target="_blank" rel="noreferrer"><em>Attention Is All You Need</em></a>, Vaswani e colleghi proposero un'architettura fondata sull'attenzione, eliminando ricorrenza e convoluzioni dal nucleo del modello.</p>
+                  <p>La <em>self-attention</em> permette a ogni token di valutare quali altre parti della sequenza siano importanti per costruirne la rappresentazione. Una parola può “guardare” termini vicini o molto lontani, pesandoli in modo diverso a seconda del contesto. Soprattutto, molte di queste operazioni possono essere eseguite in parallelo: una proprietà che si è sposata perfettamente con GPU, dataset sempre più grandi e quantità crescenti di compute.</p>
+                  <p>Il Transformer non ha inventato l'apprendimento automatico e non ha reso intelligenti le macchine da un giorno all'altro. Ha fornito però una struttura estremamente adatta a essere ampliata. Pretraining, fine-tuning, feedback umano, dati sintetici, strumenti e ragionamento durante l'inferenza si sono poi accumulati sopra quella base.</p>
+                </div>
+              </section>
+            </div>
+
+            <footer>
+              <strong>Questa è la distinzione da tenere a mente nel resto del capitolo.</strong>
+              <p>Quando parleremo di algoritmi migliori, non parleremo soltanto di codice più elegante. Parleremo di architetture, dati, obiettivi di addestramento, metodi di ottimizzazione e strategie d'inferenza che permettono alla stessa quantità di calcolo di produrre capacità molto diverse.</p>
+            </footer>
+          </article>
+
+          <div class="algorithm-history" role="list" aria-label="Tappe essenziali della storia delle reti neurali">
+            <a role="listitem" href="https://pubmed.ncbi.nlm.nih.gov/13602029/" target="_blank" rel="noreferrer"><span>1958</span><strong>Perceptron</strong><p>Rosenblatt descrive una macchina che apprende modificando i pesi.</p></a>
+            <a role="listitem" href="https://www.nature.com/articles/323533a0" target="_blank" rel="noreferrer"><span>1986</span><strong>Backpropagation</strong><p>L'errore torna indietro nella rete e corregge le connessioni.</p></a>
+            <a role="listitem" href="https://proceedings.neurips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html" target="_blank" rel="noreferrer"><span>2012</span><strong>Deep learning</strong><p>AlexNet unisce reti profonde, grandi dataset e GPU.</p></a>
+            <a class="is-transformer" role="listitem" href="https://papers.nips.cc/paper_files/paper/2017/hash/3f5ee243547dee91fbd053c1c4a845aa-Abstract.html" target="_blank" rel="noreferrer"><span>2017</span><strong>Transformer</strong><p>L'attenzione sostituisce ricorrenza e convoluzioni nelle sequenze.</p></a>
+            <div role="listitem"><span>Oggi</span><strong>Modelli generali</strong><p>Scala, dati, post-training e ragionamento ampliano ciò che la stessa idea può fare.</p></div>
+          </div>
+
+          <aside class="von-neumann-note">
+            <span>Una correzione importante</span>
+            <p><strong>“Macchina di von Neumann” non significa algoritmo deterministico.</strong> Indica un'architettura hardware a programma memorizzato. Sia una formula sia un modello neurale possono girare su macchine di questo tipo: la differenza qui è fra <em>regole esplicite</em> e <em>comportamento appreso</em>.</p>
+          </aside>
+
+          <article class="code-versus-model" aria-labelledby="code-model-title">
+            <header>
+              <p class="kicker">Stesso concetto di input e output. Due modi radicalmente diversi di arrivarci.</p>
+              <h3 id="code-model-title">Istruzioni certe contro probabilità apprese.</h3>
+            </header>
+
+            <div class="code-model-grid">
+              <section class="deterministic-demo" aria-labelledby="deterministic-title">
+                <div class="demo-label"><span>Software a regole esplicite</span><strong>Deterministico</strong></div>
+                <h4 id="deterministic-title">La regola è leggibile nel programma.</h4>
+                <div class="line-equation" aria-label="Equazione y uguale due x più uno"><span>y</span> = 2 · <span>x</span> + 1</div>
+                <label for="classic-x">Scegli l'input: <strong>x = <output id="classic-x-value">4</output></strong></label>
+                <input id="classic-x" type="range" min="-4" max="6" step="1" value="4" />
+                <div class="deterministic-flow" aria-live="polite"><span id="classic-input">input 4</span><i>→</i><span id="classic-operation">2 × 4 + 1</span><i>→</i><strong id="classic-output">output 9</strong></div>
+                <p>Se formula e input non cambiano, l'output è sempre lo stesso. Possiamo ricostruire ogni passaggio.</p>
+              </section>
+
+              <section class="probabilistic-demo" aria-labelledby="probabilistic-title">
+                <div class="demo-label"><span>Modello linguistico</span><strong>Probabilistico</strong></div>
+                <h4 id="probabilistic-title">Il modello propone una distribuzione.</h4>
+                <div class="model-prompt"><span>Input</span><p>“Il cielo oggi è…”</p></div>
+                <div class="token-distribution" aria-label="Esempio schematico di probabilità per il prossimo token">
+                  <div style="--token-probability: 58%"><span>blu</span><i></i><strong>58%</strong></div>
+                  <div style="--token-probability: 22%"><span>sereno</span><i></i><strong>22%</strong></div>
+                  <div style="--token-probability: 13%"><span>grigio</span><i></i><strong>13%</strong></div>
+                  <div style="--token-probability: 7%"><span>immenso</span><i></i><strong>7%</strong></div>
+                </div>
+                <div class="generation-controls" role="group" aria-label="Metodo di scelta del prossimo token">
+                  <button type="button" data-generation-mode="greedy" aria-pressed="false">Scegli il più probabile</button>
+                  <button class="is-active" type="button" data-generation-mode="sampling" aria-pressed="true">Campiona</button>
+                  <button id="generate-samples" type="button">Genera ancora</button>
+                </div>
+                <div class="model-samples" id="model-samples" aria-live="polite"><output>blu</output><output>sereno</output><output>blu</output></div>
+                <p>Le percentuali sono illustrative. Con il campionamento lo stesso input può produrre continuazioni diverse; scegliendo sempre il token più probabile, l'uscita può invece diventare ripetibile.</p>
+              </section>
+            </div>
+          </article>
+
+          <article class="transformer-breakthrough" aria-labelledby="transformer-title">
+            <div class="transformer-copy">
+              <p class="kicker">2017 · Attention Is All You Need</p>
+              <h3 id="transformer-title">Il Transformer insegna a ogni parola dove guardare.</h3>
+              <p>La <em>self-attention</em> permette a ogni token di pesare quali altri token siano rilevanti per capirne il ruolo nel contesto. Eliminando la ricorrenza dal nucleo dell'architettura, il lavoro sulle sequenze diventa molto più parallelizzabile durante l'addestramento.</p>
+              <a href="https://papers.nips.cc/paper/7181-attention-is-all-you-need.pdf" target="_blank" rel="noreferrer">Apri il paper originale ↗</a>
+            </div>
+            <div class="attention-sketch" role="img" aria-label="Schema semplificato: nella frase il pronome la collega soprattutto alla parola macchina">
+              <span>La</span><span class="is-key">macchina</span><span>non</span><span>partì</span><span>perché</span><span class="is-query">era</span><span>scarica</span>
+              <i class="attention-line line-one"></i><i class="attention-line line-two"></i><i class="attention-line line-three"></i>
+              <small>Schema illustrativo dell'attenzione: “era” pesa il contesto per capire a cosa si riferisce.</small>
+            </div>
+          </article>
+
+          <section class="training-metaphor" aria-labelledby="training-title">
+            <header><p class="kicker">“Allevati”, non semplicemente assemblati</p><h3 id="training-title">La metafora è utile, se ricordiamo che l'allevatore scrive comunque il metodo.</h3></header>
+            <div class="training-steps">
+              <div><span>01</span><strong>Si progetta lo scheletro</strong><p>Architettura, dati, obiettivo, ottimizzatore e infrastruttura sono codice e decisioni umane.</p></div>
+              <div><span>02</span><strong>Si espone agli esempi</strong><p>Il modello tenta una previsione, misura l'errore e modifica un poco i propri pesi.</p></div>
+              <div><span>03</span><strong>Si ripete miliardi di volte</strong><p>Le regolarità non vengono scritte una per una: emergono dalla pressione dell'addestramento.</p></div>
+              <div><span>04</span><strong>Si seleziona il comportamento</strong><p>Post-training e feedback orientano capacità grezze verso risposte più utili e controllabili.</p></div>
+            </div>
+            <p class="training-conclusion">Il codice costruisce <em>la scuola</em>. L'addestramento forma <em>lo studente</em>. I pesi finali contengono ciò che è stato appreso, ma non come una lista leggibile di regole.</p>
+          </section>
+        </section>
 
         <section class="algorithm-primer" aria-labelledby="primer-title">
           <div class="algorithm-primer-lede">

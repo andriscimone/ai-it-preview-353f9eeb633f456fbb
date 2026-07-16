@@ -1,3 +1,53 @@
+const classicInput = document.getElementById("classic-x");
+const generationModeButtons = [...document.querySelectorAll("[data-generation-mode]")];
+const modelSampleOutputs = [...document.querySelectorAll("#model-samples output")];
+let generationMode = "sampling";
+
+function updateClassicEquation() {
+  if (!classicInput) return;
+  const x = Number(classicInput.value);
+  const y = (2 * x) + 1;
+  document.getElementById("classic-x-value").textContent = String(x);
+  document.getElementById("classic-input").textContent = `input ${x}`;
+  document.getElementById("classic-operation").textContent = `2 × ${x} + 1`;
+  document.getElementById("classic-output").textContent = `output ${y}`;
+}
+
+const illustrativeTokens = [
+  { token: "blu", probability: 58 },
+  { token: "sereno", probability: 22 },
+  { token: "grigio", probability: 13 },
+  { token: "immenso", probability: 7 }
+];
+
+function sampleIllustrativeToken() {
+  if (generationMode === "greedy") return illustrativeTokens[0].token;
+  const draw = Math.random() * 100;
+  let cumulative = 0;
+  for (const item of illustrativeTokens) {
+    cumulative += item.probability;
+    if (draw < cumulative) return item.token;
+  }
+  return illustrativeTokens[illustrativeTokens.length - 1].token;
+}
+
+function renderModelSamples() {
+  modelSampleOutputs.forEach(output => { output.textContent = sampleIllustrativeToken(); });
+}
+
+classicInput?.addEventListener("input", updateClassicEquation);
+generationModeButtons.forEach(button => button.addEventListener("click", () => {
+  generationMode = button.dataset.generationMode;
+  generationModeButtons.forEach(option => {
+    const selected = option === button;
+    option.classList.toggle("is-active", selected);
+    option.setAttribute("aria-pressed", String(selected));
+  });
+  renderModelSamples();
+}));
+document.getElementById("generate-samples")?.addEventListener("click", renderModelSamples);
+updateClassicEquation();
+
 const progressCopy = {
   compute: {
     label: "01 · Compute grezzo",

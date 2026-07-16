@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Introduzione ai benchmark AI e guida visuale al task-completion time horizon di METR." />
+    <meta name="description" content="Guida visuale ai benchmark AI: il task-completion time horizon di METR e le prove di ragionamento ARC-AGI-2 e ARC-AGI-3." />
     <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
     <meta property="og:title" content="Benchmark — AI.it" />
     <meta property="og:description" content="METR misura non quanto sa un'AI, ma quanto a lungo riesce a portare avanti un compito." />
@@ -110,6 +110,66 @@
         <aside class="metr-sol-case" data-dossier-reveal><span>Caso limite · 26 giugno 2026</span><h3>GPT‑5.6 Sol non entra nella classifica.</h3><p>METR ha pubblicato una valutazione più recente, ma dice che nessuna stima ottenuta è robusta: il risultato cambia molto a seconda di come vengono trattati i tentativi di aggirare il test. Il dato corretto da mostrare è quindi l'incertezza.</p><a href="https://metr.org/blog/2026-06-26-gpt-5-6-sol/" target="_blank" rel="noreferrer">Leggi la valutazione ↗</a></aside>
       </section>
 
+      <section class="arc-atlas" aria-labelledby="arc-title">
+        <header class="arc-intro" data-dossier-reveal>
+          <p class="kicker">Oltre la durata · ARC Prize</p>
+          <h2 id="arc-title">Non ricordare la risposta.<br /><em>Capire una regola nuova.</em></h2>
+          <p>ARC prova a separare il ragionamento dall’accumulo di nozioni. Il sistema incontra problemi mai visti prima: per riuscire deve riconoscere una struttura, formulare un’ipotesi e correggerla quando non funziona.</p>
+        </header>
+
+        <div class="arc-generations">
+          <article class="arc-generation-card is-static" data-dossier-reveal>
+            <div class="arc-generation-head"><span>2025 · prova statica</span><strong>ARC‑AGI‑2</strong></div>
+            <div class="arc-grid-example" role="img" aria-label="Schema semplificato: due griglie di esempio permettono di dedurre la trasformazione da applicare a una terza griglia">
+              <div class="arc-mini-grid" aria-hidden="true"><i></i><i class="is-fill"></i><i></i><i></i><i class="is-fill"></i><i></i><i></i><i></i><i></i></div>
+              <b aria-hidden="true">→</b>
+              <div class="arc-mini-grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i class="is-fill"></i><i></i><i></i><i class="is-fill"></i><i></i></div>
+            </div>
+            <h3>Vede esempi. Deduce la trasformazione.</h3>
+            <p>Ogni task mostra piccole griglie colorate di input e output. Il sistema deve capire la regola implicita e produrre esattamente la griglia mancante. Non riceve una spiegazione in linguaggio naturale.</p>
+            <small>Misura principale · percentuale di task risolti esattamente</small>
+          </article>
+
+          <article class="arc-generation-card is-interactive" data-dossier-reveal>
+            <div class="arc-generation-head"><span>2026 · prova interattiva</span><strong>ARC‑AGI‑3</strong></div>
+            <div class="arc-action-loop" role="img" aria-label="Ciclo interattivo: osserva l’ambiente, compie un’azione, riceve un effetto e adatta la strategia">
+              <span>Osserva</span><i aria-hidden="true">→</i><span>Agisce</span><i aria-hidden="true">→</i><span>Impara</span><i aria-hidden="true">↺</i>
+            </div>
+            <h3>Entra in un mondo. Scopre come funziona.</h3>
+            <p>Non ci sono istruzioni, regole o obiettivi dichiarati. L’agente deve esplorare ambienti simili a videogiochi, capire quali azioni contano e trasferire ciò che impara ai livelli successivi.</p>
+            <small>Misura principale · livelli completati e azioni usate rispetto agli esseri umani</small>
+          </article>
+        </div>
+
+        <section class="arc-ranking" aria-labelledby="arc-ranking-title" data-dossier-reveal>
+          <header class="arc-ranking-head">
+            <div><span>Leaderboard essenziale</span><h3 id="arc-ranking-title">Lo stesso nome, due difficoltà molto diverse.</h3></div>
+            <p>Selezione dei sistemi verificati più rilevanti, una sola configurazione per sistema. Premi una riga per leggere il risultato.</p>
+          </header>
+
+          <div class="arc-ranking-controls" role="group" aria-label="Scegli la versione del benchmark">
+            <button class="arc-view-button is-active" type="button" data-arc-view="arc2" aria-pressed="true"><span>ARC‑AGI‑2</span><small>griglie statiche</small></button>
+            <button class="arc-view-button" type="button" data-arc-view="arc3" aria-pressed="false"><span>ARC‑AGI‑3</span><small>ambienti interattivi</small></button>
+          </div>
+
+          <div class="arc-ranking-stage">
+            <div class="arc-ranking-scale" aria-hidden="true"><div><span>0%</span><span>25</span><span>50</span><span>75</span><span>100%</span><i class="arc-threshold" id="arc-threshold"><b id="arc-threshold-label">Soglia premio · 85%</b></i></div></div>
+            <ol class="arc-ranking-list" id="arc-ranking-list" aria-label="Classifica ARC-AGI-2"></ol>
+          </div>
+
+          <div class="arc-ranking-detail" aria-live="polite">
+            <div><span>Sistema selezionato</span><strong id="arc-detail-name">GPT‑5.6 Sol · Max</strong><small id="arc-detail-org">OpenAI · 9 luglio 2026</small></div>
+            <div><span>Punteggio</span><strong id="arc-detail-score">92,5%</strong><small id="arc-detail-rank">1° nella selezione</small></div>
+            <p id="arc-detail-copy">Risolve esattamente il 92,5% dei task nella valutazione semi-privata. Il punteggio non descrive conoscenza generale né lavoro autonomo.</p>
+          </div>
+
+          <footer class="arc-ranking-foot">
+            <p id="arc-ranking-note"><strong>ARC‑AGI‑2:</strong> la soglia dell’85% era il traguardo del Grand Prize, non una definizione di AGI. I risultati della leaderboard aperta non vanno confusi con quelli della competizione privata.</p>
+            <div><span>Dati verificati · 9 luglio 2026</span><a href="https://arcprize.org/leaderboard" target="_blank" rel="noreferrer">Leaderboard completa ↗</a></div>
+          </footer>
+        </section>
+      </section>
+
       <section class="sources compact-sources" aria-labelledby="benchmark-sources-title">
         <h2 id="benchmark-sources-title">Fonti del dossier</h2>
         <ol>
@@ -119,13 +179,17 @@
           <li><a href="https://github.com/METR/eval-analysis-public" target="_blank" rel="noreferrer">METR · Codice e dati pubblici</a><span>Repository ufficiale per riprodurre e ispezionare l'analisi.</span></li>
           <li><a href="https://metr.org/notes/2026-01-22-time-horizon-limitations/" target="_blank" rel="noreferrer">METR · Limiti del time horizon</a><span>Cosa la metrica significa e cosa non permette di concludere.</span></li>
           <li><a href="https://arxiv.org/abs/2503.14499" target="_blank" rel="noreferrer">Kwa et al. · Measuring AI Ability to Complete Long Tasks</a><span>Paper aggiornato con metodo statistico e trend storico.</span></li>
+          <li><a href="https://arcprize.org/arc-agi/2" target="_blank" rel="noreferrer">ARC Prize · ARC‑AGI‑2</a><span>Task statici, calibrazione umana, efficienza e protocollo della seconda versione.</span></li>
+          <li><a href="https://arcprize.org/arc-agi/3" target="_blank" rel="noreferrer">ARC Prize · ARC‑AGI‑3</a><span>Ambienti interattivi, apprendimento durante il test e definizione del punteggio.</span></li>
+          <li><a href="https://arcprize.org/leaderboard" target="_blank" rel="noreferrer">ARC Prize · Verified Leaderboard</a><span>Risultati verificati usati nella classifica interattiva.</span></li>
+          <li><a href="https://arcprize.org/results/openai-gpt-5-6" target="_blank" rel="noreferrer">ARC Prize · GPT‑5.6 Series</a><span>Risultati verificati più recenti per Sol, Terra e Luna su ARC‑AGI‑2 e ARC‑AGI‑3.</span></li>
         </ol>
-        <p class="source-boundary">Le stime cambiano quando METR aggiorna task, scaffold e metodo. Per questo la pagina distingue il segnale generale dalle piccole differenze fra modelli.</p>
+        <p class="source-boundary">METR e ARC isolano capacità differenti e usano setup differenti. I loro numeri non si sommano e non formano un unico punteggio di “intelligenza”.</p>
       </section>
 
       <nav class="chapter-next" aria-label="Continua la lettura"><a href="novita.html">← Precedente: Novità</a><a href="politica.html">Prossimo: Politica →</a></nav>
     </main>
-    <footer class="site-footer"><span>AI.it</span><span>Benchmark · METR / TH1.1</span></footer>
+    <footer class="site-footer"><span>AI.it</span><span>Benchmark · METR / ARC‑AGI</span></footer>
     <script src="app.js"></script><script src="dossier.js"></script>
   </body>
 </html>
