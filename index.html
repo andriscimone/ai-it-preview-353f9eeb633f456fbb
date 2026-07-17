@@ -186,36 +186,43 @@
           </div>
 
           <div class="scaling-plot-panel">
-            <div class="scaling-plot-meta"><span>Schema concettuale</span><span>Valori normalizzati · non è un benchmark</span></div>
-            <svg class="scaling-plot" viewBox="0 0 640 320" role="img" aria-labelledby="scaling-plot-title scaling-plot-desc">
-              <title id="scaling-plot-title">Relazione concettuale tra scala di addestramento ed errore</title>
-              <desc id="scaling-plot-desc">Aumentando la scala di addestramento, l'errore diminuisce in modo regolare ma con rendimenti decrescenti.</desc>
+            <div class="scaling-plot-meta"><span>Fit parametrico · Approach 3</span><span>Hoffmann et al. 2022 · oltre 400 run di training</span></div>
+            <svg class="scaling-plot" viewBox="0 0 720 420" role="img" aria-labelledby="scaling-plot-title scaling-plot-desc">
+              <title id="scaling-plot-title">Training loss prevista al crescere del calcolo di addestramento</title>
+              <desc id="scaling-plot-desc">La curva mostra il fit parametrico pubblicato da Hoffmann e colleghi. L'asse orizzontale misura il calcolo in FLOPs su scala logaritmica; quello verticale misura la training loss in nats per token.</desc>
               <g class="scaling-grid" aria-hidden="true">
-                <path d="M68 70H580M68 115H580M68 160H580M68 205H580M68 250H580" />
-                <path d="M80 52V250M200 52V250M320 52V250M440 52V250M560 52V250" />
+                <path d="M90 66.1H680M90 146.7H680M90 227.2H680M90 307.8H680" />
+                <path d="M90 42V340M258.6 42V340M427.1 42V340M595.7 42V340M680 42V340" />
               </g>
-              <path class="scaling-axis" d="M68 48V250H590" aria-hidden="true" />
-              <path class="scaling-curve" d="M80 70 C132 91 168 104 200 116 S274 148 320 160 S398 187 440 198 S520 217 560 222" aria-hidden="true" />
-              <g class="scaling-points" aria-hidden="true">
-                <circle cx="80" cy="70" r="5" />
-                <circle cx="200" cy="116" r="5" />
-                <circle cx="320" cy="160" r="5" />
-                <circle cx="440" cy="198" r="5" />
-                <circle cx="560" cy="222" r="5" />
+              <path class="scaling-axis" d="M90 42V340H680" aria-hidden="true" />
+              <g class="scaling-tick-labels" aria-hidden="true">
+                <text x="78" y="70">3,5</text><text x="78" y="150.6">3,0</text><text x="78" y="231.1">2,5</text><text x="78" y="311.7">2,0</text>
+                <text x="90" y="362">10¹⁸</text><text x="258.6" y="362">10²⁰</text><text x="427.1" y="362">10²²</text><text x="595.7" y="362">10²⁴</text><text x="680" y="362">10²⁵</text>
               </g>
-              <line class="scaling-guide" id="scaling-guide" x1="80" y1="70" x2="80" y2="250" aria-hidden="true" />
-              <circle class="scaling-marker" id="scaling-marker" cx="80" cy="70" r="10" aria-hidden="true" />
-              <text class="scaling-y-label scaling-y-label-top" x="74" y="40">più errore</text>
-              <text class="scaling-y-label" x="74" y="238">meno errore</text>
-              <text class="scaling-x-label" x="590" y="282">scala del training →</text>
+              <path class="scaling-curve" id="scaling-fit-path" d="" aria-hidden="true" />
+              <line class="scaling-reference" x1="575.6" y1="42" x2="575.6" y2="340" aria-hidden="true" />
+              <text class="scaling-reference-label" x="568" y="57">budget Gopher · 5,76×10²³ FLOPs</text>
+              <line class="scaling-guide" id="scaling-guide" x1="575.6" y1="42" x2="575.6" y2="340" aria-hidden="true" />
+              <circle class="scaling-marker" id="scaling-marker" cx="575.6" cy="318" r="9" aria-hidden="true" />
+              <text class="scaling-axis-title scaling-axis-title-y" transform="translate(22 192) rotate(-90)">training loss · nats / token</text>
+              <text class="scaling-axis-title scaling-axis-title-x" x="680" y="398">calcolo di training · FLOPs (scala logaritmica)</text>
             </svg>
 
             <div class="scaling-control">
-              <label for="scaling-range">Esplora la scala relativa <output id="scaling-output" for="scaling-range">1×</output></label>
-              <input id="scaling-range" type="range" min="0" max="4" step="1" value="0" aria-describedby="scaling-reading" />
-              <div class="scaling-ticks" aria-hidden="true"><span>1×</span><span>3×</span><span>10×</span><span>30×</span><span>100×</span></div>
+              <label for="scaling-range">Budget di calcolo <output id="scaling-output" for="scaling-range">5,76 × 10²³ FLOPs</output></label>
+              <input id="scaling-range" type="range" min="18" max="25" step="0.0001" value="23.7604" aria-describedby="scaling-reading scaling-method" />
+              <div class="scaling-range-ticks" aria-hidden="true"><span>10¹⁸</span><span>10²⁰</span><span>10²²</span><span>10²⁴</span><span>10²⁵ FLOPs</span></div>
             </div>
-            <p class="scaling-reading" id="scaling-reading" aria-live="polite"><strong id="scaling-reading-title">Punto di partenza.</strong> <span id="scaling-reading-copy">Una famiglia di modelli stabilisce la sua curva.</span></p>
+            <dl class="scaling-reading" id="scaling-reading" aria-live="polite">
+              <div><dt>Calcolo C</dt><dd id="scaling-compute">5,76 × 10²³ FLOPs</dd></div>
+              <div><dt>Parametri ottimali N</dt><dd id="scaling-params">32,2 miliardi</dd></div>
+              <div><dt>Token ottimali D</dt><dd id="scaling-tokens">2,98 mila miliardi</dd></div>
+              <div><dt>Loss prevista</dt><dd id="scaling-loss">1,931 nats/token</dd></div>
+            </dl>
+            <div class="scaling-method" id="scaling-method">
+              <p><strong>La funzione pubblicata</strong><span>L(N,D) = 1,69 + 406,4 / N<sup>0,34</sup> + 410,7 / D<sup>0,28</sup></span><span>C ≈ 6ND FLOPs</span></p>
+              <p>La linea è il <em>fit parametrico</em> dell'Approach 3, non una serie di punti osservati. N è il numero di parametri e D il numero di token. Il dataset grezzo completo delle oltre 400 corse non è pubblico: qui mostriamo il modello matematico e i coefficienti dichiarati dagli autori, senza inventare misure. I valori descrivono quel fit del 2022, non la loss di qualsiasi modello moderno.</p>
+            </div>
           </div>
         </div>
 
