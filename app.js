@@ -888,34 +888,66 @@ if (homeRevealItems.length && "IntersectionObserver" in window) {
 
 const scalingRange = document.getElementById("scaling-range");
 const scalingOutput = document.getElementById("scaling-output");
+const scalingFitPath = document.getElementById("scaling-fit-path");
 const scalingMarker = document.getElementById("scaling-marker");
 const scalingGuide = document.getElementById("scaling-guide");
-const scalingReadingTitle = document.getElementById("scaling-reading-title");
-const scalingReadingCopy = document.getElementById("scaling-reading-copy");
+const scalingCompute = document.getElementById("scaling-compute");
+const scalingParams = document.getElementById("scaling-params");
+const scalingTokens = document.getElementById("scaling-tokens");
+const scalingLoss = document.getElementById("scaling-loss");
 
-if (scalingRange && scalingOutput && scalingMarker && scalingGuide && scalingReadingTitle && scalingReadingCopy) {
-  const scalingStates = [
-    { value: "1×", x: 80, y: 70, title: "Punto di partenza.", copy: "Una famiglia di modelli stabilisce la sua curva." },
-    { value: "3×", x: 200, y: 116, title: "La perdita scende.", copy: "Più calcolo produce un miglioramento regolare, se gli altri fattori non limitano il training." },
-    { value: "10×", x: 320, y: 160, title: "La previsione diventa utile.", copy: "Gli esperimenti più piccoli aiutano a stimare il budget necessario per il modello successivo." },
-    { value: "30×", x: 440, y: 198, title: "I rendimenti diminuiscono.", copy: "Per ottenere un altro passo avanti, la scala deve crescere molto." },
-    { value: "100×", x: 560, y: 222, title: "La curva diventa industria.", copy: "Energia, chip, dati e costi passano dal laboratorio all'infrastruttura." }
-  ];
-  const scalingPoints = [...document.querySelectorAll(".scaling-points circle")];
+if (scalingRange && scalingOutput && scalingFitPath && scalingMarker && scalingGuide && scalingCompute && scalingParams && scalingTokens && scalingLoss) {
+  const fit = { E: 1.69, A: 406.4, B: 410.7, alpha: 0.34, beta: 0.28 };
+  const plot = { x0: 90, x1: 680, y0: 42, y1: 340, logMin: 18, logMax: 25, lossMin: 1.8, lossMax: 3.6 };
+  const superscript = { "-": "⁻", "0": "⁰", "1": "¹", "2": "²", "3": "³", "4": "⁴", "5": "⁵", "6": "⁶", "7": "⁷", "8": "⁸", "9": "⁹" };
+  const italianNumber = new Intl.NumberFormat("it-IT", { maximumFractionDigits: 2 });
+
+  const toSuperscript = value => String(value).split("").map(character => superscript[character] || character).join("");
+  const formatScientific = value => {
+    const exponent = Math.floor(Math.log10(value));
+    const mantissa = value / (10 ** exponent);
+    return `${italianNumber.format(mantissa)} × 10${toSuperscript(exponent)}`;
+  };
+  const formatLargeCount = value => {
+    if (value >= 1e12) return `${italianNumber.format(value / 1e12)} mila miliardi`;
+    if (value >= 1e9) return `${italianNumber.format(value / 1e9)} miliardi`;
+    return `${italianNumber.format(value / 1e6)} milioni`;
+  };
+  const xForLogCompute = logCompute => plot.x0 + ((logCompute - plot.logMin) / (plot.logMax - plot.logMin)) * (plot.x1 - plot.x0);
+  const yForLoss = loss => plot.y0 + ((plot.lossMax - loss) / (plot.lossMax - plot.lossMin)) * (plot.y1 - plot.y0);
+  const computeOptimalPoint = logCompute => {
+    const compute = 10 ** logCompute;
+    const ratio = ((fit.alpha * fit.A) / (fit.beta * fit.B)) * ((compute / 6) ** fit.beta);
+    const parameters = ratio ** (1 / (fit.alpha + fit.beta));
+    const tokens = compute / (6 * parameters);
+    const loss = fit.E + (fit.A / (parameters ** fit.alpha)) + (fit.B / (tokens ** fit.beta));
+    return { compute, parameters, tokens, loss, x: xForLogCompute(logCompute), y: yForLoss(loss) };
+  };
+
+  const curve = [];
+  for (let index = 0; index <= 140; index += 1) {
+    const logCompute = plot.logMin + ((plot.logMax - plot.logMin) * index / 140);
+    const point = computeOptimalPoint(logCompute);
+    curve.push(`${index === 0 ? "M" : "L"}${point.x.toFixed(2)} ${point.y.toFixed(2)}`);
+  }
+  scalingFitPath.setAttribute("d", curve.join(" "));
 
   const renderScalingState = () => {
-    const index = Number(scalingRange.value);
-    const state = scalingStates[index];
-    scalingOutput.value = state.value;
-    scalingOutput.textContent = state.value;
-    scalingMarker.setAttribute("cx", state.x);
-    scalingMarker.setAttribute("cy", state.y);
-    scalingGuide.setAttribute("x1", state.x);
-    scalingGuide.setAttribute("x2", state.x);
-    scalingGuide.setAttribute("y1", state.y);
-    scalingReadingTitle.textContent = state.title;
-    scalingReadingCopy.textContent = state.copy;
-    scalingPoints.forEach((point, pointIndex) => point.classList.toggle("is-reached", pointIndex <= index));
+    const point = computeOptimalPoint(Number(scalingRange.value));
+    const computeLabel = `${formatScientific(point.compute)} FLOPs`;
+    const lossLabel = `${point.loss.toLocaleString("it-IT", { minimumFractionDigits: 3, maximumFractionDigits: 3 })} nats/token`;
+    scalingOutput.value = computeLabel;
+    scalingOutput.textContent = computeLabel;
+    scalingCompute.textContent = computeLabel;
+    scalingParams.textContent = formatLargeCount(point.parameters);
+    scalingTokens.textContent = formatLargeCount(point.tokens);
+    scalingLoss.textContent = lossLabel;
+    scalingMarker.setAttribute("cx", point.x.toFixed(2));
+    scalingMarker.setAttribute("cy", point.y.toFixed(2));
+    scalingGuide.setAttribute("x1", point.x.toFixed(2));
+    scalingGuide.setAttribute("x2", point.x.toFixed(2));
+    scalingGuide.setAttribute("y1", point.y.toFixed(2));
+    scalingRange.setAttribute("aria-valuetext", `${computeLabel}; ${formatLargeCount(point.parameters)} di parametri; ${formatLargeCount(point.tokens)} di token; loss prevista ${lossLabel}`);
   };
 
   scalingRange.addEventListener("input", renderScalingState);
