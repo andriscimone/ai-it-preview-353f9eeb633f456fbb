@@ -886,6 +886,42 @@ if (homeRevealItems.length && "IntersectionObserver" in window) {
   homeRevealItems.forEach(item => homeRevealObserver.observe(item));
 }
 
+const scalingRange = document.getElementById("scaling-range");
+const scalingOutput = document.getElementById("scaling-output");
+const scalingMarker = document.getElementById("scaling-marker");
+const scalingGuide = document.getElementById("scaling-guide");
+const scalingReadingTitle = document.getElementById("scaling-reading-title");
+const scalingReadingCopy = document.getElementById("scaling-reading-copy");
+
+if (scalingRange && scalingOutput && scalingMarker && scalingGuide && scalingReadingTitle && scalingReadingCopy) {
+  const scalingStates = [
+    { value: "1×", x: 80, y: 70, title: "Punto di partenza.", copy: "Una famiglia di modelli stabilisce la sua curva." },
+    { value: "3×", x: 200, y: 116, title: "La perdita scende.", copy: "Più calcolo produce un miglioramento regolare, se gli altri fattori non limitano il training." },
+    { value: "10×", x: 320, y: 160, title: "La previsione diventa utile.", copy: "Gli esperimenti più piccoli aiutano a stimare il budget necessario per il modello successivo." },
+    { value: "30×", x: 440, y: 198, title: "I rendimenti diminuiscono.", copy: "Per ottenere un altro passo avanti, la scala deve crescere molto." },
+    { value: "100×", x: 560, y: 222, title: "La curva diventa industria.", copy: "Energia, chip, dati e costi passano dal laboratorio all'infrastruttura." }
+  ];
+  const scalingPoints = [...document.querySelectorAll(".scaling-points circle")];
+
+  const renderScalingState = () => {
+    const index = Number(scalingRange.value);
+    const state = scalingStates[index];
+    scalingOutput.value = state.value;
+    scalingOutput.textContent = state.value;
+    scalingMarker.setAttribute("cx", state.x);
+    scalingMarker.setAttribute("cy", state.y);
+    scalingGuide.setAttribute("x1", state.x);
+    scalingGuide.setAttribute("x2", state.x);
+    scalingGuide.setAttribute("y1", state.y);
+    scalingReadingTitle.textContent = state.title;
+    scalingReadingCopy.textContent = state.copy;
+    scalingPoints.forEach((point, pointIndex) => point.classList.toggle("is-reached", pointIndex <= index));
+  };
+
+  scalingRange.addEventListener("input", renderScalingState);
+  renderScalingState();
+}
+
 const secretWord = document.getElementById("secret-word");
 if (secretWord) {
   const requiredClicks = 7;

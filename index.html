@@ -171,6 +171,66 @@
         </div>
       </section>
 
+      <section class="home-scaling" id="scaling-laws" aria-labelledby="scaling-title">
+        <header class="scaling-header" data-reveal>
+          <p class="kicker">Il motore della corsa</p>
+          <h2 id="scaling-title">La scala rende il progresso <em>prevedibile.</em></h2>
+          <p>È l'idea che collega tutto il sito: prima che energia, chip e data center diventassero una strategia industriale, una curva aveva mostrato che investire più risorse poteva ridurre l'errore con sorprendente regolarità.</p>
+        </header>
+
+        <div class="scaling-stage" data-reveal>
+          <div class="scaling-copy">
+            <span class="scaling-index">01 / La regolarità</span>
+            <p class="scaling-lede">Le <strong>scaling laws</strong> sono regolarità empiriche: in una famiglia di modelli, la <em>training loss</em> — una misura dell'errore medio — tende a calare secondo una curva di potenza quando crescono calcolo, dati e parametri.</p>
+            <p class="scaling-boundary"><strong>Non è una legge fisica.</strong> Non garantisce che ogni capacità migliori allo stesso ritmo, né che la curva continui per sempre. Rende però il passo successivo meno cieco.</p>
+          </div>
+
+          <div class="scaling-plot-panel">
+            <div class="scaling-plot-meta"><span>Schema concettuale</span><span>Valori normalizzati · non è un benchmark</span></div>
+            <svg class="scaling-plot" viewBox="0 0 640 320" role="img" aria-labelledby="scaling-plot-title scaling-plot-desc">
+              <title id="scaling-plot-title">Relazione concettuale tra scala di addestramento ed errore</title>
+              <desc id="scaling-plot-desc">Aumentando la scala di addestramento, l'errore diminuisce in modo regolare ma con rendimenti decrescenti.</desc>
+              <g class="scaling-grid" aria-hidden="true">
+                <path d="M68 70H580M68 115H580M68 160H580M68 205H580M68 250H580" />
+                <path d="M80 52V250M200 52V250M320 52V250M440 52V250M560 52V250" />
+              </g>
+              <path class="scaling-axis" d="M68 48V250H590" aria-hidden="true" />
+              <path class="scaling-curve" d="M80 70 C132 91 168 104 200 116 S274 148 320 160 S398 187 440 198 S520 217 560 222" aria-hidden="true" />
+              <g class="scaling-points" aria-hidden="true">
+                <circle cx="80" cy="70" r="5" />
+                <circle cx="200" cy="116" r="5" />
+                <circle cx="320" cy="160" r="5" />
+                <circle cx="440" cy="198" r="5" />
+                <circle cx="560" cy="222" r="5" />
+              </g>
+              <line class="scaling-guide" id="scaling-guide" x1="80" y1="70" x2="80" y2="250" aria-hidden="true" />
+              <circle class="scaling-marker" id="scaling-marker" cx="80" cy="70" r="10" aria-hidden="true" />
+              <text class="scaling-y-label scaling-y-label-top" x="74" y="40">più errore</text>
+              <text class="scaling-y-label" x="74" y="238">meno errore</text>
+              <text class="scaling-x-label" x="590" y="282">scala del training →</text>
+            </svg>
+
+            <div class="scaling-control">
+              <label for="scaling-range">Esplora la scala relativa <output id="scaling-output" for="scaling-range">1×</output></label>
+              <input id="scaling-range" type="range" min="0" max="4" step="1" value="0" aria-describedby="scaling-reading" />
+              <div class="scaling-ticks" aria-hidden="true"><span>1×</span><span>3×</span><span>10×</span><span>30×</span><span>100×</span></div>
+            </div>
+            <p class="scaling-reading" id="scaling-reading" aria-live="polite"><strong id="scaling-reading-title">Punto di partenza.</strong> <span id="scaling-reading-copy">Una famiglia di modelli stabilisce la sua curva.</span></p>
+          </div>
+        </div>
+
+        <div class="scaling-factors" data-reveal>
+          <article><span>01</span><h3>Calcolo</h3><p>Quante operazioni si possono spendere durante l'addestramento.</p></article>
+          <article><span>02</span><h3>Dati</h3><p>Quanti token utili e diversi il modello può osservare e apprendere.</p></article>
+          <article><span>03</span><h3>Parametri</h3><p>Quanta capacità ha il modello di assorbire e combinare quei pattern.</p></article>
+        </div>
+
+        <footer class="scaling-bridge" data-reveal>
+          <p>Se uno dei tre fattori resta fermo, diventa un collo di bottiglia. Per far avanzare la curva servono <strong>energia</strong>, <strong>chip</strong>, <strong>algoritmi</strong> e un'<strong>inferenza</strong> abbastanza efficiente da rendere il risultato utilizzabile.</p>
+          <div class="scaling-sources"><span>Fonti primarie</span><a href="https://arxiv.org/abs/2001.08361" target="_blank" rel="noreferrer">Kaplan et al., 2020 ↗</a><a href="https://arxiv.org/abs/2203.15556" target="_blank" rel="noreferrer">Hoffmann et al., 2022 ↗</a></div>
+        </footer>
+      </section>
+
       <section class="home-routes" id="mappa" aria-labelledby="routes-title">
         <header class="routes-header" data-reveal>
           <div><span class="routes-count">04</span><p class="kicker">Capitoli interattivi</p></div>
