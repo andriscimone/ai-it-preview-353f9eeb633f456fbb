@@ -51,6 +51,8 @@ const routeFiles = [
   "robots.txt"
 ];
 
+const maxEmbeddedAssetBytes = 256 * 1024;
+
 function collect(directory, prefix = "", include = () => true) {
   for (const name of readdirSync(join(root, directory))) {
     const relative = join(directory, name);
@@ -60,7 +62,9 @@ function collect(directory, prefix = "", include = () => true) {
   }
 }
 
-collect("assets", "", file => !file.endsWith(".mp4"));
+collect("assets", "", file =>
+  !file.endsWith(".mp4") && statSync(join(root, file)).size <= maxEmbeddedAssetBytes
+);
 collect("fonts");
 
 const routes = Object.fromEntries(routeFiles.map(file => {
