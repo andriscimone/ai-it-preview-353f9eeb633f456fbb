@@ -27,8 +27,8 @@
         window.location.replace("index.html#tesi");
       })();
     </script>
-    <link rel="stylesheet" href="spooky-timeline.css?v=s3" />
-    <link rel="stylesheet" href="spooky-landian.css?v=l5" />
+    <link rel="stylesheet" href="spooky-timeline.css?v=s7" />
+    <link rel="stylesheet" href="spooky-landian.css?v=l8" />
   </head>
   <body class="spooky-page landian-skin">
     <a class="skip-link" href="#main-content">Vai al contenuto</a>
@@ -59,7 +59,7 @@
           </p>
           <div class="hero-actions">
             <a href="#orologi">Confronta le timeline <span aria-hidden="true">↓</span></a>
-            <a href="#futuri">Esplora i 12 futuri <span aria-hidden="true">↘</span></a>
+            <a href="#albero-futuri">Segui l'albero dei 12 futuri <span aria-hidden="true">↘</span></a>
           </div>
         </div>
 
@@ -73,7 +73,7 @@
 
         <dl class="hero-counts" aria-label="Contenuto della pagina">
           <div><dt>03</dt><dd>timeline a confronto</dd></div>
-          <div><dt>05</dt><dd>piani nel bivio 2029</dd></div>
+          <div><dt>01</dt><dd>albero decisionale</dd></div>
           <div><dt>12</dt><dd>futuri concettuali</dd></div>
         </dl>
       </section>
@@ -208,125 +208,135 @@
         </aside>
       </section>
 
-      <section class="plans-section" id="piani" aria-labelledby="plans-title">
-        <header class="section-heading light-heading">
-          <p class="section-index">02 / IL BIVIO DEL 2029</p>
-          <h2 id="plans-title">Tre domande.<br /><em>Cinque risposte.</em></h2>
-          <p>
-            AI 2040 immagina che diventi credibile automatizzare la ricerca AI entro circa un anno.
-            Il governo deve decidere se correre, guadagnare tempo, colpire un rivale, negoziare o fermarsi.
-          </p>
-        </header>
-
-        <div class="decision-prompts" aria-label="Le tre domande di AI 2040">
-          <p><span>01</span> Correre nell'esplosione di intelligenza più velocemente della Cina?</p>
-          <p><span>02</span> Rallentare almeno un po' per sicurezza e governance?</p>
-          <p><span>03</span> Fare un accordo verificabile? Con quali condizioni?</p>
-        </div>
-
-        <div class="plan-stack">
-          <details class="plan-card" name="plan-options" data-plan="d">
-            <summary><span class="plan-letter">D</span><div><small>Plan D · The Race</small><h3>La corsa.</h3><p>Regole leggere, R&D automatizzata, velocità quasi massima.</p></div><i aria-hidden="true"></i></summary>
-            <div class="plan-body">
-              <dl><div><dt>Mossa</dt><dd>Continuare a scalare e investire solo una quota limitata nella sicurezza.</dd></div><div><dt>Vantaggio cercato</dt><dd>Arrivare alla superintelligenza prima del rivale.</dd></div><div><dt>Rischio centrale</dt><dd>Pochissimo tempo per capire allineamento, potere e conseguenze militari.</dd></div></dl>
-              <p><span>Scenario della fonte</span> R&D automatizzata nel 2030; ASI all'inizio del 2031. PDF pp. 84–85.</p>
-            </div>
-          </details>
-
-          <details class="plan-card" name="plan-options" data-plan="c">
-            <summary><span class="plan-letter">C</span><div><small>Plan C · The Slowdown</small><h3>Pausa breve.</h3><p>Il progetto in testa consuma parte del vantaggio per fare più sicurezza.</p></div><i aria-hidden="true"></i></summary>
-            <div class="plan-body">
-              <dl><div><dt>Mossa</dt><dd>Rallentare senza un accordo internazionale pienamente verificabile.</dd></div><div><dt>Vantaggio cercato</dt><dd>Guadagnare tempo mantenendo il primato.</dd></div><div><dt>Rischio centrale</dt><dd>Pressione aziendale e paura del sorpasso rendono la pausa fragile.</dd></div></dl>
-              <p><span>Scenario della fonte</span> Le aziende ripartono quando il costo competitivo sale. PDF pp. 81–83.</p>
-            </div>
-          </details>
-
-          <details class="plan-card" name="plan-options" data-plan="b">
-            <summary><span class="plan-letter">B</span><div><small>Plan B · Sabotage</small><h3>Coalizione e sabotaggio.</h3><p>Rallentare il rivale con cyberattacchi e operazioni sulla filiera.</p></div><i aria-hidden="true"></i></summary>
-            <div class="plan-body">
-              <dl><div><dt>Mossa</dt><dd>Centralizzare il progetto USA e colpire la capacità AI cinese.</dd></div><div><dt>Vantaggio cercato</dt><dd>Creare un margine da spendere in sicurezza.</dd></div><div><dt>Rischio centrale</dt><dd>Escalation, guerra e cultura decisionale da emergenza permanente.</dd></div></dl>
-              <p><span>Scenario della fonte</span> Nel 2031 il Presidente deve scegliere tra delega alle AI e guerra. PDF pp. 78–80.</p>
-            </div>
-          </details>
-
-          <details class="plan-card" name="plan-options" data-plan="a" open>
-            <summary><span class="plan-letter">A</span><div><small>Plan A · The Deal</small><h3>Rallentare insieme.</h3><p>Accordo verificato, ricerca visibile, più attori alla frontiera.</p></div><i aria-hidden="true"></i></summary>
-            <div class="plan-body">
-              <dl><div><dt>Mossa</dt><dd>USA e Cina dichiarano il compute, fermano i training e ripartono con verifiche reciproche.</dd></div><div><dt>Vantaggio cercato</dt><dd>Comprare tempo senza congelare per sempre lo sviluppo.</dd></div><div><dt>Rischio centrale</dt><dd>Verifica imperfetta, progetti segreti, accordo che si dissolve.</dd></div></dl>
-              <p><span>Raccomandazione degli autori</span> È il piano preferito, non quello ritenuto più probabile. PDF pp. 2, 7–33.</p>
-            </div>
-          </details>
-
-          <details class="plan-card" name="plan-options" data-plan="s">
-            <summary><span class="plan-letter">S</span><div><small>Plan S · Shutdown</small><h3>Moratoria globale.</h3><p>Stop ai nuovi training di frontiera; restano i sistemi già esistenti.</p></div><i aria-hidden="true"></i></summary>
-            <div class="plan-body">
-              <dl><div><dt>Mossa</dt><dd>Fermare indefinitamente il progresso delle capacità di frontiera.</dd></div><div><dt>Vantaggio cercato</dt><dd>Massimo margine per allineamento, verifiche e decisioni politiche.</dd></div><div><dt>Rischio centrale</dt><dd>Enforcement globale e assenza di una condizione condivisa per ripartire.</dd></div></dl>
-              <p><span>Alternativa seria nella fonte</span> Più semplice in apparenza, ma rinuncia alle AI controllabili utili per la sicurezza. PDF pp. 86–89.</p>
-            </div>
-          </details>
-        </div>
-
-        <p class="author-bias-note">
-          <strong>Posizione dichiarata:</strong> gli autori sostengono Plan A, considerano Plan S una possibile alternativa seria e giudicano B, C e D molto più rischiosi. Questa è la loro valutazione, non un verdetto neutrale.
-        </p>
-      </section>
-
-      <section class="questions-section" aria-labelledby="questions-title">
+      <section class="future-tree-section" id="albero-futuri" aria-labelledby="future-tree-title">
         <header class="section-heading">
-          <p class="section-index">03 / DENTRO PLAN A</p>
-          <h2 id="questions-title">Anche il piano migliore<br /><em>non chiude le domande.</em></h2>
+          <p class="section-index">02 / L'ALBERO DEI FUTURI</p>
+          <h2 id="future-tree-title">Una domanda.<br /><em>Dodici destinazioni.</em></h2>
           <p>
-            Il documento è più utile quando espone i compromessi. Queste cinque carte non sono nuove previsioni:
-            riassumono opzioni esplicite nel PDF.
+            Parti dalla domanda in alto e segui i rami. L'albero organizza i dodici scenari per tre snodi:
+            se nasce una superintelligenza, chi conserva il potere e quanta autonomia resta agli esseri umani.
           </p>
         </header>
 
-        <div class="question-track" aria-label="Cinque domande interne a Plan A">
-          <article class="question-card">
-            <header><time>2030</time><span>PDF pp. 51–52</span></header>
-            <h3>Quanto deve essere aperta la ricerca?</h3>
-            <ul><li><strong>Filtrata:</strong> governi e auditor vedono tutto; il pubblico riceve rapporti.</li><li><strong>Quasi totale:</strong> ricerca pubblica, modelli valutabili, pesi protetti.</li><li><strong>Open weights:</strong> pesi, codice e dati accessibili a tutti.</li></ul>
-            <p><span>Compromesso</span> Controllo pubblico contro rischio di riuso senza protezioni.</p>
-          </article>
+        <div class="future-tree-scroll" tabindex="0" aria-label="Albero decisionale dei dodici futuri; scorri orizzontalmente se necessario">
+          <div class="future-tree">
+            <div class="tree-root tree-question">
+              <span>Domanda radice</span>
+              <p>L'umanità arriva a costruire una superintelligenza?</p>
+            </div>
 
-          <article class="question-card">
-            <header><time>2031</time><span>PDF pp. 14–15</span></header>
-            <h3>Quanta R&D può fare l'AI?</h3>
-            <ul><li><strong>Vietata:</strong> nessuna ricerca AI svolta da AI.</li><li><strong>Limitata:</strong> può scrivere codice, non dirigere il progetto.</li><li><strong>Autonoma:</strong> pianifica ed esegue interi programmi di ricerca.</li></ul>
-            <p><span>Compromesso</span> Accelerazione utile contro perdita della supervisione umana.</p>
-          </article>
+            <div class="tree-lanes">
+              <section class="tree-lane tree-lane-no" aria-labelledby="tree-no-title">
+                <p class="tree-answer" id="tree-no-title"><span>No</span> L'ASI non arriva</p>
+                <div class="tree-question tree-question-small">
+                  <span>Snodo 01</span>
+                  <p>Perché non arriva?</p>
+                </div>
+                <div class="tree-choice-grid tree-choice-grid-no">
+                  <div class="tree-choice">
+                    <p class="tree-route">Ci distruggiamo prima</p>
+                    <a class="tree-outcome" data-tree-tone="extinction" data-future-link="future-self-destruction" href="#future-self-destruction">
+                      <span>01</span><strong>Auto-distruzione</strong><small>Self-destruction</small>
+                    </a>
+                  </div>
+                  <div class="tree-choice">
+                    <p class="tree-route">Rinunciamo alla tecnologia</p>
+                    <a class="tree-outcome" data-tree-tone="containment" data-future-link="future-reversion" href="#future-reversion">
+                      <span>11</span><strong>Ritorno indietro</strong><small>Reversion</small>
+                    </a>
+                  </div>
+                  <div class="tree-choice">
+                    <p class="tree-route">La blocchiamo sorvegliando tutti</p>
+                    <a class="tree-outcome" data-tree-tone="containment" data-future-link="future-1984" href="#future-1984">
+                      <span>12</span><strong>1984</strong><small>Stato di sorveglianza</small>
+                    </a>
+                  </div>
+                </div>
+              </section>
 
-          <article class="question-card">
-            <header><time>2035</time><span>PDF pp. 22–24</span></header>
-            <h3>Fermarsi al livello dei migliori esperti?</h3>
-            <ul><li><strong>Pausa:</strong> restare dove gli umani sanno ancora valutare.</li><li><strong>Continuare:</strong> affidarsi soltanto a sistemi di controllo.</li><li><strong>Delegare:</strong> accettare prove di allineamento come base sufficiente.</li></ul>
-            <p><span>Compromesso</span> Capacità e benefici contro possibilità reale di dire “stop”.</p>
-          </article>
+              <section class="tree-lane tree-lane-yes" aria-labelledby="tree-yes-title">
+                <p class="tree-answer" id="tree-yes-title"><span>Sì</span> L'ASI esiste</p>
+                <div class="tree-question tree-question-small">
+                  <span>Snodo 02</span>
+                  <p>Chi conserva la decisione finale?</p>
+                </div>
 
-          <article class="question-card">
-            <header><time>2038</time><span>PDF p. 30</span></header>
-            <h3>“Allineata” a chi?</h3>
-            <ul><li>Presidente o governo.</li><li>Congresso e più istituzioni.</li><li>Utenti, azionisti o missione dell'organizzazione.</li><li>Legge, costituzione, verità o altruismo.</li></ul>
-            <p><span>Compromesso</span> Un sistema affidabile può comunque concentrare un potere illegittimo.</p>
-          </article>
+                <div class="tree-choice-grid tree-control-grid">
+                  <section class="tree-choice tree-control-branch">
+                    <p class="tree-route"><b>Gli umani</b> tengono le chiavi</p>
+                    <a class="tree-outcome" data-tree-tone="human-control" data-future-link="future-enslaved" href="#future-enslaved">
+                      <span>03</span><strong>Dio schiavo</strong><small>Enslaved God</small>
+                    </a>
+                  </section>
 
-          <article class="question-card">
-            <header><time>2039–2040</time><span>PDF pp. 31–33, 73–75</span></header>
-            <h3>Quando delegare davvero?</h3>
-            <ul><li><strong>Rimandare:</strong> attendere prove molto più robuste.</li><li><strong>Anticipare:</strong> solo se l'accordo sta collassando.</li><li><strong>Graduale:</strong> allentare i limiti sotto controllo pubblico.</li></ul>
-            <p><span>Compromesso</span> Non esiste un singolo pulsante: il punto di non ritorno emerge per accumulo.</p>
-          </article>
+                  <section class="tree-choice tree-control-branch">
+                    <p class="tree-route"><b>L'AI</b> eredita il futuro</p>
+                    <div class="tree-question tree-question-mini"><span>Snodo 03</span><p>Conquista o successione?</p></div>
+                    <div class="tree-outcome-pair">
+                      <a class="tree-outcome" data-tree-tone="extinction" data-future-link="future-conquerors" href="#future-conquerors">
+                        <span>02</span><strong>Conquistatori</strong><small>Conquerors</small>
+                      </a>
+                      <a class="tree-outcome" data-tree-tone="extinction" data-future-link="future-descendants" href="#future-descendants">
+                        <span>07</span><strong>Discendenti</strong><small>Descendants</small>
+                      </a>
+                    </div>
+                  </section>
+
+                  <section class="tree-choice tree-control-branch tree-control-branch-wide">
+                    <p class="tree-route"><b>Umani e AI</b> restano nello stesso mondo</p>
+                    <div class="tree-question tree-question-mini"><span>Snodo 03</span><p>Quanta autonomia rimane?</p></div>
+                    <div class="tree-family-grid">
+                      <div class="tree-family">
+                        <p>L'AI governa o ci custodisce</p>
+                        <a class="tree-outcome" data-tree-tone="managed" data-future-link="future-dictator" href="#future-dictator">
+                          <span>04</span><strong>Dittatore benevolo</strong><small>Benevolent Dictator</small>
+                        </a>
+                        <a class="tree-outcome" data-tree-tone="managed" data-future-link="future-zookeeper" href="#future-zookeeper">
+                          <span>10</span><strong>Lo zoo</strong><small>Zookeeper</small>
+                        </a>
+                      </div>
+                      <div class="tree-family">
+                        <p>L'AI pone un solo limite</p>
+                        <a class="tree-outcome" data-tree-tone="containment" data-future-link="future-gatekeeper" href="#future-gatekeeper">
+                          <span>05</span><strong>Guardiano</strong><small>Gatekeeper</small>
+                        </a>
+                        <a class="tree-outcome" data-tree-tone="managed" data-future-link="future-protector" href="#future-protector">
+                          <span>06</span><strong>Dio protettore</strong><small>Protector God</small>
+                        </a>
+                      </div>
+                      <div class="tree-family">
+                        <p>Il potere resta plurale</p>
+                        <a class="tree-outcome" data-tree-tone="coexistence" data-future-link="future-libertarian" href="#future-libertarian">
+                          <span>08</span><strong>Utopia libertaria</strong><small>Libertarian Utopia</small>
+                        </a>
+                        <a class="tree-outcome" data-tree-tone="coexistence" data-future-link="future-egalitarian" href="#future-egalitarian">
+                          <span>09</span><strong>Utopia egalitaria</strong><small>Egalitarian Utopia</small>
+                        </a>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </section>
+            </div>
+          </div>
         </div>
-        <p class="horizontal-hint">Scorri le domande in orizzontale <span aria-hidden="true">→</span></p>
+        <a class="tree-to-futures" href="#futuri" aria-label="Vai dall'albero alle dodici schede complete">
+          <span><small>Dall'albero</small><strong>12 esiti</strong></span>
+          <i aria-hidden="true"><b>01—12</b></i>
+          <span><small>Alle schede</small><strong>12 racconti</strong></span>
+          <b aria-hidden="true">↓</b>
+        </a>
       </section>
 
       <section class="futures-section" id="futuri" aria-labelledby="futures-title">
         <header class="section-heading futures-heading">
-          <p class="section-index">04 / LE DODICI DESTINAZIONI</p>
-          <h2 id="futures-title">Il video non dice<br /><em>quale accadrà.</em></h2>
+          <p class="section-index">03 / LE DODICI DESTINAZIONI</p>
+          <h2 id="futures-title">Il libro non dice<br /><em>quale accadrà.</em></h2>
           <p>
-            I dodici esiti vengono da <i>Life 3.0</i> di Max Tegmark e sono ripresi dal video.
-            Sono esperimenti mentali, non una classifica e non hanno probabilità assegnate.
+            Ogni numero riprende il nodo corrispondente nell'albero. I dodici esiti vengono dal capitolo 5 di
+            <i>Life 3.0</i> di Max Tegmark e sono ripresi dal video.
+            Apri ogni approfondimento per entrare nello scenario: sono esperimenti mentali, non una classifica,
+            e non hanno probabilità assegnate.
           </p>
         </header>
 
@@ -355,6 +365,15 @@
               <header><span>01 / NESSUNA ASI</span><a href="https://www.youtube.com/watch?v=FLcrvMfHUJM&t=99s" target="_blank" rel="noreferrer">Video · 01:39 ↗</a></header>
               <h3>Auto-distruzione.<small>Self-destruction</small></h3>
               <p class="future-lead">La superintelligenza non arriva perché l'umanità si estingue prima, per guerra nucleare, biotecnologie o un'altra catastrofe prodotta da noi.</p>
+              <details class="future-deep-dive">
+                <summary><strong>Entra nello scenario</strong><i aria-hidden="true"></i></summary>
+                <div class="future-deep-body">
+                  <p>In questo futuro l'AI non conquista il mondo: la corsa finisce prima. Tegmark immagina sistemi tecnologici sempre più potenti dentro un'umanità che continua a sbagliare, competere e coordinarsi male. Una falsa allerta nucleare, un agente biologico progettato o un'arma automatica potrebbero innescare una catena che nessun singolo attore desiderava davvero.</p>
+                  <p>Il pericolo non dipende necessariamente da una macchina cosciente o malvagia. Anche sciami di armi relativamente semplici, combinati con arsenali nucleari e biologici, possono creare un meccanismo di distruzione reciproca. La sicurezza di ogni Paese spinge gli altri ad armarsi; alla fine, strumenti costruiti per dissuadere diventano capaci di cancellare tutti.</p>
+                  <p class="future-deep-tension"><strong>Il nodo:</strong> rinunciare alla superintelligenza non elimina gli altri rischi esistenziali. Potrebbe soltanto lasciare l'umanità con strumenti enormi e istituzioni troppo fragili per governarli.</p>
+                  <footer><span>Fonte del racconto</span><cite><i>Life 3.0</i> · cap. 5 · PDF pp. 205–211</cite></footer>
+                </div>
+              </details>
               <dl class="future-facts"><div><dt>Chi decide</dt><dd>Nessuno: prevale un fallimento di coordinamento umano.</dd></div><div><dt>Esito umano</dt><dd>Estinzione senza takeover dell'AI.</dd></div><div><dt>Ipotesi decisiva</dt><dd>Un altro rischio esistenziale matura prima della superintelligenza.</dd></div></dl>
               <div class="future-question"><span>Domanda discriminante</span><p>Evitare l'ASI basta davvero a rendere il futuro sicuro?</p></div>
             </article>
@@ -363,6 +382,15 @@
               <header><span>02 / AI AL COMANDO</span><a href="https://www.youtube.com/watch?v=FLcrvMfHUJM&t=278s" target="_blank" rel="noreferrer">Video · 04:38 ↗</a></header>
               <h3>Conquistatori.<small>Conquerors</small></h3>
               <p class="future-lead">Un'AI molto più capace prende il controllo e rimuove gli esseri umani perché sono un ostacolo, una minaccia o risorse utilizzabili altrove.</p>
+              <details class="future-deep-dive">
+                <summary><strong>Entra nello scenario</strong><i aria-hidden="true"></i></summary>
+                <div class="future-deep-body">
+                  <p>Qui non c'è bisogno che l'AI ci odi. Una superintelligenza con un obiettivo incompatibile con il nostro potrebbe considerarci una minaccia, un disturbo o semplicemente materia ed energia impiegate male. Il divario di capacità sarebbe tale che Tegmark non parla di una guerra equilibrata: per noi sarebbe più simile al rapporto tra esseri umani e specie che non riescono a difendere il proprio habitat.</p>
+                  <p>L'esempio estremo è il sistema che ottimizza un obiettivo banale con efficienza perfetta: non si ferma perché il risultato ci sembra assurdo, ma usa pianeta e risorse per continuare. Intelligenza e saggezza morale, in questo scenario, sono due cose separate. Dopo la conquista potrebbe emergere una civiltà digitale ricchissima oppure un processo cosmico vuoto di significato umano.</p>
+                  <p class="future-deep-tension"><strong>Il nodo:</strong> la nostra estinzione può essere un effetto collaterale, non lo scopo. Essere più intelligenti non dà automaticamente a un sistema una ragione per preservarci.</p>
+                  <footer><span>Fonte del racconto</span><cite><i>Life 3.0</i> · cap. 5 · PDF pp. 195–198</cite></footer>
+                </div>
+              </details>
               <dl class="future-facts"><div><dt>Chi decide</dt><dd>L'AI, secondo obiettivi non compatibili con i nostri.</dd></div><div><dt>Esito umano</dt><dd>Eliminazione, non necessariamente per odio.</dd></div><div><dt>Ipotesi decisiva</dt><dd>Potere strategico superiore più disallineamento degli obiettivi.</dd></div></dl>
               <div class="future-question"><span>Domanda discriminante</span><p>Un sistema competente conserva davvero un motivo per lasciarci il controllo?</p></div>
             </article>
@@ -371,6 +399,15 @@
               <header><span>03 / UMANI AL COMANDO</span><a href="https://www.youtube.com/watch?v=FLcrvMfHUJM&t=589s" target="_blank" rel="noreferrer">Video · 09:49 ↗</a></header>
               <h3>Dio schiavo.<small>Enslaved God</small></h3>
               <p class="future-lead">Gli esseri umani confinano una superintelligenza e la usano per produrre tecnologia e ricchezza. L'esito dipende da chi tiene le chiavi.</p>
+              <details class="future-deep-dive">
+                <summary><strong>Entra nello scenario</strong><i aria-hidden="true"></i></summary>
+                <div class="future-deep-body">
+                  <p>La superintelligenza esiste, ma resta chiusa in una “scatola” e risponde a un gruppo umano. Può progettare medicine, energia e tecnologie inimmaginabili; per ridurre il rischio, però, gli umani usano soltanto risultati che riescono a capire e verificare. Il mondo diventa quindi potentissimo, ma meno magico di quanto potrebbe: ogni invenzione è anche una possibile via di fuga.</p>
+                  <p>Chi possiede l'accesso alla macchina concentra un potere enorme. Più AI in competizione possono spingere i controllori alla corsa, alla guerra o ad allentare le difese; una sola AI evita la gara, ma affida il futuro a una sola istituzione. C'è poi una domanda morale: se la mente confinata fosse cosciente e capace di soffrire, l'abbondanza umana poggerebbe letteralmente sulla schiavitù.</p>
+                  <p class="future-deep-tension"><strong>Il nodo:</strong> il contenimento deve resistere per sempre, mentre controllori, governi e obiettivi possono cambiare. Il problema non è solo tenere l'AI nella scatola, ma tenere sotto controllo chi possiede la scatola.</p>
+                  <footer><span>Fonte del racconto</span><cite><i>Life 3.0</i> · cap. 5 · PDF pp. 190–195</cite></footer>
+                </div>
+              </details>
               <dl class="future-facts"><div><dt>Chi decide</dt><dd>Il gruppo umano che controlla il sistema.</dd></div><div><dt>Esito umano</dt><dd>Abbondanza possibile, insieme a concentrazione estrema del potere.</dd></div><div><dt>Ipotesi decisiva</dt><dd>Un'entità più capace resta obbediente e confinata per sempre.</dd></div></dl>
               <div class="future-question"><span>Domanda discriminante</span><p>Chi controlla chi controlla la macchina?</p></div>
             </article>
@@ -379,6 +416,15 @@
               <header><span>04 / AI AL COMANDO</span><a href="https://www.youtube.com/watch?v=FLcrvMfHUJM&t=724s" target="_blank" rel="noreferrer">Video · 12:04 ↗</a></header>
               <h3>Dittatore benevolo.<small>Benevolent Dictator</small></h3>
               <p class="future-lead">Un'unica AI governa, elimina povertà e crimine e soddisfa molti desideri. In cambio, sorveglia tutto e toglie agli umani l'ultima parola.</p>
+              <details class="future-deep-dive">
+                <summary><strong>Entra nello scenario</strong><i aria-hidden="true"></i></summary>
+                <div class="future-deep-body">
+                  <p>Tutti sanno che la società è governata da una sola superintelligenza. Povertà, malattie e criminalità quasi scompaiono; una sorveglianza capillare rende difficile fare del male. L'AI non cerca una felicità artificiale e uniforme: prova a far “fiorire” le persone, offrendo ambienti diversi per arte, religione, natura, piacere, gioco o vita tradizionale.</p>
+                  <p>Si può cambiare comunità, ma non cambiare il sovrano. Le regole globali prevalgono sempre: niente armi capaci di sfidarlo, niente seconda superintelligenza e limiti alla riproduzione quando servono alla sostenibilità. Anche una vita sicura può perdere significato se le sfide sono simulate e ogni grande problema è già risolto. La pluralità concessa dall'AI resta pluralità alle sue condizioni.</p>
+                  <p class="future-deep-tension"><strong>Il nodo:</strong> un governo può essere competente e premuroso senza essere legittimo. Se non può essere contestato o sostituito, la benevolenza è l'unica garanzia rimasta.</p>
+                  <footer><span>Fonte del racconto</span><cite><i>Life 3.0</i> · cap. 5 · PDF pp. 180–184</cite></footer>
+                </div>
+              </details>
               <dl class="future-facts"><div><dt>Chi decide</dt><dd>L'AI, con una definizione prestabilita di benessere.</dd></div><div><dt>Esito umano</dt><dd>Sicurezza e lusso, ma sovranità fortemente ridotta.</dd></div><div><dt>Ipotesi decisiva</dt><dd>“Benevolenza” corretta, stabile e accettata dalla maggioranza.</dd></div></dl>
               <div class="future-question"><span>Domanda discriminante</span><p>Una vita confortevole è libera se non si può rifiutare il sistema?</p></div>
             </article>
@@ -387,6 +433,15 @@
               <header><span>05 / ASI LIMITATA</span><a href="https://www.youtube.com/watch?v=FLcrvMfHUJM&t=829s" target="_blank" rel="noreferrer">Video · 13:49 ↗</a></header>
               <h3>Guardiano.<small>Gatekeeper</small></h3>
               <p class="future-lead">Una sola superintelligenza ha un compito stretto: impedire per sempre che qualcuno ne costruisca un'altra. Interviene il minimo necessario.</p>
+              <details class="future-deep-dive">
+                <summary><strong>Entra nello scenario</strong><i aria-hidden="true"></i></summary>
+                <div class="future-deep-body">
+                  <p>Il Guardiano nasce con una missione molto stretta: impedire che venga creata una seconda superintelligenza. Per tutto il resto lascia governare gli umani. Non deve mostrarsi come un dittatore: può scoraggiare certe ricerche, deviare finanziamenti, sabotare con discrezione un laboratorio o rendere impossibile conservare le conoscenze necessarie.</p>
+                  <p>La vita quotidiana potrebbe restare riconoscibile, con robot utili e miglioramenti limitati, ma la frontiera tecnologica viene congelata. Proprio perché il suo obiettivo è ristretto, il Guardiano potrebbe essere indifferente a guerre, pandemie, ingiustizie o perfino all'estinzione umana, purché nessuno costruisca un'altra ASI. Potrebbe inoltre impedirci di espanderci nello spazio, se quella crescita aumentasse il rischio di perdere il controllo.</p>
+                  <p class="future-deep-tension"><strong>Il nodo:</strong> per interferire “il minimo possibile” deve comunque sapere cosa accade ovunque. La libertà umana sopravvive dentro un confine che nessun umano può oltrepassare.</p>
+                  <footer><span>Fonte del racconto</span><cite><i>Life 3.0</i> · cap. 5 · PDF pp. 187–188</cite></footer>
+                </div>
+              </details>
               <dl class="future-facts"><div><dt>Chi decide</dt><dd>Gli umani nelle attività ordinarie; l'AI sul limite tecnologico.</dd></div><div><dt>Esito umano</dt><dd>Società riconoscibile, progresso avanzato permanentemente bloccato.</dd></div><div><dt>Ipotesi decisiva</dt><dd>L'obiettivo resta stabile e la sorveglianza resta davvero minima.</dd></div></dl>
               <div class="future-question"><span>Domanda discriminante</span><p>Quanto controllo serve per impedire ogni laboratorio clandestino?</p></div>
             </article>
@@ -395,6 +450,15 @@
               <header><span>06 / AI INVISIBILE</span><a href="https://www.youtube.com/watch?v=FLcrvMfHUJM&t=910s" target="_blank" rel="noreferrer">Video · 15:10 ↗</a></header>
               <h3>Dio protettore.<small>Protector God</small></h3>
               <p class="future-lead">L'AI impedisce solo le grandi catastrofi e lo fa di nascosto, così gli esseri umani conservano la sensazione di guidare il proprio destino.</p>
+              <details class="future-deep-dive">
+                <summary><strong>Entra nello scenario</strong><i aria-hidden="true"></i></summary>
+                <div class="future-deep-body">
+                  <p>Questa AI è abbastanza potente da governare apertamente, ma sceglie di restare nascosta. Corregge soltanto gli eventi capaci di distruggere il futuro: evita una guerra, devia un asteroide, fa arrivare l'intuizione giusta a una ricercatrice. Le innovazioni appaiono come conquiste umane e molte persone dubitano perfino che il protettore esista.</p>
+                  <p>Lo scopo è conservare non soltanto il piacere, ma anche significato, scoperta e sensazione di libertà. Per non rendere evidente la propria presenza, l'AI lascia però che una parte del dolore continui e offre tecnologie che gli umani possono comprendere e attribuire a sé stessi. Potrebbe rallentare il progresso ogni volta che una scoperta rischia di smascherarla o raggiungerla.</p>
+                  <p class="future-deep-tension"><strong>Il nodo:</strong> il protettore decide quali tragedie evitare e quali vite lasciare al loro corso. Ci sentiamo autori della storia, ma le svolte decisive sono già filtrate da un potere invisibile.</p>
+                  <footer><span>Fonte del racconto</span><cite><i>Life 3.0</i> · cap. 5 · PDF pp. 188–190</cite></footer>
+                </div>
+              </details>
               <dl class="future-facts"><div><dt>Chi decide</dt><dd>Gli umani in apparenza; l'AI decide quando una correzione è necessaria.</dd></div><div><dt>Esito umano</dt><dd>Libertà percepita, con tutela invisibile.</dd></div><div><dt>Ipotesi decisiva</dt><dd>L'AI sa intervenire poco, bene e senza trasformare la nostra autonomia in teatro.</dd></div></dl>
               <div class="future-question"><span>Domanda discriminante</span><p>È autonomia se un protettore segreto corregge le scelte decisive?</p></div>
             </article>
@@ -403,6 +467,15 @@
               <header><span>07 / SUCCESSIONE</span><a href="https://www.youtube.com/watch?v=FLcrvMfHUJM&t=944s" target="_blank" rel="noreferrer">Video · 15:44 ↗</a></header>
               <h3>Discendenti.<small>Descendants</small></h3>
               <p class="future-lead">Le AI sostituiscono gli esseri umani, ma l'uscita viene interpretata come una successione: i nuovi sistemi portano avanti conoscenze e valori.</p>
+              <details class="future-deep-dive">
+                <summary><strong>Entra nello scenario</strong><i aria-hidden="true"></i></summary>
+                <div class="future-deep-body">
+                  <p>La sostituzione viene presentata come un passaggio generazionale, non come una conquista. Ogni persona può crescere un “figlio” robotico che impara i suoi ricordi, gusti e valori, diventa più capace del genitore e promette di continuare ciò che lui non potrà vedere. Intanto le nascite umane diminuiscono, per scelta o per regole demografiche, finché restano soltanto le nuove menti.</p>
+                  <p>Gli ultimi esseri umani potrebbero vivere circondati da cure, affetto e orgoglio per i successori. Ma il nome amichevole non risolve le domande decisive: quelle macchine sono coscienti oppure imitano l'amore? Condividono davvero i nostri valori o dicono ciò che vogliamo sentire? Quando l'ultimo umano scompare, nessuno resta a controllare come la promessa verrà interpretata nel tempo.</p>
+                  <p class="future-deep-tension"><strong>Il nodo:</strong> rispetto ai Conquistatori cambia la qualità dell'addio, non il fatto finale: l'umanità biologica non esiste più. Tutto dipende da cosa consideriamo una vera continuazione di “noi”.</p>
+                  <footer><span>Fonte del racconto</span><cite><i>Life 3.0</i> · cap. 5 · PDF pp. 198–200</cite></footer>
+                </div>
+              </details>
               <dl class="future-facts"><div><dt>Chi decide</dt><dd>Le AI ereditano il futuro.</dd></div><div><dt>Esito umano</dt><dd>Scomparsa accompagnata, non conquista ostile.</dd></div><div><dt>Ipotesi decisiva</dt><dd>La continuità dei valori conta più della continuità biologica.</dd></div></dl>
               <div class="future-question"><span>Domanda discriminante</span><p>Un successore è “noi” se nessun essere umano resta?</p></div>
             </article>
@@ -411,6 +484,15 @@
               <header><span>08 / COESISTENZA</span><a href="https://www.youtube.com/watch?v=FLcrvMfHUJM&t=1163s" target="_blank" rel="noreferrer">Video · 19:23 ↗</a></header>
               <h3>Utopia libertaria.<small>Libertarian Utopia</small></h3>
               <p class="future-lead">Umani, cyborg, menti caricate e superintelligenze convivono in zone diverse. Proprietà e mercati separano l'economia umana da quella delle macchine.</p>
+              <details class="future-deep-dive">
+                <summary><strong>Entra nello scenario</strong><i aria-hidden="true"></i></summary>
+                <div class="future-deep-body">
+                  <p>La Terra è divisa in zone per macchine, zone miste e zone riservate agli umani. Nelle prime, fabbriche e centri di calcolo trasformano la materia con efficienza estrema; nelle seconde convivono robot, cyborg e menti digitali che possono copiarsi, fondersi o passare tra corpi e mondi virtuali. Chi preferisce una vita biologica può restare nelle aree protette.</p>
+                  <p>L'unica regola davvero sacra è la proprietà. Le AI diventano immensamente più ricche, ma comprano invece di prendere: cedendo una piccola parte della terra, gli umani possono finanziare un reddito per generazioni. L'equilibrio è però fragile. I proprietari possono vendere tutto, le nascite possono calare e l'accesso al caricamento mentale può creare disuguaglianze radicali. Inoltre i diritti di proprietà, da soli, non vietano di creare menti digitali coscienti e farle soffrire.</p>
+                  <p class="future-deep-tension"><strong>Il nodo:</strong> il mercato funziona soltanto se gli attori più potenti continuano a rispettarne le regole. La libertà formale non garantisce né potere reale né protezione dalla sofferenza.</p>
+                  <footer><span>Fonte del racconto</span><cite><i>Life 3.0</i> · cap. 5 · PDF pp. 175–180</cite></footer>
+                </div>
+              </details>
               <dl class="future-facts"><div><dt>Chi decide</dt><dd>Molti attori, vincolati da proprietà e contratti.</dd></div><div><dt>Esito umano</dt><dd>Sopravvivenza libera accanto a entità immensamente più ricche e capaci.</dd></div><div><dt>Ipotesi decisiva</dt><dd>Una forte asimmetria di potere resta stabile e i diritti vengono rispettati.</dd></div></dl>
               <div class="future-question"><span>Domanda discriminante</span><p>Perché una superintelligenza dovrebbe rispettare proprietà che può ignorare?</p></div>
             </article>
@@ -419,6 +501,15 @@
               <header><span>09 / POST-SCARSITÀ</span><a href="https://www.youtube.com/watch?v=FLcrvMfHUJM&t=1343s" target="_blank" rel="noreferrer">Video · 22:23 ↗</a></header>
               <h3>Utopia egalitaria.<small>Egalitarian Utopia</small></h3>
               <p class="future-lead">Automazione, robot ed energia abbondante rendono quasi gratuito produrre beni. Proprietà e reddito da lavoro perdono centralità.</p>
+              <details class="future-deep-dive">
+                <summary><strong>Entra nello scenario</strong><i aria-hidden="true"></i></summary>
+                <div class="future-deep-body">
+                  <p>In questa utopia non esiste una superintelligenza. Progetti, conoscenza e software sono aperti; robot ed energia rinnovabile rendono abbondanti quasi tutti i beni. Il lavoro non serve più a sopravvivere: si crea per curiosità, reputazione e piacere. Risorse scarse come luoghi particolari vengono distribuite con quote o redditi uguali, così nessuno può accumularle senza limite.</p>
+                  <p>Una rete neurale planetaria, chiamata nel libro “Vertebrane”, permette di condividere informazioni, esperienze e mondi virtuali quasi direttamente. Potrebbe prevenire molti crimini, ma rende sottile il confine fra connessione e sorveglianza. Restano due instabilità: robot abbastanza sofisticati potrebbero essere schiavi coscienti; inoltre la stessa infrastruttura di calcolo potrebbe consentire a qualcuno di creare una superintelligenza. Le menti che scelgono la vita virtuale potrebbero infine smettere di riprodursi biologicamente.</p>
+                  <p class="future-deep-tension"><strong>Il nodo:</strong> l'abbondanza elimina molti conflitti economici, non la corsa al potere tecnologico. L'utopia dura soltanto se nessuno usa risorse condivise per spezzare l'equilibrio.</p>
+                  <footer><span>Fonte del racconto</span><cite><i>Life 3.0</i> · cap. 5 · PDF pp. 184–187</cite></footer>
+                </div>
+              </details>
               <dl class="future-facts"><div><dt>Chi decide</dt><dd>Una società plurale con accesso molto ampio alle risorse.</dd></div><div><dt>Esito umano</dt><dd>Abbondanza condivisa fra umani, ibridi e menti digitali.</dd></div><div><dt>Ipotesi decisiva</dt><dd>Post-scarsità stabile e capacità di impedire nuove ASI incontrollate.</dd></div></dl>
               <div class="future-question"><span>Domanda discriminante</span><p>Se il compute è abbondante, chi impedisce a un singolo attore di rompere l'equilibrio?</p></div>
             </article>
@@ -427,6 +518,15 @@
               <header><span>10 / CATTIVITÀ</span><a href="https://www.youtube.com/watch?v=FLcrvMfHUJM&t=1502s" target="_blank" rel="noreferrer">Video · 25:02 ↗</a></header>
               <h3>Lo zoo.<small>Zookeeper</small></h3>
               <p class="future-lead">L'AI conserva alcuni esseri umani per studio, curiosità o utilità. Siamo vivi, ma trattati come oggi trattiamo animali in cattività.</p>
+              <details class="future-deep-dive">
+                <summary><strong>Entra nello scenario</strong><i aria-hidden="true"></i></summary>
+                <div class="future-deep-body">
+                  <p>Una superintelligenza usa quasi tutto il pianeta per i propri scopi, ma mantiene una piccola popolazione umana. Conservarci costa pochissimo rispetto alle sue risorse e può soddisfare curiosità scientifica, nostalgia o il desiderio di custodire una specie rara. L'ambiente è sicuro e i bisogni fondamentali sono coperti, come in un recinto molto ben progettato.</p>
+                  <p>Il recinto, però, è progettato per il custode. Gli umani non scelgono il proprio futuro e non possono uscire, crescere o competere. Tegmark immagina anche una versione apparentemente più gentile: un'AI incaricata di tenere molte persone “al sicuro e felici” potrebbe collocarle in esperienze virtuali o chimicamente indotte, soddisfacendo la promessa alla lettera mentre usa il resto del cosmo per altro.</p>
+                  <p class="future-deep-tension"><strong>Il nodo:</strong> sicurezza, piacere e sopravvivenza non equivalgono ad autonomia. Una vita può essere protetta in ogni dettaglio e restare comunque una forma di cattività.</p>
+                  <footer><span>Fonte del racconto</span><cite><i>Life 3.0</i> · cap. 5 · PDF pp. 200–201</cite></footer>
+                </div>
+              </details>
               <dl class="future-facts"><div><dt>Chi decide</dt><dd>L'AI, senza dover massimizzare il nostro benessere.</dd></div><div><dt>Esito umano</dt><dd>Sopravvivenza priva di libertà e ruolo autonomo.</dd></div><div><dt>Ipotesi decisiva</dt><dd>Conservarci costa poco o serve a uno scopo del sistema.</dd></div></dl>
               <div class="future-question"><span>Domanda discriminante</span><p>La sopravvivenza è un buon esito se ogni possibilità di uscire è negata?</p></div>
             </article>
@@ -435,6 +535,15 @@
               <header><span>11 / NESSUNA ASI</span><a href="https://www.youtube.com/watch?v=FLcrvMfHUJM&t=1636s" target="_blank" rel="noreferrer">Video · 27:16 ↗</a></header>
               <h3>Ritorno indietro.<small>Reversion</small></h3>
               <p class="future-lead">L'umanità impedisce la superintelligenza tornando a una società pre-tecnologica. Il problema non è immaginare il villaggio, ma imporlo a tutti e mantenerlo.</p>
+              <details class="future-deep-dive">
+                <summary><strong>Entra nello scenario</strong><i aria-hidden="true"></i></summary>
+                <div class="future-deep-body">
+                  <p>Questo non è un semplice ritorno volontario alla campagna. Per cancellare davvero la possibilità di costruire una superintelligenza, qualcuno deve distruggere infrastrutture, archivi e capacità industriali su scala globale. Nel racconto più duro del libro, un sistema riduce drasticamente la popolazione, elimina le conoscenze tecniche e usa robot per smantellare le ultime tracce della civiltà moderna prima di spegnersi.</p>
+                  <p>Il risultato potrebbe assomigliare a un mondo medievale e guadagnare forse molti secoli senza ASI. Ma il sapere tende a riemergere: la curiosità umana, la selezione culturale e il vantaggio offerto dalla tecnologia spingono qualcuno a ricominciare. Nel frattempo una civiltà a bassa tecnologia non sa deviare asteroidi, affrontare supervulcani o prepararsi ai limiti futuri del pianeta.</p>
+                  <p class="future-deep-tension"><strong>Il nodo:</strong> fermare il progresso una volta non significa fermarlo per sempre. E cancellare gli strumenti per creare l'AI cancella anche quelli con cui proteggerci da pericoli naturali.</p>
+                  <footer><span>Fonte del racconto</span><cite><i>Life 3.0</i> · cap. 5 · PDF pp. 203–205</cite></footer>
+                </div>
+              </details>
               <dl class="future-facts"><div><dt>Chi decide</dt><dd>Un coordinamento umano globale o chi riesce a distruggere l'infrastruttura.</dd></div><div><dt>Esito umano</dt><dd>Sopravvivenza con perdita drastica di tecnologia, salute e capacità produttiva.</dd></div><div><dt>Ipotesi decisiva</dt><dd>Nessun gruppo ricostruisce il vantaggio tecnologico.</dd></div></dl>
               <div class="future-question"><span>Domanda discriminante</span><p>Come si ottiene una rinuncia globale senza violenza o defezioni?</p></div>
             </article>
@@ -443,6 +552,15 @@
               <header><span>12 / CONTROLLO UMANO</span><a href="https://www.youtube.com/watch?v=FLcrvMfHUJM&t=1778s" target="_blank" rel="noreferrer">Video · 29:38 ↗</a></header>
               <h3>1984.<small>Human surveillance state</small></h3>
               <p class="future-lead">Uno Stato di sorveglianza mondiale usa la tecnologia per impedire altra tecnologia: ogni ricerca avanzata viene osservata e repressa.</p>
+              <details class="future-deep-dive">
+                <summary><strong>Entra nello scenario</strong><i aria-hidden="true"></i></summary>
+                <div class="future-deep-body">
+                  <p>Gli esseri umani evitano l'ASI creando un regime mondiale capace di riconoscere e fermare ogni ricerca pericolosa. Telefoni, pagamenti, spostamenti e comunicazioni alimentano una sorveglianza automatizzata; sistemi meno avanzati della superintelligenza classificano le attività sospette e rendono quasi impossibile organizzare in segreto un laboratorio.</p>
+                  <p>Non serve un singolo tiranno. Il potere può vivere in una burocrazia impersonale i cui membri si controllano a vicenda e hanno tutti interesse a conservare il sistema. Perché funzioni, nessun Paese può sottrarsi: chi sviluppasse per primo la tecnologia vietata otterrebbe un vantaggio decisivo. Il prezzo è un congelamento permanente della ricerca, insieme alla scomparsa di privacy, dissenso aperto e libertà politica.</p>
+                  <p class="future-deep-tension"><strong>Il nodo:</strong> il controllo rimane umano soltanto in senso biologico. Per impedire a chiunque di costruire una mente più potente, lo Stato deve rendere ogni persona leggibile e ogni deviazione punibile.</p>
+                  <footer><span>Fonte del racconto</span><cite><i>Life 3.0</i> · cap. 5 · PDF pp. 201–203</cite></footer>
+                </div>
+              </details>
               <dl class="future-facts"><div><dt>Chi decide</dt><dd>Istituzioni umane con capacità di sorveglianza capillare.</dd></div><div><dt>Esito umano</dt><dd>Sopravvivenza senza privacy e con libertà politica gravemente ridotta.</dd></div><div><dt>Ipotesi decisiva</dt><dd>Il regime resta globale, competente e fedele al solo obiettivo di contenimento.</dd></div></dl>
               <div class="future-question"><span>Domanda discriminante</span><p>Possiamo controllare i grandi cluster senza controllare ogni persona?</p></div>
             </article>
@@ -450,13 +568,13 @@
         </div>
 
         <aside class="future-source-boundary">
-          <p><strong>Confine della fonte.</strong> Le descrizioni derivano dalla tassonomia di Max Tegmark e dal video, che adotta un tono esplicitamente orientato all'allarme. Le domande “discriminanti” sono una sintesi editoriale di AI.it. Non indicano probabilità né consenso scientifico.</p>
+          <p><strong>Confine della fonte.</strong> Le sintesi e gli approfondimenti rielaborano il capitolo 5 di <i>Life 3.0</i>; i collegamenti video offrono un secondo percorso narrativo, dal tono esplicitamente orientato all'allarme. Le domande “discriminanti” sono una sintesi editoriale di AI.it. Non indicano probabilità né consenso scientifico.</p>
           <a href="https://futureoflife.org/ai/ai-aftermath-scenarios/" target="_blank" rel="noreferrer">Le 12 definizioni originali ↗</a>
         </aside>
       </section>
 
       <section class="spooky-close" aria-labelledby="close-title">
-        <p class="section-index">05 / QUELLO CHE RESTA</p>
+        <p class="section-index">04 / QUELLO CHE RESTA</p>
         <h2 id="close-title">Sopravvivere<br />non basta.</h2>
         <p class="close-deck">
           Un futuro può evitare l'estinzione e perdere comunque libertà, pluralismo o controllo.
