@@ -31,7 +31,7 @@ Le date dei documenti restano legate alle rispettive fonti. I dodici futuri del 
 - `spooky-timeline.css`: struttura, stati interattivi e comportamento mobile.
 - `spooky-landian.css`: skin visiva autonoma del dossier: terminale, griglia, palette e tipografia.
 - `spooky-timeline.js`: tab, scorrimento delle timeline, indice attivo e progresso dei dodici futuri.
-- `scripts/prepare-public.mjs` e `scripts/finalize-dist.mjs`: inclusione dei tre file nella build pubblicabile.
+- `scripts/prepare-public.mjs` e `scripts/finalize-dist.mjs`: inclusione dei quattro file della pagina nella build pubblicabile.
 
 Non serve un database: testo e riferimenti vivono nell'HTML; JavaScript modifica soltanto ciò che il lettore vede e seleziona.
 
