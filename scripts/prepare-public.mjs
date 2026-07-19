@@ -27,6 +27,7 @@ const files = [
   "politica.css",
   "altro.css",
   "spooky-timeline.css",
+  "spooky-landian.css",
   "styles.css",
   "robots.txt"
 ];
