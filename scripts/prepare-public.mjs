@@ -21,6 +21,7 @@ const files = [
   "algorithm-visuals.js",
   "politica.js",
   "guerra.js",
+  "spooky-timeline.js",
   "energy.css",
   "algorithms.css",
   "politica.css",
