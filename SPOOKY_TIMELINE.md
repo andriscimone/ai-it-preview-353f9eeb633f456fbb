@@ -6,9 +6,8 @@ La pagina `spooky-timeline.html` è un dossier interattivo nascosto nella homepa
 
 - una legenda che separa fatto storico, stima, scenario, raccomandazione e futuro concettuale;
 - tre timeline orizzontali per *AI 2027*, *Situational Awareness* e *AI 2040*;
-- i cinque piani del bivio 2029 di *AI 2040*, apribili uno alla volta;
-- cinque domande interne a Plan A, con opzioni e compromessi espliciti;
-- dodici futuri alternativi derivati dal video di Species e dalla tassonomia di *Life 3.0*;
+- un albero decisionale che organizza i dodici futuri per arrivo dell'ASI, controllo e autonomia umana e conduce direttamente alle schede numerate;
+- dodici futuri alternativi derivati dal capitolo 5 di *Life 3.0*, ciascuno con una sintesi e un racconto espandibile;
 - un indice laterale che segue la lettura e permette di saltare direttamente a ogni futuro.
 
 Le date dei documenti restano legate alle rispettive fonti. I dodici futuri del video non hanno date o probabilità: sono possibilità concettuali, non una quarta timeline.
@@ -44,8 +43,9 @@ La separazione tra i due fogli di stile è intenzionale: `spooky-timeline.css` m
 3. Clicca lentamente sette volte su `capire`: non deve succedere nulla.
 4. Clicca velocemente sette volte: deve aprirsi il dossier.
 5. Cambia le tre timeline anche con le frecce della tastiera e scorri le carte in orizzontale.
-6. Apri i cinque piani e usa l'indice per raggiungere diversi futuri.
-7. Ricarica la timeline: devi tornare alla homepage.
-8. Ripeti su mobile e controlla che testo, controlli e carte restino leggibili senza scorrimento laterale della pagina.
+6. Segui entrambi i rami dell'albero: ogni esito deve mostrare il collegamento e aprire la scheda con lo stesso numero; il raccordo “12 esiti → 12 racconti” deve portare all'inizio delle descrizioni.
+7. In ognuno dei dodici futuri apri “Entra nello scenario”: deve comparire il racconto completo con il riferimento alle pagine del libro; richiudilo anche con la tastiera.
+8. Ricarica la timeline: devi tornare alla homepage.
+9. Ripeti su mobile e controlla che testo, controlli, tendine e carte restino leggibili senza scorrimento laterale della pagina.
 
 Se i tab o l'indice non reagiscono, controlla per prima cosa che `spooky-timeline.js` sia stato copiato nella cartella pubblicata e che la console del browser non mostri errori.
