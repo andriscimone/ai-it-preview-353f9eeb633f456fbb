@@ -28,11 +28,14 @@ Le date dei documenti restano legate alle rispettive fonti. I dodici futuri del 
 
 - `index.html`, `styles.css`, `app.js`: gesto di sblocco.
 - `spooky-timeline.html`: contenuti, fonti e struttura semantica.
-- `spooky-timeline.css`: impaginazione editoriale, stati interattivi e comportamento mobile.
+- `spooky-timeline.css`: struttura, stati interattivi e comportamento mobile.
+- `spooky-landian.css`: skin visiva autonoma del dossier: terminale, griglia, palette e tipografia.
 - `spooky-timeline.js`: tab, scorrimento delle timeline, indice attivo e progresso dei dodici futuri.
-- `scripts/prepare-public.mjs` e `scripts/finalize-dist.mjs`: inclusione dei tre file nella build pubblicabile.
+- `scripts/prepare-public.mjs` e `scripts/finalize-dist.mjs`: inclusione dei quattro file della pagina nella build pubblicabile.
 
 Non serve un database: testo e riferimenti vivono nell'HTML; JavaScript modifica soltanto ciò che il lettore vede e seleziona.
+
+La separazione tra i due fogli di stile è intenzionale: `spooky-timeline.css` mantiene la pagina leggibile e funzionante, mentre `spooky-landian.css` può cambiare direzione artistica senza toccare contenuti o interazioni.
 
 ## Verifica manuale
 

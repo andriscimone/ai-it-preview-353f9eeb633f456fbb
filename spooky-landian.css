@@ -1,0 +1,754 @@
+/*
+  Landian skin: a cold cybernetic dossier, not a generic neon interface.
+  This file only changes art direction. Structure and interaction remain in
+  spooky-timeline.css so the skin can be removed without breaking the page.
+*/
+
+.spooky-page.landian-skin {
+  color-scheme: dark;
+  min-width: 0;
+  --void: #020302;
+  --void-soft: #060806;
+  --void-raised: #0b0f0b;
+  --paper: #070907;
+  --paper-soft: #0b0e0b;
+  --ink: #050604;
+  --ghost: #f1f4e8;
+  --muted: #aeb6aa;
+  --muted-dark: #aeb6aa;
+  --line: rgba(0, 224, 64, .25);
+  --line-dark: rgba(0, 224, 64, .22);
+  --signal: #00e040;
+  --danger: #ff482f;
+  --violet: #b58cff;
+  --cyan: #35e9ff;
+  --amber: #ffd447;
+  --serif: "DM Mono", Consolas, monospace;
+  background-color: var(--void);
+  background-image:
+    linear-gradient(rgba(0, 224, 64, .02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 224, 64, .02) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.spooky-page.landian-skin .spooky-grain {
+  opacity: 1;
+  mix-blend-mode: normal;
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0 3px,
+      rgba(0, 224, 64, .018) 3px 4px
+    );
+}
+
+.spooky-page.landian-skin .spooky-header {
+  border-bottom: 2px solid var(--signal);
+  background: rgba(2, 3, 2, .96);
+  box-shadow: inset 5px 0 0 var(--danger), 0 7px 0 rgba(0, 224, 64, .04);
+  backdrop-filter: none;
+}
+
+.spooky-page.landian-skin .spooky-brand {
+  font-weight: 500;
+  letter-spacing: .12em;
+}
+
+.spooky-page.landian-skin .spooky-brand i {
+  position: relative;
+  border-color: var(--signal);
+  border-radius: 0;
+  transform: none;
+}
+
+.spooky-page.landian-skin .spooky-brand i::before,
+.spooky-page.landian-skin .spooky-brand i::after {
+  content: "";
+  position: absolute;
+  background: var(--danger);
+}
+
+.spooky-page.landian-skin .spooky-brand i::before {
+  width: 17px;
+  height: 1px;
+  top: 4px;
+  left: -4px;
+}
+
+.spooky-page.landian-skin .spooky-brand i::after {
+  width: 1px;
+  height: 17px;
+  top: -4px;
+  left: 4px;
+}
+
+.spooky-page.landian-skin .spooky-header > p span {
+  width: 8px;
+  height: 8px;
+  border-radius: 0;
+  box-shadow: none;
+  transform: rotate(45deg);
+}
+
+.spooky-page.landian-skin .spooky-exit {
+  border: 1px solid var(--line);
+  padding: 8px 10px;
+}
+
+.spooky-page.landian-skin .spooky-exit:hover {
+  border-color: var(--danger);
+  background: var(--danger);
+  color: var(--ink);
+}
+
+.spooky-page.landian-skin .spooky-hero {
+  background-color: var(--void);
+  background-image:
+    linear-gradient(90deg, transparent 49.9%, rgba(0, 224, 64, .11) 50%, transparent 50.1%),
+    repeating-linear-gradient(135deg, transparent 0 32px, rgba(0, 224, 64, .028) 32px 33px);
+}
+
+.spooky-page.landian-skin .spooky-hero::before {
+  width: min(61vw, 980px);
+  top: -48vw;
+  right: -16vw;
+  border: 1px solid rgba(0, 224, 64, .3);
+  border-radius: 0;
+  background: repeating-linear-gradient(90deg, transparent 0 52px, rgba(0, 224, 64, .08) 52px 53px);
+  box-shadow: none;
+  transform: rotate(12deg);
+}
+
+.spooky-page.landian-skin .spooky-hero::after {
+  width: 1px;
+  height: 61%;
+  right: 36%;
+  bottom: 0;
+  transform: none;
+  background: repeating-linear-gradient(to bottom, var(--danger) 0 8px, transparent 8px 16px);
+}
+
+.spooky-page.landian-skin .hero-status {
+  align-items: center;
+  color: var(--ghost);
+  letter-spacing: .12em;
+}
+
+.spooky-page.landian-skin .hero-status span:first-child {
+  padding: 7px 9px;
+  background: var(--danger);
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.spooky-page.landian-skin .section-kicker,
+.spooky-page.landian-skin .section-index {
+  letter-spacing: .14em;
+}
+
+.spooky-page.landian-skin .hero-copy h1,
+.spooky-page.landian-skin .section-heading h2,
+.spooky-page.landian-skin .source-card h3,
+.spooky-page.landian-skin .source-timeline h3,
+.spooky-page.landian-skin .plan-card summary h3,
+.spooky-page.landian-skin .question-card h3,
+.spooky-page.landian-skin .future-card h3,
+.spooky-page.landian-skin .spooky-close h2 {
+  font-family: var(--mono);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.spooky-page.landian-skin .hero-copy h1 {
+  max-width: 1040px;
+  letter-spacing: -.08em;
+  text-shadow: .045em .025em 0 rgba(255, 72, 47, .2);
+}
+
+.spooky-page.landian-skin .hero-copy h1 em {
+  margin-left: clamp(0px, 5vw, 90px);
+  color: var(--danger);
+  text-decoration: underline;
+  text-decoration-thickness: .035em;
+  text-underline-offset: .08em;
+}
+
+.spooky-page.landian-skin .hero-deck {
+  max-width: 680px;
+  border-top-color: var(--signal);
+}
+
+.spooky-page.landian-skin .hero-actions a {
+  position: relative;
+  border-color: var(--line);
+  background: rgba(2, 3, 2, .8);
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+}
+
+.spooky-page.landian-skin .hero-actions a:first-child {
+  border-color: var(--signal);
+}
+
+.spooky-page.landian-skin .hero-actions a:hover {
+  background: var(--signal);
+  color: var(--ink);
+}
+
+.spooky-page.landian-skin .hero-actions a:focus-visible {
+  clip-path: none;
+}
+
+.spooky-page.landian-skin .future-clock {
+  filter: none;
+}
+
+.spooky-page.landian-skin .clock-orbit {
+  border-width: 2px;
+  border-color: rgba(0, 224, 64, .5);
+  box-shadow: -14px 14px 0 rgba(0, 224, 64, .03);
+}
+
+.spooky-page.landian-skin .clock-orbit::before {
+  border-color: rgba(0, 224, 64, .62);
+}
+
+.spooky-page.landian-skin .clock-orbit::after {
+  inset: 35%;
+  border-color: var(--danger);
+  border-radius: 0;
+  box-shadow: none;
+  transform: rotate(45deg);
+}
+
+.spooky-page.landian-skin .clock-orbit b {
+  border-top-color: var(--signal);
+  border-right-color: var(--danger);
+}
+
+.spooky-page.landian-skin .clock-orbit i {
+  width: 8px;
+  height: 8px;
+  border-radius: 0;
+  background: var(--danger);
+  box-shadow: none;
+}
+
+.spooky-page.landian-skin .future-clock > span {
+  border: 1px solid var(--line);
+  background: var(--void);
+}
+
+.spooky-page.landian-skin .future-clock > p {
+  color: var(--ghost);
+  font: 500 12px/1.5 var(--mono);
+  text-transform: uppercase;
+}
+
+.spooky-page.landian-skin .hero-counts {
+  border-top: 2px solid var(--signal);
+}
+
+.spooky-page.landian-skin .hero-counts > div {
+  min-height: 76px;
+  align-items: center;
+  padding: 14px 18px;
+}
+
+.spooky-page.landian-skin .hero-counts > div + div {
+  border-left-color: var(--line);
+}
+
+.spooky-page.landian-skin .hero-counts dt {
+  font: 500 33px var(--mono);
+}
+
+.spooky-page.landian-skin .reading-rules,
+.spooky-page.landian-skin .questions-section {
+  background-color: var(--void-soft);
+  background-image: linear-gradient(90deg, rgba(0, 224, 64, .028) 1px, transparent 1px);
+  background-size: 25% 100%;
+}
+
+.spooky-page.landian-skin .timeline-section,
+.spooky-page.landian-skin .futures-section {
+  background: var(--void);
+}
+
+.spooky-page.landian-skin .section-heading h2 {
+  letter-spacing: -.07em;
+}
+
+.spooky-page.landian-skin .section-heading h2::before {
+  content: "";
+  width: 72px;
+  height: 7px;
+  display: block;
+  margin-bottom: 18px;
+  background: var(--signal);
+  box-shadow: 22px 0 0 var(--danger);
+}
+
+.spooky-page.landian-skin .source-grid,
+.spooky-page.landian-skin .timeline-workbench,
+.spooky-page.landian-skin .question-track,
+.spooky-page.landian-skin .future-list {
+  box-shadow: 9px 9px 0 rgba(0, 224, 64, .05);
+}
+
+.spooky-page.landian-skin .source-grid {
+  counter-reset: source-card;
+}
+
+.spooky-page.landian-skin .source-card {
+  counter-increment: source-card;
+  position: relative;
+  background: rgba(0, 224, 64, .02);
+  box-shadow: inset 0 3px 0 rgba(0, 224, 64, .2);
+}
+
+.spooky-page.landian-skin .source-card:nth-child(even) {
+  background: rgba(255, 72, 47, .025);
+  box-shadow: inset 0 3px 0 rgba(255, 72, 47, .26);
+}
+
+.spooky-page.landian-skin .source-card::after {
+  content: "SRC_0" counter(source-card);
+  position: absolute;
+  top: 26px;
+  right: 24px;
+  color: rgba(241, 244, 232, .42);
+  font: 8px var(--mono);
+  letter-spacing: .1em;
+}
+
+.spooky-page.landian-skin .source-card h3 {
+  max-width: 90%;
+  font-size: 27px;
+  line-height: 1;
+  letter-spacing: -.055em;
+}
+
+.spooky-page.landian-skin .source-type,
+.spooky-page.landian-skin .claim-badge {
+  border-radius: 0;
+  background: var(--void);
+  font-size: 8px;
+  line-height: 1.35;
+}
+
+.spooky-page.landian-skin .epistemic-key {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 24px;
+}
+
+.spooky-page.landian-skin .epistemic-key i {
+  border-radius: 0;
+  transform: rotate(45deg);
+}
+
+.spooky-page.landian-skin .timeline-workbench {
+  border-top: 4px solid var(--signal);
+  background: rgba(6, 8, 6, .94);
+}
+
+.spooky-page.landian-skin .timeline-toolbar {
+  background: var(--void);
+}
+
+.spooky-page.landian-skin .timeline-tabs button {
+  letter-spacing: .08em;
+}
+
+.spooky-page.landian-skin .timeline-tabs button:hover,
+.spooky-page.landian-skin .scroll-controls button:hover {
+  background: rgba(0, 224, 64, .11);
+  color: var(--ghost);
+}
+
+.spooky-page.landian-skin .timeline-tabs button[aria-selected="true"] {
+  border-bottom: 4px solid var(--ghost);
+  background: var(--signal);
+  color: var(--ink);
+  box-shadow: inset 0 -4px 0 var(--danger);
+}
+
+.spooky-page.landian-skin .scroll-controls button {
+  font-family: var(--mono);
+}
+
+.spooky-page.landian-skin .timeline-source-note strong {
+  font: 500 18px/1.25 var(--mono);
+  text-transform: uppercase;
+}
+
+.spooky-page.landian-skin .source-timeline li {
+  background: linear-gradient(180deg, rgba(0, 224, 64, .03), transparent 45%);
+}
+
+.spooky-page.landian-skin .source-timeline li::before {
+  border-color: var(--signal);
+  border-radius: 0;
+  background: var(--void);
+  transform: rotate(45deg);
+}
+
+.spooky-page.landian-skin .source-timeline h3 {
+  font-size: 27px;
+  letter-spacing: -.05em;
+}
+
+.spooky-page.landian-skin .timeline-conclusion {
+  border-top-width: 3px;
+}
+
+.spooky-page.landian-skin .timeline-conclusion p,
+.spooky-page.landian-skin .future-lead,
+.spooky-page.landian-skin .future-question p,
+.spooky-page.landian-skin .close-deck {
+  font-family: var(--sans);
+  font-weight: 600;
+  letter-spacing: -.015em;
+}
+
+.spooky-page.landian-skin .plans-section {
+  border-block: 2px solid var(--signal);
+  background-color: var(--paper);
+  background-image: repeating-linear-gradient(90deg, transparent 0 95px, rgba(0, 224, 64, .03) 95px 96px);
+  color: var(--ghost);
+}
+
+.spooky-page.landian-skin .light-heading .section-index,
+.spooky-page.landian-skin .decision-prompts span {
+  color: var(--signal);
+}
+
+.spooky-page.landian-skin .light-heading h2 em {
+  color: var(--danger);
+}
+
+.spooky-page.landian-skin .light-heading > p:last-child,
+.spooky-page.landian-skin .plan-card summary small,
+.spooky-page.landian-skin .plan-card summary p,
+.spooky-page.landian-skin .plan-body dd,
+.spooky-page.landian-skin .plan-body > p,
+.spooky-page.landian-skin .author-bias-note {
+  color: var(--muted-dark);
+}
+
+.spooky-page.landian-skin .decision-prompts {
+  border-color: var(--line-dark);
+}
+
+.spooky-page.landian-skin .decision-prompts p {
+  border-color: var(--line-dark);
+  background: rgba(0, 224, 64, .03);
+  font: 500 21px/1.25 var(--mono);
+  text-transform: uppercase;
+}
+
+.spooky-page.landian-skin .plan-stack {
+  border-top: 3px solid var(--signal);
+}
+
+.spooky-page.landian-skin .plan-card {
+  border-bottom-color: var(--line-dark);
+}
+
+.spooky-page.landian-skin .plan-card summary:hover {
+  background: rgba(0, 224, 64, .075);
+}
+
+.spooky-page.landian-skin .plan-card[open] {
+  background: rgba(0, 224, 64, .03);
+  box-shadow: inset 4px 0 0 var(--plan-accent);
+}
+
+.spooky-page.landian-skin .plan-letter {
+  font: 500 72px/.8 var(--mono);
+}
+
+.spooky-page.landian-skin .plan-card summary h3 {
+  letter-spacing: -.06em;
+}
+
+.spooky-page.landian-skin .plan-card summary > i {
+  border-color: var(--line-dark);
+  border-radius: 0;
+  transform: rotate(45deg);
+}
+
+.spooky-page.landian-skin .plan-card summary > i::before {
+  transform: rotate(-45deg);
+}
+
+.spooky-page.landian-skin .plan-body dl {
+  border-color: var(--line-dark);
+}
+
+.spooky-page.landian-skin .plan-body dl > div {
+  border-color: var(--line-dark);
+}
+
+.spooky-page.landian-skin .plan-card[data-plan="d"] { --plan-accent: #ff482f; }
+.spooky-page.landian-skin .plan-card[data-plan="c"] { --plan-accent: #ffd447; }
+.spooky-page.landian-skin .plan-card[data-plan="b"] { --plan-accent: #b58cff; }
+.spooky-page.landian-skin .plan-card[data-plan="a"] { --plan-accent: #00e040; }
+.spooky-page.landian-skin .plan-card[data-plan="s"] { --plan-accent: #35e9ff; }
+
+.spooky-page.landian-skin .author-bias-note {
+  border-left-color: var(--signal);
+}
+
+.spooky-page.landian-skin .question-card {
+  background:
+    linear-gradient(145deg, rgba(181, 140, 255, .055), transparent 42%),
+    var(--void);
+}
+
+.spooky-page.landian-skin .question-card:nth-child(even) {
+  background:
+    linear-gradient(145deg, rgba(255, 72, 47, .05), transparent 42%),
+    var(--void);
+}
+
+.spooky-page.landian-skin .question-card h3 {
+  font-size: 34px;
+  letter-spacing: -.055em;
+}
+
+.spooky-page.landian-skin .question-card > p {
+  font-family: var(--sans);
+  font-weight: 600;
+}
+
+.spooky-page.landian-skin .future-index {
+  border-right: 1px solid var(--line);
+  background: rgba(2, 3, 2, .97);
+}
+
+.spooky-page.landian-skin .future-index > p span {
+  font: 500 39px var(--mono);
+}
+
+.spooky-page.landian-skin .future-index a {
+  border-left: 3px solid transparent;
+}
+
+.spooky-page.landian-skin .future-index a:hover {
+  border-left-color: var(--muted);
+}
+
+.spooky-page.landian-skin .future-index a.is-active {
+  border-left-color: var(--ghost);
+  background: var(--signal);
+  color: var(--ink);
+}
+
+.spooky-page.landian-skin .future-card {
+  border-left: 2px solid var(--future-accent);
+  background: linear-gradient(100deg, color-mix(in srgb, var(--future-accent) 4%, var(--void)), var(--void) 44%);
+}
+
+.spooky-page.landian-skin .future-card.is-current {
+  background: linear-gradient(100deg, color-mix(in srgb, var(--future-accent) 9%, var(--void)), var(--void) 55%);
+}
+
+.spooky-page.landian-skin .future-card::before {
+  color: rgba(0, 224, 64, .055);
+  font-family: var(--mono);
+  font-weight: 500;
+}
+
+.spooky-page.landian-skin .future-card::after {
+  border-radius: 0;
+  box-shadow: none;
+  transform: rotate(45deg);
+}
+
+.spooky-page.landian-skin .future-card h3 {
+  max-width: 1040px;
+  letter-spacing: -.075em;
+}
+
+.spooky-page.landian-skin .future-facts {
+  border-top-width: 2px;
+}
+
+.spooky-page.landian-skin .future-facts > div {
+  background: rgba(2, 3, 2, .48);
+}
+
+.spooky-page.landian-skin .future-source-boundary {
+  border-top-width: 3px;
+}
+
+.spooky-page.landian-skin .spooky-close {
+  border-top: 10px solid var(--danger);
+  background-color: var(--signal);
+  background-image: repeating-linear-gradient(135deg, transparent 0 38px, rgba(5, 6, 4, .075) 38px 39px);
+  color: var(--ink);
+}
+
+.spooky-page.landian-skin .spooky-close h2 {
+  letter-spacing: -.085em;
+}
+
+.spooky-page.landian-skin .closing-questions,
+.spooky-page.landian-skin .closing-questions p {
+  border-color: rgba(5, 6, 4, .55);
+}
+
+.spooky-page.landian-skin .closing-questions p {
+  font: 500 18px/1.3 var(--mono);
+  text-transform: uppercase;
+}
+
+.spooky-page.landian-skin .close-actions a {
+  border: 2px solid currentColor;
+  padding: 12px 14px;
+  text-decoration: none;
+}
+
+.spooky-page.landian-skin .close-actions a:hover {
+  background: var(--ink);
+  color: var(--signal);
+}
+
+.spooky-page.landian-skin :focus-visible {
+  outline: 3px solid var(--signal);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 2px var(--void);
+}
+
+.spooky-page.landian-skin .spooky-close :focus-visible {
+  outline-color: var(--ink);
+  box-shadow: 0 0 0 2px var(--signal);
+}
+
+@media (max-width: 1120px) {
+  .spooky-page.landian-skin .spooky-hero::after {
+    right: 33%;
+  }
+
+  .spooky-page.landian-skin .source-card h3 {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 860px) {
+  .spooky-page.landian-skin .spooky-hero::after {
+    right: 23%;
+    opacity: .6;
+  }
+
+  .spooky-page.landian-skin .future-index {
+    border-right: 0;
+    background: rgba(2, 3, 2, .98);
+  }
+
+  .spooky-page.landian-skin .future-index a {
+    border-left: 0;
+    border-bottom: 3px solid transparent;
+  }
+
+  .spooky-page.landian-skin .future-index a.is-active {
+    border-bottom-color: var(--danger);
+  }
+}
+
+@media (max-width: 620px) {
+  .spooky-page.landian-skin .spooky-header {
+    box-shadow: inset 3px 0 0 var(--danger), 0 5px 0 rgba(0, 224, 64, .04);
+  }
+
+  .spooky-page.landian-skin .spooky-hero {
+    background-image: repeating-linear-gradient(135deg, transparent 0 24px, rgba(0, 224, 64, .03) 24px 25px);
+  }
+
+  .spooky-page.landian-skin .spooky-hero::after {
+    right: 18%;
+    height: 47%;
+  }
+
+  .spooky-page.landian-skin .hero-copy h1 {
+    font-size: clamp(54px, 16.5vw, 76px);
+    line-height: .81;
+  }
+
+  .spooky-page.landian-skin .hero-copy h1 em {
+    margin-left: 0;
+  }
+
+  .spooky-page.landian-skin .section-heading h2 {
+    font-size: clamp(45px, 13.5vw, 61px);
+    line-height: .88;
+  }
+
+  .spooky-page.landian-skin .source-card::after {
+    top: 24px;
+    right: 20px;
+  }
+
+  .spooky-page.landian-skin .decision-prompts p {
+    font-size: 18px;
+  }
+
+  .spooky-page.landian-skin .plan-letter {
+    font-size: 42px;
+  }
+
+  .spooky-page.landian-skin .question-card h3 {
+    font-size: 33px;
+  }
+
+  .spooky-page.landian-skin .future-card {
+    border-left: 0;
+    border-top: 2px solid var(--future-accent);
+  }
+
+  .spooky-page.landian-skin .future-card h3 {
+    font-size: clamp(43px, 13vw, 58px);
+    line-height: .86;
+    overflow-wrap: anywhere;
+  }
+
+  .spooky-page.landian-skin .spooky-close h2 {
+    min-width: 0;
+    font-size: clamp(44px, 12vw, 58px);
+    line-height: .82;
+  }
+
+  .spooky-page.landian-skin .spooky-close > * {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .spooky-page.landian-skin .spooky-brand span {
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .spooky-page.landian-skin .hero-copy h1 {
+    font-size: 48px;
+  }
+
+  .spooky-page.landian-skin .plan-body {
+    padding-left: 54px;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .spooky-page.landian-skin {
+    --muted: #e2e7dc;
+    --muted-dark: #e2e7dc;
+    --line: rgba(243, 246, 233, .58);
+    --line-dark: rgba(243, 246, 233, .58);
+  }
+
+  .spooky-page.landian-skin .spooky-grain {
+    display: none;
+  }
+}
