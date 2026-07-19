@@ -46,6 +46,7 @@ const routeFiles = [
   "altro.css",
   "spooky-timeline.css",
   "spooky-landian.css",
+  "spooky-accelerando.css",
   "styles.css",
   "robots.txt"
 ];
