@@ -150,8 +150,6 @@
 .spooky-page.landian-skin .section-heading h2,
 .spooky-page.landian-skin .source-card h3,
 .spooky-page.landian-skin .source-timeline h3,
-.spooky-page.landian-skin .plan-card summary h3,
-.spooky-page.landian-skin .question-card h3,
 .spooky-page.landian-skin .future-card h3,
 .spooky-page.landian-skin .spooky-close h2 {
   font-family: var(--mono);
@@ -262,8 +260,7 @@
   font: 500 33px var(--mono);
 }
 
-.spooky-page.landian-skin .reading-rules,
-.spooky-page.landian-skin .questions-section {
+.spooky-page.landian-skin .reading-rules {
   background-color: var(--void-soft);
   background-image: linear-gradient(90deg, rgba(0, 224, 64, .028) 1px, transparent 1px);
   background-size: 25% 100%;
@@ -290,7 +287,6 @@
 
 .spooky-page.landian-skin .source-grid,
 .spooky-page.landian-skin .timeline-workbench,
-.spooky-page.landian-skin .question-track,
 .spooky-page.landian-skin .future-list {
   box-shadow: 9px 9px 0 rgba(0, 224, 64, .05);
 }
@@ -410,115 +406,84 @@
   letter-spacing: -.015em;
 }
 
-.spooky-page.landian-skin .plans-section {
+.spooky-page.landian-skin .future-tree-section {
   border-block: 2px solid var(--signal);
-  background-color: var(--paper);
-  background-image: repeating-linear-gradient(90deg, transparent 0 95px, rgba(0, 224, 64, .03) 95px 96px);
+  background-color: var(--void-soft);
+  background-image:
+    linear-gradient(rgba(0, 224, 64, .025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 224, 64, .025) 1px, transparent 1px);
+  background-size: 48px 48px;
   color: var(--ghost);
 }
 
-.spooky-page.landian-skin .light-heading .section-index,
-.spooky-page.landian-skin .decision-prompts span {
-  color: var(--signal);
+.spooky-page.landian-skin .future-tree {
+  --tree-line: rgba(0, 224, 64, .58);
 }
 
-.spooky-page.landian-skin .light-heading h2 em {
-  color: var(--danger);
+.spooky-page.landian-skin .tree-question {
+  border-radius: 0;
+  background: rgba(2, 3, 2, .96);
+  box-shadow: 7px 7px 0 rgba(0, 224, 64, .055);
 }
 
-.spooky-page.landian-skin .light-heading > p:last-child,
-.spooky-page.landian-skin .plan-card summary small,
-.spooky-page.landian-skin .plan-card summary p,
-.spooky-page.landian-skin .plan-body dd,
-.spooky-page.landian-skin .plan-body > p,
-.spooky-page.landian-skin .author-bias-note {
-  color: var(--muted-dark);
-}
-
-.spooky-page.landian-skin .decision-prompts {
-  border-color: var(--line-dark);
-}
-
-.spooky-page.landian-skin .decision-prompts p {
-  border-color: var(--line-dark);
-  background: rgba(0, 224, 64, .03);
-  font: 500 21px/1.25 var(--mono);
+.spooky-page.landian-skin .tree-root {
+  border-width: 2px;
+  box-shadow: inset 5px 0 0 var(--danger), 8px 8px 0 rgba(0, 224, 64, .08);
+  font: 500 25px/1.3 var(--mono);
   text-transform: uppercase;
 }
 
-.spooky-page.landian-skin .plan-stack {
-  border-top: 3px solid var(--signal);
+.spooky-page.landian-skin .tree-question-small {
+  border-top-width: 3px;
+  font-family: var(--mono);
+  font-weight: 500;
+  text-transform: uppercase;
 }
 
-.spooky-page.landian-skin .plan-card {
-  border-bottom-color: var(--line-dark);
+.spooky-page.landian-skin .tree-answer span {
+  box-shadow: 4px 4px 0 rgba(0, 224, 64, .12);
 }
 
-.spooky-page.landian-skin .plan-card summary:hover {
-  background: rgba(0, 224, 64, .075);
+.spooky-page.landian-skin .tree-route {
+  font-family: var(--mono);
+  font-style: normal;
+  text-transform: uppercase;
 }
 
-.spooky-page.landian-skin .plan-card[open] {
-  background: rgba(0, 224, 64, .03);
-  box-shadow: inset 4px 0 0 var(--plan-accent);
-}
-
-.spooky-page.landian-skin .plan-letter {
-  font: 500 72px/.8 var(--mono);
-}
-
-.spooky-page.landian-skin .plan-card summary h3 {
-  letter-spacing: -.06em;
-}
-
-.spooky-page.landian-skin .plan-card summary > i {
-  border-color: var(--line-dark);
+.spooky-page.landian-skin .tree-outcome {
   border-radius: 0;
-  transform: rotate(45deg);
+  box-shadow: 4px 4px 0 color-mix(in srgb, var(--leaf-accent) 10%, transparent);
 }
 
-.spooky-page.landian-skin .plan-card summary > i::before {
-  transform: rotate(-45deg);
+.spooky-page.landian-skin .tree-outcome strong {
+  font-family: var(--mono);
+  font-weight: 500;
+  letter-spacing: -.04em;
+  text-transform: uppercase;
 }
 
-.spooky-page.landian-skin .plan-body dl {
-  border-color: var(--line-dark);
+.spooky-page.landian-skin .tree-outcome:hover,
+.spooky-page.landian-skin .tree-outcome.is-active {
+  box-shadow: 6px 6px 0 color-mix(in srgb, var(--leaf-accent) 18%, transparent);
 }
 
-.spooky-page.landian-skin .plan-body dl > div {
-  border-color: var(--line-dark);
+.spooky-page.landian-skin .tree-question-mini {
+  border-radius: 0;
+  box-shadow: none;
 }
 
-.spooky-page.landian-skin .plan-card[data-plan="d"] { --plan-accent: #ff482f; }
-.spooky-page.landian-skin .plan-card[data-plan="c"] { --plan-accent: #ffd447; }
-.spooky-page.landian-skin .plan-card[data-plan="b"] { --plan-accent: #b58cff; }
-.spooky-page.landian-skin .plan-card[data-plan="a"] { --plan-accent: #00e040; }
-.spooky-page.landian-skin .plan-card[data-plan="s"] { --plan-accent: #35e9ff; }
-
-.spooky-page.landian-skin .author-bias-note {
-  border-left-color: var(--signal);
+.spooky-page.landian-skin .tree-family {
+  border-left-width: 2px;
 }
 
-.spooky-page.landian-skin .question-card {
-  background:
-    linear-gradient(145deg, rgba(181, 140, 255, .055), transparent 42%),
-    var(--void);
+.spooky-page.landian-skin .tree-to-futures {
+  border-width: 2px;
+  box-shadow: 9px 9px 0 rgba(255, 72, 47, .22);
 }
 
-.spooky-page.landian-skin .question-card:nth-child(even) {
-  background:
-    linear-gradient(145deg, rgba(255, 72, 47, .05), transparent 42%),
-    var(--void);
-}
-
-.spooky-page.landian-skin .question-card h3 {
-  font-size: 34px;
-  letter-spacing: -.055em;
-}
-
-.spooky-page.landian-skin .question-card > p {
-  font-family: var(--sans);
-  font-weight: 600;
+.spooky-page.landian-skin .tree-to-futures strong {
+  font-family: var(--mono);
+  font-weight: 500;
 }
 
 .spooky-page.landian-skin .future-index {
@@ -568,6 +533,29 @@
 .spooky-page.landian-skin .future-card h3 {
   max-width: 1040px;
   letter-spacing: -.075em;
+}
+
+.spooky-page.landian-skin .future-deep-dive {
+  border-top-width: 2px;
+  background: rgba(2, 3, 2, .62);
+}
+
+.spooky-page.landian-skin .future-deep-dive[open] {
+  box-shadow: inset 3px 0 0 var(--future-accent);
+}
+
+.spooky-page.landian-skin .future-deep-dive summary strong,
+.spooky-page.landian-skin .future-deep-body > p {
+  font-family: var(--sans);
+}
+
+.spooky-page.landian-skin .future-deep-dive summary i,
+.spooky-page.landian-skin .future-deep-body .future-deep-tension {
+  border-radius: 0;
+}
+
+.spooky-page.landian-skin .future-deep-body footer {
+  border-top-style: dashed;
 }
 
 .spooky-page.landian-skin .future-facts {
@@ -689,16 +677,8 @@
     right: 20px;
   }
 
-  .spooky-page.landian-skin .decision-prompts p {
-    font-size: 18px;
-  }
-
-  .spooky-page.landian-skin .plan-letter {
-    font-size: 42px;
-  }
-
-  .spooky-page.landian-skin .question-card h3 {
-    font-size: 33px;
+  .spooky-page.landian-skin .tree-root {
+    font-size: 20px;
   }
 
   .spooky-page.landian-skin .future-card {
@@ -735,9 +715,6 @@
     font-size: 48px;
   }
 
-  .spooky-page.landian-skin .plan-body {
-    padding-left: 54px;
-  }
 }
 
 @media (prefers-contrast: more) {
