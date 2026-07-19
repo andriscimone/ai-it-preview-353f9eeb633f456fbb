@@ -194,6 +194,10 @@
   color: var(--ink);
 }
 
+.spooky-page.landian-skin .hero-actions a:focus-visible {
+  clip-path: none;
+}
+
 .spooky-page.landian-skin .future-clock {
   filter: none;
 }
