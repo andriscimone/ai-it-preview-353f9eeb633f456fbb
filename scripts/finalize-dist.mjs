@@ -52,6 +52,11 @@ const routeFiles = [
 ];
 
 const maxEmbeddedAssetBytes = 256 * 1024;
+const alwaysEmbeddedAssets = new Set([
+  "assets/code-contributed-per-person-quarter-2026-it.png",
+  "assets/claude-code-session-success-rate-2026-it.png",
+  "assets/openai-output-tokens-by-department-2026-it.png"
+]);
 
 function collect(directory, prefix = "", include = () => true) {
   for (const name of readdirSync(join(root, directory))) {
@@ -63,7 +68,10 @@ function collect(directory, prefix = "", include = () => true) {
 }
 
 collect("assets", "", file =>
-  !file.endsWith(".mp4") && statSync(join(root, file)).size <= maxEmbeddedAssetBytes
+  !file.endsWith(".mp4") && (
+    alwaysEmbeddedAssets.has(file.replaceAll("\\", "/")) ||
+    statSync(join(root, file)).size <= maxEmbeddedAssetBytes
+  )
 );
 collect("fonts");
 
