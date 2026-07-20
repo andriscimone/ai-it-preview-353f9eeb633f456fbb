@@ -1,6 +1,6 @@
 # AI.it — capire la corsa all'intelligenza artificiale
 
-Il sito introduce le scaling laws e la corsa tra energia, chip e algoritmi. La homepage funziona come indice e conduce a quattro pagine tematiche indipendenti:
+Il sito introduce le scaling laws e la corsa tra energia, chip e algoritmi. La homepage funziona come ingresso generale; `sistema.html` è la panoramica che collega i quattro capitoli principali:
 
 - scala fisica dell'AI, con distinzione fra cluster interconnesso, sito in H100-equivalent e potenza;
 - confronto Ampere, Hopper, Blackwell e Rubin su memoria HBM, banda e NVLink;
@@ -8,11 +8,11 @@ Il sito introduce le scaling laws e la corsa tra energia, chip e algoritmi. La h
 - simulatore del progresso algoritmico e casi concreti di intelligenza per compute;
 - frontiera dell'inferenza per velocità percepita e token prodotti per megawatt.
 
-I quattro capitoli principali sono `energia.html`, `chip.html`, `algoritmi.html` e `inferenza.html`. Tutti condividono navigazione, tema, stile editoriale e script, ma caricano soltanto il contenuto del capitolo scelto.
+I quattro capitoli principali sono `energia.html`, `chip.html`, `algoritmi.html` e `inferenza.html`. Tutti condividono navigazione, tema, stile editoriale e script, ma caricano soltanto il contenuto del capitolo scelto. `sistema.css` contiene il design specifico della loro pagina panoramica.
 
-L'area `altro.html` raccoglie dossier che cambiano più rapidamente: `novita.html`, `benchmark.html`, `politica.html` e `guerra.html`. `altro.css` contiene il loro sistema visuale condiviso; `dossier.js` gestisce le animazioni progressive, la timeline interattiva dei dati METR e il confronto fra le leaderboard ARC-AGI-2 e ARC-AGI-3. I dati ARC sono incorporati nel file per mantenere la pagina statica: quando la leaderboard ufficiale cambia, vanno aggiornati insieme alla data di verifica visibile in `benchmark.html`. La pagina Politica ricostruisce il cambio di strategia americana da Biden a Trump: `politica.css` contiene il layout editoriale e mobile, mentre `politica.js` aggiorna la timeline durante lo scorrimento e applica i filtri per atti, notizie e contesto globale. La pagina Guerra parte da una premessa sulla velocità decisionale, presenta Palantir prima di Anduril e usa `guerra.js` per rendere esplorabile la catena sensore → dati → comprensione → decisione → azione; la fotografia in `assets/anduril-field-test-editorial-v1.png` apre il secondo capitolo. La pagina Novità è intenzionalmente segnata come “Da aggiornare”.
+La sezione visibile “Dossier” mantiene l'indirizzo tecnico `altro.html`, così i vecchi collegamenti non si rompono, e raccoglie `benchmark.html`, `politica.html` e `guerra.html`. `novita.html` è una sezione principale autonoma, collocata subito dopo Dossier nella navigazione. La prima storia, `news-jacobiana.html`, spiega il controesempio alla congettura jacobiana con un controllo interattivo in tre clic; `news-jacobiana.css` e `news-jacobiana.js` ne gestiscono rispettivamente il design e l'interazione. `altro.css` contiene il sistema visuale condiviso delle pagine Dossier e dell'indice Novità; `dossier.js` gestisce le animazioni progressive, la timeline interattiva dei dati METR e il confronto fra le leaderboard ARC-AGI-2 e ARC-AGI-3. I dati ARC sono incorporati nel file per mantenere la pagina statica: quando la leaderboard ufficiale cambia, vanno aggiornati insieme alla data di verifica visibile in `benchmark.html`. La pagina Politica ricostruisce il cambio di strategia americana da Biden a Trump: `politica.css` contiene il layout editoriale e mobile, mentre `politica.js` aggiorna la timeline durante lo scorrimento e applica i filtri per atti, notizie e contesto globale. La pagina Guerra parte da una premessa sulla velocità decisionale, presenta Palantir prima di Anduril e usa `guerra.js` per rendere esplorabile la catena sensore → dati → comprensione → decisione → azione; la fotografia in `assets/anduril-field-test-editorial-v1.png` apre il secondo capitolo.
 
-La sezione “Mappa” della homepage mostra tutte le 10 pagine pubbliche in due livelli: Home → quattro capitoli + Altro → quattro dossier. I nodi aggiornano un pannello descrittivo e sono utilizzabili anche con le frecce della tastiera. `scripts/generate-sitemap-pdf.py` legge gli stessi dati dalla homepage e genera `output/pdf/mappa-completa-ai-it.pdf`; nel PDF compare anche `spooky-timeline.html`, chiaramente indicata come esperienza nascosta e non presente nella mappa pubblica.
+La sezione “Mappa” della homepage mostra gli 11 percorsi principali in tre livelli: Home → Il sistema + Dossier + Novità; Il sistema → quattro capitoli; Dossier → tre percorsi. I singoli articoli si aprono dal relativo indice e non diventano nuovi nodi della mappa. I nodi aggiornano un pannello descrittivo e sono utilizzabili anche con le frecce della tastiera. `scripts/generate-sitemap-pdf.py` legge gli stessi dati dalla homepage e genera `output/pdf/mappa-completa-ai-it.pdf`; nel PDF compare anche `spooky-timeline.html`, chiaramente indicata come esperienza nascosta e non presente nella mappa pubblica.
 
 Il capitolo Energia aggiunge una visualizzazione nativa e accessibile della relazione tra PIL ed energia. `energy.css` contiene soltanto lo stile di questa pagina; `energy-visuals.js` legge `assets/energy-gdp-2024.json` e disegna il grafico nel browser, senza backend o librerie esterne.
 
@@ -22,7 +22,7 @@ La pagina segreta `spooky-timeline.html` apre con *Accelerando*: un'introduzione
 
 Il quarto capitolo ricostruisce in modo interattivo la frontiera dell'efficienza nell'inferenza: velocità percepita (token in output al secondo per utente) contro capacità del sistema (token in output al secondo per megawatt).
 
-Apri direttamente `index.html` oppure avvia un server statico locale:
+Per provarlo localmente, avvia un server statico dalla cartella del progetto:
 
 ```powershell
 python -m http.server 4173

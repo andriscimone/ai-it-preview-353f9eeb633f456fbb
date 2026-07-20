@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Una panoramica del sistema che fa scalare l'intelligenza artificiale: energia, chip, algoritmi e inferenza." />
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+    <meta property="og:title" content="Il sistema — AI.it" />
+    <meta property="og:description" content="Quattro parti collegate per capire da dove arriva la capacità dei sistemi AI." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="it_IT" />
+    <meta id="theme-color" name="theme-color" content="#f2f0e8" />
+    <link rel="icon" href="data:," />
+    <title>Il sistema — AI.it</title>
+    <script>
+      (() => {
+        try {
+          const saved = localStorage.getItem("aiit-theme");
+          const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+          document.documentElement.dataset.theme = saved || preferred;
+        } catch (_) { document.documentElement.dataset.theme = "light"; }
+      })();
+    </script>
+    <link rel="stylesheet" href="styles.css?v=system-1" />
+    <link rel="stylesheet" href="sistema.css?v=system-1" />
+  </head>
+  <body class="detail-page system-index-page">
+    <a class="skip-link" href="#top">Salta al contenuto</a>
+    <div class="noise" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="AI.it, homepage"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>AI.it</span></a>
+      <div class="header-actions">
+        <div class="issue-label"><span>Sezione</span><strong>S0 / Il sistema</strong></div>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false"><span class="theme-toggle-icon" aria-hidden="true">◐</span><span id="theme-toggle-label">Scuro</span></button>
+      </div>
+    </header>
+    <nav class="section-nav" aria-label="Sezioni del sito"><a href="index.html">Home</a><a href="sistema.html" aria-current="page">Il sistema</a><a href="altro.html">Dossier</a><a href="novita.html">Novità</a></nav>
+    <nav class="system-subnav" aria-label="Capitoli della sezione Il sistema"><a href="sistema.html" aria-current="page">Panoramica</a><a href="energia.html">Energia</a><a href="chip.html">Chips</a><a href="algoritmi.html">Algoritmi</a><a href="inferenza.html">Inferenza</a></nav>
+
+    <main id="top">
+      <section class="system-landing-hero" aria-labelledby="system-title">
+        <div class="system-landing-copy" data-reveal>
+          <p class="kicker">Quattro parti, un solo sistema</p>
+          <h1 id="system-title">Dal megawatt<br />alla <em>risposta.</em></h1>
+          <p>L'AI non scala grazie a un solo ingrediente. L'energia alimenta il calcolo, i chip lo eseguono, gli algoritmi lo usano meglio e l'inferenza trasforma tutto in una risposta utile.</p>
+          <a class="system-primary-action" href="#componenti">Esplora i quattro capitoli <span aria-hidden="true">↓</span></a>
+        </div>
+
+        <div class="system-chain" aria-label="Catena composta da energia, chip, algoritmi e inferenza" data-reveal>
+          <a class="system-chain-node chain-energy" href="energia.html"><small>S1</small><strong>Energia</strong><span>rende disponibile la potenza</span></a>
+          <i aria-hidden="true">→</i>
+          <a class="system-chain-node chain-chip" href="chip.html"><small>S2</small><strong>Chips</strong><span>trasformano potenza in calcolo</span></a>
+          <i aria-hidden="true">→</i>
+          <a class="system-chain-node chain-algorithms" href="algoritmi.html"><small>S3</small><strong>Algoritmi</strong><span>estraggono più capacità</span></a>
+          <i aria-hidden="true">→</i>
+          <a class="system-chain-node chain-inference" href="inferenza.html"><small>S4</small><strong>Inferenza</strong><span>consegna il risultato</span></a>
+        </div>
+      </section>
+
+      <section class="system-principle" aria-labelledby="principle-title" data-reveal>
+        <span>La tesi</span>
+        <h2 id="principle-title">Nessun elemento<br />scala da solo.</h2>
+        <p>Più chip senza elettricità restano inutilizzati. Più calcolo senza algoritmi migliori costa di più. Un modello capace ma troppo lento o costoso da usare resta fuori dalla vita quotidiana. Per capire la corsa all'AI bisogna seguire i collegamenti.</p>
+      </section>
+
+      <section class="system-route-section" id="componenti" aria-labelledby="system-routes-title">
+        <header class="system-section-head" data-reveal>
+          <div><span>S.01</span><p class="kicker">Scegli un punto d'ingresso</p></div>
+          <h2 id="system-routes-title">Quattro capitoli,<br /><em>una stessa catena.</em></h2>
+          <p>Puoi leggerli in ordine oppure entrare dal tema che ti interessa. Ogni capitolo conserva la propria identità, ma ora è chiaro che appartiene a un insieme.</p>
+        </header>
+
+        <div class="system-route-grid">
+          <a class="system-route-card route-energy" href="energia.html" data-reveal><span>S1 / Infrastruttura</span><h3>Energia</h3><p>Da dove arriva la potenza fisica che alimenta data center, reti e nuovi cluster.</p><b>Apri il capitolo <i aria-hidden="true">↗</i></b></a>
+          <a class="system-route-card route-chip" href="chip.html" data-reveal><span>S2 / Calcolo</span><h3>Chips</h3><p>Come il silicio comprime il calcolo e trasforma elettricità in token.</p><b>Apri il capitolo <i aria-hidden="true">↗</i></b></a>
+          <a class="system-route-card route-algorithms" href="algoritmi.html" data-reveal><span>S3 / Efficienza</span><h3>Algoritmi</h3><p>Come software, post-training e ragionamento fanno rendere di più la stessa macchina.</p><b>Apri il capitolo <i aria-hidden="true">↗</i></b></a>
+          <a class="system-route-card route-inference" href="inferenza.html" data-reveal><span>S4 / Uso</span><h3>Inferenza</h3><p>Come velocità, throughput e costo determinano ciò che arriva davvero agli utenti.</p><b>Apri il capitolo <i aria-hidden="true">↗</i></b></a>
+        </div>
+      </section>
+
+      <section class="system-loop" aria-label="Sintesi del ciclo del sistema" data-reveal>
+        <p>Il ciclo</p>
+        <ol><li><span>01</span><strong>Energia</strong></li><li><span>02</span><strong>Calcolo</strong></li><li><span>03</span><strong>Capacità</strong></li><li><span>04</span><strong>Risposte</strong></li></ol>
+        <small>Ogni miglioramento riduce un collo di bottiglia e sposta l'attenzione verso il successivo.</small>
+      </section>
+
+      <nav class="chapter-next" aria-label="Continua la lettura"><a href="index.html">← Torna alla Home</a><a href="energia.html">Primo capitolo: Energia →</a></nav>
+    </main>
+    <footer class="site-footer"><span>AI.it</span><span>Il sistema · Quattro capitoli</span></footer>
+    <script src="app.js"></script>
+  </body>
+</html>

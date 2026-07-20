@@ -46,11 +46,9 @@
     </header>
     <nav class="section-nav home-nav" aria-label="Sezioni del sito">
       <a href="index.html" aria-current="page">Home</a>
-      <a href="energia.html">Energia</a>
-      <a href="chip.html">Chips</a>
-      <a href="algoritmi.html">Algoritmi</a>
-      <a href="inferenza.html">Inferenza</a>
-      <a href="altro.html">Altro</a>
+      <a href="sistema.html">Il sistema</a>
+      <a href="altro.html">Dossier</a>
+      <a href="novita.html">Novità</a>
     </nav>
 
     <main id="contenuto">
@@ -64,7 +62,7 @@
           <h1 id="hero-title">L'AI sta<br /><em>cambiando scala.</em></h1>
           <p class="home-hero-deck">Non è una singola invenzione. È un sistema industriale in cui energia, chip, algoritmi e velocità di risposta si spingono a vicenda.</p>
           <div class="home-hero-actions">
-            <a class="home-primary-action" href="energia.html">Inizia il viaggio <span aria-hidden="true">↗</span></a>
+            <a class="home-primary-action" href="sistema.html">Esplora il sistema <span aria-hidden="true">↗</span></a>
             <a class="home-secondary-action" href="#mappa">Guarda la mappa <span aria-hidden="true">↓</span></a>
           </div>
           <p class="home-byline">Un progetto di Andrea, che impara in pubblico e prova a rendere l'AI leggibile anche a chi non lavora nel settore.</p>
@@ -240,44 +238,49 @@
 
       <section class="home-routes" id="mappa" aria-labelledby="routes-title">
         <header class="routes-header" data-reveal>
-          <div><span class="routes-count">10</span><p class="kicker">Pagine pubbliche</p></div>
+          <div><span class="routes-count">11</span><p class="kicker">Percorsi principali</p></div>
           <h2 id="routes-title">La mappa completa,<br /><em>senza perdersi.</em></h2>
-          <p>La Home apre cinque percorsi. Quattro spiegano il sistema dell'AI; il quinto raccoglie i dossier che cambiano più rapidamente. Seleziona un nodo per capire dove porta.</p>
+          <p>La Home apre tre sezioni: Il sistema collega quattro capitoli, Dossier raccoglie tre percorsi tematici e Novità è il taccuino degli aggiornamenti verificati. Seleziona un nodo per capire dove porta.</p>
         </header>
 
         <div class="site-map-explorer" id="site-map-explorer" data-reveal>
           <div class="site-map-overview" aria-label="Riepilogo della struttura del sito">
             <span><strong>01</strong> ingresso</span>
-            <span><strong>05</strong> percorsi</span>
-            <span><strong>04</strong> dossier</span>
+            <span><strong>03</strong> sezioni</span>
+            <span><strong>07</strong> sottosezioni</span>
           </div>
 
           <div class="site-map-graph" aria-label="Mappa interattiva delle pagine pubbliche di AI.it">
             <svg class="site-map-links" viewBox="0 0 1000 620" preserveAspectRatio="none" aria-hidden="true">
-              <path class="site-map-link" data-map-link="energy" d="M500 124 V154 H97 V185" />
-              <path class="site-map-link" data-map-link="chip" d="M500 124 V154 H295 V185" />
-              <path class="site-map-link" data-map-link="algorithms" d="M500 124 V154 H500 V185" />
-              <path class="site-map-link" data-map-link="inference" d="M500 124 V154 H700 V185" />
-              <path class="site-map-link" data-map-link="altro" d="M500 124 V154 H902 V185" />
-              <path class="site-map-link" data-map-link="novita" d="M902 290 V360 H290 V430" />
-              <path class="site-map-link" data-map-link="benchmark" d="M902 290 V360 H490 V430" />
-              <path class="site-map-link" data-map-link="politica" d="M902 290 V360 H690 V430" />
-              <path class="site-map-link" data-map-link="guerra" d="M902 290 V360 H890 V430" />
+              <path class="site-map-link" data-map-link="system" d="M500 124 V154 H250 V185" />
+              <path class="site-map-link" data-map-link="dossier" d="M500 124 V154 H660 V185" />
+              <path class="site-map-link" data-map-link="novita" d="M500 124 V154 H890 V185" />
+              <path class="site-map-link" data-map-link="energy" d="M250 290 V360 H73 V430" />
+              <path class="site-map-link" data-map-link="chip" d="M250 290 V360 H213 V430" />
+              <path class="site-map-link" data-map-link="algorithms" d="M250 290 V360 H353 V430" />
+              <path class="site-map-link" data-map-link="inference" d="M250 290 V360 H493 V430" />
+              <path class="site-map-link" data-map-link="benchmark" d="M660 290 V360 H633 V430" />
+              <path class="site-map-link" data-map-link="politica" d="M660 290 V360 H773 V430" />
+              <path class="site-map-link" data-map-link="guerra" d="M660 290 V360 H913 V430" />
             </svg>
 
             <button class="site-map-node site-map-node-home is-active" type="button" data-map-node="home" data-map-index="00" data-map-kind="Ingresso" data-map-title="Home" data-map-description="Il punto di partenza: tesi del progetto, contesto italiano, scaling laws e accesso a tutti i percorsi pubblici." data-map-href="index.html" data-map-action="Resta sulla Home" data-map-path="" aria-pressed="true" aria-controls="site-map-detail"><small>00 / Ingresso</small><strong>Home</strong><span>La visione d'insieme</span></button>
-            <button class="site-map-node site-map-node-energy" type="button" data-map-node="energy" data-map-index="01" data-map-kind="Capitolo - Base fisica" data-map-title="Energia" data-map-description="Dalla relazione tra energia e ricchezza ai limiti di rete, data center, fusione e compute orbitale." data-map-href="energia.html" data-map-action="Apri Energia" data-map-path="energy" aria-pressed="false" aria-controls="site-map-detail"><small>01 / Base fisica</small><strong>Energia</strong><span>Rete, potenza, cluster</span></button>
-            <button class="site-map-node site-map-node-chip" type="button" data-map-node="chip" data-map-index="02" data-map-kind="Capitolo - Calcolo" data-map-title="Chips" data-map-description="Dal computer al microprocessore, dalla GPU alle generazioni che cambiano la velocità e il costo dei token." data-map-href="chip.html" data-map-action="Apri Chips" data-map-path="chip" aria-pressed="false" aria-controls="site-map-detail"><small>02 / Calcolo</small><strong>Chips</strong><span>Silicio, memoria, banda</span></button>
-            <button class="site-map-node site-map-node-algorithms" type="button" data-map-node="algorithms" data-map-index="03" data-map-kind="Capitolo - Efficienza" data-map-title="Algoritmi" data-map-description="Come architetture, addestramento e tempo di ragionamento trasformano il compute grezzo in capacità utile." data-map-href="algoritmi.html" data-map-action="Apri Algoritmi" data-map-path="algorithms" aria-pressed="false" aria-controls="site-map-detail"><small>03 / Efficienza</small><strong>Algoritmi</strong><span>Più capacità, stesso hardware</span></button>
-            <button class="site-map-node site-map-node-inference" type="button" data-map-node="inference" data-map-index="04" data-map-kind="Capitolo - Utilizzo" data-map-title="Inferenza" data-map-description="La frontiera tra velocità percepita da ogni utente e quantità totale di token prodotta per megawatt." data-map-href="inferenza.html" data-map-action="Apri Inferenza" data-map-path="inference" aria-pressed="false" aria-controls="site-map-detail"><small>04 / Utilizzo</small><strong>Inferenza</strong><span>Dal modello alla risposta</span></button>
-            <button class="site-map-node site-map-node-altro" type="button" data-map-node="altro" data-map-index="A0" data-map-kind="Area - Dossier aperti" data-map-title="Altro" data-map-description="La seconda diramazione del sito: una panoramica dei temi che richiedono aggiornamenti, fonti e contesto continui." data-map-href="altro.html" data-map-action="Apri Altro" data-map-path="altro" aria-pressed="false" aria-controls="site-map-detail"><small>A0 / Area</small><strong>Altro</strong><span>Quattro dossier aperti</span></button>
+            <button class="site-map-node site-map-node-system" type="button" data-map-node="system" data-map-index="S0" data-map-kind="Sezione - Quattro capitoli" data-map-title="Il sistema" data-map-description="La panoramica che collega energia, chip, algoritmi e inferenza in un'unica catena industriale e tecnica." data-map-href="sistema.html" data-map-action="Apri Il sistema" data-map-path="system" aria-pressed="false" aria-controls="site-map-detail"><small>S0 / Sezione</small><strong>Il sistema</strong><span>Quattro parti collegate</span></button>
+            <button class="site-map-node site-map-node-dossier" type="button" data-map-node="dossier" data-map-index="D0" data-map-kind="Sezione - Dossier aperti" data-map-title="Dossier" data-map-description="La sezione dei temi che richiedono aggiornamenti, fonti e contesto continui: benchmark, politica e guerra." data-map-href="altro.html" data-map-action="Apri Dossier" data-map-path="dossier" aria-pressed="false" aria-controls="site-map-detail"><small>D0 / Sezione</small><strong>Dossier</strong><span>Tre percorsi aperti</span></button>
+            <button class="site-map-node site-map-node-novita" type="button" data-map-node="novita" data-map-index="N0" data-map-kind="Sezione - Aggiornamenti" data-map-title="Novità" data-map-description="Poche notizie che cambiano il quadro, con fatti verificati, attribuzioni e domande aperte chiaramente separati." data-map-href="novita.html" data-map-action="Apri Novità" data-map-path="novita" aria-pressed="false" aria-controls="site-map-detail"><small>N0 / 1 storia</small><strong>Novità</strong><span>Segnali verificati</span></button>
 
-            <span class="site-map-branch-label">Altro si dirama</span>
+            <span class="site-map-branch-label site-map-branch-label-system">Il sistema si dirama</span>
 
-            <button class="site-map-node site-map-node-novita" type="button" data-map-node="novita" data-map-index="A1" data-map-kind="Dossier - Taccuino" data-map-title="Novità" data-map-description="Una pagina predisposta a raccogliere soltanto gli aggiornamenti verificati che cambiano davvero il quadro." data-map-href="novita.html" data-map-action="Apri Novità" data-map-path="altro novita" aria-pressed="false" aria-controls="site-map-detail"><small>A1 / Da aggiornare</small><strong>Novità</strong><span>Segnali da verificare</span></button>
-            <button class="site-map-node site-map-node-benchmark" type="button" data-map-node="benchmark" data-map-index="A2" data-map-kind="Dossier - Misurare" data-map-title="Benchmarks" data-map-description="METR, ARC-AGI e altri test: che cosa misurano, dove ingannano e perché non sono una pagella universale." data-map-href="benchmark.html" data-map-action="Apri Benchmarks" data-map-path="altro benchmark" aria-pressed="false" aria-controls="site-map-detail"><small>A2 / Misurare</small><strong>Benchmarks</strong><span>Test, capacità, limiti</span></button>
-            <button class="site-map-node site-map-node-politica" type="button" data-map-node="politica" data-map-index="A3" data-map-kind="Dossier - Potere" data-map-title="Politica" data-map-description="Una timeline interattiva delle scelte americane sull'AI, dai modelli alle infrastrutture e alla sicurezza nazionale." data-map-href="politica.html" data-map-action="Apri Politica" data-map-path="altro politica" aria-pressed="false" aria-controls="site-map-detail"><small>A3 / Potere</small><strong>Politica</strong><span>Regole e infrastrutture</span></button>
-            <button class="site-map-node site-map-node-guerra" type="button" data-map-node="guerra" data-map-index="A4" data-map-kind="Dossier - Decisione" data-map-title="Guerra" data-map-description="Palantir, Anduril e la catena che collega sensori, dati, comprensione, decisione e sistemi autonomi." data-map-href="guerra.html" data-map-action="Apri Guerra" data-map-path="altro guerra" aria-pressed="false" aria-controls="site-map-detail"><small>A4 / Decisione</small><strong>Guerra</strong><span>Dai sensori all'azione</span></button>
+            <button class="site-map-node site-map-node-energy" type="button" data-map-node="energy" data-map-index="S1" data-map-kind="Capitolo - Base fisica" data-map-title="Energia" data-map-description="Dalla relazione tra energia e ricchezza ai limiti di rete, data center, fusione e compute orbitale." data-map-href="energia.html" data-map-action="Apri Energia" data-map-path="system energy" aria-pressed="false" aria-controls="site-map-detail"><small>S1 / Base fisica</small><strong>Energia</strong><span>Rete, potenza, cluster</span></button>
+            <button class="site-map-node site-map-node-chip" type="button" data-map-node="chip" data-map-index="S2" data-map-kind="Capitolo - Calcolo" data-map-title="Chips" data-map-description="Dal computer al microprocessore, dalla GPU alle generazioni che cambiano la velocità e il costo dei token." data-map-href="chip.html" data-map-action="Apri Chips" data-map-path="system chip" aria-pressed="false" aria-controls="site-map-detail"><small>S2 / Calcolo</small><strong>Chips</strong><span>Silicio, memoria, banda</span></button>
+            <button class="site-map-node site-map-node-algorithms" type="button" data-map-node="algorithms" data-map-index="S3" data-map-kind="Capitolo - Efficienza" data-map-title="Algoritmi" data-map-description="Come architetture, addestramento e tempo di ragionamento trasformano il compute grezzo in capacità utile." data-map-href="algoritmi.html" data-map-action="Apri Algoritmi" data-map-path="system algorithms" aria-pressed="false" aria-controls="site-map-detail"><small>S3 / Efficienza</small><strong>Algoritmi</strong><span>Più capacità, stesso hardware</span></button>
+            <button class="site-map-node site-map-node-inference" type="button" data-map-node="inference" data-map-index="S4" data-map-kind="Capitolo - Utilizzo" data-map-title="Inferenza" data-map-description="La frontiera tra velocità percepita da ogni utente e quantità totale di token prodotta per megawatt." data-map-href="inferenza.html" data-map-action="Apri Inferenza" data-map-path="system inference" aria-pressed="false" aria-controls="site-map-detail"><small>S4 / Utilizzo</small><strong>Inferenza</strong><span>Dal modello alla risposta</span></button>
+
+            <span class="site-map-branch-label site-map-branch-label-dossier">Dossier si dirama</span>
+
+            <button class="site-map-node site-map-node-benchmark" type="button" data-map-node="benchmark" data-map-index="D1" data-map-kind="Dossier - Misurare" data-map-title="Benchmarks" data-map-description="METR, ARC-AGI e altri test: che cosa misurano, dove ingannano e perché non sono una pagella universale." data-map-href="benchmark.html" data-map-action="Apri Benchmarks" data-map-path="dossier benchmark" aria-pressed="false" aria-controls="site-map-detail"><small>D1 / Misurare</small><strong>Benchmarks</strong><span>Test, capacità, limiti</span></button>
+            <button class="site-map-node site-map-node-politica" type="button" data-map-node="politica" data-map-index="D2" data-map-kind="Dossier - Potere" data-map-title="Politica" data-map-description="Una timeline interattiva delle scelte americane sull'AI, dai modelli alle infrastrutture e alla sicurezza nazionale." data-map-href="politica.html" data-map-action="Apri Politica" data-map-path="dossier politica" aria-pressed="false" aria-controls="site-map-detail"><small>D2 / Potere</small><strong>Politica</strong><span>Regole e infrastrutture</span></button>
+            <button class="site-map-node site-map-node-guerra" type="button" data-map-node="guerra" data-map-index="D3" data-map-kind="Dossier - Decisione" data-map-title="Guerra" data-map-description="Palantir, Anduril e la catena che collega sensori, dati, comprensione, decisione e sistemi autonomi." data-map-href="guerra.html" data-map-action="Apri Guerra" data-map-path="dossier guerra" aria-pressed="false" aria-controls="site-map-detail"><small>D3 / Decisione</small><strong>Guerra</strong><span>Dai sensori all'azione</span></button>
           </div>
 
           <div class="site-map-detail" id="site-map-detail" aria-live="polite">
