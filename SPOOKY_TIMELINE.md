@@ -5,6 +5,7 @@ La pagina `spooky-timeline.html` è un dossier interattivo nascosto nella homepa
 ## Cosa contiene
 
 - un'apertura centrata, `MACHINIC AUTOPOIESIS`, con il sottotitolo `RSI: recursive self improvement` e un racconto a scorrimento: Einstein aziona l'apparato che proietta `E=MC²` come ombra, Pepe lascia la caverna e scopre Nick Land al posto del sole;
+- una reinterpretazione a due scale delle *Accelerating Timelines* di Ray Kurzweil: una camera dal tempo profondo alla società industriale e una dal 1780 al presente, con un ulteriore ingrandimento sul 2020-2026, fonti primarie e un confine esplicito tra dati storici e tesi accelerazionista;
 - un'introduzione accelerazionista che spiega il circuito compute → modelli → lavoro AI → ricerca più rapida;
 - tre grafici interni — due di Anthropic e uno di OpenAI — con fonti primarie e limiti metodologici visibili;
 - un registro richiudibile con 43 eventi del 2025-2026 e collegamenti esterni protetti;
@@ -14,7 +15,7 @@ La pagina `spooky-timeline.html` è un dossier interattivo nascosto nella homepa
 - dodici futuri alternativi derivati dal capitolo 5 di *Life 3.0*, ciascuno con una sintesi e un racconto espandibile;
 - un indice laterale che segue la lettura e permette di saltare direttamente a ogni futuro.
 
-Il registro *Accelerando* mescola eventi, dichiarazioni e interpretazioni dell'autore della raccolta: non viene presentato come prova della Singolarità. I grafici descrivono dati aziendali di Anthropic e OpenAI, non misurazioni indipendenti. Le date degli altri documenti restano legate alle rispettive fonti. I dodici futuri del video non hanno date o probabilità: sono possibilità concettuali, non una quarta timeline.
+Le due scale ispirate a Kurzweil usano una selezione editoriale di svolte e intervalli approssimativi: cambiare gli eventi cambia la forma, quindi non vengono presentate come prova di una legge universale o della data 2045. Il registro *Accelerando* mescola eventi, dichiarazioni e interpretazioni dell'autore della raccolta: non viene presentato come prova della Singolarità. I grafici descrivono dati aziendali di Anthropic e OpenAI, non misurazioni indipendenti. Le date degli altri documenti restano legate alle rispettive fonti. I dodici futuri del video non hanno date o probabilità: sono possibilità concettuali, non una quarta timeline.
 
 ## Come si apre
 
@@ -34,7 +35,7 @@ Il registro *Accelerando* mescola eventi, dichiarazioni e interpretazioni dell'a
 - `spooky-timeline.css`: struttura, stati interattivi e comportamento mobile.
 - `spooky-landian.css`: skin visiva autonoma del dossier: terminale, griglia, palette e tipografia.
 - `spooky-accelerando.css`: direzione più estrema dell'introduzione, circuito, grafici e registro dei 43 segnali.
-- `spooky-timeline.js`: progressione del meme legata allo scorrimento, cambio del sole Nick Land al tocco, tab, scorrimento delle timeline, indice attivo e progresso dei dodici futuri.
+- `spooky-timeline.js`: progressione del meme legata allo scorrimento, cambio del sole Nick Land al tocco, tab, scorrimento delle timeline, indice attivo e progresso dei dodici futuri. Le due scale di Kurzweil sono leggibili anche senza JavaScript.
 - `assets/spooky-plato-cave-v1.webp`, `assets/spooky-einstein-projector-v1.webp`, `assets/spooky-pepe-prisoner-v1.webp`, `assets/spooky-pepe-exit-v1.webp`, `assets/spooky-nick-land-sun.webp` e `assets/spooky-nick-land-sun-alt.webp`: tavola e livelli fotografici del meme nell'hero.
 - `assets/code-contributed-per-person-quarter-2026.png`, `assets/claude-code-session-success-rate-2026.png` e `assets/openai-output-tokens-by-department-2026.png`: copie pubblicabili dei tre grafici.
 - `content-drafts/accelerando-it.md`: traduzione estesa conservata come materiale editoriale; non viene caricata dal sito.
@@ -52,12 +53,13 @@ La separazione tra i tre fogli di stile è intenzionale: `spooky-timeline.css` m
 4. Clicca velocemente sette volte: deve aprirsi il dossier.
 5. Scorri lentamente la scena: Einstein deve azionare il proiettore, `E=MC²` deve apparire come ombra sulla parete, Pepe deve abbandonarla e raggiungere l'esterno; Nick Land deve comparire soltanto verso la fine. Poi passa sul sole, selezionalo con la tastiera oppure toccalo su mobile: la foto deve cambiare e un secondo tocco deve ripristinarla.
 6. Usa “Entra nell'accelerazione”: il salto deve fermarsi all'inizio della nuova sezione, sotto l'header fisso.
-7. Controlla che tutti e tre i grafici siano leggibili, caricati e apribili a piena risoluzione; i collegamenti alle fonti devono aprire Anthropic o OpenAI in una nuova scheda.
-8. Apri il registro: deve mostrare 43 eventi, i collegamenti 2025 e 2026 e tutte le fonti cliccabili; richiudilo anche con la tastiera.
-9. Cambia le tre timeline anche con le frecce della tastiera e scorri le carte in orizzontale.
-10. Segui entrambi i rami dell'albero: ogni esito deve mostrare il collegamento e aprire la scheda con lo stesso numero; il raccordo “12 esiti → 12 racconti” deve portare all'inizio delle descrizioni.
-11. In ognuno dei dodici futuri apri “Entra nello scenario”: deve comparire il racconto completo con il riferimento alle pagine del libro; richiudilo anche con la tastiera.
-12. Ricarica la timeline: devi tornare alla homepage.
-13. Ripeti su mobile e controlla che manifesto, circuito, meme, grafici, registro, tendine e carte restino leggibili senza scorrimento laterale della pagina.
+7. Nella sezione *Accelerating Timelines*, verifica che la prima camera mostri dal tempo profondo alla società industriale e la seconda dal 1780 al 2026, con un ingrandimento separato del 2020-2026. Tutti gli eventi e gli intervalli devono essere leggibili direttamente; su mobile devono trasformarsi in due sequenze verticali con fonti cliccabili.
+8. Controlla che tutti e tre i grafici aziendali siano leggibili, caricati e apribili a piena risoluzione; i collegamenti alle fonti devono aprire Anthropic o OpenAI in una nuova scheda.
+9. Apri il registro: deve mostrare 43 eventi, i collegamenti 2025 e 2026 e tutte le fonti cliccabili; richiudilo anche con la tastiera.
+10. Cambia le tre timeline anche con le frecce della tastiera e scorri le carte in orizzontale.
+11. Segui entrambi i rami dell'albero: ogni esito deve mostrare il collegamento e aprire la scheda con lo stesso numero; il raccordo “12 esiti → 12 racconti” deve portare all'inizio delle descrizioni.
+12. In ognuno dei dodici futuri apri “Entra nello scenario”: deve comparire il racconto completo con il riferimento alle pagine del libro; richiudilo anche con la tastiera.
+13. Ricarica la timeline: devi tornare alla homepage.
+14. Ripeti su mobile e controlla che manifesto, circuito, meme, grafici, registro, tendine e carte restino leggibili senza scorrimento laterale della pagina.
 
 Se i tab o l'indice non reagiscono, controlla per prima cosa che `spooky-timeline.js` sia stato copiato nella cartella pubblicata e che la console del browser non mostri errori.
