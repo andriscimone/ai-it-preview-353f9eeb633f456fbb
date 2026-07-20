@@ -3,185 +3,105 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Tre punti, una sola uscita: il controesempio alla congettura jacobiana annunciato da Levent Alpöge con il contributo di Claude Fable, spiegato e verificato." />
+    <meta name="description" content="Il controesempio alla congettura jacobiana pubblicato da Levent Alpöge e attribuito in parte a Claude Fable: screenshot, verifica e limiti dell’attribuzione." />
     <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
-    <meta property="og:title" content="Tre ingressi, una sola uscita — AI.it" />
-    <meta property="og:description" content="Una congettura del 1939, un controesempio controllabile e una domanda nuova sul ruolo dell'AI nella matematica." />
+    <meta property="og:title" content="Un controesempio alla congettura jacobiana — AI.it" />
+    <meta property="og:description" content="La formula è verificabile. Il ruolo preciso di Claude nel lavoro non è ancora documentato." />
     <meta property="og:type" content="article" />
     <meta property="og:locale" content="it_IT" />
     <meta property="article:published_time" content="2026-07-20" />
-    <meta id="theme-color" name="theme-color" content="#0b0c0a" />
+    <meta id="theme-color" name="theme-color" content="#f2f0e8" />
     <link rel="icon" href="data:," />
-    <title>Tre ingressi, una sola uscita — AI.it</title>
+    <title>Un controesempio alla congettura jacobiana — AI.it</title>
     <script>(() => { try { const saved = localStorage.getItem("aiit-theme"); const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dataset.theme = saved || preferred; } catch (_) { document.documentElement.dataset.theme = "light"; } })();</script>
-    <link rel="stylesheet" href="styles.css?v=news-1" />
-    <link rel="stylesheet" href="news-jacobiana.css?v=1" />
+    <link rel="stylesheet" href="styles.css?v=jacobiana-3" />
+    <link rel="stylesheet" href="news-jacobiana.css?v=3" />
   </head>
   <body class="detail-page jacobian-news-page">
-    <a class="skip-link" href="#contenuto">Salta al contenuto</a>
-    <div class="noise" aria-hidden="true"></div>
-    <div class="reading-progress" aria-hidden="true"><i id="reading-progress-bar"></i></div>
-
-    <header class="site-header">
-      <a class="brand" href="index.html" aria-label="AI.it, homepage"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>AI.it</span></a>
-      <div class="header-actions">
-        <div class="issue-label"><span>Notizia</span><strong>N1 / Matematica</strong></div>
-        <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false"><span class="theme-toggle-icon" aria-hidden="true">◐</span><span id="theme-toggle-label">Scuro</span></button>
-      </div>
-    </header>
+    <a class="skip-link" href="#contenuto">Salta alla notizia</a><div class="noise" aria-hidden="true"></div>
+    <header class="site-header"><a class="brand" href="index.html" aria-label="AI.it, homepage"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>AI.it</span></a><div class="header-actions"><div class="issue-label"><span>Notizia</span><strong>N1 / Matematica</strong></div><button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false"><span class="theme-toggle-icon" aria-hidden="true">◐</span><span id="theme-toggle-label">Scuro</span></button></div></header>
     <nav class="section-nav" aria-label="Sezioni del sito"><a href="index.html">Home</a><a href="sistema.html">Il sistema</a><a href="altro.html">Dossier</a><a href="novita.html" aria-current="page">Novità</a></nav>
 
     <main id="contenuto">
-      <article>
-        <header class="news-story-hero">
-          <div class="story-meta" data-news-reveal>
-            <span>20 luglio 2026</span>
-            <span>6 minuti</span>
-            <span>AI per la scienza</span>
-          </div>
-          <div class="story-title" data-news-reveal>
-            <p class="story-kicker"><i aria-hidden="true"></i> Primo segnale</p>
-            <h1>Tre ingressi.<br />Una sola <em>uscita.</em></h1>
-            <p>Una congettura del 1939 potrebbe essere caduta con un controesempio sorprendentemente breve. La matematica si controlla. Il ruolo esatto dell’AI va raccontato con più cautela.</p>
-          </div>
-
-          <aside class="announcement-card" aria-label="Sintesi dell'annuncio di Levent Alpöge" data-news-reveal>
-            <div class="announcement-account"><span class="announcement-avatar">LA</span><div><strong>Levent Alpöge</strong><small>@__alpoge__</small></div><span class="announcement-mark" aria-hidden="true">↗</span></div>
-            <blockquote>“the jacobian conjecture is false”</blockquote>
-            <p>In un post volutamente informale, il matematico ringrazia Akhil per la domanda e Fable per il lavoro svolto durante la finale dei Mondiali.</p>
-            <a href="https://x.com/__alpoge__/status/2079028340955197566" target="_blank" rel="noreferrer">Apri l’annuncio originale <span aria-hidden="true">↗</span></a>
-          </aside>
-
-          <div class="hero-verdict" data-news-reveal>
-            <div><span>Il risultato</span><strong>Controllabile</strong><small>Due identità esatte</small></div>
-            <div><span>L’attribuzione</span><strong>Annunciata</strong><small>Alpöge cita Fable</small></div>
-            <div><span>Il punto aperto</span><strong>Il processo</strong><small>Prompt e ricerca non pubblicati</small></div>
-          </div>
+      <article class="jacobian-story">
+        <header class="jacobian-head">
+          <div class="jacobian-meta"><span>N1</span><time datetime="2026-07-20">20 luglio 2026</time><span>AI × matematica</span></div>
+          <h1>Alpöge pubblica un controesempio alla congettura jacobiana e cita Claude Fable</h1>
+          <p>La formula e le collisioni indicate si possono verificare. Quanto del percorso di scoperta sia stato svolto dal modello non è ancora documentato.</p>
+          <div class="jacobian-status" aria-label="Stato della verifica"><span>Calcoli verificati</span><span>Attribuzione riportata da Alpöge</span><span>Collaborazione non documentata nel dettaglio</span></div>
         </header>
 
-        <section class="story-opening" aria-labelledby="opening-title">
-          <div class="story-section-label" data-news-reveal><span>01</span><p>La notizia</p></div>
-          <div class="story-opening-copy" data-news-reveal>
-            <h2 id="opening-title">Non serve capire tutta la formula per capire <em>perché basta.</em></h2>
-            <p class="story-lede">Per 87 anni la congettura jacobiana ha sostenuto, in sostanza, che una particolare “garanzia locale” impedisse a certe mappe polinomiali di confondere due punti lontani.</p>
-            <p>Il controesempio annunciato da Levent Alpöge fa esattamente ciò che non avrebbe dovuto essere possibile: mantiene quella garanzia in ogni punto, ma manda <strong>tre ingressi distinti nella stessa uscita</strong>. Una funzione che fa questo non può avere un inverso globale.</p>
-          </div>
-          <aside class="story-side-note" data-news-reveal><span>In una frase</span><p>La regola funziona guardando da vicino. Il risultato mostra che può fallire guardando l’intera mappa.</p></aside>
+        <section class="jacobian-screens" aria-label="Screenshot della notizia">
+          <figure class="jacobian-screen jacobian-screen-meme">
+            <div class="jacobian-screen-label"><span>01</span><strong>Il meme</strong></div>
+            <a href="assets/news-jacobiana-meme.png" target="_blank" aria-label="Apri il meme a dimensione intera"><img src="assets/news-jacobiana-meme.png" alt="Meme sulla notizia: una conversazione in cui nessuno sa spiegare che cosa sia la congettura jacobiana" /></a>
+            <figcaption>Il meme con cui la notizia ha iniziato a circolare.</figcaption>
+          </figure>
+
+          <figure class="jacobian-screen jacobian-screen-post">
+            <div class="jacobian-screen-label"><span>02</span><strong>Il post originale</strong></div>
+            <a href="assets/news-jacobiana-post.png" target="_blank" aria-label="Apri il post originale a dimensione intera"><img src="assets/news-jacobiana-post.png" alt="Screenshot del post di Levent Alpöge con la formula del controesempio e tre punti distinti" /></a>
+            <figcaption>La formula pubblicata da Levent Alpöge e i tre punti che producono la stessa uscita.</figcaption>
+          </figure>
         </section>
 
-        <section class="certificate-section" id="certificato" aria-labelledby="certificate-title">
-          <header data-news-reveal>
-            <div><p class="story-kicker"><i aria-hidden="true"></i> Provalo tu</p><h2 id="certificate-title">Il certificato<br /><em>in tre clic.</em></h2></div>
-            <p>Scegli i tre punti, uno alla volta. La formula li calcola e li porta sempre allo stesso indirizzo. Non è una simulazione né un’approssimazione.</p>
-          </header>
+        <section class="jacobian-summary" aria-label="Riassunto della notizia">
+          <div><span>Verificato</span><p>Il determinante jacobiano è sempre <strong>−2</strong> e i tre punti indicati producono la stessa uscita.</p></div>
+          <div><span>Riportato</span><p>Alpöge ringrazia Fable per il lavoro sul problema e pubblica la formula sotto il proprio nome.</p></div>
+          <div><span>Non pubblico</span><p>Prompt, tentativi e divisione del lavoro tra matematico e modello non sono stati resi pubblici.</p></div>
+        </section>
 
-          <div class="certificate-lab" data-news-reveal>
-            <div class="certificate-controls" role="group" aria-label="Tre punti da verificare">
-              <button class="point-button" type="button" data-point="a" aria-pressed="false"><span>Punto A</span><code>(0, 0, −¼)</code><small>Verifica <b aria-hidden="true">→</b></small></button>
-              <button class="point-button" type="button" data-point="b" aria-pressed="false"><span>Punto B</span><code>(1, −3/2, 13/2)</code><small>Verifica <b aria-hidden="true">→</b></small></button>
-              <button class="point-button" type="button" data-point="c" aria-pressed="false"><span>Punto C</span><code>(−1, 3/2, 13/2)</code><small>Verifica <b aria-hidden="true">→</b></small></button>
-            </div>
+        <section class="jacobian-details" aria-labelledby="details-title">
+          <header><span>Approfondimento</span><h2 id="details-title">I dettagli</h2></header>
 
-            <div class="collision-stage" aria-label="Visualizzazione dei tre punti che convergono nella stessa uscita">
-              <svg viewBox="0 0 760 380" preserveAspectRatio="none" aria-hidden="true">
-                <path data-path="a" d="M96 70 C330 70 385 190 650 190" />
-                <path data-path="b" d="M96 190 C330 190 385 190 650 190" />
-                <path data-path="c" d="M96 310 C330 310 385 190 650 190" />
-              </svg>
-              <span class="stage-source stage-source-a" data-stage-point="a">A</span>
-              <span class="stage-source stage-source-b" data-stage-point="b">B</span>
-              <span class="stage-source stage-source-c" data-stage-point="c">C</span>
-              <div class="stage-function"><small>La mappa</small><strong>F</strong><span>det JF = −2</span></div>
-              <div class="stage-output" id="stage-output"><small>Stessa uscita</small><strong>(−¼, 0, 0)</strong><span id="stage-output-count">0 di 3 verificati</span></div>
-            </div>
+          <div class="jacobian-drawer-list">
+            <details class="quick-drawer">
+              <summary><b>01</b><span><strong>Che cosa afferma la congettura</strong><small>La spiegazione essenziale</small></span><i aria-hidden="true">+</i></summary>
+              <div class="quick-drawer-body quick-explainer">
+                <p>Una funzione polinomiale può essere vista come una mappa: riceve coordinate e restituisce nuove coordinate. Il <strong>determinante jacobiano</strong> descrive come la mappa trasforma localmente lo spazio.</p>
+                <p>La congettura, formulata nel 1939, sosteneva che una mappa polinomiale con determinante jacobiano costante e diverso da zero dovesse avere un inverso polinomiale. Il controesempio mantiene quella condizione, ma manda tre punti distinti nella stessa uscita.</p>
+                <div class="quick-collision" aria-label="Tre punti distinti convergono nella stessa uscita"><span>A</span><span>B</span><span>C</span><i>→</i><strong>(−¼, 0, 0)</strong></div>
+              </div>
+            </details>
 
-            <div class="certificate-result" aria-live="polite">
-              <span id="certificate-result-icon" aria-hidden="true">○</span>
-              <p id="certificate-result-text">Scegli un punto per iniziare il controllo.</p>
-              <button id="certificate-reset" type="button" hidden>Ricomincia</button>
-            </div>
-          </div>
+            <details class="quick-drawer">
+              <summary><b>02</b><span><strong>Verifica del controesempio</strong><small>Determinante e collisione</small></span><i aria-hidden="true">+</i></summary>
+              <div class="quick-drawer-body quick-proof">
+                <div><span>Condizione</span><strong>det JF = −2</strong><small>in ogni punto</small></div>
+                <div><span>Collisione</span><code>F(0, 0, −¼)<br />= F(1, −3/2, 13/2)<br />= F(−1, 3/2, 13/2)<br />= (−¼, 0, 0)</code></div>
+                <p>Il primo calcolo soddisfa l’ipotesi della congettura. Il secondo mostra che la mappa non è iniettiva: tre ingressi diversi hanno la stessa uscita, quindi non esiste un inverso globale.</p>
+              </div>
+            </details>
 
-          <details class="formula-disclosure" data-news-reveal>
-            <summary><span>Vuoi vedere la formula completa?</span><small>Apri il livello tecnico</small><i aria-hidden="true">+</i></summary>
-            <div class="formula-body">
-              <p>Ponendo <code>u = 1 + xy</code>, la mappa è:</p>
-              <pre><code>F(x, y, z) = (
-  u³z + y²u(4 + 3xy),
-  y + 3xu²z + 3xy²(4 + 3xy),
+            <details class="quick-drawer">
+              <summary><b>03</b><span><strong>Il ruolo attribuito a Claude</strong><small>Che cosa sappiamo e che cosa manca</small></span><i aria-hidden="true">+</i></summary>
+              <div class="quick-drawer-body quick-credit">
+                <p><strong>Dato pubblico:</strong> Alpöge ringrazia Akhil per la domanda e Fable per aver lavorato sul problema.</p>
+                <p><strong>Dato mancante:</strong> non sono disponibili i prompt, il numero di tentativi, il metodo di ricerca o una descrizione della divisione del lavoro.</p>
+                <p class="quick-credit-bottom">Il contributo dell’AI è quindi attribuito dall’autore del post, mentre il suo peso preciso nel risultato resta da documentare.</p>
+              </div>
+            </details>
+
+            <details class="quick-drawer">
+              <summary><b>04</b><span><strong>Formula e fonti</strong><small>Materiale per il controllo</small></span><i aria-hidden="true">+</i></summary>
+              <div class="quick-drawer-body quick-sources">
+                <pre><code>u = 1 + xy
+F(x,y,z) = (
+  u³z + y²u(4+3xy),
+  y + 3xu²z + 3xy²(4+3xy),
   2x − 3x²y − x³z
 )</code></pre>
-              <div><p><span>Garanzia locale</span><strong>det JF = −2</strong>ovunque</p><p><span>Fallimento globale</span><strong>F(A) = F(B) = F(C)</strong>con A, B e C distinti</p></div>
-            </div>
-          </details>
-        </section>
-
-        <section class="intuition-section" aria-labelledby="intuition-title">
-          <div class="story-section-label" data-news-reveal><span>02</span><p>L’intuizione</p></div>
-          <header data-news-reveal><h2 id="intuition-title">Perfetta da vicino.<br /><em>Sovrapposta da lontano.</em></h2><p>Il jacobiano descrive ciò che accade in un intorno minuscolo di ciascun punto. La congettura provava a trasformare quell’informazione locale in una promessa sull’intero spazio.</p></header>
-          <div class="scale-comparison">
-            <article class="scale-card scale-local" data-news-reveal>
-              <div class="scale-card-top"><span>Zoom ×1000</span><strong>Locale</strong></div>
-              <div class="local-grid" aria-hidden="true"><i></i><span></span></div>
-              <h3>Nessuna piega.</h3>
-              <p>Il determinante non si annulla mai: attorno a ogni singolo punto la mappa resta invertibile.</p>
-              <small>Questa parte rispetta l’ipotesi.</small>
-            </article>
-            <article class="scale-card scale-global" data-news-reveal>
-              <div class="scale-card-top"><span>Zoom ×1</span><strong>Globale</strong></div>
-              <div class="global-layers" aria-hidden="true"><i>A</i><i>B</i><i>C</i><span>1 uscita</span></div>
-              <h3>Tre strati si sovrappongono.</h3>
-              <p>Punti lontani possono comunque arrivare allo stesso risultato. Qui l’inverso smette di esistere.</p>
-              <small>Questa parte smentisce la conclusione.</small>
-            </article>
+                <div><a href="https://x.com/__alpoge__/status/2079028340955197566" target="_blank" rel="noreferrer"><span>Annuncio originale</span><strong>Levent Alpöge su X ↗</strong></a><a href="https://jacobianfun.org/jacobian-explained" target="_blank" rel="noreferrer"><span>Verifica riproducibile</span><strong>Calcoli e script esatti ↗</strong></a><a href="https://www.anthropic.com/claude/fable" target="_blank" rel="noreferrer"><span>Fonte aziendale</span><strong>Anthropic su Fable ↗</strong></a></div>
+                <p><strong>Controllo AI.it:</strong> determinante e collisioni sono stati ricalcolati con algebra simbolica esatta il 20 luglio 2026.</p>
+              </div>
+            </details>
           </div>
         </section>
 
-        <section class="why-section" aria-labelledby="why-title">
-          <div class="why-lead" data-news-reveal><p class="story-kicker"><i aria-hidden="true"></i> Perché conta</p><h2 id="why-title">La storia non è soltanto “AI batte matematici”.</h2></div>
-          <div class="why-grid">
-            <article data-news-reveal><span>01</span><h3>È un risultato compatto</h3><p>Non richiede di fidarsi di una dimostrazione lunga migliaia di righe: determinante e collisione possono essere ricontrollati con algebra simbolica esatta.</p></article>
-            <article data-news-reveal><span>02</span><h3>È un nuovo tipo di collaborazione</h3><p>Se la ricostruzione di Alpöge sarà documentata, il punto interessante sarà capire come una persona ha impostato il problema, guidato il modello e riconosciuto una risposta valida.</p></article>
-            <article data-news-reveal><span>03</span><h3>La verifica resta centrale</h3><p>L’output dell’AI non è la prova. La prova sono le identità matematiche riproducibili. È questa separazione a rendere la notizia forte, non il marchio del modello.</p></article>
-          </div>
-        </section>
-
-        <section class="provenance-section" aria-labelledby="provenance-title">
-          <div class="story-section-label" data-news-reveal><span>03</span><p>Chi ha fatto cosa</p></div>
-          <header data-news-reveal><h2 id="provenance-title">Il risultato è chiaro.<br /><em>La genesi, non ancora.</em></h2><p>Questa è la versione più prudente consentita dalle informazioni pubbliche al 20 luglio 2026.</p></header>
-          <ol class="provenance-flow">
-            <li data-news-reveal><span>Domanda</span><strong>Akhil</strong><p>È la persona che, secondo il post, ha portato il problema all’attenzione di Alpöge.</p></li>
-            <li data-news-reveal><span>Ricerca assistita</span><strong>Fable</strong><p>Il modello è ringraziato per averci “lavorato”. Prompt, tentativi e grado di autonomia non sono pubblici.</p></li>
-            <li data-news-reveal><span>Responsabilità</span><strong>Levent Alpöge</strong><p>Il matematico pubblica la formula, mette il proprio nome sull’annuncio e rende il risultato verificabile.</p></li>
-            <li data-news-reveal><span>Conferma</span><strong>Chiunque</strong><p>La comunità può sostituire i punti e ricalcolare il determinante senza dipendere dal modello.</p></li>
-          </ol>
-        </section>
-
-        <section class="status-section" aria-labelledby="status-title">
-          <header data-news-reveal><p class="story-kicker"><i aria-hidden="true"></i> Stato della notizia</p><h2 id="status-title">Cosa sappiamo,<br />cosa <em>no.</em></h2></header>
-          <div class="status-grid">
-            <article class="status-confirmed" data-news-reveal><span>Verificato</span><h3>Il controesempio funziona.</h3><ul><li>Il determinante jacobiano è la costante −2.</li><li>Tre punti distinti hanno la stessa immagine.</li><li>Questo smentisce la congettura in dimensione 3 e, aggiungendo coordinate invariate, in ogni dimensione superiore.</li></ul></article>
-            <article class="status-reported" data-news-reveal><span>Riportato</span><h3>Fable ha contribuito alla ricerca.</h3><ul><li>Lo dichiara Alpöge nel post originale.</li><li>Non è ancora pubblica una cronologia completa del lavoro.</li><li>Non attribuiamo al modello più autonomia di quella documentata.</li></ul></article>
-            <article class="status-open" data-news-reveal><span>Da seguire</span><h3>La risposta della comunità.</h3><ul><li>L’annuncio è recentissimo.</li><li>Servono una ricostruzione formale e il confronto con la letteratura.</li><li>Il caso separato in due dimensioni non è risolto da questo esempio.</li></ul></article>
-          </div>
-        </section>
-
-        <section class="story-sources" aria-labelledby="sources-title">
-          <header data-news-reveal><span>04</span><h2 id="sources-title">Fonti e verifica</h2><p>Aggiornate il 20 luglio 2026. La distinzione tra annuncio, controllo indipendente e fonte aziendale è esplicita.</p></header>
-          <div class="source-list">
-            <a href="https://x.com/__alpoge__/status/2079028340955197566" target="_blank" rel="noreferrer" data-news-reveal><span>Fonte originale</span><strong>Levent Alpöge — annuncio e formula</strong><small>20 luglio 2026 ↗</small></a>
-            <a href="https://jacobianfun.org/jacobian-explained" target="_blank" rel="noreferrer" data-news-reveal><span>Verifica riproducibile</span><strong>The Jacobian counterexample, explained</strong><small>Calcoli esatti e script ↗</small></a>
-            <a href="https://www.anthropic.com/claude/fable" target="_blank" rel="noreferrer" data-news-reveal><span>Fonte aziendale</span><strong>Anthropic — Claude Fable 5</strong><small>Descrizione del modello ↗</small></a>
-          </div>
-          <p class="method-note" data-news-reveal><strong>Controllo AI.it.</strong> Abbiamo ricalcolato il determinante e sostituito i tre punti con aritmetica simbolica esatta: il risultato coincide con l’annuncio. Questo verifica il certificato matematico, non ricostruisce il processo con cui è stato scoperto.</p>
-        </section>
-
-        <nav class="story-end-nav" aria-label="Continua la lettura"><a href="novita.html"><span>← N0 / Novità</span><strong>Torna al taccuino</strong></a><a href="benchmark.html"><span>D1 / Dossier</span><strong>Come misuriamo l’AI →</strong></a></nav>
+        <footer class="jacobian-footer"><p>In breve: il controesempio supera i controlli algebrici; l’attribuzione del contributo a Fable viene da Alpöge; il processo di scoperta non è ancora pubblico.</p><a href="novita.html">← Torna alle novità</a></footer>
       </article>
     </main>
-
-    <footer class="site-footer"><span>AI.it</span><span>N1 · Tre ingressi, una sola uscita</span><a href="#contenuto">Torna su ↑</a></footer>
-    <script src="app.js"></script>
-    <script src="news-jacobiana.js"></script>
+    <footer class="site-footer"><span>AI.it</span><span>N1 · AI e matematica</span><a href="#contenuto">Su ↑</a></footer>
+    <script src="app.js"></script><script src="news-jacobiana.js"></script>
   </body>
 </html>
