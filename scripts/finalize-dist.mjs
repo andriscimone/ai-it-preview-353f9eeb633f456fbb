@@ -64,7 +64,8 @@ const alwaysEmbeddedAssets = new Set([
   "assets/claude-code-session-success-rate-2026-it.png",
   "assets/news-jacobiana-meme.png",
   "assets/news-jacobiana-post.png",
-  "assets/openai-output-tokens-by-department-2026-it.png"
+  "assets/openai-output-tokens-by-department-2026-it.png",
+  "assets/spooky-plato-cave-v1.webp"
 ]);
 
 function collect(directory, prefix = "", include = () => true) {
