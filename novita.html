@@ -3,50 +3,68 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="La pagina Novità di AI.it, pronta per i prossimi aggiornamenti verificati." />
+    <meta name="description" content="Le notizie di AI.it: pochi aggiornamenti verificati, spiegati con contesto e senza inseguire il rumore." />
     <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
     <meta property="og:title" content="Novità — AI.it" />
-    <meta property="og:description" content="Un taccuino editoriale ancora da aggiornare." />
+    <meta property="og:description" content="Un taccuino di aggiornamenti verificati sull'intelligenza artificiale." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="it_IT" />
     <meta id="theme-color" name="theme-color" content="#f2f0e8" />
     <link rel="icon" href="data:," />
     <title>Novità — AI.it</title>
     <script>(() => { try { const saved = localStorage.getItem("aiit-theme"); const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dataset.theme = saved || preferred; } catch (_) { document.documentElement.dataset.theme = "light"; } })();</script>
-    <link rel="stylesheet" href="styles.css?v=dossier-1" />
-    <link rel="stylesheet" href="altro.css?v=dossier-1" />
+    <link rel="stylesheet" href="styles.css?v=news-1" />
+    <link rel="stylesheet" href="altro.css?v=news-1" />
   </head>
   <body class="detail-page dossier-page news-page">
     <a class="skip-link" href="#top">Salta al contenuto</a><div class="noise" aria-hidden="true"></div>
-    <header class="site-header"><a class="brand" href="index.html" aria-label="AI.it, homepage"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>AI.it</span></a><div class="header-actions"><div class="issue-label"><span>Dossier</span><strong>A1 / Novità</strong></div><button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false"><span class="theme-toggle-icon" aria-hidden="true">◐</span><span id="theme-toggle-label">Scuro</span></button></div></header>
-    <nav class="section-nav" aria-label="Sezioni del sito"><a href="index.html">Home</a><a href="energia.html">Energia</a><a href="chip.html">Chips</a><a href="algoritmi.html">Algoritmi</a><a href="inferenza.html">Inferenza</a><a href="altro.html" aria-current="page">Altro</a></nav>
-    <nav class="dossier-subnav" aria-label="Dossier della sezione Altro"><a href="altro.html">Panoramica</a><a href="novita.html" aria-current="page">Novità</a><a href="benchmark.html">Benchmarks</a><a href="politica.html">Politica</a><a href="guerra.html">Guerra</a></nav>
+    <header class="site-header"><a class="brand" href="index.html" aria-label="AI.it, homepage"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>AI.it</span></a><div class="header-actions"><div class="issue-label"><span>Sezione</span><strong>N0 / Novità</strong></div><button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false"><span class="theme-toggle-icon" aria-hidden="true">◐</span><span id="theme-toggle-label">Scuro</span></button></div></header>
+    <nav class="section-nav" aria-label="Sezioni del sito"><a href="index.html">Home</a><a href="sistema.html">Il sistema</a><a href="altro.html">Dossier</a><a href="novita.html" aria-current="page">Novità</a></nav>
 
     <main id="top">
       <section class="dossier-page-hero news-page-hero" aria-labelledby="news-title">
-        <div class="dossier-page-number">01</div>
+        <div class="dossier-page-number">N0</div>
         <div data-dossier-reveal><p class="kicker">Un taccuino, non un flusso infinito</p><h1 id="news-title">Novità</h1></div>
-        <p class="dossier-page-deck" data-dossier-reveal>Questa pagina raccoglierà solo gli aggiornamenti che cambiano il modo in cui leggiamo capacità, infrastrutture e impatto dell'AI.</p>
+        <p class="dossier-page-deck" data-dossier-reveal>Poche notizie che cambiano il quadro. Ognuna separa ciò che è verificato, ciò che è riportato e ciò che resta da capire.</p>
       </section>
 
-      <section class="news-placeholder" aria-labelledby="news-placeholder-title" data-dossier-reveal>
-        <div class="news-placeholder-status"><i aria-hidden="true"></i><span>Stato della pagina</span><strong>In attesa</strong></div>
-        <div class="news-placeholder-main"><span aria-hidden="true">01 / —</span><h2 id="news-placeholder-title">Da<br /><em>aggiornare.</em></h2><p>Nessuna notizia inserita per ora. È una scelta deliberata: meglio uno spazio onesto che una pagina riempita con rumore o titoli non verificati.</p></div>
-        <div class="news-placeholder-scan" aria-hidden="true"><i></i><i></i><i></i><i></i><span></span></div>
+      <section class="news-lead" aria-labelledby="news-lead-title">
+        <div class="news-lead-meta" data-dossier-reveal><span>Prima notizia</span><strong>20.07.2026</strong><small>Matematica · AI per la scienza</small></div>
+        <a class="news-lead-story" href="news-jacobiana.html" data-dossier-reveal>
+          <div class="news-lead-copy">
+            <p class="news-signal"><i aria-hidden="true"></i> Controesempio verificato</p>
+            <h2 id="news-lead-title">Tre ingressi.<br />Una sola <em>uscita.</em></h2>
+            <p>Claude Fable avrebbe contribuito a trovare un controesempio alla congettura jacobiana, aperta dal 1939. Il risultato si può controllare; la storia della scoperta è ancora da ricostruire.</p>
+            <span class="news-read-action">Leggi la storia <b aria-hidden="true">↗</b></span>
+          </div>
+
+          <div class="news-collision-preview" aria-hidden="true">
+            <div class="preview-topline"><span>Il certificato</span><span>3 → 1</span></div>
+            <svg viewBox="0 0 520 480" preserveAspectRatio="none">
+              <path d="M62 94 C225 94 290 240 446 240" />
+              <path d="M62 240 C225 240 290 240 446 240" />
+              <path d="M62 386 C225 386 290 240 446 240" />
+            </svg>
+            <i class="preview-point point-a">A</i><i class="preview-point point-b">B</i><i class="preview-point point-c">C</i>
+            <div class="preview-output"><small>Stessa uscita</small><strong>(−¼, 0, 0)</strong></div>
+            <p>det JF = −2 <span>ovunque</span></p>
+          </div>
+        </a>
+        <div class="news-lead-verdict" data-dossier-reveal><span><i></i> Il risultato matematico è riproducibile</span><span><i></i> Alpöge attribuisce un contributo a Fable</span><span><i></i> Processo completo non ancora pubblico</span></div>
       </section>
 
       <section class="news-entry-rules" aria-labelledby="news-rules-title">
-        <header data-dossier-reveal><p class="kicker">Quando la aggiorneremo</p><h2 id="news-rules-title">Tre filtri prima di pubblicare.</h2></header>
+        <header data-dossier-reveal><p class="kicker">La regola editoriale</p><h2 id="news-rules-title">Tre filtri prima di pubblicare.</h2></header>
         <div class="news-rule-grid">
           <article data-dossier-reveal><span>01</span><h3>Cambia il quadro</h3><p>Un annuncio entra solo se modifica capacità, costi, accesso, infrastrutture o regole in modo rilevante.</p></article>
-          <article data-dossier-reveal><span>02</span><h3>Ha una fonte</h3><p>Prima i documenti originali; poi, quando serve, una verifica giornalistica indipendente.</p></article>
-          <article data-dossier-reveal><span>03</span><h3>Ha una data</h3><p>Ogni aggiornamento mostrerà quando è accaduto e quando la pagina è stata verificata.</p></article>
+          <article data-dossier-reveal><span>02</span><h3>Ha una fonte</h3><p>Prima i documenti originali; poi, quando serve, una verifica indipendente e riproducibile.</p></article>
+          <article data-dossier-reveal><span>03</span><h3>Dichiara lo stato</h3><p>Fatti, attribuzioni e domande aperte restano visivamente separati: niente certezza aggiunta per rendere il titolo più forte.</p></article>
         </div>
       </section>
 
-      <nav class="chapter-next" aria-label="Continua la lettura"><a href="altro.html">← Panoramica Altro</a><a href="benchmark.html">Prossimo: Benchmarks →</a></nav>
+      <nav class="chapter-next" aria-label="Continua la lettura"><a href="altro.html">← Precedente: Dossier</a><a href="index.html">Torna alla Home →</a></nav>
     </main>
-    <footer class="site-footer"><span>AI.it</span><span>Novità · Da aggiornare</span></footer>
+    <footer class="site-footer"><span>AI.it</span><span>Novità · 1 storia verificata</span></footer>
     <script src="app.js"></script><script src="dossier.js"></script>
   </body>
 </html>

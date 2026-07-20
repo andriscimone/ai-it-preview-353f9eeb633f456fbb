@@ -48,12 +48,13 @@ def read_nodes() -> dict[str, dict[str, str]]:
     nodes = {node["key"]: node for node in parser.nodes}
     expected = {
         "home",
+        "system",
+        "dossier",
+        "novita",
         "energy",
         "chip",
         "algorithms",
         "inference",
-        "altro",
-        "novita",
         "benchmark",
         "politica",
         "guerra",
@@ -64,7 +65,7 @@ def read_nodes() -> dict[str, dict[str, str]]:
         raise RuntimeError(f"Mappa HTML inattesa. Mancanti: {missing}. Extra: {extra}.")
     nodes["spooky"] = {
         "key": "spooky",
-        "index": "S1",
+        "index": "X1",
         "kind": "Esperienza narrativa nascosta",
         "title": "Spooky timeline",
         "description": "Segnali 2025-2026, timeline speculative e dodici futuri alternativi. Non compare nella navigazione pubblica e usa noindex.",
@@ -86,12 +87,13 @@ LINE = colors.HexColor("#A7A49B")
 
 ACCENTS = {
     "home": INK,
+    "system": ACID,
+    "dossier": INK,
+    "novita": CORAL,
     "energy": ACID,
     "chip": VIOLET,
     "algorithms": CORAL,
     "inference": BLUE,
-    "altro": INK,
-    "novita": CORAL,
     "benchmark": ACID,
     "politica": VIOLET,
     "guerra": BLUE,
@@ -100,17 +102,18 @@ ACCENTS = {
 
 
 NODE_POSITIONS = {
-    "spooky": (54, 635, 300, 90),
-    "home": (445, 635, 300, 90),
-    "energy": (50, 440, 190, 115),
-    "chip": (275, 440, 190, 115),
-    "algorithms": (500, 440, 190, 115),
-    "inference": (725, 440, 190, 115),
-    "altro": (950, 440, 190, 115),
-    "novita": (300, 215, 180, 125),
-    "benchmark": (520, 215, 180, 125),
-    "politica": (740, 215, 180, 125),
-    "guerra": (960, 215, 180, 125),
+    "spooky": (54, 625, 260, 110),
+    "home": (465, 625, 260, 110),
+    "system": (170, 500, 240, 105),
+    "dossier": (570, 500, 220, 105),
+    "novita": (900, 500, 200, 105),
+    "energy": (30, 260, 145, 140),
+    "chip": (185, 260, 145, 140),
+    "algorithms": (340, 260, 145, 140),
+    "inference": (495, 260, 145, 140),
+    "benchmark": (655, 260, 155, 140),
+    "politica": (820, 260, 145, 140),
+    "guerra": (975, 260, 145, 140),
 }
 
 
@@ -162,11 +165,11 @@ def draw_node(pdf: canvas.Canvas, node: dict[str, str], hidden: bool = False) ->
     pdf.setFont("Helvetica", 7)
     route = node["href"]
     route_width = stringWidth(route, "Helvetica", 7)
-    if route_width < width * 0.52:
+    if width >= 190 and route_width < width * 0.52:
         pdf.drawRightString(x + width - 13, y + height - 22, route)
 
     pdf.setFillColor(INK)
-    title_size = 18 if width >= 190 else 16.5
+    title_size = 18 if width >= 190 else (14.5 if len(node["title"]) > 9 else 16.5)
     pdf.setFont("Times-Roman", title_size)
     pdf.drawString(x + 13, y + height - 47, node["title"])
 
@@ -197,30 +200,35 @@ def build_pdf() -> Path:
     pdf.drawString(54, 765, "Mappa completa di AI.it")
     pdf.setFillColor(MUTED)
     pdf.setFont("Helvetica", 11)
-    pdf.drawString(54, 744, "10 pagine pubbliche, 1 esperienza narrativa nascosta, 2 livelli editoriali.")
+    pdf.drawString(54, 744, "11 percorsi principali, 1 esperienza narrativa nascosta, 3 livelli editoriali.")
     pdf.setFillColor(CORAL)
     pdf.setFont("Times-Roman", 56)
-    pdf.drawRightString(page_width - 54, 758, "11")
+    pdf.drawRightString(page_width - 54, 758, "12")
 
-    draw_polyline(pdf, [(354, 680), (445, 680)], dashed=True)
+    draw_polyline(pdf, [(314, 680), (465, 680)], dashed=True)
 
     home_x, home_y, home_w, _ = NODE_POSITIONS["home"]
     root_x = home_x + home_w / 2
-    main_centers = []
-    for key in ["energy", "chip", "algorithms", "inference", "altro"]:
+    for key in ["system", "dossier", "novita"]:
         x, y, width, height = NODE_POSITIONS[key]
-        main_centers.append((x + width / 2, y + height))
-    for center_x, top_y in main_centers:
-        draw_polyline(pdf, [(root_x, home_y), (root_x, 590), (center_x, 590), (center_x, top_y)])
+        center_x = x + width / 2
+        draw_polyline(pdf, [(root_x, home_y), (root_x, 625), (center_x, 625), (center_x, y + height)])
 
-    altro_x, altro_y, altro_w, _ = NODE_POSITIONS["altro"]
-    altro_center = altro_x + altro_w / 2
-    for key in ["novita", "benchmark", "politica", "guerra"]:
+    system_x, system_y, system_w, _ = NODE_POSITIONS["system"]
+    system_center = system_x + system_w / 2
+    for key in ["energy", "chip", "algorithms", "inference"]:
         x, y, width, height = NODE_POSITIONS[key]
-        dossier_center = x + width / 2
-        draw_polyline(pdf, [(altro_center, altro_y), (altro_center, 390), (dossier_center, 390), (dossier_center, y + height)])
+        child_center = x + width / 2
+        draw_polyline(pdf, [(system_center, system_y), (system_center, 450), (child_center, 450), (child_center, y + height)])
 
-    for key in ["spooky", "home", "energy", "chip", "algorithms", "inference", "altro", "novita", "benchmark", "politica", "guerra"]:
+    dossier_x, dossier_y, dossier_w, _ = NODE_POSITIONS["dossier"]
+    dossier_center = dossier_x + dossier_w / 2
+    for key in ["benchmark", "politica", "guerra"]:
+        x, y, width, height = NODE_POSITIONS[key]
+        child_center = x + width / 2
+        draw_polyline(pdf, [(dossier_center, dossier_y), (dossier_center, 450), (child_center, 450), (child_center, y + height)])
+
+    for key in ["spooky", "home", "system", "dossier", "novita", "energy", "chip", "algorithms", "inference", "benchmark", "politica", "guerra"]:
         draw_node(pdf, nodes[key], hidden=key == "spooky")
 
     pdf.setFillColor(MUTED)
@@ -238,7 +246,7 @@ def build_pdf() -> Path:
     pdf.drawString(323, 148, "Esperienza intenzionalmente nascosta")
     pdf.setFillColor(MUTED)
     pdf.setFont("Helvetica", 8.5)
-    pdf.drawString(54, 123, "La mappa della Home mostra soltanto le 10 pagine pubbliche, così il gesto di sblocco della Spooky timeline resta una sorpresa narrativa.")
+    pdf.drawString(54, 123, "La mappa della Home mostra soltanto gli 11 percorsi principali; i singoli articoli si aprono dai rispettivi indici.")
 
     pdf.setStrokeColor(LINE)
     pdf.setLineWidth(0.8)
