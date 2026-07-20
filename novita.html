@@ -3,68 +3,157 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Le notizie di AI.it: pochi aggiornamenti verificati, spiegati con contesto e senza inseguire il rumore." />
+    <meta name="description" content="Le novità di AI.it: notizie compatte, controlli chiari e dettagli espandibili." />
     <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
     <meta property="og:title" content="Novità — AI.it" />
-    <meta property="og:description" content="Un taccuino di aggiornamenti verificati sull'intelligenza artificiale." />
+    <meta property="og:description" content="Aggiornamenti sull’intelligenza artificiale, con fatti e punti ancora aperti separati." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="it_IT" />
     <meta id="theme-color" name="theme-color" content="#f2f0e8" />
     <link rel="icon" href="data:," />
     <title>Novità — AI.it</title>
     <script>(() => { try { const saved = localStorage.getItem("aiit-theme"); const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dataset.theme = saved || preferred; } catch (_) { document.documentElement.dataset.theme = "light"; } })();</script>
-    <link rel="stylesheet" href="styles.css?v=news-1" />
-    <link rel="stylesheet" href="altro.css?v=news-1" />
+    <link rel="stylesheet" href="styles.css?v=news-list-3" />
+    <link rel="stylesheet" href="novita.css?v=4" />
   </head>
-  <body class="detail-page dossier-page news-page">
-    <a class="skip-link" href="#top">Salta al contenuto</a><div class="noise" aria-hidden="true"></div>
+  <body class="detail-page news-page news-list-page">
+    <a class="skip-link" href="#feed">Salta alle notizie</a><div class="noise" aria-hidden="true"></div>
     <header class="site-header"><a class="brand" href="index.html" aria-label="AI.it, homepage"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>AI.it</span></a><div class="header-actions"><div class="issue-label"><span>Sezione</span><strong>N0 / Novità</strong></div><button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false"><span class="theme-toggle-icon" aria-hidden="true">◐</span><span id="theme-toggle-label">Scuro</span></button></div></header>
     <nav class="section-nav" aria-label="Sezioni del sito"><a href="index.html">Home</a><a href="sistema.html">Il sistema</a><a href="altro.html">Dossier</a><a href="novita.html" aria-current="page">Novità</a></nav>
 
-    <main id="top">
-      <section class="dossier-page-hero news-page-hero" aria-labelledby="news-title">
-        <div class="dossier-page-number">N0</div>
-        <div data-dossier-reveal><p class="kicker">Un taccuino, non un flusso infinito</p><h1 id="news-title">Novità</h1></div>
-        <p class="dossier-page-deck" data-dossier-reveal>Poche notizie che cambiano il quadro. Ognuna separa ciò che è verificato, ciò che è riportato e ciò che resta da capire.</p>
-      </section>
+    <main>
+      <header class="news-index-head">
+        <div><span>N0</span><h1>Novità</h1></div>
+        <p>Aggiornamenti sull’AI. I fatti essenziali restano visibili; il contesto si apre con un clic.</p>
+      </header>
 
-      <section class="news-lead" aria-labelledby="news-lead-title">
-        <div class="news-lead-meta" data-dossier-reveal><span>Prima notizia</span><strong>20.07.2026</strong><small>Matematica · AI per la scienza</small></div>
-        <a class="news-lead-story" href="news-jacobiana.html" data-dossier-reveal>
-          <div class="news-lead-copy">
-            <p class="news-signal"><i aria-hidden="true"></i> Controesempio verificato</p>
-            <h2 id="news-lead-title">Tre ingressi.<br />Una sola <em>uscita.</em></h2>
-            <p>Claude Fable avrebbe contribuito a trovare un controesempio alla congettura jacobiana, aperta dal 1939. Il risultato si può controllare; la storia della scoperta è ancora da ricostruire.</p>
-            <span class="news-read-action">Leggi la storia <b aria-hidden="true">↗</b></span>
+      <section class="news-list" id="feed" aria-labelledby="feed-title">
+        <header class="news-list-head"><h2 id="feed-title">Ultimi aggiornamenti</h2><span>2 notizie</span></header>
+
+        <details class="news-list-item" id="jacobiana">
+          <summary aria-labelledby="jacobiana-title">
+            <span class="news-item-meta"><b>N1</b><time datetime="2026-07-20">20 luglio 2026</time><span class="news-item-topic">AI × matematica</span><span class="news-item-status"><i></i> calcoli verificati</span></span>
+            <span class="news-item-title" id="jacobiana-title">Controesempio alla congettura jacobiana: Alpöge cita Claude Fable</span>
+            <span class="news-item-deck">La formula regge; il ruolo preciso del modello nel lavoro non è ancora documentato.</span>
+            <span class="news-item-toggle" aria-hidden="true"></span>
+          </summary>
+
+          <div class="news-item-body">
+            <section class="news-screen-stack" aria-label="Screenshot della notizia">
+              <figure class="news-screen news-screen-meme">
+                <div class="news-screen-label"><span>01</span><strong>Il meme</strong></div>
+                <a href="assets/news-jacobiana-meme.png" target="_blank" aria-label="Apri il meme a dimensione intera"><img src="assets/news-jacobiana-meme.png" alt="Meme sulla notizia: una conversazione in cui nessuno sa spiegare che cosa sia la congettura jacobiana" /></a>
+                <figcaption>Il meme con cui la notizia ha iniziato a circolare.</figcaption>
+              </figure>
+
+              <figure class="news-screen news-screen-post">
+                <div class="news-screen-label"><span>02</span><strong>Il post originale</strong></div>
+                <a href="assets/news-jacobiana-post.png" target="_blank" aria-label="Apri il post originale a dimensione intera"><img src="assets/news-jacobiana-post.png" alt="Screenshot del post di Levent Alpöge con la formula del controesempio e tre punti distinti" /></a>
+                <figcaption>La formula pubblicata da Levent Alpöge e i tre punti che producono la stessa uscita.</figcaption>
+              </figure>
+            </section>
+
+            <section class="news-fact-grid" aria-label="Stato della notizia">
+              <div><span>Verificato</span><p>Il determinante jacobiano è sempre <strong>−2</strong> e i tre punti indicati collidono.</p></div>
+              <div><span>Riportato</span><p>Alpöge attribuisce a Fable parte del lavoro sul controesempio.</p></div>
+              <div><span>Non pubblico</span><p>Non conosciamo prompt, tentativi o divisione del lavoro tra matematico e modello.</p></div>
+            </section>
+
+            <section class="news-explanation" aria-labelledby="jacobiana-explanation-title">
+              <div class="news-explanation-copy">
+                <span>In breve</span>
+                <h3 id="jacobiana-explanation-title">Perché il controesempio conta</h3>
+                <p>La congettura sosteneva che una mappa polinomiale con determinante jacobiano costante e diverso da zero dovesse avere un inverso polinomiale. Qui la condizione locale resta valida, ma tre ingressi distinti finiscono nella stessa uscita: quindi la mappa non è invertibile globalmente.</p>
+              </div>
+              <div class="news-proof-card" aria-label="Verifica sintetica del controesempio">
+                <div><span>Condizione</span><strong>det JF = −2</strong></div>
+                <div><span>Collisione</span><code>F(0, 0, −¼)<br />= F(1, −3/2, 13/2)<br />= F(−1, 3/2, 13/2)<br />= (−¼, 0, 0)</code></div>
+              </div>
+            </section>
+
+            <footer class="news-item-footer">
+              <p>Il calcolo si può controllare. L’attribuzione a Claude, per ora, dipende dal racconto dell’autore.</p>
+              <div><a href="news-jacobiana.html">Apri la pagina dedicata →</a><a href="https://x.com/__alpoge__/status/2079028340955197566" target="_blank" rel="noreferrer">Post originale ↗</a></div>
+            </footer>
           </div>
+        </details>
 
-          <div class="news-collision-preview" aria-hidden="true">
-            <div class="preview-topline"><span>Il certificato</span><span>3 → 1</span></div>
-            <svg viewBox="0 0 520 480" preserveAspectRatio="none">
-              <path d="M62 94 C225 94 290 240 446 240" />
-              <path d="M62 240 C225 240 290 240 446 240" />
-              <path d="M62 386 C225 386 290 240 446 240" />
-            </svg>
-            <i class="preview-point point-a">A</i><i class="preview-point point-b">B</i><i class="preview-point point-c">C</i>
-            <div class="preview-output"><small>Stessa uscita</small><strong>(−¼, 0, 0)</strong></div>
-            <p>det JF = −2 <span>ovunque</span></p>
+        <details class="news-list-item news-list-item-thunder" id="thunder">
+          <summary aria-labelledby="thunder-title">
+            <span class="news-item-meta"><b>N2</b><time datetime="2026-07-20">20 luglio 2026</time><span class="news-item-topic">AI × difesa</span><span class="news-item-status"><i></i> primo volo 2027</span></span>
+            <span class="news-item-title" id="thunder-title">Anduril presenta Thunder, il tiltrotore autonomo per gli Apache</span>
+            <span class="news-item-toggle" aria-hidden="true"></span>
+          </summary>
+
+          <div class="news-item-body thunder-story">
+            <figure class="thunder-hero">
+              <img src="assets/anduril-thunder-2026.webp" width="1600" height="899" loading="lazy" decoding="async" alt="Vista frontale del modello Thunder di Anduril, con due grandi rotori alle estremità dell’ala" />
+              <div class="thunder-hero-label" aria-hidden="true"><span>Thunder</span><strong>Modello in scala reale</strong></div>
+              <figcaption><span>Immagine ufficiale: Anduril</span><span>Presentazione al Farnborough International Airshow, 20 luglio 2026</span></figcaption>
+            </figure>
+
+            <section class="thunder-intro" aria-labelledby="thunder-intro-title">
+              <div>
+                <span class="thunder-section-label">Che cos’è</span>
+                <h3 id="thunder-intro-title">Decolla come un elicottero. Poi vola sulle ali.</h3>
+              </div>
+              <div class="thunder-intro-copy">
+                <p>Thunder è un velivolo militare senza pilota sviluppato da Anduril con Archer Aviation. I due rotori possono inclinarsi: restano verticali per decollare e atterrare senza pista, poi ruotano in avanti per una crociera più efficiente.</p>
+                <p>L’obiettivo è farlo volare in formazione con elicotteri d’attacco come l’Apache: può avanzare verso le minacce, condividere dati, difendere il gruppo e trasportare sensori o armi senza aggiungere altri piloti esposti.</p>
+              </div>
+            </section>
+
+            <section class="thunder-payload" aria-labelledby="thunder-payload-title">
+              <header>
+                <span class="thunder-section-label">Carico modulare</span>
+                <h3 id="thunder-payload-title">Tre configurazioni principali. Non tutte insieme.</h3>
+                <p>Il vano principale viene preparato per una delle tre opzioni; il modulo nel muso può aggiungere la difesa anti-drone.</p>
+              </header>
+              <div class="thunder-payload-grid">
+                <article><strong>10</strong><span>missili aria-terra</span><small>Per esempio Hellfire, JAGM o Barracuda-100M</small></article>
+                <article><strong>16</strong><span>“launched effects”</span><small>Piccoli droni o sistemi lanciati in volo, come ALTIUS-600</small></article>
+                <article><strong>76</strong><span>razzi da 70 mm</span><small>Configurazione alternativa del vano principale</small></article>
+                <article class="thunder-payload-nose"><strong>+12</strong><span>effettori anti-drone</span><small>Nel modulo anteriore, oltre al carico principale</small></article>
+              </div>
+            </section>
+
+            <section class="thunder-specs" aria-labelledby="thunder-specs-title">
+              <header>
+                <span class="thunder-section-label">Specifiche pubblicate</span>
+                <h3 id="thunder-specs-title">Quello che sappiamo davvero.</h3>
+              </header>
+              <dl class="thunder-spec-grid">
+                <div><dt>Classe</dt><dd><strong>Group 5 UAS</strong><span>La categoria statunitense dei droni di maggiori dimensioni; non è il peso esatto.</span></dd></div>
+                <div><dt>Architettura</dt><dd><strong>Doppio tiltrotore VTOL</strong><span>Decollo verticale e crociera sostenuta dall’ala.</span></dd></div>
+                <div><dt>Propulsione</dt><dd><strong>Ibrida-elettrica in serie</strong><span>I rotori variano i giri per consumare meno nelle diverse fasi di volo.</span></dd></div>
+                <div><dt>Autonomia</dt><dd><strong>Lattice</strong><span>Sensori, visione artificiale, mappe e calcolo a bordo per volare in formazione.</span></dd></div>
+                <div><dt>Ambiente</dt><dd><strong>Bassa quota</strong><span>Progettato per seguire il terreno anche con GPS o comunicazioni degradati.</span></dd></div>
+                <div><dt>Logistica</dt><dd><strong>Container standard</strong><span>Può essere smontato per il trasporto via terra, mare, ferrovia o aereo.</span></dd></div>
+                <div><dt>Primo volo</dt><dd><strong>Previsto nel 2027</strong><span>Finora sono stati provati velivoli sostitutivi a grandezza naturale.</span></dd></div>
+                <div><dt>Dati non pubblici</dt><dd><strong>Velocità, raggio, peso, misure e prezzo</strong><span>Anduril ha descritto gli obiettivi, ma non ha fornito valori esatti per Thunder.</span></dd></div>
+              </dl>
+            </section>
+
+            <aside class="thunder-reality" aria-labelledby="thunder-reality-title">
+              <div><span class="thunder-section-label">Reality check</span><h3 id="thunder-reality-title">È un progetto avanzato, non ancora un velivolo operativo.</h3></div>
+              <div class="thunder-reality-grid">
+                <p><strong>Presentato</strong><span>Un modello a grandezza naturale e l’architettura della piattaforma.</span></p>
+                <p><strong>Testato</strong><span>Secondo le aziende, più voli con velivoli sostitutivi a grandezza naturale.</span></p>
+                <p><strong>Da dimostrare</strong><span>Le prestazioni di Thunder, l’autonomia in missione e la produzione su larga scala.</span></p>
+              </div>
+            </aside>
+
+            <footer class="news-item-footer thunder-footer">
+              <p>Le configurazioni e le capacità sono dati o obiettivi dichiarati dai produttori. La prova decisiva inizierà con il primo volo previsto nel 2027.</p>
+              <div><a href="https://www.anduril.com/news/thunder" target="_blank" rel="noreferrer">Annuncio Anduril ↗</a><a href="https://investors.archer.com/news/news-details/2026/Anduril-and-Archer-Unveil-Jointly-Developed-Autonomous-VTOL-Platform-For-Commercial-and-Defense-Applications/default.aspx" target="_blank" rel="noreferrer">Comunicato Archer ↗</a><a href="https://aviationweek.com/defense/aircraft-propulsion/anduril-hopes-reclaim-low-altitude-new-thunder" target="_blank" rel="noreferrer">Dati tecnici ↗</a></div>
+            </footer>
           </div>
-        </a>
-        <div class="news-lead-verdict" data-dossier-reveal><span><i></i> Il risultato matematico è riproducibile</span><span><i></i> Alpöge attribuisce un contributo a Fable</span><span><i></i> Processo completo non ancora pubblico</span></div>
+        </details>
       </section>
 
-      <section class="news-entry-rules" aria-labelledby="news-rules-title">
-        <header data-dossier-reveal><p class="kicker">La regola editoriale</p><h2 id="news-rules-title">Tre filtri prima di pubblicare.</h2></header>
-        <div class="news-rule-grid">
-          <article data-dossier-reveal><span>01</span><h3>Cambia il quadro</h3><p>Un annuncio entra solo se modifica capacità, costi, accesso, infrastrutture o regole in modo rilevante.</p></article>
-          <article data-dossier-reveal><span>02</span><h3>Ha una fonte</h3><p>Prima i documenti originali; poi, quando serve, una verifica indipendente e riproducibile.</p></article>
-          <article data-dossier-reveal><span>03</span><h3>Dichiara lo stato</h3><p>Fatti, attribuzioni e domande aperte restano visivamente separati: niente certezza aggiunta per rendere il titolo più forte.</p></article>
-        </div>
-      </section>
-
-      <nav class="chapter-next" aria-label="Continua la lettura"><a href="altro.html">← Precedente: Dossier</a><a href="index.html">Torna alla Home →</a></nav>
+      <nav class="chapter-next" aria-label="Continua la lettura"><a href="altro.html">← Dossier</a><a href="index.html">Home →</a></nav>
     </main>
-    <footer class="site-footer"><span>AI.it</span><span>Novità · 1 storia verificata</span></footer>
-    <script src="app.js"></script><script src="dossier.js"></script>
+    <footer class="site-footer"><span>AI.it</span><span>Novità · 2 aggiornamenti</span></footer>
+    <script src="app.js"></script>
   </body>
 </html>

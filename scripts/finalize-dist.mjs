@@ -31,7 +31,6 @@ const routeFiles = [
   "altro.html",
   "novita.html",
   "news-jacobiana.html",
-  "news-jacobiana.html",
   "benchmark.html",
   "politica.html",
   "guerra.html",
@@ -43,14 +42,13 @@ const routeFiles = [
   "politica.js",
   "guerra.js",
   "news-jacobiana.js",
-  "news-jacobiana.js",
   "spooky-timeline.js",
   "energy.css",
   "algorithms.css",
   "inferenza.css",
   "politica.css",
   "altro.css",
-  "news-jacobiana.css",
+  "novita.css",
   "news-jacobiana.css",
   "spooky-timeline.css",
   "spooky-landian.css",
@@ -64,6 +62,8 @@ const maxEmbeddedAssetBytes = 256 * 1024;
 const alwaysEmbeddedAssets = new Set([
   "assets/code-contributed-per-person-quarter-2026-it.png",
   "assets/claude-code-session-success-rate-2026-it.png",
+  "assets/news-jacobiana-meme.png",
+  "assets/news-jacobiana-post.png",
   "assets/openai-output-tokens-by-department-2026-it.png"
 ]);
 
