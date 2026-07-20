@@ -954,6 +954,57 @@ if (scalingRange && scalingOutput && scalingFitPath && scalingMarker && scalingG
   renderScalingState();
 }
 
+const siteMapExplorer = document.getElementById("site-map-explorer");
+if (siteMapExplorer) {
+  const siteMapNodes = [...siteMapExplorer.querySelectorAll("[data-map-node]")];
+  const siteMapLinks = [...siteMapExplorer.querySelectorAll("[data-map-link]")];
+  const siteMapDetailKind = document.getElementById("site-map-detail-kind");
+  const siteMapDetailIndex = document.getElementById("site-map-detail-index");
+  const siteMapDetailTitle = document.getElementById("site-map-detail-title");
+  const siteMapDetailDescription = document.getElementById("site-map-detail-description");
+  const siteMapDetailLink = document.getElementById("site-map-detail-link");
+
+  const selectSiteMapNode = node => {
+    const selectedPath = (node.dataset.mapPath || "").split(" ").filter(Boolean);
+    const relatedNodes = new Set(["home", ...selectedPath]);
+    const activeAccent = getComputedStyle(node).getPropertyValue("--map-accent").trim() || "var(--home-coral)";
+
+    siteMapExplorer.style.setProperty("--site-map-active", activeAccent);
+    siteMapNodes.forEach(candidate => {
+      const isActive = candidate === node;
+      candidate.classList.toggle("is-active", isActive);
+      candidate.classList.toggle("is-related", !isActive && relatedNodes.has(candidate.dataset.mapNode));
+      candidate.setAttribute("aria-pressed", String(isActive));
+    });
+    siteMapLinks.forEach(link => link.classList.toggle("is-active", selectedPath.includes(link.dataset.mapLink)));
+
+    siteMapDetailKind.textContent = node.dataset.mapKind;
+    siteMapDetailIndex.textContent = node.dataset.mapIndex;
+    siteMapDetailTitle.textContent = node.dataset.mapTitle;
+    siteMapDetailDescription.textContent = node.dataset.mapDescription;
+    siteMapDetailLink.href = node.dataset.mapHref;
+    siteMapDetailLink.firstChild.textContent = `${node.dataset.mapAction} `;
+  };
+
+  siteMapNodes.forEach((node, index) => {
+    node.addEventListener("click", () => selectSiteMapNode(node));
+    node.addEventListener("keydown", event => {
+      let nextIndex = index;
+      if (event.key === "ArrowRight" || event.key === "ArrowDown") nextIndex = Math.min(index + 1, siteMapNodes.length - 1);
+      else if (event.key === "ArrowLeft" || event.key === "ArrowUp") nextIndex = Math.max(index - 1, 0);
+      else if (event.key === "Home") nextIndex = 0;
+      else if (event.key === "End") nextIndex = siteMapNodes.length - 1;
+      else return;
+
+      event.preventDefault();
+      siteMapNodes[nextIndex].focus();
+      selectSiteMapNode(siteMapNodes[nextIndex]);
+    });
+  });
+
+  selectSiteMapNode(siteMapNodes.find(node => node.classList.contains("is-active")) || siteMapNodes[0]);
+}
+
 const secretWord = document.getElementById("secret-word");
 if (secretWord) {
   const requiredClicks = 7;
