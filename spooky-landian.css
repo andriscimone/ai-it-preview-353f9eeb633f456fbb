@@ -174,7 +174,7 @@
   border: 1px solid var(--signal);
   background: var(--void);
   color: var(--signal);
-  font: 500 clamp(9px, .8vw, 12px)/1.1 var(--mono);
+  font: 500 clamp(10px, .9vw, 14px)/1.1 var(--mono);
   letter-spacing: .18em;
   box-shadow: 6px 6px 0 rgba(255, 72, 47, .24);
 }
@@ -1111,7 +1111,7 @@
 
   .spooky-page.landian-skin .hero-manifesto p {
     max-width: 100%;
-    font-size: 8px;
+    font-size: 9px;
     letter-spacing: .1em;
   }
 
