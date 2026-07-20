@@ -27,8 +27,8 @@
         window.location.replace("index.html#tesi");
       })();
     </script>
-    <link rel="stylesheet" href="spooky-timeline.css?v=s7" />
-    <link rel="stylesheet" href="spooky-landian.css?v=l8" />
+    <link rel="stylesheet" href="spooky-timeline.css?v=s8" />
+    <link rel="stylesheet" href="spooky-landian.css?v=l11" />
     <link rel="stylesheet" href="spooky-accelerando.css?v=a6" />
   </head>
   <body class="spooky-page landian-skin">
@@ -45,15 +45,20 @@
     </header>
 
     <main id="main-content">
-      <section class="spooky-hero" id="top" aria-labelledby="spooky-title">
+      <section class="spooky-hero" id="top" aria-labelledby="machinic-title">
         <div class="hero-status">
           <span>A-43 / FUTURE BRANCHES</span>
           <span>Indice delle fonti · 19.07.2026</span>
         </div>
 
+        <header class="hero-manifesto">
+          <h1 id="machinic-title">MACHINIC AUTOPOIESIS</h1>
+          <p><abbr title="recursive self improvement">RSI</abbr>: recursive self improvement</p>
+        </header>
+
         <div class="hero-copy">
           <p class="section-kicker">Prima i segnali. Poi le biforcazioni.</p>
-          <h1 id="spooky-title">spooky timeline,<br /><em>not so distant.</em></h1>
+          <h2 id="spooky-title">spooky timeline,<br /><em>not so distant.</em></h2>
           <p class="hero-deck">
             Una cronaca registra il sistema che accelera. Tre documenti propongono orologi diversi.
             Un video mostra dodici destinazioni. Qui restano separati:
@@ -65,12 +70,82 @@
           </div>
         </div>
 
-        <div class="future-clock" aria-hidden="true">
-          <div class="clock-orbit"><i></i><i></i><i></i><b></b></div>
-          <span class="clock-now">2025</span>
-          <span class="clock-branch">2029</span>
-          <span class="clock-edge">2040</span>
-          <p>Il futuro non è una linea.<br />È un campo di biforcazioni.</p>
+        <div
+          class="cave-meme"
+          data-cave-meme
+          role="group"
+          aria-label="Animazione a scorrimento: Einstein proietta l'ombra E uguale MC al quadrato nella caverna; Pepe la abbandona, esce e scopre Nick Land al posto del sole."
+        >
+          <div class="cave-meme-pin">
+            <div class="cave-meme-stage" data-cave-stage>
+              <img
+                class="cave-meme-backdrop"
+                src="assets/spooky-plato-cave-v1.webp"
+                width="1672"
+                height="941"
+                alt="Una caverna in stile collage si apre su un paesaggio abbagliante e impossibile."
+              />
+              <div class="cave-meme-apparatus" aria-hidden="true">
+                <img
+                  src="assets/spooky-einstein-projector-v1.webp"
+                  width="1024"
+                  height="1536"
+                  alt=""
+                />
+              </div>
+              <span class="cave-meme-beam" aria-hidden="true"></span>
+              <span class="cave-meme-formula" aria-hidden="true">E=MC²</span>
+              <div class="cave-meme-pepe-prisoner" aria-hidden="true">
+                <img
+                  src="assets/spooky-pepe-prisoner-v1.webp"
+                  width="1024"
+                  height="1536"
+                  alt=""
+                />
+              </div>
+              <div class="cave-meme-pepe-exit" aria-hidden="true">
+                <img
+                  src="assets/spooky-pepe-exit-v1.webp"
+                  width="1024"
+                  height="1536"
+                  alt=""
+                />
+              </div>
+              <button
+                class="cave-meme-sun"
+                type="button"
+                data-cave-sun
+                aria-pressed="false"
+                aria-hidden="true"
+                aria-label="Attiva la seconda apparizione del sole Nick Land"
+                disabled
+              >
+                <img
+                  class="cave-meme-sun-primary"
+                  src="assets/spooky-nick-land-sun.webp"
+                  width="452"
+                  height="678"
+                  alt=""
+                />
+                <img
+                  class="cave-meme-sun-alt"
+                  src="assets/spooky-nick-land-sun-alt.webp"
+                  width="1280"
+                  height="720"
+                  alt=""
+                />
+              </button>
+              <span class="cave-meme-chapter cave-meme-chapter-inside" aria-hidden="true">01 / APPARATO DELLE OMBRE</span>
+              <span class="cave-meme-chapter cave-meme-chapter-outside" aria-hidden="true">02 / FUORI DALLA TEORIA</span>
+              <span class="cave-meme-instruction cave-meme-instruction-scroll" aria-hidden="true">SCORRI PER USCIRE ↓</span>
+              <span class="cave-meme-instruction cave-meme-instruction-sun" aria-hidden="true">TOCCA IL SOLE</span>
+              <span class="cave-meme-progress" aria-hidden="true"><i></i></span>
+            </div>
+            <p class="cave-meme-caption" aria-hidden="true">
+              <span class="cave-caption-inside"><b>01 / NELLA CAVERNA</b><strong>Einstein proietta E=MC². Pepe contempla l'ombra.</strong></span>
+              <span class="cave-caption-outside"><b>02 / FUORI</b><strong>La formula era l'ombra. Il sole era Nick Land.</strong></span>
+            </p>
+          </div>
         </div>
 
         <dl class="hero-counts" aria-label="Contenuto della pagina">
@@ -973,6 +1048,6 @@
       </section>
     </main>
 
-    <script src="spooky-timeline.js?v=s3"></script>
+    <script src="spooky-timeline.js?v=s6"></script>
   </body>
 </html>

@@ -102,6 +102,10 @@
 }
 
 .spooky-page.landian-skin .spooky-hero {
+  grid-template-columns: minmax(0, .9fr) minmax(420px, 1.1fr);
+  grid-template-rows: auto auto 1fr auto;
+  row-gap: clamp(24px, 3.4vw, 52px);
+  overflow: clip;
   background-color: var(--void);
   background-image:
     linear-gradient(90deg, transparent 49.9%, rgba(0, 224, 64, .11) 50%, transparent 50.1%),
@@ -146,7 +150,50 @@
   letter-spacing: .14em;
 }
 
+.spooky-page.landian-skin .hero-manifesto {
+  grid-column: 1 / -1;
+  width: 100%;
+  align-self: start;
+  padding: clamp(12px, 2vw, 26px) 0 0;
+  text-align: center;
+}
+
+.spooky-page.landian-skin .hero-manifesto h1 {
+  margin: 0;
+  color: var(--ghost);
+  font: 500 clamp(46px, 5.7vw, 92px)/.83 var(--mono);
+  letter-spacing: -.085em;
+  text-wrap: balance;
+  text-shadow: .04em .025em 0 rgba(255, 72, 47, .3);
+}
+
+.spooky-page.landian-skin .hero-manifesto p {
+  width: fit-content;
+  margin: clamp(18px, 2.2vw, 28px) auto 0;
+  padding: 8px 13px 7px;
+  border: 1px solid var(--signal);
+  background: var(--void);
+  color: var(--signal);
+  font: 500 clamp(9px, .8vw, 12px)/1.1 var(--mono);
+  letter-spacing: .18em;
+  box-shadow: 6px 6px 0 rgba(255, 72, 47, .24);
+}
+
+.spooky-page.landian-skin .hero-manifesto abbr {
+  color: var(--danger);
+  text-decoration: none;
+}
+
+.spooky-page.landian-skin .hero-copy {
+  grid-column: 1;
+  align-self: start;
+  position: sticky;
+  top: 130px;
+  padding: clamp(24px, 3vw, 48px) 0;
+}
+
 .spooky-page.landian-skin .hero-copy h1,
+.spooky-page.landian-skin .hero-copy h2,
 .spooky-page.landian-skin .section-heading h2,
 .spooky-page.landian-skin .source-card h3,
 .spooky-page.landian-skin .source-timeline h3,
@@ -157,18 +204,384 @@
   text-transform: uppercase;
 }
 
-.spooky-page.landian-skin .hero-copy h1 {
+.spooky-page.landian-skin .hero-copy h1,
+.spooky-page.landian-skin .hero-copy h2 {
   max-width: 1040px;
+  font-size: clamp(52px, 5.8vw, 92px);
+  line-height: .8;
   letter-spacing: -.08em;
   text-shadow: .045em .025em 0 rgba(255, 72, 47, .2);
 }
 
-.spooky-page.landian-skin .hero-copy h1 em {
-  margin-left: clamp(0px, 5vw, 90px);
+.spooky-page.landian-skin .hero-copy h1 em,
+.spooky-page.landian-skin .hero-copy h2 em {
+  margin-left: clamp(0px, 2vw, 34px);
   color: var(--danger);
   text-decoration: underline;
   text-decoration-thickness: .035em;
   text-underline-offset: .08em;
+}
+
+.spooky-page.landian-skin .cave-meme {
+  --apparatus-opacity: 1;
+  --beam-opacity: .72;
+  --formula-opacity: 1;
+  --formula-scale: .88;
+  --formula-x: 0%;
+  --formula-blur: 0px;
+  --prisoner-opacity: 1;
+  --pepe-exit-opacity: 0;
+  --pepe-exit-x: -38%;
+  --pepe-exit-y: 12%;
+  --pepe-exit-scale: .72;
+  --inside-opacity: 1;
+  --outside-opacity: 0;
+  --land-opacity: 0;
+  --land-scale: .28;
+  --backdrop-brightness: .56;
+  --cave-veil-opacity: .92;
+  --cave-progress-width: 0%;
+  grid-column: 2;
+  width: 100%;
+  height: max(126svh, 920px);
+  max-width: 720px;
+  align-self: start;
+  justify-self: end;
+  margin: 0;
+  position: relative;
+}
+
+.spooky-page.landian-skin .cave-meme-pin {
+  position: sticky;
+  top: 96px;
+}
+
+.spooky-page.landian-skin .cave-meme-stage {
+  aspect-ratio: 16 / 10;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid rgba(0, 224, 64, .65);
+  background: #050605;
+  box-shadow: 10px 10px 0 rgba(255, 72, 47, .15);
+  clip-path: polygon(0 0, 94% 0, 100% 10%, 100% 100%, 6% 100%, 0 90%);
+}
+
+.spooky-page.landian-skin .cave-meme-stage::before,
+.spooky-page.landian-skin .cave-meme-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.spooky-page.landian-skin .cave-meme-stage::before {
+  opacity: var(--cave-veil-opacity);
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, .9) 0, rgba(0, 0, 0, .62) 38%, transparent 70%),
+    linear-gradient(180deg, rgba(0, 0, 0, .12), transparent 56%, rgba(0, 0, 0, .36));
+  will-change: opacity;
+}
+
+.spooky-page.landian-skin .cave-meme-stage::after {
+  opacity: .13;
+  background: repeating-linear-gradient(0deg, transparent 0 3px, #00e040 3px 4px);
+  mix-blend-mode: multiply;
+}
+
+.spooky-page.landian-skin .cave-meme-backdrop {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(var(--backdrop-brightness)) contrast(1.08) saturate(.86);
+  will-change: filter;
+}
+
+.spooky-page.landian-skin .cave-meme-apparatus {
+  width: 41%;
+  position: absolute;
+  z-index: 3;
+  left: -6%;
+  bottom: -5%;
+  opacity: var(--apparatus-opacity);
+  filter:
+    brightness(.64)
+    grayscale(1)
+    contrast(1.42)
+    drop-shadow(6px 0 0 rgba(0, 224, 64, .2));
+  transform: rotate(-1.5deg);
+  transform-origin: 50% 90%;
+  will-change: opacity;
+}
+
+.spooky-page.landian-skin .cave-meme-apparatus img,
+.spooky-page.landian-skin .cave-meme-pepe-prisoner img,
+.spooky-page.landian-skin .cave-meme-pepe-exit img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.spooky-page.landian-skin .cave-meme-beam {
+  position: absolute;
+  z-index: 2;
+  top: 47%;
+  left: 28%;
+  width: 27%;
+  height: 12%;
+  opacity: var(--beam-opacity);
+  background: linear-gradient(90deg, rgba(0, 224, 64, .34), rgba(232, 217, 188, .06));
+  clip-path: polygon(0 43%, 100% 0, 100% 100%, 0 58%);
+  mix-blend-mode: screen;
+  filter: blur(2px);
+  pointer-events: none;
+  will-change: opacity;
+}
+
+.spooky-page.landian-skin .cave-meme-formula {
+  width: 42%;
+  height: 32%;
+  position: absolute;
+  z-index: 6;
+  top: 27%;
+  left: 14%;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(ellipse at center, rgba(232, 217, 188, .76), rgba(0, 224, 64, .14) 48%, transparent 72%);
+  color: rgba(0, 0, 0, .92);
+  font: 800 clamp(30px, 4.8vw, 68px)/.9 var(--mono);
+  letter-spacing: -.11em;
+  text-align: center;
+  text-shadow:
+    -5px 0 0 rgba(0, 224, 64, .18),
+    7px 2px 0 rgba(255, 72, 47, .1);
+  opacity: var(--formula-opacity);
+  filter: blur(var(--formula-blur));
+  transform: translateX(var(--formula-x)) skewY(-5deg) rotate(-2deg) scale(var(--formula-scale));
+  transform-origin: 20% 50%;
+  mix-blend-mode: normal;
+  pointer-events: none;
+  will-change: opacity, transform, filter;
+}
+
+.spooky-page.landian-skin .cave-meme-pepe-prisoner {
+  width: 28%;
+  position: absolute;
+  z-index: 4;
+  left: 25%;
+  bottom: -14%;
+  opacity: var(--prisoner-opacity);
+  filter: brightness(.52) contrast(1.28) drop-shadow(7px 0 0 rgba(255, 72, 47, .18));
+  transform: rotate(2deg);
+  transform-origin: 50% 90%;
+  will-change: opacity;
+}
+
+.spooky-page.landian-skin .cave-meme-pepe-exit {
+  width: 24%;
+  position: absolute;
+  z-index: 4;
+  left: 57%;
+  bottom: -13%;
+  opacity: var(--pepe-exit-opacity);
+  filter: brightness(1.04) contrast(1.2) drop-shadow(8px 0 0 rgba(0, 224, 64, .28));
+  transform:
+    translate(var(--pepe-exit-x), var(--pepe-exit-y))
+    rotate(2deg)
+    scale(var(--pepe-exit-scale));
+  transform-origin: 50% 92%;
+  will-change: opacity, transform;
+}
+
+.spooky-page.landian-skin .cave-meme-sun {
+  width: 31%;
+  aspect-ratio: 1;
+  position: absolute;
+  z-index: 4;
+  top: 5%;
+  right: 3.5%;
+  padding: 0;
+  overflow: visible;
+  border: 2px solid var(--signal);
+  border-radius: 50%;
+  background: #e8d9bc;
+  appearance: none;
+  cursor: pointer;
+  opacity: var(--land-opacity);
+  touch-action: manipulation;
+  box-shadow: 0 0 0 8px rgba(255, 72, 47, .13), 0 0 42px rgba(255, 235, 198, .58);
+  transform: scale(var(--land-scale)) rotate(-6deg);
+  transition: box-shadow .3s ease;
+  transform-origin: 50% 50%;
+  will-change: opacity, transform;
+}
+
+.spooky-page.landian-skin .cave-meme-sun:disabled {
+  pointer-events: none;
+}
+
+.spooky-page.landian-skin .cave-meme-sun::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -20%;
+  border-radius: 50%;
+  background: repeating-conic-gradient(from 3deg, rgba(255, 72, 47, .72) 0 1deg, transparent 1deg 7deg);
+  -webkit-mask-image: radial-gradient(circle, transparent 0 52%, #000 53%);
+  mask-image: radial-gradient(circle, transparent 0 52%, #000 53%);
+  opacity: .72;
+}
+
+.spooky-page.landian-skin .cave-meme-sun img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.18) sepia(.18);
+  transition: opacity .24s steps(2, end), filter .24s ease;
+}
+
+.spooky-page.landian-skin .cave-meme-sun-primary {
+  object-position: 50% 28%;
+}
+
+.spooky-page.landian-skin .cave-meme-sun-alt {
+  opacity: 0;
+  object-position: 66% 36%;
+}
+
+.spooky-page.landian-skin .cave-meme-sun:hover,
+.spooky-page.landian-skin .cave-meme-sun:focus-visible,
+.spooky-page.landian-skin .cave-meme-sun[aria-pressed="true"] {
+  transform: scale(var(--land-scale)) rotate(3deg);
+  box-shadow: 0 0 0 8px rgba(0, 224, 64, .22), 0 0 58px rgba(255, 72, 47, .42);
+}
+
+.spooky-page.landian-skin .cave-meme-sun:hover .cave-meme-sun-primary,
+.spooky-page.landian-skin .cave-meme-sun:focus-visible .cave-meme-sun-primary,
+.spooky-page.landian-skin .cave-meme-sun[aria-pressed="true"] .cave-meme-sun-primary {
+  opacity: 0;
+}
+
+.spooky-page.landian-skin .cave-meme-sun:hover .cave-meme-sun-alt,
+.spooky-page.landian-skin .cave-meme-sun:focus-visible .cave-meme-sun-alt,
+.spooky-page.landian-skin .cave-meme-sun[aria-pressed="true"] .cave-meme-sun-alt {
+  opacity: 1;
+  filter: grayscale(.72) contrast(1.35) sepia(.12);
+}
+
+.spooky-page.landian-skin .cave-meme-chapter {
+  position: absolute;
+  z-index: 6;
+  top: 4%;
+  left: 3%;
+  padding: 5px 7px;
+  background: rgba(2, 3, 2, .84);
+  color: var(--signal);
+  font: 500 clamp(6px, .52vw, 8px)/1 var(--mono);
+  letter-spacing: .12em;
+  pointer-events: none;
+}
+
+.spooky-page.landian-skin .cave-meme-chapter-inside {
+  opacity: var(--inside-opacity);
+}
+
+.spooky-page.landian-skin .cave-meme-chapter-outside {
+  color: var(--danger);
+  opacity: var(--outside-opacity);
+}
+
+.spooky-page.landian-skin .cave-meme-instruction {
+  position: absolute;
+  z-index: 6;
+  right: 3%;
+  bottom: 4%;
+  padding: 5px 7px;
+  background: var(--signal);
+  color: var(--ink);
+  font: 500 clamp(6px, .55vw, 8px)/1 var(--mono);
+  letter-spacing: .12em;
+  pointer-events: none;
+}
+
+.spooky-page.landian-skin .cave-meme-instruction-scroll {
+  opacity: var(--inside-opacity);
+}
+
+.spooky-page.landian-skin .cave-meme-instruction-sun {
+  opacity: var(--land-opacity);
+}
+
+.spooky-page.landian-skin .cave-meme-progress {
+  height: 3px;
+  position: absolute;
+  z-index: 7;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  background: rgba(2, 3, 2, .72);
+  pointer-events: none;
+}
+
+.spooky-page.landian-skin .cave-meme-progress i {
+  width: var(--cave-progress-width);
+  height: 100%;
+  display: block;
+  background: linear-gradient(90deg, var(--signal), var(--danger));
+  will-change: width;
+}
+
+.spooky-page.landian-skin .cave-meme-caption {
+  min-height: 38px;
+  position: relative;
+  margin-top: 15px;
+  padding: 0 3px;
+  font-family: var(--mono);
+  text-transform: uppercase;
+}
+
+.spooky-page.landian-skin .cave-meme-caption > span {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px 16px;
+  align-items: baseline;
+}
+
+.spooky-page.landian-skin .cave-caption-inside {
+  opacity: var(--inside-opacity);
+}
+
+.spooky-page.landian-skin .cave-caption-outside {
+  opacity: var(--outside-opacity);
+}
+
+.spooky-page.landian-skin .cave-meme-caption b {
+  color: var(--signal);
+  font-size: 7px;
+  font-weight: 500;
+  letter-spacing: .12em;
+}
+
+.spooky-page.landian-skin .cave-caption-outside b {
+  color: var(--danger);
+}
+
+.spooky-page.landian-skin .cave-meme-caption strong {
+  color: var(--ghost);
+  font-size: clamp(9px, .75vw, 11px);
+  font-weight: 500;
+  letter-spacing: .035em;
+  text-align: right;
 }
 
 .spooky-page.landian-skin .hero-deck {
@@ -243,6 +656,7 @@
 }
 
 .spooky-page.landian-skin .hero-counts {
+  margin-top: 120px;
   border-top: 2px solid var(--signal);
 }
 
@@ -624,6 +1038,37 @@
 }
 
 @media (max-width: 860px) {
+  .spooky-page.landian-skin .spooky-hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .spooky-page.landian-skin .hero-manifesto,
+  .spooky-page.landian-skin .hero-copy,
+  .spooky-page.landian-skin .cave-meme,
+  .spooky-page.landian-skin .hero-counts {
+    grid-column: 1;
+  }
+
+  .spooky-page.landian-skin .hero-counts {
+    margin-top: 0;
+  }
+
+  .spooky-page.landian-skin .cave-meme {
+    height: max(124svh, 900px);
+    max-width: 760px;
+    justify-self: center;
+  }
+
+  .spooky-page.landian-skin .hero-copy {
+    position: relative;
+    top: auto;
+  }
+
+  .spooky-page.landian-skin .cave-meme-pin {
+    top: 84px;
+  }
+
   .spooky-page.landian-skin .spooky-hero::after {
     right: 23%;
     opacity: .6;
@@ -650,7 +1095,24 @@
   }
 
   .spooky-page.landian-skin .spooky-hero {
+    min-height: 0;
+    row-gap: 34px;
     background-image: repeating-linear-gradient(135deg, transparent 0 24px, rgba(0, 224, 64, .03) 24px 25px);
+  }
+
+  .spooky-page.landian-skin .hero-manifesto {
+    padding-top: 18px;
+  }
+
+  .spooky-page.landian-skin .hero-manifesto h1 {
+    font-size: clamp(44px, 14vw, 68px);
+    line-height: .86;
+  }
+
+  .spooky-page.landian-skin .hero-manifesto p {
+    max-width: 100%;
+    font-size: 8px;
+    letter-spacing: .1em;
   }
 
   .spooky-page.landian-skin .spooky-hero::after {
@@ -658,13 +1120,88 @@
     height: 47%;
   }
 
-  .spooky-page.landian-skin .hero-copy h1 {
+  .spooky-page.landian-skin .hero-copy {
+    padding: 26px 0 12px;
+  }
+
+  .spooky-page.landian-skin .hero-copy h1,
+  .spooky-page.landian-skin .hero-copy h2 {
     font-size: clamp(54px, 16.5vw, 76px);
     line-height: .81;
   }
 
-  .spooky-page.landian-skin .hero-copy h1 em {
+  .spooky-page.landian-skin .hero-copy h1 em,
+  .spooky-page.landian-skin .hero-copy h2 em {
     margin-left: 0;
+  }
+
+  .spooky-page.landian-skin .cave-meme-stage {
+    aspect-ratio: 4 / 3;
+  }
+
+  .spooky-page.landian-skin .cave-meme {
+    height: max(125svh, 850px);
+  }
+
+  .spooky-page.landian-skin .cave-meme-pin {
+    top: 76px;
+  }
+
+  .spooky-page.landian-skin .cave-meme-backdrop {
+    object-position: 54% center;
+  }
+
+  .spooky-page.landian-skin .cave-meme-apparatus {
+    width: 48%;
+    left: -10%;
+    bottom: -3%;
+  }
+
+  .spooky-page.landian-skin .cave-meme-beam {
+    top: 45%;
+    left: 27%;
+    width: 31%;
+    height: 14%;
+  }
+
+  .spooky-page.landian-skin .cave-meme-formula {
+    width: 45%;
+    height: 30%;
+    top: 27%;
+    left: 14%;
+    font-size: 30px;
+  }
+
+  .spooky-page.landian-skin .cave-meme-pepe-prisoner {
+    width: 32%;
+    left: 25%;
+    bottom: -10%;
+  }
+
+  .spooky-page.landian-skin .cave-meme-pepe-exit {
+    width: 30%;
+    left: 53%;
+    bottom: -13%;
+  }
+
+  .spooky-page.landian-skin .cave-meme-sun {
+    width: 37%;
+    right: 3%;
+  }
+
+  .spooky-page.landian-skin .cave-meme-caption {
+    min-height: 54px;
+  }
+
+  .spooky-page.landian-skin .cave-meme-caption > span {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .spooky-page.landian-skin .cave-meme-caption strong {
+    font-size: 9px;
+    line-height: 1.45;
+    text-align: left;
   }
 
   .spooky-page.landian-skin .section-heading h2 {
@@ -711,10 +1248,27 @@
     white-space: nowrap;
   }
 
-  .spooky-page.landian-skin .hero-copy h1 {
+  .spooky-page.landian-skin .hero-copy h1,
+  .spooky-page.landian-skin .hero-copy h2 {
     font-size: 48px;
   }
 
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spooky-page.landian-skin .cave-meme {
+    height: auto;
+  }
+
+  .spooky-page.landian-skin .cave-meme-pin {
+    position: relative;
+    top: auto;
+  }
+
+  .spooky-page.landian-skin .cave-meme-sun,
+  .spooky-page.landian-skin .cave-meme-sun img {
+    transition: none;
+  }
 }
 
 @media (prefers-contrast: more) {

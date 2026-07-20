@@ -1,6 +1,94 @@
 document.documentElement.classList.add("has-js");
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const caveSun = document.querySelector("[data-cave-sun]");
+
+if (caveSun) {
+  caveSun.addEventListener("click", () => {
+    const isActive = caveSun.getAttribute("aria-pressed") !== "true";
+    caveSun.setAttribute("aria-pressed", String(isActive));
+    caveSun.setAttribute(
+      "aria-label",
+      isActive
+        ? "Ripristina la prima apparizione del sole Nick Land"
+        : "Attiva la seconda apparizione del sole Nick Land"
+    );
+  });
+}
+
+const caveMeme = document.querySelector("[data-cave-meme]");
+const caveMemePin = caveMeme?.querySelector(".cave-meme-pin");
+const caveStage = caveMeme?.querySelector("[data-cave-stage]");
+let caveScrollFrame = null;
+
+function clamp01(value) {
+  return Math.min(1, Math.max(0, value));
+}
+
+function smoothStep(value) {
+  const progress = clamp01(value);
+  return progress * progress * (3 - (2 * progress));
+}
+
+function rangeProgress(value, start, end) {
+  return clamp01((value - start) / (end - start));
+}
+
+function syncCaveStory() {
+  caveScrollFrame = null;
+  if (!caveMeme || !caveMemePin || !caveStage) return;
+
+  const memeRect = caveMeme.getBoundingClientRect();
+  const stickyTop = Number.parseFloat(getComputedStyle(caveMemePin).top) || 96;
+  const scrollDistance = Math.max(1, caveMeme.offsetHeight - caveMemePin.offsetHeight);
+  const rawProgress = clamp01((stickyTop - memeRect.top) / scrollDistance);
+  const progress = reduceMotion.matches ? 1 : rawProgress;
+  const formulaProgress = 1 - smoothStep(rangeProgress(progress, .24, .62));
+  const formulaExpansion = smoothStep(rangeProgress(progress, .08, .42));
+  const departureProgress = smoothStep(rangeProgress(progress, .34, .78));
+  const outsideProgress = smoothStep(rangeProgress(progress, .5, .74));
+  const landProgress = smoothStep(rangeProgress(progress, .62, .94));
+
+  caveMeme.style.setProperty("--apparatus-opacity", String(.18 + (formulaProgress * .82)));
+  caveMeme.style.setProperty("--beam-opacity", String(formulaProgress * .72));
+  caveMeme.style.setProperty("--formula-opacity", String(formulaProgress));
+  caveMeme.style.setProperty("--formula-scale", String(.88 + (formulaExpansion * .16)));
+  caveMeme.style.setProperty("--formula-x", `${formulaExpansion * 5}%`);
+  caveMeme.style.setProperty("--formula-blur", `${(1 - formulaProgress) * 4}px`);
+  caveMeme.style.setProperty("--prisoner-opacity", String(1 - departureProgress));
+  caveMeme.style.setProperty("--pepe-exit-opacity", String(departureProgress));
+  caveMeme.style.setProperty("--pepe-exit-x", `${(1 - departureProgress) * -38}%`);
+  caveMeme.style.setProperty("--pepe-exit-y", `${(1 - departureProgress) * 12}%`);
+  caveMeme.style.setProperty("--pepe-exit-scale", String(.72 + (departureProgress * .28)));
+  caveMeme.style.setProperty("--inside-opacity", String(1 - outsideProgress));
+  caveMeme.style.setProperty("--outside-opacity", String(outsideProgress));
+  caveMeme.style.setProperty("--land-opacity", String(landProgress));
+  caveMeme.style.setProperty("--land-scale", String(.28 + (landProgress * .72)));
+  caveMeme.style.setProperty("--backdrop-brightness", String(.56 + (progress * .44)));
+  caveMeme.style.setProperty("--cave-veil-opacity", String(.92 - (progress * .52)));
+  caveMeme.style.setProperty("--cave-progress-width", `${progress * 100}%`);
+  caveMeme.dataset.cavePhase = outsideProgress >= .5 ? "outside" : "inside";
+
+  if (caveSun) {
+    const landIsAvailable = landProgress > .12;
+    caveSun.disabled = !landIsAvailable;
+    caveSun.tabIndex = landIsAvailable ? 0 : -1;
+    caveSun.setAttribute("aria-hidden", String(!landIsAvailable));
+  }
+}
+
+function queueCaveStory() {
+  if (caveScrollFrame !== null) return;
+  caveScrollFrame = window.requestAnimationFrame(syncCaveStory);
+}
+
+if (caveMeme) {
+  window.addEventListener("scroll", queueCaveStory, { passive: true });
+  window.addEventListener("resize", queueCaveStory);
+  reduceMotion.addEventListener?.("change", queueCaveStory);
+  syncCaveStory();
+}
+
 const timelineTabs = [...document.querySelectorAll("[data-timeline-tab]")];
 const timelinePanels = [...document.querySelectorAll("[data-timeline-panel]")];
 

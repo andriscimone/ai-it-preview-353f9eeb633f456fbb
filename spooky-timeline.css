@@ -206,12 +206,14 @@ strong { font-weight: 650; }
   letter-spacing: .1em;
   text-transform: uppercase;
 }
-.hero-copy h1 {
+.hero-copy h1,
+.hero-copy h2 {
   margin: 25px 0 0;
   font: 400 clamp(76px, 9.2vw, 154px)/.77 var(--serif);
   letter-spacing: -.06em;
 }
-.hero-copy h1 em { display: block; color: var(--danger); font-style: normal; }
+.hero-copy h1 em,
+.hero-copy h2 em { display: block; color: var(--danger); font-style: normal; }
 .hero-deck {
   max-width: 720px;
   margin: 46px 0 0;
@@ -1080,7 +1082,8 @@ strong { font-weight: 650; }
   .hero-status { font-size: 7px; }
   .hero-status span:last-child { display: none; }
   .hero-copy { padding: 68px 0 45px; }
-  .hero-copy h1 { font-size: clamp(62px, 19vw, 88px); }
+  .hero-copy h1,
+  .hero-copy h2 { font-size: clamp(62px, 19vw, 88px); }
   .hero-deck { margin-top: 36px; font-size: 14px; }
   .hero-actions { display: grid; }
   .hero-actions a { min-width: 0; }
