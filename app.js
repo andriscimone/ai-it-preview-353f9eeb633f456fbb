@@ -889,16 +889,23 @@ if (homeRevealItems.length && "IntersectionObserver" in window) {
 const scalingRange = document.getElementById("scaling-range");
 const scalingOutput = document.getElementById("scaling-output");
 const scalingFitPath = document.getElementById("scaling-fit-path");
-const scalingMarker = document.getElementById("scaling-marker");
-const scalingGuide = document.getElementById("scaling-guide");
-const scalingCompute = document.getElementById("scaling-compute");
+const scalingFitArea = document.getElementById("scaling-fit-area");
+const scalingPlot = document.querySelector(".scaling-plot");
+const scalingPoint = document.getElementById("scaling-point");
+const scalingCallout = document.getElementById("scaling-callout");
+const scalingCalloutLoss = document.getElementById("scaling-callout-loss");
+const scalingCalloutCompute = document.getElementById("scaling-callout-compute");
+const scalingGuideX = document.getElementById("scaling-guide-x");
+const scalingGuideY = document.getElementById("scaling-guide-y");
+const scalingMultiple = document.getElementById("scaling-multiple");
 const scalingParams = document.getElementById("scaling-params");
 const scalingTokens = document.getElementById("scaling-tokens");
 const scalingLoss = document.getElementById("scaling-loss");
+const scalingPresets = [...document.querySelectorAll("[data-scaling-preset]")];
 
-if (scalingRange && scalingOutput && scalingFitPath && scalingMarker && scalingGuide && scalingCompute && scalingParams && scalingTokens && scalingLoss) {
+if (scalingRange && scalingOutput && scalingFitPath && scalingFitArea && scalingPlot && scalingPoint && scalingCallout && scalingCalloutLoss && scalingCalloutCompute && scalingGuideX && scalingGuideY && scalingMultiple && scalingParams && scalingTokens && scalingLoss) {
   const fit = { E: 1.69, A: 406.4, B: 410.7, alpha: 0.34, beta: 0.28 };
-  const plot = { x0: 90, x1: 680, y0: 42, y1: 340, logMin: 18, logMax: 25, lossMin: 1.8, lossMax: 3.6 };
+  const plot = { x0: 94, x1: 704, y0: 40, y1: 344, logMin: 18, logMax: 25, lossMin: 1.8, lossMax: 3.6 };
   const superscript = { "-": "⁻", "0": "⁰", "1": "¹", "2": "²", "3": "³", "4": "⁴", "5": "⁵", "6": "⁶", "7": "⁷", "8": "⁸", "9": "⁹" };
   const italianNumber = new Intl.NumberFormat("it-IT", { maximumFractionDigits: 2 });
 
@@ -912,6 +919,11 @@ if (scalingRange && scalingOutput && scalingFitPath && scalingMarker && scalingG
     if (value >= 1e12) return `${italianNumber.format(value / 1e12)} mila miliardi`;
     if (value >= 1e9) return `${italianNumber.format(value / 1e9)} miliardi`;
     return `${italianNumber.format(value / 1e6)} milioni`;
+  };
+  const formatMultiplier = value => {
+    if (value >= 1e6) return `${italianNumber.format(value / 1e6)} milioni ×`;
+    if (value >= 1e3) return `${italianNumber.format(value / 1e3)} mila ×`;
+    return `${italianNumber.format(value)} ×`;
   };
   const xForLogCompute = logCompute => plot.x0 + ((logCompute - plot.logMin) / (plot.logMax - plot.logMin)) * (plot.x1 - plot.x0);
   const yForLoss = loss => plot.y0 + ((plot.lossMax - loss) / (plot.lossMax - plot.lossMin)) * (plot.y1 - plot.y0);
@@ -931,26 +943,55 @@ if (scalingRange && scalingOutput && scalingFitPath && scalingMarker && scalingG
     curve.push(`${index === 0 ? "M" : "L"}${point.x.toFixed(2)} ${point.y.toFixed(2)}`);
   }
   scalingFitPath.setAttribute("d", curve.join(" "));
+  scalingFitArea.setAttribute("d", `${curve.join(" ")} L${plot.x1} ${plot.y1} L${plot.x0} ${plot.y1} Z`);
 
   const renderScalingState = () => {
     const point = computeOptimalPoint(Number(scalingRange.value));
     const computeLabel = `${formatScientific(point.compute)} FLOPs`;
-    const lossLabel = `${point.loss.toLocaleString("it-IT", { minimumFractionDigits: 3, maximumFractionDigits: 3 })} nats/token`;
-    scalingOutput.value = computeLabel;
-    scalingOutput.textContent = computeLabel;
-    scalingCompute.textContent = computeLabel;
+    const compactComputeLabel = formatScientific(point.compute);
+    const lossNumber = point.loss.toLocaleString("it-IT", { minimumFractionDigits: 3, maximumFractionDigits: 3 });
+    const lossLabel = `${lossNumber} nats/token`;
+    scalingOutput.value = compactComputeLabel;
+    scalingOutput.textContent = compactComputeLabel;
+    scalingMultiple.textContent = formatMultiplier(point.compute / 1e18);
     scalingParams.textContent = formatLargeCount(point.parameters);
     scalingTokens.textContent = formatLargeCount(point.tokens);
-    scalingLoss.textContent = lossLabel;
-    scalingMarker.setAttribute("cx", point.x.toFixed(2));
-    scalingMarker.setAttribute("cy", point.y.toFixed(2));
-    scalingGuide.setAttribute("x1", point.x.toFixed(2));
-    scalingGuide.setAttribute("x2", point.x.toFixed(2));
-    scalingGuide.setAttribute("y1", point.y.toFixed(2));
+    scalingLoss.textContent = lossNumber;
+    scalingPoint.setAttribute("transform", `translate(${point.x.toFixed(2)} ${point.y.toFixed(2)})`);
+    scalingGuideX.setAttribute("x2", point.x.toFixed(2));
+    scalingGuideX.setAttribute("y1", point.y.toFixed(2));
+    scalingGuideX.setAttribute("y2", point.y.toFixed(2));
+    scalingGuideY.setAttribute("x1", point.x.toFixed(2));
+    scalingGuideY.setAttribute("x2", point.x.toFixed(2));
+    scalingGuideY.setAttribute("y2", point.y.toFixed(2));
+    const calloutX = point.x > 510 ? point.x - 194 : point.x + 18;
+    const calloutY = Math.max(48, Math.min(280, point.y - 66));
+    scalingCallout.setAttribute("transform", `translate(${calloutX.toFixed(2)} ${calloutY.toFixed(2)})`);
+    scalingCalloutLoss.textContent = `LOSS ${lossNumber}`;
+    scalingCalloutCompute.textContent = computeLabel;
+    const progress = ((Number(scalingRange.value) - Number(scalingRange.min)) / (Number(scalingRange.max) - Number(scalingRange.min))) * 100;
+    scalingRange.style.setProperty("--scaling-progress", `${progress}%`);
+    scalingPresets.forEach(button => {
+      const active = Math.abs(Number(button.dataset.scalingPreset) - Number(scalingRange.value)) < 0.001;
+      button.classList.toggle("is-active", active);
+      button.setAttribute("aria-pressed", String(active));
+    });
     scalingRange.setAttribute("aria-valuetext", `${computeLabel}; ${formatLargeCount(point.parameters)} di parametri; ${formatLargeCount(point.tokens)} di token; loss prevista ${lossLabel}`);
   };
 
   scalingRange.addEventListener("input", renderScalingState);
+  scalingPlot.addEventListener("pointerdown", event => {
+    const bounds = scalingPlot.getBoundingClientRect();
+    const svgX = ((event.clientX - bounds.left) / bounds.width) * 760;
+    const clampedX = Math.max(plot.x0, Math.min(plot.x1, svgX));
+    const logCompute = plot.logMin + ((clampedX - plot.x0) / (plot.x1 - plot.x0)) * (plot.logMax - plot.logMin);
+    scalingRange.value = logCompute.toFixed(4);
+    renderScalingState();
+  });
+  scalingPresets.forEach(button => button.addEventListener("click", () => {
+    scalingRange.value = button.dataset.scalingPreset;
+    renderScalingState();
+  }));
   renderScalingState();
 }
 
