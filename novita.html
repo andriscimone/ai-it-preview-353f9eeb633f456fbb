@@ -14,7 +14,7 @@
     <title>Novità — AI.it</title>
     <script>(() => { try { const saved = localStorage.getItem("aiit-theme"); const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dataset.theme = saved || preferred; } catch (_) { document.documentElement.dataset.theme = "light"; } })();</script>
     <link rel="stylesheet" href="styles.css?v=news-list-3" />
-    <link rel="stylesheet" href="novita.css?v=4" />
+    <link rel="stylesheet" href="novita.css?v=9" />
   </head>
   <body class="detail-page news-page news-list-page">
     <a class="skip-link" href="#feed">Salta alle notizie</a><div class="noise" aria-hidden="true"></div>
@@ -24,15 +24,272 @@
     <main>
       <header class="news-index-head">
         <div><span>N0</span><h1>Novità</h1></div>
-        <p>Aggiornamenti sull’AI. I fatti essenziali restano visibili; il contesto si apre con un clic.</p>
+        <p>Aggiornamenti sull’AI, raggruppati per giorno. Il titolo resta compatto; il contesto si apre con un clic.</p>
       </header>
 
       <section class="news-list" id="feed" aria-labelledby="feed-title">
-        <header class="news-list-head"><h2 id="feed-title">Ultimi aggiornamenti</h2><span>2 notizie</span></header>
+        <header class="news-list-head"><h2 id="feed-title">Giorno per giorno</h2><span>2 giorni · 3 notizie</span></header>
+
+        <section class="news-day news-day-coral" aria-labelledby="day-2026-07-21">
+          <header class="news-day-head">
+            <time datetime="2026-07-21" id="day-2026-07-21"><strong>21 luglio</strong><span>2026</span></time>
+            <span class="news-day-count">1 notizia</span>
+          </header>
+          <div class="news-day-items">
+
+        <details class="news-list-item news-list-item-imo" id="imo-ai-2026">
+          <summary aria-labelledby="imo-ai-2026-title">
+            <span class="news-item-meta"><b>N3</b><span class="news-item-topic">AI × matematica</span><span class="news-item-status"><i></i> test indipendente</span></span>
+            <span class="news-item-title" id="imo-ai-2026-title">IMO 2026: il 42/42 arriva da modelli che possiamo già usare</span>
+            <span class="news-item-deck">Nel 2024 era argento, nel 2025 oro: ora il massimo sembra quasi non fare più rumore.</span>
+            <span class="news-item-toggle" aria-hidden="true"></span>
+          </summary>
+
+          <div class="news-item-body imo-story">
+            <section class="imo-lede" aria-labelledby="imo-lede-title">
+              <div>
+                <span class="imo-section-label">La soglia si è spostata</span>
+                <h3 id="imo-lede-title">Da «quasi oro» al punteggio pieno in due anni.</h3>
+              </div>
+              <div class="imo-lede-copy">
+                <p>Nel 2024 AlphaProof e AlphaGeometry 2 arrivarono a <strong>28 punti su 42</strong>, livello argento. Nel 2025 una versione sperimentale di Gemini Deep Think raggiunse <strong>35 su 42</strong>, livello oro; OpenAI dichiarò lo stesso punteggio in una prova separata. Erano risultati annunciati dai laboratori come traguardi storici.</p>
+                <p>Nel 2026 Deedy Das ha messo i sei problemi dell’anno davanti a modelli già accessibili al pubblico. Tre configurazioni sono arrivate a <strong>42 su 42</strong> nel suo test. La notizia ha circolato soprattutto in un post e in un repository pubblico: il salto è enorme, il rumore molto meno.</p>
+              </div>
+            </section>
+
+            <section class="imo-score-section" aria-labelledby="imo-score-title">
+              <header>
+                <span class="imo-section-label">Punteggio</span>
+                <h3 id="imo-score-title">28 → 35 → 42</h3>
+                <p>Il confronto mostra il miglior risultato AI reso pubblico in ciascun anno. Le condizioni, però, non sono identiche.</p>
+              </header>
+              <div class="imo-score-chart" role="img" aria-label="Confronto dei punteggi: 28 su 42 nel 2024, 35 su 42 nel 2025 e 42 su 42 nel test indipendente del 2026">
+                <div class="imo-score-row">
+                  <div class="imo-score-year"><strong>2024</strong><span>AlphaProof + AlphaGeometry 2</span></div>
+                  <div class="imo-score-track"><span style="--score:66.67%"></span></div>
+                  <div class="imo-score-value"><strong>28/42</strong><span>argento</span></div>
+                </div>
+                <div class="imo-score-row">
+                  <div class="imo-score-year"><strong>2025</strong><span>Gemini + OpenAI sperimentali</span></div>
+                  <div class="imo-score-track"><span style="--score:83.33%"></span></div>
+                  <div class="imo-score-value"><strong>35/42</strong><span>oro</span></div>
+                </div>
+                <div class="imo-score-row is-current">
+                  <div class="imo-score-year"><strong>2026</strong><span>Fable 5 · Sol · Kimi K3</span></div>
+                  <div class="imo-score-track"><span style="--score:100%"></span></div>
+                  <div class="imo-score-value"><strong>42/42</strong><span>massimo</span></div>
+                </div>
+                <div class="imo-score-axis" aria-hidden="true"><span>0</span><span>21</span><span>42 punti</span></div>
+              </div>
+            </section>
+
+            <section class="imo-years" aria-label="Come è cambiato il risultato dal 2024 al 2026">
+              <article>
+                <span>2024 · sistemi specializzati</span>
+                <strong>4 problemi su 6</strong>
+                <p>I problemi furono tradotti a mano in linguaggi formali. Un esercizio richiese pochi secondi dopo la formalizzazione; altri fino a tre giorni.</p>
+              </article>
+              <article>
+                <span>2025 · modelli sperimentali</span>
+                <strong>5 problemi su 6</strong>
+                <p>Gemini produsse prove in linguaggio naturale entro 4,5 ore e fu certificato dai coordinatori IMO. OpenAI dichiarò 35/42 in una valutazione separata, non certificata dall’IMO.</p>
+              </article>
+              <article>
+                <span>2026 · modelli utilizzabili</span>
+                <strong>6 problemi su 6</strong>
+                <p>Fable arrivò al massimo al primo passaggio. Sol partì da 39 e Kimi da 36; entrambi raggiunsero 42 dopo indicazioni sui difetti e nuovi tentativi.</p>
+              </article>
+            </section>
+
+            <section class="imo-costs" aria-labelledby="imo-cost-title">
+              <header>
+                <span class="imo-section-label">Costo dell’inferenza</span>
+                <h3 id="imo-cost-title">Per leggere il salto serve una scala logaritmica.</h3>
+                <p>Nel 2026 abbiamo costi API dichiarati. Per il 2024 possiamo ricostruire solo uno scenario dai budget TPU del paper; per i modelli oro del 2025 il costo non è stato pubblicato.</p>
+              </header>
+              <figure class="imo-cost-figure">
+                <div class="imo-log-chart" role="img" aria-label="Grafico cartesiano dei costi in dollari con asse verticale logaritmico. Nel 2024 uno scenario basato sui budget pubblicati per AlphaProof va da circa 16.200 a 162.000 dollari. Nel 2025 il costo dei modelli da 35 punti non è pubblico. Nel test 2026 GPT-5.6 Sol costa 20,54 dollari, Kimi K3 31,40 dollari e Claude Fable 5 51,05 dollari.">
+                  <svg class="imo-log-chart-wide" viewBox="0 0 960 550" aria-hidden="true" focusable="false">
+                    <text class="imo-log-axis-title" x="92" y="35">Costo equivalente in USD · asse Y logaritmico</text>
+                    <g class="imo-log-grid">
+                      <line x1="92" y1="90" x2="902" y2="90"></line>
+                      <line x1="92" y1="168" x2="902" y2="168"></line>
+                      <line x1="92" y1="246" x2="902" y2="246"></line>
+                      <line x1="92" y1="324" x2="902" y2="324"></line>
+                      <line x1="92" y1="402" x2="902" y2="402"></line>
+                    </g>
+                    <g class="imo-log-axes">
+                      <line x1="92" y1="62" x2="92" y2="420"></line>
+                      <line x1="92" y1="420" x2="902" y2="420"></line>
+                      <text x="76" y="94">$100k</text>
+                      <text x="76" y="172">$10k</text>
+                      <text x="76" y="250">$1k</text>
+                      <text x="76" y="328">$100</text>
+                      <text x="76" y="406">$10</text>
+                      <text class="imo-log-year" x="230" y="447">2024</text>
+                      <text class="imo-log-year" x="500" y="447">2025</text>
+                      <text class="imo-log-year" x="780" y="447">2026</text>
+                      <text class="imo-log-x-title" x="902" y="447">Anno</text>
+                    </g>
+
+                    <g class="imo-log-estimate-mark">
+                      <line class="imo-log-estimate" x1="230" y1="74" x2="230" y2="152"></line>
+                      <circle cx="230" cy="74" r="6"></circle>
+                      <circle cx="230" cy="152" r="6"></circle>
+                      <text class="imo-log-data-label" x="249" y="78">AlphaProof*</text>
+                      <text class="imo-log-data-value" x="249" y="96">$16k–$162k</text>
+                      <text class="imo-log-data-note" x="249" y="113">scenario · 5 problemi</text>
+                    </g>
+
+                    <g class="imo-log-unknown-mark">
+                      <line x1="493" y1="472" x2="507" y2="486"></line>
+                      <line x1="507" y1="472" x2="493" y2="486"></line>
+                      <text class="imo-log-data-label" x="500" y="509">Oro 35/42</text>
+                      <text class="imo-log-data-note" x="500" y="526">costo non pubblicato</text>
+                    </g>
+
+                    <g class="imo-log-actual-marks">
+                      <line class="imo-log-connector" x1="677" y1="378" x2="686" y2="378"></line>
+                      <circle cx="694" cy="378" r="7"></circle>
+                      <text class="imo-log-data-label is-end" x="670" y="373">Sol</text>
+                      <text class="imo-log-data-value is-end" x="670" y="390">$20,54</text>
+
+                      <line class="imo-log-connector" x1="780" y1="347" x2="780" y2="355"></line>
+                      <circle cx="780" cy="363" r="7"></circle>
+                      <text class="imo-log-data-label is-middle" x="780" y="324">Kimi K3</text>
+                      <text class="imo-log-data-value is-middle" x="780" y="341">$31,40</text>
+
+                      <line class="imo-log-connector" x1="858" y1="347" x2="866" y2="347"></line>
+                      <circle cx="850" cy="347" r="7"></circle>
+                      <text class="imo-log-data-label" x="871" y="342">Fable 5</text>
+                      <text class="imo-log-data-value" x="871" y="359">$51,05</text>
+                    </g>
+                  </svg>
+
+                  <svg class="imo-log-chart-compact" viewBox="0 0 360 510" aria-hidden="true" focusable="false">
+                    <text class="imo-log-axis-title" x="54" y="28">USD · ASSE Y LOGARITMICO</text>
+                    <g class="imo-log-grid">
+                      <line x1="54" y1="84" x2="344" y2="84"></line>
+                      <line x1="54" y1="154" x2="344" y2="154"></line>
+                      <line x1="54" y1="224" x2="344" y2="224"></line>
+                      <line x1="54" y1="294" x2="344" y2="294"></line>
+                      <line x1="54" y1="364" x2="344" y2="364"></line>
+                    </g>
+                    <g class="imo-log-axes">
+                      <line x1="54" y1="54" x2="54" y2="382"></line>
+                      <line x1="54" y1="382" x2="344" y2="382"></line>
+                      <text x="45" y="88">$100k</text>
+                      <text x="45" y="158">$10k</text>
+                      <text x="45" y="228">$1k</text>
+                      <text x="45" y="298">$100</text>
+                      <text x="45" y="368">$10</text>
+                      <text class="imo-log-year" x="90" y="405">2024</text>
+                      <text class="imo-log-year" x="185" y="405">2025</text>
+                      <text class="imo-log-year" x="285" y="405">2026</text>
+                    </g>
+
+                    <g class="imo-log-estimate-mark">
+                      <line class="imo-log-estimate" x1="90" y1="69" x2="90" y2="139"></line>
+                      <circle cx="90" cy="69" r="5"></circle>
+                      <circle cx="90" cy="139" r="5"></circle>
+                      <text class="imo-log-data-label" x="103" y="73">AlphaProof*</text>
+                      <text class="imo-log-data-value" x="103" y="89">$16k–$162k</text>
+                      <text class="imo-log-data-note" x="103" y="104">scenario</text>
+                    </g>
+
+                    <g class="imo-log-unknown-mark">
+                      <line x1="179" y1="431" x2="191" y2="443"></line>
+                      <line x1="191" y1="431" x2="179" y2="443"></line>
+                      <text class="imo-log-data-label" x="185" y="463">Oro 35/42</text>
+                      <text class="imo-log-data-note" x="185" y="479">costo non pubblicato</text>
+                    </g>
+
+                    <g class="imo-log-actual-marks">
+                      <line class="imo-log-connector" x1="236" y1="338" x2="250" y2="342"></line>
+                      <circle cx="257" cy="342" r="6"></circle>
+                      <text class="imo-log-data-label is-end" x="232" y="335">Sol · $20,54</text>
+
+                      <line class="imo-log-connector" x1="286" y1="337" x2="286" y2="348"></line>
+                      <circle cx="286" cy="329" r="6"></circle>
+                      <text class="imo-log-data-label is-middle" x="286" y="361">Kimi · $31,40</text>
+
+                      <line class="imo-log-connector" x1="316" y1="314" x2="329" y2="306"></line>
+                      <circle cx="316" cy="314" r="6"></circle>
+                      <text class="imo-log-data-label is-end" x="338" y="300">Fable · $51,05</text>
+                    </g>
+                  </svg>
+                </div>
+                <figcaption>Ogni tacca verticale vale ×10. L’intervallo tratteggiato è una stima di scenario; i punti pieni sono costi API dichiarati. Il 2025 resta volutamente senza punto: assegnargli una cifra sarebbe inventarla.</figcaption>
+              </figure>
+
+              <div class="imo-cost-evidence">
+                <p><span>2024 · scenario, non fattura</span><strong>≈ $16.200–$162.000</strong><small>Il paper mostra budget TTRL da 50 a 500 TPU-days per problema. Applicandoli ai cinque problemi affidati ad AlphaProof e al listino v6e on-demand di $2,70 per chip-ora si ottiene questo ordine di grandezza. Restano esclusi AlphaGeometry 2, Gemini, lavoro umano e addestramento.</small></p>
+                <p><span>2025 · oro</span><strong>Costo non pubblicato</strong><small>Né l’annuncio di Gemini né il model card comunicano chip, token o spesa del sistema da 35/42. L’unico riferimento economico vicino è un test pubblico diverso di MathArena: circa $400 per 24 risposte finali, ma il miglior modello si fermò a 13/42.</small></p>
+                <p><span>2026 · costi dichiarati</span><strong>$20,54–$51,05</strong><small>I totali di Deedy includono riparazioni e problemi tecnici. Limitandosi ai passaggi produttivi: circa $9,74 per Sol, $14,49 per Kimi e $38,83 per Fable.</small></p>
+              </div>
+              <p class="imo-training-note"><strong>Fuori scala:</strong> il paper AlphaProof dichiara anche circa 180.000 TPU-days per la pipeline specializzata di auto-formalizzazione e reinforcement learning. Valorizzati allo stesso listino v6e sarebbero circa <strong>$11,7 milioni</strong>, ma non è la spesa effettiva comunicata da Google, non include il pre-training generale e soprattutto non è il costo di svolgere una singola IMO.</p>
+            </section>
+
+            <section class="imo-access" aria-labelledby="imo-access-title">
+              <header>
+                <span class="imo-section-label">Accesso pubblico</span>
+                <h3 id="imo-access-title">“Si può usare” non significa “è open source”.</h3>
+                <p>I tre modelli generali del test sono disponibili a utenti o sviluppatori. Solo Kimi ha annunciato anche il rilascio completo dei pesi.</p>
+              </header>
+              <div class="imo-access-grid">
+                <article><span>Claude Fable 5</span><strong>Pubblico via Claude e API</strong><p>Il modello si usa, ma i pesi restano chiusi.</p><a href="https://www.anthropic.com/news/claude-fable-5-mythos-5" target="_blank" rel="noreferrer">Disponibilità Anthropic ↗</a></article>
+                <article><span>GPT-5.6 Sol</span><strong>Pubblico via ChatGPT, Codex e API</strong><p>Accessibile come servizio; i pesi non sono aperti.</p><a href="https://openai.com/index/gpt-5-6/" target="_blank" rel="noreferrer">Disponibilità OpenAI ↗</a></article>
+                <article><span>Kimi K3</span><strong>Pubblico via app e API</strong><p>I pesi completi sono promessi entro il 27 luglio 2026: oggi non sono ancora scaricabili.</p><a href="https://www.kimi.com/fr-fr/blog/kimi-k3" target="_blank" rel="noreferrer">Annuncio Kimi ↗</a></article>
+                <article><span>AxiomProver</span><strong>Prove Lean pubbliche</strong><p>Ha pubblicato sei prove formalmente verificabili; costo e accesso generale al sistema non sono dichiarati.</p><a href="https://github.com/AxiomMath/IMO2026" target="_blank" rel="noreferrer">Repository Axiom ↗</a></article>
+              </div>
+            </section>
+
+            <aside class="imo-reality" aria-labelledby="imo-reality-title">
+              <div>
+                <span class="imo-section-label">Reality check</span>
+                <h3 id="imo-reality-title">Il 42/42 è notevole. Non è un risultato ufficiale dell’IMO.</h3>
+              </div>
+              <div class="imo-reality-grid">
+                <p><strong>Dopo la gara</strong><span>I modelli hanno visto problemi già pubblici. Deedy dichiara niente web e cutoff precedenti alla gara, ma non era una sessione sorvegliata dall’IMO.</span></p>
+                <p><strong>Valutazione automatizzata</strong><span>Le prove sono state controllate da agenti verificatori indipendenti, non dai coordinatori umani che certificarono Gemini nel 2025.</span></p>
+                <p><strong>Seconda possibilità</strong><span>Sol e Kimi hanno ricevuto i difetti trovati dai revisori e riprovato. Solo Fable ha ottenuto 42 al primo passaggio.</span></p>
+              </div>
+            </aside>
+
+            <aside class="imo-author" aria-labelledby="imo-author-title">
+              <span class="imo-section-label">Chi ha pubblicato il test</span>
+              <div>
+                <h3 id="imo-author-title">Deedy Das non lavora in un AI lab.</h3>
+                <p>È partner di Menlo Ventures e investe in AI, infrastrutture e software. Prima ha lavorato in Glean, Google e Facebook. È una voce conosciuta nel mondo tech con esperienza tecnica, ma non rappresenta l’IMO né un organismo indipendente di certificazione: il suo lavoro va letto come un esperimento pubblico e documentato.</p>
+              </div>
+              <a href="https://menlovc.com/team/deedy-das/" target="_blank" rel="noreferrer">Profilo e interessi professionali ↗</a>
+            </aside>
+
+            <section class="imo-silence" aria-labelledby="imo-silence-title">
+              <span class="imo-section-label">Interpretazione</span>
+              <h3 id="imo-silence-title">La vera notizia è quanto poco sembri fare notizia.</h3>
+              <p>Tra il 2024 e il 2026, il massimo dell’IMO è passato da traguardo sperimentale a risultato ottenuto più volte con modelli accessibili al pubblico. Non esistono dati comparabili sull’attenzione online ricevuta nei tre anni, quindi non si può affermare con certezza che oggi «non se ne parli». Il contrasto resta comunque netto: nel 2024 e nel 2025 furono i laboratori a presentare i risultati con grandi annunci ufficiali; nel 2026 il 42/42 è emerso da un test indipendente, raccontato in un post e documentato su GitHub. È un esempio di quanto rapidamente cambi ciò che viene percepito come straordinario nell’AI.</p>
+            </section>
+
+            <footer class="news-item-footer imo-footer">
+              <p>Punteggi, tempi e costi 2026 provengono dal repository di Deedy Das. Per il 2024 il costo è una stima esplicita costruita da budget di ricerca e prezzi cloud pubblici, non un dato comunicato da Google. Le condizioni cambiano tra gli anni: il confronto mostra gli ordini di grandezza, non un benchmark perfettamente omogeneo.</p>
+              <div><a href="https://github.com/deedy/imo-2026" target="_blank" rel="noreferrer">Dati e log 2026 ↗</a><a href="https://deepmind.google/blog/ai-solves-imo-problems-at-silver-medal-level/" target="_blank" rel="noreferrer">IMO 2024 ↗</a><a href="https://www.nature.com/articles/s41586-025-09833-y" target="_blank" rel="noreferrer">Paper AlphaProof ↗</a><a href="https://cloud.google.com/tpu/pricing" target="_blank" rel="noreferrer">Listino TPU ↗</a><a href="https://deepmind.google/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/" target="_blank" rel="noreferrer">Gemini 2025 ↗</a><a href="https://matharena.ai/imo/" target="_blank" rel="noreferrer">Test pubblico 2025 ↗</a><a href="https://github.com/aw31/openai-imo-2025-proofs" target="_blank" rel="noreferrer">OpenAI 2025 ↗</a><a href="https://x.com/deedydas/status/2079409461874332066" target="_blank" rel="noreferrer">Post originale ↗</a></div>
+            </footer>
+          </div>
+        </details>
+          </div>
+        </section>
+
+        <section class="news-day news-day-phosphor" aria-labelledby="day-2026-07-20">
+          <header class="news-day-head">
+            <time datetime="2026-07-20" id="day-2026-07-20"><strong>20 luglio</strong><span>2026</span></time>
+            <span class="news-day-count">2 notizie</span>
+          </header>
+          <div class="news-day-items">
 
         <details class="news-list-item" id="jacobiana">
           <summary aria-labelledby="jacobiana-title">
-            <span class="news-item-meta"><b>N1</b><time datetime="2026-07-20">20 luglio 2026</time><span class="news-item-topic">AI × matematica</span><span class="news-item-status"><i></i> calcoli verificati</span></span>
+            <span class="news-item-meta"><b>N1</b><span class="news-item-topic">AI × matematica</span><span class="news-item-status"><i></i> calcoli verificati</span></span>
             <span class="news-item-title" id="jacobiana-title">Controesempio alla congettura jacobiana: Alpöge cita Claude Fable</span>
             <span class="news-item-deck">La formula regge; il ruolo preciso del modello nel lavoro non è ancora documentato.</span>
             <span class="news-item-toggle" aria-hidden="true"></span>
@@ -80,7 +337,7 @@
 
         <details class="news-list-item news-list-item-thunder" id="thunder">
           <summary aria-labelledby="thunder-title">
-            <span class="news-item-meta"><b>N2</b><time datetime="2026-07-20">20 luglio 2026</time><span class="news-item-topic">AI × difesa</span><span class="news-item-status"><i></i> primo volo 2027</span></span>
+            <span class="news-item-meta"><b>N2</b><span class="news-item-topic">AI × difesa</span><span class="news-item-status"><i></i> primo volo 2027</span></span>
             <span class="news-item-title" id="thunder-title">Anduril presenta Thunder, il tiltrotore autonomo per gli Apache</span>
             <span class="news-item-toggle" aria-hidden="true"></span>
           </summary>
@@ -149,11 +406,13 @@
             </footer>
           </div>
         </details>
+          </div>
+        </section>
       </section>
 
       <nav class="chapter-next" aria-label="Continua la lettura"><a href="altro.html">← Dossier</a><a href="index.html">Home →</a></nav>
     </main>
-    <footer class="site-footer"><span>AI.it</span><span>Novità · 2 aggiornamenti</span></footer>
+    <footer class="site-footer"><span>AI.it</span><span>Novità · 3 aggiornamenti in 2 giorni</span></footer>
     <script src="app.js"></script>
   </body>
 </html>
