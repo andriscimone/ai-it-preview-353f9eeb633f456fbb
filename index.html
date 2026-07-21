@@ -183,39 +183,65 @@
             <p class="scaling-boundary"><strong>Non è una legge fisica.</strong> Non garantisce che ogni capacità migliori allo stesso ritmo, né che la curva continui per sempre. Rende però il passo successivo meno cieco.</p>
           </div>
 
-          <div class="scaling-plot-panel">
-            <div class="scaling-plot-meta"><span>Fit parametrico · Approach 3</span><span>Hoffmann et al. 2022 · oltre 400 run di training</span></div>
-            <svg class="scaling-plot" viewBox="0 0 720 420" role="img" aria-labelledby="scaling-plot-title scaling-plot-desc">
-              <title id="scaling-plot-title">Training loss prevista al crescere del calcolo di addestramento</title>
-              <desc id="scaling-plot-desc">La curva mostra il fit parametrico pubblicato da Hoffmann e colleghi. L'asse orizzontale misura il calcolo in FLOPs su scala logaritmica; quello verticale misura la training loss in nats per token.</desc>
-              <g class="scaling-grid" aria-hidden="true">
-                <path d="M90 66.1H680M90 146.7H680M90 227.2H680M90 307.8H680" />
-                <path d="M90 42V340M258.6 42V340M427.1 42V340M595.7 42V340M680 42V340" />
-              </g>
-              <path class="scaling-axis" d="M90 42V340H680" aria-hidden="true" />
-              <g class="scaling-tick-labels" aria-hidden="true">
-                <text x="78" y="70">3,5</text><text x="78" y="150.6">3,0</text><text x="78" y="231.1">2,5</text><text x="78" y="311.7">2,0</text>
-                <text x="90" y="362">10¹⁸</text><text x="258.6" y="362">10²⁰</text><text x="427.1" y="362">10²²</text><text x="595.7" y="362">10²⁴</text><text x="680" y="362">10²⁵</text>
-              </g>
-              <path class="scaling-curve" id="scaling-fit-path" d="" aria-hidden="true" />
-              <line class="scaling-reference" x1="575.6" y1="42" x2="575.6" y2="340" aria-hidden="true" />
-              <text class="scaling-reference-label" x="568" y="57">budget Gopher · 5,76×10²³ FLOPs</text>
-              <line class="scaling-guide" id="scaling-guide" x1="575.6" y1="42" x2="575.6" y2="340" aria-hidden="true" />
-              <circle class="scaling-marker" id="scaling-marker" cx="575.6" cy="318" r="9" aria-hidden="true" />
-              <text class="scaling-axis-title scaling-axis-title-y" transform="translate(22 192) rotate(-90)">training loss · nats / token</text>
-              <text class="scaling-axis-title scaling-axis-title-x" x="680" y="398">calcolo di training · FLOPs (scala logaritmica)</text>
-            </svg>
+          <div class="scaling-lab">
+            <header class="scaling-lab-head">
+              <div><span>Simulatore / scaling law</span><p>Più calcolo, meno errore previsto.</p></div>
+              <div class="scaling-live-value"><small>Budget selezionato</small><output id="scaling-output" for="scaling-range">5,76 × 10²³</output><b>FLOPs</b></div>
+            </header>
 
-            <div class="scaling-control">
-              <label for="scaling-range">Budget di calcolo <output id="scaling-output" for="scaling-range">5,76 × 10²³ FLOPs</output></label>
-              <input id="scaling-range" type="range" min="18" max="25" step="0.0001" value="23.7604" aria-describedby="scaling-reading scaling-method" />
-              <div class="scaling-range-ticks" aria-hidden="true"><span>10¹⁸</span><span>10²⁰</span><span>10²²</span><span>10²⁴</span><span>10²⁵ FLOPs</span></div>
+            <div class="scaling-canvas">
+              <div class="scaling-direction" aria-hidden="true"><span>Errore più alto</span><strong>La curva scende</strong><span>Errore più basso</span></div>
+              <svg class="scaling-plot" viewBox="0 0 760 430" role="img" aria-labelledby="scaling-plot-title scaling-plot-desc">
+                <title id="scaling-plot-title">Training loss prevista al crescere del calcolo di addestramento</title>
+                <desc id="scaling-plot-desc">Grafico interattivo. Verso destra aumentano i FLOPs; verso il basso diminuisce la training loss prevista dal fit di Hoffmann e colleghi.</desc>
+                <defs>
+                  <linearGradient id="scaling-area-gradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#c7ef3a" stop-opacity=".35" />
+                    <stop offset="1" stop-color="#c7ef3a" stop-opacity=".02" />
+                  </linearGradient>
+                </defs>
+                <g class="scaling-grid" aria-hidden="true">
+                  <path d="M94 62H704M94 137H704M94 212H704M94 287H704M94 344H704" />
+                  <path d="M94 40V344M268.3 40V344M442.6 40V344M616.9 40V344M704 40V344" />
+                </g>
+                <g class="scaling-tick-labels" aria-hidden="true">
+                  <text x="76" y="66">3,5</text><text x="76" y="141">3,0</text><text x="76" y="216">2,5</text><text x="76" y="291">2,0</text>
+                  <text x="94" y="374">10¹⁸</text><text x="268.3" y="374">10²⁰</text><text x="442.6" y="374">10²²</text><text x="616.9" y="374">10²⁴</text><text x="704" y="374">10²⁵</text>
+                </g>
+                <path class="scaling-area" id="scaling-fit-area" d="" aria-hidden="true" />
+                <path class="scaling-curve" id="scaling-fit-path" d="" aria-hidden="true" />
+                <line class="scaling-crosshair" id="scaling-guide-x" x1="94" y1="318" x2="575.6" y2="318" aria-hidden="true" />
+                <line class="scaling-crosshair" id="scaling-guide-y" x1="575.6" y1="40" x2="575.6" y2="344" aria-hidden="true" />
+                <g class="scaling-point" id="scaling-point" aria-hidden="true">
+                  <circle class="scaling-point-pulse" r="20" />
+                  <circle class="scaling-point-core" r="8" />
+                </g>
+                <g class="scaling-callout" id="scaling-callout" aria-hidden="true">
+                  <rect width="176" height="54" />
+                  <text id="scaling-callout-loss" x="13" y="22">LOSS 1,931</text>
+                  <text id="scaling-callout-compute" x="13" y="41">5,76 × 10²³ FLOPs</text>
+                </g>
+                <text class="scaling-axis-title scaling-axis-title-y" transform="translate(24 192) rotate(-90)">Training loss · meno è meglio</text>
+                <text class="scaling-axis-title scaling-axis-title-x" x="704" y="408">Più compute · scala logaritmica →</text>
+              </svg>
             </div>
+
+            <div class="scaling-console">
+              <label for="scaling-range"><span>Sposta il budget</span><small>Trascina qui o tocca il grafico · scala logaritmica</small></label>
+              <input id="scaling-range" type="range" min="18" max="25" step="0.0001" value="23.7604" aria-describedby="scaling-reading scaling-method" />
+              <div class="scaling-presets" aria-label="Budget di calcolo preimpostati">
+                <button type="button" data-scaling-preset="18">10¹⁸</button>
+                <button type="button" data-scaling-preset="21">10²¹</button>
+                <button type="button" data-scaling-preset="23.7604">Gopher · 2022</button>
+                <button type="button" data-scaling-preset="25">10²⁵</button>
+              </div>
+            </div>
+
             <dl class="scaling-reading" id="scaling-reading" aria-live="polite">
-              <div><dt>Calcolo C</dt><dd id="scaling-compute">5,76 × 10²³ FLOPs</dd></div>
-              <div><dt>Parametri ottimali N</dt><dd id="scaling-params">32,2 miliardi</dd></div>
-              <div><dt>Token ottimali D</dt><dd id="scaling-tokens">2,98 mila miliardi</dd></div>
-              <div><dt>Loss prevista</dt><dd id="scaling-loss">1,931 nats/token</dd></div>
+              <div class="is-impact"><dt>Scala rispetto a 10¹⁸</dt><dd id="scaling-multiple">5,76 milioni ×</dd></div>
+              <div><dt>Parametri ottimali</dt><dd id="scaling-params">32,2 miliardi</dd></div>
+              <div><dt>Token ottimali</dt><dd id="scaling-tokens">2,98 mila miliardi</dd></div>
+              <div class="is-result"><dt>Loss prevista</dt><dd id="scaling-loss">1,931</dd><small>Meno è meglio</small></div>
             </dl>
             <div class="scaling-method" id="scaling-method">
               <p><strong>La funzione pubblicata</strong><span>L(N,D) = 1,69 + 406,4 / N<sup>0,34</sup> + 410,7 / D<sup>0,28</sup></span><span>C ≈ 6ND FLOPs</span></p>
