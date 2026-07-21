@@ -1329,9 +1329,13 @@
   .scaling-lab-head { grid-template-columns: 1fr; gap: 24px; padding: 22px 18px; }
   .scaling-live-value { min-width: 0; padding: 18px 0 0; border-top: 1px solid var(--scaling-line); border-left: 0; text-align: left; }
   .scaling-live-value output { font-size: clamp(34px, 10vw, 48px); }
-  .scaling-canvas { overflow-x: auto; padding-inline: 0; }
-  .scaling-plot { width: 600px; max-width: none; }
-  .scaling-direction { left: 18px; }
+  .scaling-canvas { min-width: 0; overflow: hidden; padding-inline: 0; }
+  .scaling-plot { width: 100%; max-width: 100%; min-width: 0; }
+  .scaling-direction { right: 18px; left: 18px; justify-content: space-between; gap: 5px; }
+  .scaling-tick-labels text,
+  .scaling-axis-title { font-size: 16px; }
+  .scaling-callout text:first-of-type { font-size: 17px; }
+  .scaling-callout text:last-of-type { font-size: 13px; }
   .scaling-console { padding: 20px 18px 22px; }
   .scaling-console label { align-items: flex-start; flex-direction: column; gap: 7px; }
   .scaling-presets { grid-template-columns: repeat(2, minmax(0, 1fr)); }
