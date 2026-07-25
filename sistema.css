@@ -29,7 +29,7 @@
 .system-route-card:focus-visible { outline: 3px solid var(--system-coral); outline-offset: 5px; }
 
 .system-chain { display: grid; grid-template-columns: 1fr auto; align-items: stretch; position: relative; padding: 28px; border: 1px solid var(--ink); background: color-mix(in srgb, var(--paper) 91%, transparent); box-shadow: 13px 13px 0 color-mix(in srgb, var(--ink) 10%, transparent); }
-.system-chain::before { content: "INPUT → OUTPUT"; position: absolute; top: -25px; right: 0; color: var(--muted); font: 500 8px var(--mono); letter-spacing: .1em; }
+.system-chain::before { content: "POTENZA → CAPACITÀ → LAVORO → NUOVA DOMANDA"; position: absolute; top: -25px; right: 0; color: var(--muted); font: 500 8px var(--mono); letter-spacing: .1em; }
 .system-chain-node { min-height: 118px; display: flex; flex-direction: column; justify-content: center; position: relative; padding: 20px 24px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); text-decoration: none; transition: transform .2s ease, background-color .2s ease; }
 .system-chain-node::before { content: ""; width: 6px; position: absolute; inset: 0 auto 0 0; background: var(--chain-accent); }
 .system-chain-node:hover { background: color-mix(in srgb, var(--chain-accent) 13%, var(--paper)); transform: translateX(5px); }

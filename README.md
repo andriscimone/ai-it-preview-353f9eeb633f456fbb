@@ -1,12 +1,12 @@
 # AI.it — capire la corsa all'intelligenza artificiale
 
-Il sito introduce le scaling laws e la corsa tra energia, chip e algoritmi. La homepage funziona come ingresso generale; `sistema.html` è la panoramica che collega i quattro capitoli principali:
+Il sito introduce le scaling laws e segue il compute lungo l'intero ciclo di vita: pretraining, post-training e inferenza. La homepage presenta prima il simulatore Chinchilla del 2022, poi un laboratorio concettuale interattivo che chiarisce perché quel fit non descrive da solo i sistemi moderni. `sistema.html` è la panoramica che collega i quattro capitoli principali:
 
 - scala fisica dell'AI, con distinzione fra cluster interconnesso, sito in H100-equivalent e potenza;
 - confronto Ampere, Hopper, Blackwell e Rubin su memoria HBM, banda e NVLink;
 - stime cumulative delle unità prodotte, prezzo, TDP e deployment pubblico per visualizzare la crescita industriale delle quattro generazioni;
 - simulatore del progresso algoritmico e casi concreti di intelligenza per compute;
-- frontiera dell'inferenza per velocità percepita e token prodotti per megawatt.
+- frontiera dell'inferenza come compute in uso: ragionamento, agenti, velocità percepita e token prodotti per megawatt.
 
 I quattro capitoli principali sono `energia.html`, `chip.html`, `algoritmi.html` e `inferenza.html`. Tutti condividono navigazione, tema, stile editoriale e script, ma caricano soltanto il contenuto del capitolo scelto. `sistema.css` contiene il design specifico della loro pagina panoramica.
 
@@ -20,7 +20,7 @@ Il capitolo Algoritmi apre con una premessa storica dal perceptron al Transforme
 
 La pagina segreta `spooky-timeline.html` apre con *Accelerando*: un'introduzione sul circuito di miglioramento dell'AI, tre grafici interni di Anthropic e OpenAI e un registro richiudibile di 43 segnali del 2025-2026. Dati aziendali, dichiarazioni e interpretazioni restano esplicitamente distinti. La pagina confronta poi le timeline speculative di *AI 2027*, *Situational Awareness* e *AI 2040* e organizza dodici futuri alternativi in un albero decisionale collegato direttamente alle schede con la stessa numerazione. `spooky-accelerando.css` contiene la direzione visiva più estrema della soglia iniziale; `spooky-timeline.js` gestisce tab, scorrimento e collegamenti attivi; `SPOOKY_TIMELINE.md` documenta lo sblocco e la verifica. Le date restano separate per fonte e i dodici futuri non vengono presentati come previsioni o scenari probabilistici.
 
-Il quarto capitolo ricostruisce in modo interattivo la frontiera dell'efficienza nell'inferenza: velocità percepita (token in output al secondo per utente) contro capacità del sistema (token in output al secondo per megawatt).
+Il quarto capitolo presenta l'inferenza come lavoro svolto dopo una domanda. Collega test-time compute e sistemi multi-agent alla frontiera dell'efficienza: velocità percepita (token in output al secondo per utente) contro capacità del sistema (token in output al secondo per megawatt).
 
 Per provarlo localmente, avvia un server statico dalla cartella del progetto:
 

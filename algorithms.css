@@ -545,7 +545,7 @@
 .thinking-ladder span, .thinking-ladder strong { font: 8px var(--mono); text-transform: uppercase; }
 .thinking-ladder strong { text-align: right; color: var(--algorithm-mint); }
 .thinking-ladder i { width: var(--thinking); height: 12px; display: block; border-radius: 999px; background: linear-gradient(90deg, var(--algorithm-violet), var(--algorithm-coral)); }
-.thinking-budget footer { display: flex; justify-content: space-between; align-items: center; gap: 28px; padding: 20px 30px; border-top: 1px solid var(--ink); }
+.thinking-budget footer { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 18px 28px; padding: 20px 30px; border-top: 1px solid var(--ink); }
 .thinking-budget footer p { max-width: 880px; margin: 0; color: var(--muted); font: 10px/1.6 var(--mono); }
 .thinking-budget footer p strong { color: var(--ink); font-weight: 500; }
 .thinking-budget footer a { flex: 0 0 auto; font: 9px var(--mono); text-transform: uppercase; text-underline-offset: 5px; }
