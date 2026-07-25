@@ -1004,6 +1004,11 @@ if (siteMapExplorer) {
   const siteMapDetailTitle = document.getElementById("site-map-detail-title");
   const siteMapDetailDescription = document.getElementById("site-map-detail-description");
   const siteMapDetailLink = document.getElementById("site-map-detail-link");
+  const doubleTapWindow = 450;
+  const tapMovementTolerance = 18;
+  const doubleTapDistanceTolerance = 42;
+  let lastTouchTap = null;
+  let isOpeningSiteMapPage = false;
 
   const selectSiteMapNode = node => {
     const selectedPath = (node.dataset.mapPath || "").split(" ").filter(Boolean);
@@ -1027,8 +1032,71 @@ if (siteMapExplorer) {
     siteMapDetailLink.firstChild.textContent = `${node.dataset.mapAction} `;
   };
 
+  const openSiteMapNode = node => {
+    const targetPage = node.dataset.mapHref;
+    if (!targetPage || isOpeningSiteMapPage) return;
+    isOpeningSiteMapPage = true;
+    window.location.assign(targetPage);
+  };
+
   siteMapNodes.forEach((node, index) => {
+    let touchStart = null;
+
     node.addEventListener("click", () => selectSiteMapNode(node));
+    node.addEventListener("dblclick", () => openSiteMapNode(node));
+    node.addEventListener("pointerdown", event => {
+      if (event.pointerType !== "touch" || !event.isPrimary) return;
+      touchStart = {
+        pointerId: event.pointerId,
+        x: event.clientX,
+        y: event.clientY
+      };
+    });
+    node.addEventListener("pointerup", event => {
+      if (
+        event.pointerType !== "touch" ||
+        !event.isPrimary ||
+        !touchStart ||
+        touchStart.pointerId !== event.pointerId
+      ) return;
+
+      const tapDistance = Math.hypot(
+        event.clientX - touchStart.x,
+        event.clientY - touchStart.y
+      );
+      touchStart = null;
+      if (tapDistance > tapMovementTolerance) {
+        lastTouchTap = null;
+        return;
+      }
+
+      const now = performance.now();
+      const isDoubleTap = lastTouchTap &&
+        lastTouchTap.node === node &&
+        now - lastTouchTap.time <= doubleTapWindow &&
+        Math.hypot(
+          event.clientX - lastTouchTap.x,
+          event.clientY - lastTouchTap.y
+        ) <= doubleTapDistanceTolerance;
+
+      if (isDoubleTap) {
+        event.preventDefault();
+        lastTouchTap = null;
+        openSiteMapNode(node);
+        return;
+      }
+
+      lastTouchTap = {
+        node,
+        time: now,
+        x: event.clientX,
+        y: event.clientY
+      };
+    });
+    node.addEventListener("pointercancel", () => {
+      touchStart = null;
+      lastTouchTap = null;
+    });
     node.addEventListener("keydown", event => {
       let nextIndex = index;
       if (event.key === "ArrowRight" || event.key === "ArrowDown") nextIndex = Math.min(index + 1, siteMapNodes.length - 1);

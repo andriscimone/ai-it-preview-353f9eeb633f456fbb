@@ -1106,6 +1106,7 @@
   box-shadow: 5px 5px 0 color-mix(in srgb, var(--ink) 10%, transparent);
   text-align: left;
   cursor: pointer;
+  touch-action: manipulation;
 }
 .site-map-node::before { content: ""; height: 4px; position: absolute; inset: 0 0 auto; background: var(--map-accent); opacity: .32; }
 .site-map-node:hover { background: color-mix(in srgb, var(--map-accent) 10%, var(--paper)); transform: translate(-2px, -2px); box-shadow: 8px 8px 0 color-mix(in srgb, var(--ink) 13%, transparent); }
