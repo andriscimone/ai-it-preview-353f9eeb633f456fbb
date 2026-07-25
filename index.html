@@ -24,7 +24,7 @@
         }
       })();
     </script>
-    <link rel="stylesheet" href="styles.css?v=home-system-v2" />
+    <link rel="stylesheet" href="styles.css?v=home-compute-cycle" />
     <link rel="stylesheet" href="altro.css?v=dossier-1" />
   </head>
   <body class="home-page">
@@ -63,7 +63,7 @@
           <p class="home-hero-deck">Non è una singola invenzione. È un sistema industriale in cui energia, chip, algoritmi e velocità di risposta si spingono a vicenda.</p>
           <div class="home-hero-actions">
             <a class="home-primary-action" href="sistema.html">Esplora il sistema <span aria-hidden="true">↗</span></a>
-            <a class="home-secondary-action" href="#mappa">Guarda la mappa <span aria-hidden="true">↓</span></a>
+            <a class="home-secondary-action" href="#scaling-laws">Prova il simulatore <span aria-hidden="true">↓</span></a>
           </div>
           <p class="home-byline">Un progetto di Andrea, che impara in pubblico e prova a rendere l'AI leggibile anche a chi non lavora nel settore.</p>
         </div>
@@ -100,9 +100,9 @@
             <a class="system-node system-node-energy" href="energia.html"><small>01 / Potenza</small><strong>Energia</strong><span>alimenta il sistema</span></a>
             <a class="system-node system-node-chip" href="chip.html"><small>02 / Calcolo</small><strong>Chip</strong><span>trasformano in calcolo</span></a>
             <a class="system-node system-node-algorithms" href="algoritmi.html"><small>03 / Efficienza</small><strong>Algoritmi</strong><span>moltiplicano capacità</span></a>
-            <a class="system-node system-node-inference" href="inferenza.html"><small>04 / Risposta</small><strong>Inferenza</strong><span>consegna il risultato</span></a>
+            <a class="system-node system-node-inference" href="inferenza.html"><small>04 / Compute in uso</small><strong>Inferenza</strong><span>trasforma calcolo in lavoro</span></a>
           </div>
-          <div class="system-caption"><span>01 Energia → 02 Chip → 03 Algoritmi → 04 Inferenza</span><p>Un ciclo continuo: ogni anello spinge gli altri.</p></div>
+          <div class="system-caption"><span>01 Energia → 02 Chip → 03 Algoritmi → 04 Inferenza → nuova domanda</span><p>Uso, costo e risultati orientano il giro successivo.</p></div>
         </div>
 
         <div class="home-signal-strip" aria-label="Principi editoriali">
@@ -140,61 +140,23 @@
         </div>
       </section>
 
-      <section class="home-evidence" aria-labelledby="evidence-title">
-        <div class="evidence-intro" data-reveal>
-          <p class="kicker">Perché riguarda l'Italia</p>
-          <h2 id="evidence-title">La pressione è già visibile.</h2>
-          <p>Questi dati non dimostrano che l'AI risolverà il problema. Spiegano perché la produttività conta.</p>
-        </div>
-        <div class="evidence-grid">
-          <article class="evidence-card evidence-card-feature" data-reveal>
-            <span class="evidence-index">01 / Demografia</span>
-            <strong>24,3%</strong>
-            <h3>Over 65 oggi</h3>
-            <p>ISTAT proietta il 34,6% nel 2050. La popolazione attiva scenderebbe dal 63,5% al 54,3%.</p>
-            <a href="https://www.istat.it/wp-content/uploads/2025/07/Report_Population-and-household-projections_Base-112024.pdf" target="_blank" rel="noreferrer">Fonte ISTAT <span aria-hidden="true">↗</span></a>
-          </article>
-          <article class="evidence-card" data-reveal>
-            <span class="evidence-index">02 / Lavoro</span>
-            <strong>39,0%</strong>
-            <h3>Dipendenza anziani</h3>
-            <p>Nel 2025 Eurostat colloca l'Italia al livello più alto dell'UE: meno di tre persone in età lavorativa per ogni over 65.</p>
-            <a href="https://ec.europa.eu/eurostat/statistics-explained/index.php?etrans=pt&amp;title=Population_structure_and_ageing" target="_blank" rel="noreferrer">Fonte Eurostat <span aria-hidden="true">↗</span></a>
-          </article>
-          <article class="evidence-card" data-reveal>
-            <span class="evidence-index">03 / Welfare</span>
-            <strong>≈ 16%</strong>
-            <h3>Pensioni / PIL</h3>
-            <p>Secondo l'OCSE, l'Italia è seconda solo alla Grecia nell'area OECD per spesa pensionistica pubblica.</p>
-            <a href="https://www.oecd.org/en/publications/pensions-at-a-glance-2025-country-notes_8a53ef12-en/italy_3dd0d4fa-en.html" target="_blank" rel="noreferrer">Fonte OECD <span aria-hidden="true">↗</span></a>
-          </article>
-          <article class="evidence-card evidence-card-dark" data-reveal>
-            <span class="evidence-index">04 / Economia</span>
-            <strong>0,5%</strong>
-            <h3>Crescita 2026</h3>
-            <p>La fotografia OECD è di crescita debole, produttività lenta e adozione AI ancora bassa nelle imprese piccole.</p>
-            <a href="https://www.oecd.org/en/topics/sub-issues/economic-surveys/italy-economic-snapshot.html" target="_blank" rel="noreferrer">Fonte OECD <span aria-hidden="true">↗</span></a>
-          </article>
-        </div>
-      </section>
-
       <section class="home-scaling" id="scaling-laws" aria-labelledby="scaling-title">
         <header class="scaling-header" data-reveal>
-          <p class="kicker">Il motore della corsa</p>
-          <h2 id="scaling-title">La scala rende il progresso <em>prevedibile.</em></h2>
-          <p>È l'idea che collega tutto il sito: prima che energia, chip e data center diventassero una strategia industriale, una curva aveva mostrato che investire più risorse poteva ridurre l'errore con sorprendente regolarità.</p>
+          <p class="kicker">Dal pretraining all'uso</p>
+          <h2 id="scaling-title">La prima curva.<br /><em>Poi il compute ha cambiato posto.</em></h2>
+          <p>Nel 2022 Chinchilla mostrò come distribuire il calcolo tra parametri e dati. Oggi quella regola apre la storia: post-training, architetture sparse e calcolo durante la risposta decidono quanta capacità arriva davvero a ogni compito.</p>
         </header>
 
         <div class="scaling-stage" data-reveal>
           <div class="scaling-copy">
-            <span class="scaling-index">01 / La regolarità</span>
-            <p class="scaling-lede">Le <strong>scaling laws</strong> sono regolarità empiriche: in una famiglia di modelli, la <em>training loss</em> — una misura dell'errore medio — tende a calare secondo una curva di potenza quando crescono calcolo, dati e parametri.</p>
-            <p class="scaling-boundary"><strong>Non è una legge fisica.</strong> Non garantisce che ogni capacità migliori allo stesso ritmo, né che la curva continui per sempre. Rende però il passo successivo meno cieco.</p>
+            <span class="scaling-index">01 / La regolarità del pretraining</span>
+            <p class="scaling-lede">In una famiglia di modelli densi, la <strong>training loss</strong> — una misura dell'errore medio — tende a calare secondo una curva di potenza quando crescono calcolo, dati e parametri.</p>
+            <p class="scaling-boundary"><strong>Una lente empirica del 2022.</strong> Il fit aiuta a capire come bilanciare il pretraining. Non prevede da solo le capacità di un sistema moderno, il costo di servirlo o il lavoro svolto dopo una domanda.</p>
           </div>
 
           <div class="scaling-lab">
             <header class="scaling-lab-head">
-              <div><span>Simulatore / scaling law</span><p>Più calcolo, meno errore previsto.</p></div>
+              <div><span>Atto 1 / Chinchilla · 2022</span><p>Come distribuire il compute di pretraining.</p></div>
               <div class="scaling-live-value"><small>Budget selezionato</small><output id="scaling-output" for="scaling-range">5,76 × 10²³</output><b>FLOPs</b></div>
             </header>
 
@@ -254,21 +216,96 @@
             </dl>
             <div class="scaling-method" id="scaling-method">
               <p><strong>La funzione pubblicata</strong><span>L(N,D) = 1,69 + 406,4 / N<sup>0,34</sup> + 410,7 / D<sup>0,28</sup></span><span>C ≈ 6ND FLOPs</span></p>
-              <p>La linea è il <em>fit parametrico</em> dell'Approach 3, non una serie di punti osservati. N è il numero di parametri e D il numero di token. Il dataset grezzo completo delle oltre 400 corse non è pubblico: qui mostriamo il modello matematico e i coefficienti dichiarati dagli autori, senza inventare misure. I valori descrivono quel fit del 2022, non la loss di qualsiasi modello moderno.</p>
+              <p>La linea è il <em>fit parametrico</em> dell'Approach 3, non una serie di punti osservati. N è il numero di parametri e D il numero di token. Il dataset grezzo completo delle oltre 400 corse non è pubblico: qui mostriamo il modello matematico e i coefficienti dichiarati dagli autori. Il fit riguarda il pretraining di modelli densi; non include MoE, post-training, domanda di inferenza o compute speso durante la risposta.</p>
             </div>
           </div>
         </div>
 
+        <section class="compute-lifecycle" aria-labelledby="lifecycle-title" data-reveal>
+          <header class="lifecycle-header">
+            <div><span>02 / Il ciclo di vita</span><p class="kicker">Dal modello al lavoro</p></div>
+            <h3 id="lifecycle-title">Il compute continua<br /><em>dopo il pretraining.</em></h3>
+            <p>Seleziona una fase. Lo schema mostra dove viene speso il calcolo e perché una singola curva di addestramento non basta più a descrivere la frontiera.</p>
+          </header>
+
+          <div class="lifecycle-lab" id="lifecycle-lab" data-lifecycle-stage="inference">
+            <div class="lifecycle-controls" aria-label="Fasi del ciclo di vita del compute">
+              <button type="button" data-lifecycle="pretraining" aria-pressed="false"><span>01</span><strong>Pretraining</strong><small>Costruisce la base</small></button>
+              <button type="button" data-lifecycle="posttraining" aria-pressed="false"><span>02</span><strong>Post-training</strong><small>Orienta la capacità</small></button>
+              <button class="is-active" type="button" data-lifecycle="inference" aria-pressed="true"><span>03</span><strong>Inferenza</strong><small>Lavora sul compito</small></button>
+            </div>
+
+            <div class="lifecycle-body">
+              <div class="lifecycle-visual" role="img" aria-label="Schema concettuale del compute distribuito fra pretraining, post-training e inferenza; le dimensioni non rappresentano quote misurate">
+                <div class="lifecycle-flow">
+                  <article data-lifecycle-node="pretraining"><span>01</span><strong>MODELLO BASE</strong><i></i><small>Dati × parametri × compute</small></article>
+                  <b aria-hidden="true">→</b>
+                  <article data-lifecycle-node="posttraining"><span>02</span><strong>COMPORTAMENTO</strong><i></i><small>Feedback × esempi × RL</small></article>
+                  <b aria-hidden="true">→</b>
+                  <article data-lifecycle-node="inference"><span>03</span><strong>LAVORO / TASK</strong><i></i><small>Token × strumenti × agenti</small></article>
+                </div>
+                <p>Schema concettuale · le quote di compute cambiano fra modelli, compiti e servizi</p>
+              </div>
+
+              <article class="lifecycle-reading" aria-live="polite">
+                <span id="lifecycle-kicker">03 · Inferenza</span>
+                <h4 id="lifecycle-reading-title">Spendere compute per la singola domanda</h4>
+                <p id="lifecycle-copy">Più token di ragionamento, verifiche, strumenti o agenti paralleli possono aumentare il lavoro svolto dallo stesso modello su un compito difficile.</p>
+                <small id="lifecycle-caveat">Il vantaggio dipende dal problema e aumenta latenza, energia e costo: più compute non garantisce automaticamente una risposta migliore.</small>
+                <a id="lifecycle-link" href="inferenza.html#compute-evolution"><span id="lifecycle-link-label">Continua nel capitolo Inferenza</span> <span aria-hidden="true">→</span></a>
+              </article>
+            </div>
+          </div>
+        </section>
+
         <div class="scaling-factors" data-reveal>
-          <article><span>01</span><h3>Calcolo</h3><p>Quante operazioni si possono spendere durante l'addestramento.</p></article>
-          <article><span>02</span><h3>Dati</h3><p>Quanti token utili e diversi il modello può osservare e apprendere.</p></article>
-          <article><span>03</span><h3>Parametri</h3><p>Quanta capacità ha il modello di assorbire e combinare quei pattern.</p></article>
+          <article><span>01 / Economia del servizio</span><h3>Più a lungo</h3><p>Un modello più piccolo può ricevere molti più token del rapporto Chinchilla quando il costo di milioni di utilizzi futuri conta più del solo costo di addestramento.</p></article>
+          <article><span>02 / Architetture sparse</span><h3>Attivi ≠ totali</h3><p>Nei Mixture of Experts soltanto una parte dei parametri lavora su ogni token. “Quanto è grande?” non ha più una risposta unica.</p></article>
+          <article><span>03 / Test-time compute</span><h3>Per compito</h3><p>La qualità può crescere assegnando più ragionamento o più agenti alla domanda, pagando in latenza, energia e costo.</p></article>
         </div>
 
         <footer class="scaling-bridge" data-reveal>
-          <p>Se uno dei tre fattori resta fermo, diventa un collo di bottiglia. Per far avanzare la curva servono <strong>energia</strong>, <strong>chip</strong>, <strong>algoritmi</strong> e un'<strong>inferenza</strong> abbastanza efficiente da rendere il risultato utilizzabile.</p>
-          <div class="scaling-sources"><span>Fonti primarie</span><a href="https://arxiv.org/abs/2001.08361" target="_blank" rel="noreferrer">Kaplan et al., 2020 ↗</a><a href="https://arxiv.org/abs/2203.15556" target="_blank" rel="noreferrer">Hoffmann et al., 2022 ↗</a></div>
+          <p>Chinchilla spiega il primo atto. Oggi il sistema è un ciclo: <strong>energia</strong> e <strong>chip</strong> alimentano l'addestramento e ogni risposta; gli <strong>algoritmi</strong> orientano la capacità; l'<strong>inferenza</strong> trasforma compute in lavoro e nuova domanda.</p>
+          <div class="scaling-sources"><span>Fonti primarie e tecniche</span><a href="https://arxiv.org/abs/2203.15556" target="_blank" rel="noreferrer">Hoffmann et al. · Chinchilla ↗</a><a href="https://arxiv.org/abs/2401.00448" target="_blank" rel="noreferrer">Sardana et al. · costo d'inferenza ↗</a><a href="https://ai.meta.com/blog/meta-llama-3/" target="_blank" rel="noreferrer">Meta · Llama 3 oltre Chinchilla ↗</a><a href="https://arxiv.org/abs/2412.19437" target="_blank" rel="noreferrer">DeepSeek-V3 · MoE ↗</a><a href="https://openai.com/index/learning-to-reason-with-llms/" target="_blank" rel="noreferrer">OpenAI · test-time compute ↗</a></div>
         </footer>
+      </section>
+
+      <section class="home-evidence" aria-labelledby="evidence-title">
+        <div class="evidence-intro" data-reveal>
+          <p class="kicker">Perché riguarda l'Italia</p>
+          <h2 id="evidence-title">La pressione è già visibile.</h2>
+          <p>Questi dati non dimostrano che l'AI risolverà il problema. Spiegano perché la produttività conta.</p>
+        </div>
+        <div class="evidence-grid">
+          <article class="evidence-card evidence-card-feature" data-reveal>
+            <span class="evidence-index">01 / Demografia</span>
+            <strong>24,3%</strong>
+            <h3>Over 65 oggi</h3>
+            <p>ISTAT proietta il 34,6% nel 2050. La popolazione attiva scenderebbe dal 63,5% al 54,3%.</p>
+            <a href="https://www.istat.it/wp-content/uploads/2025/07/Report_Population-and-household-projections_Base-112024.pdf" target="_blank" rel="noreferrer">Fonte ISTAT <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="evidence-card" data-reveal>
+            <span class="evidence-index">02 / Lavoro</span>
+            <strong>39,0%</strong>
+            <h3>Dipendenza anziani</h3>
+            <p>Nel 2025 Eurostat colloca l'Italia al livello più alto dell'UE: meno di tre persone in età lavorativa per ogni over 65.</p>
+            <a href="https://ec.europa.eu/eurostat/statistics-explained/index.php?etrans=pt&amp;title=Population_structure_and_ageing" target="_blank" rel="noreferrer">Fonte Eurostat <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="evidence-card" data-reveal>
+            <span class="evidence-index">03 / Welfare</span>
+            <strong>≈ 16%</strong>
+            <h3>Pensioni / PIL</h3>
+            <p>Secondo l'OCSE, l'Italia è seconda solo alla Grecia nell'area OECD per spesa pensionistica pubblica.</p>
+            <a href="https://www.oecd.org/en/publications/pensions-at-a-glance-2025-country-notes_8a53ef12-en/italy_3dd0d4fa-en.html" target="_blank" rel="noreferrer">Fonte OECD <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="evidence-card evidence-card-dark" data-reveal>
+            <span class="evidence-index">04 / Economia</span>
+            <strong>0,5%</strong>
+            <h3>Crescita 2026</h3>
+            <p>La fotografia OECD è di crescita debole, produttività lenta e adozione AI ancora bassa nelle imprese piccole.</p>
+            <a href="https://www.oecd.org/en/topics/sub-issues/economic-surveys/italy-economic-snapshot.html" target="_blank" rel="noreferrer">Fonte OECD <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
       </section>
 
       <section class="home-routes" id="mappa" aria-labelledby="routes-title">
@@ -309,7 +346,7 @@
             <button class="site-map-node site-map-node-energy" type="button" data-map-node="energy" data-map-index="S1" data-map-kind="Capitolo - Base fisica" data-map-title="Energia" data-map-description="Dalla relazione tra energia e ricchezza ai limiti di rete, data center, fusione e compute orbitale." data-map-href="energia.html" data-map-action="Apri Energia" data-map-path="system energy" aria-pressed="false" aria-controls="site-map-detail"><small>S1 / Base fisica</small><strong>Energia</strong><span>Rete, potenza, cluster</span></button>
             <button class="site-map-node site-map-node-chip" type="button" data-map-node="chip" data-map-index="S2" data-map-kind="Capitolo - Calcolo" data-map-title="Chips" data-map-description="Dal computer al microprocessore, dalla GPU alle generazioni che cambiano la velocità e il costo dei token." data-map-href="chip.html" data-map-action="Apri Chips" data-map-path="system chip" aria-pressed="false" aria-controls="site-map-detail"><small>S2 / Calcolo</small><strong>Chips</strong><span>Silicio, memoria, banda</span></button>
             <button class="site-map-node site-map-node-algorithms" type="button" data-map-node="algorithms" data-map-index="S3" data-map-kind="Capitolo - Efficienza" data-map-title="Algoritmi" data-map-description="Come architetture, addestramento e tempo di ragionamento trasformano il compute grezzo in capacità utile." data-map-href="algoritmi.html" data-map-action="Apri Algoritmi" data-map-path="system algorithms" aria-pressed="false" aria-controls="site-map-detail"><small>S3 / Efficienza</small><strong>Algoritmi</strong><span>Più capacità, stesso hardware</span></button>
-            <button class="site-map-node site-map-node-inference" type="button" data-map-node="inference" data-map-index="S4" data-map-kind="Capitolo - Utilizzo" data-map-title="Inferenza" data-map-description="La frontiera tra velocità percepita da ogni utente e quantità totale di token prodotta per megawatt." data-map-href="inferenza.html" data-map-action="Apri Inferenza" data-map-path="system inference" aria-pressed="false" aria-controls="site-map-detail"><small>S4 / Utilizzo</small><strong>Inferenza</strong><span>Dal modello alla risposta</span></button>
+            <button class="site-map-node site-map-node-inference" type="button" data-map-node="inference" data-map-index="S4" data-map-kind="Capitolo - Compute in uso" data-map-title="Inferenza" data-map-description="Quanto lavoro assegniamo a ogni compito: velocità, ragionamento, agenti paralleli, token per megawatt e costo." data-map-href="inferenza.html" data-map-action="Apri Inferenza" data-map-path="system inference" aria-pressed="false" aria-controls="site-map-detail"><small>S4 / Compute in uso</small><strong>Inferenza</strong><span>Dal modello al lavoro</span></button>
 
             <span class="site-map-branch-label site-map-branch-label-dossier">Dossier si dirama</span>
 
@@ -328,7 +365,7 @@
       <section class="home-closing" id="tesi" aria-labelledby="closing-title">
         <p class="kicker">La tesi del progetto</p>
         <h2 id="closing-title">Per <button class="secret-word" id="secret-word" type="button">capire</button> l'AI non basta guardare il modello.</h2>
-        <div><p>Bisogna seguire l'intero sistema: la corrente che entra, il silicio che calcola, il software che migliora e i token che arrivano all'utente.</p><a href="energia.html">Comincia dall'energia <span aria-hidden="true">→</span></a></div>
+        <div><p>Bisogna seguire l'intero sistema: la corrente che entra, il silicio che calcola, il software che forma il modello e il compute che viene speso dopo ogni domanda.</p><a href="energia.html">Comincia dall'energia <span aria-hidden="true">→</span></a></div>
       </section>
     </main>
 

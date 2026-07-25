@@ -995,6 +995,66 @@ if (scalingRange && scalingOutput && scalingFitPath && scalingFitArea && scaling
   renderScalingState();
 }
 
+const lifecycleLab = document.getElementById("lifecycle-lab");
+const lifecycleButtons = [...document.querySelectorAll("[data-lifecycle]")];
+const lifecycleKicker = document.getElementById("lifecycle-kicker");
+const lifecycleReadingTitle = document.getElementById("lifecycle-reading-title");
+const lifecycleCopy = document.getElementById("lifecycle-copy");
+const lifecycleCaveat = document.getElementById("lifecycle-caveat");
+const lifecycleLink = document.getElementById("lifecycle-link");
+const lifecycleLinkLabel = document.getElementById("lifecycle-link-label");
+
+if (lifecycleLab && lifecycleButtons.length && lifecycleKicker && lifecycleReadingTitle && lifecycleCopy && lifecycleCaveat && lifecycleLink && lifecycleLinkLabel) {
+  const lifecycleContent = {
+    pretraining: {
+      kicker: "01 · Pretraining",
+      title: "Costruire il modello base",
+      copy: "Dati, parametri e calcolo vengono combinati per ridurre l'errore di previsione. Il simulatore Chinchilla descrive questa fase con un budget di addestramento fissato.",
+      caveat: "È una regolarità empirica sulla loss di pretraining: capacità specifiche, architetture moderne e costo di utilizzo richiedono altre misure.",
+      href: "#scaling-laws",
+      link: "Torna al simulatore Chinchilla"
+    },
+    posttraining: {
+      kicker: "02 · Post-training",
+      title: "Orientare la capacità verso un comportamento utile",
+      copy: "Fine-tuning, preferenze, dati sintetici e reinforcement learning insegnano al modello come rispondere, ragionare e usare strumenti dopo la formazione della base.",
+      caveat: "Il post-training può sbloccare capacità latenti e specializzarle. Il guadagno dipende dagli esempi, dagli obiettivi e dalle valutazioni usate.",
+      href: "algoritmi.html#sblocco",
+      link: "Continua nel capitolo Algoritmi"
+    },
+    inference: {
+      kicker: "03 · Inferenza",
+      title: "Spendere compute per la singola domanda",
+      copy: "Più token di ragionamento, verifiche, strumenti o agenti paralleli possono aumentare il lavoro svolto dallo stesso modello su un compito difficile.",
+      caveat: "Il vantaggio dipende dal problema e aumenta latenza, energia e costo: più compute non garantisce automaticamente una risposta migliore.",
+      href: "inferenza.html#compute-evolution",
+      link: "Continua nel capitolo Inferenza"
+    }
+  };
+
+  const renderLifecycle = stage => {
+    const content = lifecycleContent[stage];
+    if (!content) return;
+    lifecycleLab.dataset.lifecycleStage = stage;
+    lifecycleKicker.textContent = content.kicker;
+    lifecycleReadingTitle.textContent = content.title;
+    lifecycleCopy.textContent = content.copy;
+    lifecycleCaveat.textContent = content.caveat;
+    lifecycleLink.href = content.href;
+    lifecycleLinkLabel.textContent = content.link;
+    lifecycleButtons.forEach(button => {
+      const active = button.dataset.lifecycle === stage;
+      button.classList.toggle("is-active", active);
+      button.setAttribute("aria-pressed", String(active));
+    });
+  };
+
+  lifecycleButtons.forEach(button => button.addEventListener("click", () => {
+    renderLifecycle(button.dataset.lifecycle);
+  }));
+  renderLifecycle(lifecycleLab.dataset.lifecycleStage || "inference");
+}
+
 const siteMapExplorer = document.getElementById("site-map-explorer");
 if (siteMapExplorer) {
   const siteMapNodes = [...siteMapExplorer.querySelectorAll("[data-map-node]")];

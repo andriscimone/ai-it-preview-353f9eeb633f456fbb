@@ -52,6 +52,35 @@
   line-height: 1.55;
 }
 
+.inference-page .inference-thesis-callout {
+  min-height: 260px;
+  display: grid;
+  grid-template-columns: 150px minmax(360px, 1.2fr) minmax(280px, .8fr);
+  grid-template-rows: 1fr auto;
+  gap: 26px clamp(28px, 4vw, 72px);
+  align-items: start;
+  position: relative;
+  margin-bottom: 30px;
+  padding: clamp(30px, 4vw, 58px);
+  overflow: hidden;
+  border: 1px solid var(--ink);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 88% 25%, color-mix(in srgb, var(--inference-blue) 55%, transparent), transparent 27%),
+    var(--ink);
+  color: var(--paper);
+  text-decoration: none;
+  box-shadow: 12px 12px 0 color-mix(in srgb, var(--inference-blue) 20%, transparent);
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+.inference-page .inference-thesis-callout:hover { transform: translateY(-4px); box-shadow: 16px 16px 0 color-mix(in srgb, var(--inference-blue) 24%, transparent); }
+.inference-page .inference-thesis-callout:focus-visible { outline: 3px solid var(--inference-blue); outline-offset: 5px; }
+.inference-page .inference-thesis-callout > span { color: #81bfff; font: 600 9px/1.5 var(--mono); text-transform: uppercase; letter-spacing: .08em; }
+.inference-page .inference-thesis-callout > strong { font: 400 clamp(38px, 4vw, 66px)/.92 var(--serif); letter-spacing: -.04em; }
+.inference-page .inference-thesis-callout > p { max-width: 540px; margin: 4px 0 0; color: color-mix(in srgb, var(--paper) 72%, transparent); font-size: 14px; line-height: 1.7; }
+.inference-page .inference-thesis-callout > i { grid-column: 2 / -1; width: fit-content; color: #81bfff; font: normal 600 9px var(--mono); text-transform: uppercase; letter-spacing: .06em; }
+.inference-page .inference-thesis-callout > i b { margin-left: 8px; font-size: 14px; }
+
 .inference-page .open-data-rule {
   gap: 30px;
   margin-bottom: 12px;
@@ -605,6 +634,9 @@
   .inference-page .chapter-head { grid-template-columns: 64px 1fr; }
   .inference-page .chapter-head::after { display: none; }
   .inference-page .chapter-deck { grid-column: 2; max-width: 620px; }
+  .inference-page .inference-thesis-callout { grid-template-columns: 120px 1fr; }
+  .inference-page .inference-thesis-callout > p { grid-column: 2; }
+  .inference-page .inference-thesis-callout > i { grid-column: 2; }
   .inference-page .economics-head { grid-template-columns: 1fr 1fr; }
   .inference-page .economics-head .kicker { grid-column: 1 / -1; }
   .inference-page .economics-body { grid-template-columns: 1fr; }
@@ -647,6 +679,10 @@
   .inference-page .chapter-head { min-height: 0; grid-template-columns: 1fr; margin-bottom: 54px; }
   .inference-page .chapter-head h1 { font-size: clamp(60px, 19vw, 92px); line-height: .86; }
   .inference-page .chapter-deck { grid-column: 1; padding: 20px 0 0; border: 0; border-top: 1px solid var(--ink); }
+  .inference-page .inference-thesis-callout { min-height: 420px; grid-template-columns: 1fr; grid-template-rows: auto auto 1fr auto; gap: 22px; margin-bottom: 22px; padding: 28px 22px; border-radius: 16px; box-shadow: 8px 8px 0 color-mix(in srgb, var(--inference-blue) 20%, transparent); }
+  .inference-page .inference-thesis-callout > strong { font-size: clamp(37px, 11vw, 52px); }
+  .inference-page .inference-thesis-callout > p,
+  .inference-page .inference-thesis-callout > i { grid-column: 1; }
   .inference-page .open-data-rule { gap: 12px; margin-bottom: 10px; padding: 20px; border-radius: 16px; }
   .inference-page .open-data-rule strong { font-size: 25px; }
   .inference-page .workload-tabs {
