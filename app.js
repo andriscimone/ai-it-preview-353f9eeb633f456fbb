@@ -1010,6 +1010,13 @@ if (siteMapExplorer) {
   let lastTouchTap = null;
   let isOpeningSiteMapPage = false;
 
+  const resetSiteMapNavigationState = () => {
+    lastTouchTap = null;
+    isOpeningSiteMapPage = false;
+  };
+
+  window.addEventListener("pageshow", resetSiteMapNavigationState);
+
   const selectSiteMapNode = node => {
     const selectedPath = (node.dataset.mapPath || "").split(" ").filter(Boolean);
     const relatedNodes = new Set(["home", ...selectedPath]);
