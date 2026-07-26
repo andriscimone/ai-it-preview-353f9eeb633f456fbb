@@ -246,6 +246,7 @@
   gap: 30px;
   align-items: center;
   padding: 20px 4vw;
+  color: var(--ink);
   border-top: 1px solid var(--ink);
   background: var(--paper-deep);
 }
@@ -254,6 +255,7 @@
 .news-item-footer a { padding: 10px 12px; border: 1px solid var(--ink); text-decoration: none; font: 600 7px var(--mono); text-transform: uppercase; }
 .news-item-footer a:first-child { color: #10110f; background: var(--news-accent); }
 .news-item-footer a:hover { color: #10110f; background: var(--news-blue); }
+.news-item-footer a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 
 /* N2 — Thunder */
 .news-list-item + .news-list-item { border-top: 0; }
