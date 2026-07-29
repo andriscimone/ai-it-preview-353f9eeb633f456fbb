@@ -2402,33 +2402,40 @@ body.landian-news-awake::after {
   --day-accent: var(--frontier-openai-green);
   --news-accent: #ffbd32;
 }
-body:not(.landian-news-awake):not(.pacing-news-awake) .news-day-frontier > .news-day-head,
-body:not(.landian-news-awake):not(.pacing-news-awake) .news-day-frontier .news-list-item-pacing > summary {
+body:not(.landian-news-awake):not(.pacing-news-awake) .news-day-frontier > .news-day-head {
   color: #10110f;
   background: var(--frontier-cover);
 }
+body:not(.landian-news-awake):not(.pacing-news-awake) .news-day-frontier .news-list-item-pacing > summary {
+  color: var(--ink);
+  background: var(--cream);
+}
 body:not(.landian-news-awake):not(.pacing-news-awake) .news-day-frontier .news-list-item-pacing > summary:hover {
-  background:
-    linear-gradient(rgba(255,255,255,.09), rgba(255,255,255,.09)),
-    var(--frontier-cover);
+  background: var(--hover);
 }
 body:not(.landian-news-awake):not(.pacing-news-awake) .news-day-frontier .news-list-item-pacing[open] > summary,
 body:not(.landian-news-awake):not(.pacing-news-awake) .news-day-frontier .news-list-item-pacing[open] > summary:hover {
-  background: var(--frontier-cover);
+  color: var(--ink);
+  background: var(--cream);
 }
-body:not(.landian-news-awake):not(.pacing-news-awake) .news-day-frontier .news-list-item-pacing .news-item-meta,
-body:not(.landian-news-awake):not(.pacing-news-awake) .news-day-frontier .news-list-item-pacing .news-item-deck {
-  color: rgba(16,17,15,.82);
+body:not(.landian-news-awake):not(.pacing-news-awake) .news-day-frontier .news-list-item-pacing[open] .news-item-meta,
+body:not(.landian-news-awake):not(.pacing-news-awake) .news-day-frontier .news-list-item-pacing[open] .news-item-deck {
+  color: var(--muted);
 }
-body:not(.landian-news-awake):not(.pacing-news-awake) .news-day-frontier .news-list-item-pacing .news-item-meta b {
-  color: #f4efe4;
-  background: #10110f;
-}
-body:not(.landian-news-awake):not(.pacing-news-awake) .news-day-frontier .news-list-item-pacing .news-item-status {
+body:not(.landian-news-awake):not(.pacing-news-awake) .news-day-frontier .news-list-item-pacing[open] .news-item-meta b {
   color: #10110f;
+  background: var(--news-accent);
 }
-body:not(.landian-news-awake):not(.pacing-news-awake) .news-day-frontier .news-list-item-pacing .news-item-status i {
-  background: #10110f;
+body:not(.landian-news-awake):not(.pacing-news-awake) .news-day-frontier .news-list-item-pacing[open] .news-item-status {
+  color: var(--ink);
+}
+body:not(.landian-news-awake):not(.pacing-news-awake) .news-day-frontier .news-list-item-pacing[open] .news-item-status i {
+  background: var(--news-accent);
+}
+body:not(.landian-news-awake):not(.pacing-news-awake) .news-day-frontier .news-list-item-pacing[open] .news-item-toggle {
+  color: var(--ink);
+  border-color: var(--ink);
+  background: transparent;
 }
 .news-list-item-pacing {
   --day-accent: #10a37f;
