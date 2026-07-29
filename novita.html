@@ -14,7 +14,7 @@
     <title>Novità — AI.it</title>
     <script>(() => { try { const saved = localStorage.getItem("aiit-theme"); const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dataset.theme = saved || preferred; } catch (_) { document.documentElement.dataset.theme = "light"; } })();</script>
     <link rel="stylesheet" href="styles.css?v=news-list-3" />
-    <link rel="stylesheet" href="novita.css?v=19" />
+    <link rel="stylesheet" href="novita.css?v=21" />
   </head>
   <body class="detail-page news-page news-list-page">
     <a class="skip-link" href="#feed">Salta alle notizie</a><div class="noise" aria-hidden="true"></div>
@@ -84,7 +84,7 @@
                 <section class="pacing-download" aria-labelledby="pacing-download-title">
                   <div>
                     <span class="pacing-kicker">Allegato AI.it</span>
-                    <h3 id="pacing-download-title">86 commenti, una voce alla volta.</h3>
+                    <h3 id="pacing-download-title">86 commenti, una <button class="pacing-spooky-trigger" type="button" data-pacing-spooky-trigger aria-controls="pacing-rsi-transmission" aria-expanded="false" aria-label="voce">voce</button> alla volta.</h3>
                     <p>Il PDF conserva l’ordine, il nome e il ruolo riportati dalla fonte, con una resa editoriale italiana fedele e completa di ogni commento. Il documento si ferma dopo l’ottantaseiesima voce e chiude con il conteggio richiesto degli altri firmatari.</p>
                   </div>
                   <a class="pacing-download-button" href="assets/pacing-the-frontier-commenti-it.pdf" target="_blank" rel="noreferrer">
@@ -92,6 +92,51 @@
                     <strong>86 commenti · italiano</strong>
                     <i aria-hidden="true">↓</i>
                   </a>
+                </section>
+
+                <section class="pacing-rsi-transmission" id="pacing-rsi-transmission" data-pacing-spooky-transmission role="region" aria-labelledby="pacing-rsi-title" tabindex="-1" hidden>
+                  <header class="pacing-rsi-head">
+                    <div class="pacing-rsi-status">
+                      <span>Spooky Timelines / Phase 08</span>
+                      <strong>5 / 86 · RSI esplicita</strong>
+                    </div>
+                    <h3 id="pacing-rsi-title">La paura non viene più da fuori.</h3>
+                    <p>Siamo arrivati a un punto preciso: persone che lavorano nei laboratori di frontiera discutono apertamente la possibilità che l’AI inizi a contribuire al proprio miglioramento più rapidamente di quanto gli esseri umani riescano a comprenderla e governarla. Non sono osservatori esterni. Sono persone che costruiscono e valutano questi sistemi.</p>
+                  </header>
+
+                  <aside class="pacing-rsi-threshold">
+                    <span>La soglia</span>
+                    <strong>Il timore è entrato nel laboratorio.</strong>
+                    <p>Queste cinque posizioni non costituiscono un consenso: Bakouch contesta anche l’uso allarmistico della RSI. Il segnale è più netto e più difficile da ignorare: l’auto-miglioramento ricorsivo è ormai un tema discusso esplicitamente da chi opera alla frontiera.</p>
+                  </aside>
+
+                  <div class="pacing-rsi-comments" aria-label="Cinque commenti che nominano esplicitamente la RSI o l’auto-miglioramento ricorsivo">
+                    <article>
+                      <header><span>10 / 86</span><div><h4>Dawn Song</h4><p>Vicepresidente per la ricerca sull’IA, Meta</p></div></header>
+                      <p>Song vede capacità di frontiera in rapida crescita e un ritmo che sta accelerando a sua volta. Nei lavori di valutazione CyberGym ed ExploitGym, gli agenti di IA riescono già a scoprire e sfruttare vulnerabilità reali del software; senza protezioni adeguate, osserva, potrebbero rendere possibili attacchi informatici su vasta scala. Ricorda inoltre che molti ricercatori considerano plausibile, entro pochi anni, l’auto-miglioramento ricorsivo, che potrebbe spingere il progresso oltre la nostra capacità di comprenderlo e governarlo. Un rallentamento deliberato sarebbe per lei una misura pesante ed estrema, forse mai necessaria; proprio per questo non andrebbe improvvisato durante una crisi, perché è difficile da progettare e, se fatto male, potrebbe causare più danni che benefici. Un quadro credibile dovrebbe basarsi su prove e valutazioni del rischio rigorose e misurabili, evitando soglie arbitrarie che non colgano il pericolo reale e soffochino l’innovazione; come un’infrastruttura critica, andrebbe studiato, sperimentato e costruito prima del bisogno. Dovrebbe anche essere internazionale, perché nessun laboratorio o Paese può rallentare una frontiera verso cui tutti gli altri corrono, e verificabile attraverso valutazioni trasparenti dei sistemi. Song non sa se né quando servirà, ma preparare ora strumenti tecnici, regole e cooperazione internazionale offrirebbe alla società una possibilità in più prima di un momento decisivo che, vista la velocità attuale, potrebbe arrivare prima del previsto. Costruire questa capacità non equivale a decidere di usarla: quella scelta richiederebbe grande cautela, prove solide e un ampio consenso internazionale; senza strumenti già pronti, però, non ci sarebbe alcuna scelta.</p>
+                    </article>
+                    <article>
+                      <header><span>11 / 86</span><div><h4>Jason Wolfe</h4><p>Membro dello staff tecnico, OpenAI</p></div></header>
+                      <p>Wolfe condivide la posizione dichiarata da OpenAI: gli esseri umani devono mantenere il controllo dello sviluppo e le decisioni sul ritmo del progresso devono passare da processi democratici, non essere lasciate ai singoli laboratori. La competizione, osserva, premia l’azienda o il Paese disposto a correre più in fretta e ad accettare più rischi; un eventuale auto-miglioramento ricorsivo potrebbe accelerare drasticamente questa dinamica, fino a superare la capacità collettiva di capire i progressi, valutarne i pericoli e conservare un controllo umano effettivo. Come primo passo chiede più trasparenza negli Stati Uniti sugli addestramenti di frontiera, sugli impieghi interni, sulla velocità dei progressi, sui rischi e sulle protezioni: senza queste informazioni, cittadini e decisori politici non possono compiere scelte democratiche consapevoli. La trasparenza nazionale, però, non risolve una corsa internazionale; servono anche strumenti tecnici e istituzionali per un coordinamento globale credibile e verificabile. Forse non sarà mai necessario usarli, ma poiché molti esperti giudicano plausibile un’esplosione d’intelligenza entro i prossimi due anni, Wolfe considera urgente costruire questa capacità fin da ora.</p>
+                    </article>
+                    <article>
+                      <header><span>42 / 86</span><div><h4>Prakash Murugesan</h4><p>Ingegnere di ricerca, Meta</p></div></header>
+                      <p>Murugesan sostiene che i rischi dell’RSI, cioè dell’auto-miglioramento ricorsivo dell’AI, abbiano smesso di appartenere a un futuro lontano e siano già presenti. Le barriere di sicurezza, a suo parere, non possono essere affidate a una sola impresa privata: dovrebbero essere decise da un consorzio di scienziati e ingegneri competenti insieme a dirigenti pubblici responsabili davanti ai cittadini. Lo scopo è costruire un futuro allineato con gli aspetti migliori dell’umanità, evitando che ne rifletta i peggiori.</p>
+                    </article>
+                    <article>
+                      <header><span>65 / 86</span><div><h4>Elie Bakouch</h4><p>Prime Intellect</p></div></header>
+                      <p>Bakouch sostiene l’iniziativa, ma avverte che le narrazioni sull’auto-miglioramento ricorsivo non dovrebbero diventare il pretesto per creare una barriera regolatoria a vantaggio degli operatori già dominanti. Chiede che i rischi siano quantificati con rigore e maggiore trasparenza, senza ricavarli soltanto dai racconti dei grandi laboratori.</p>
+                    </article>
+                    <article>
+                      <header><span>77 / 86</span><div><h4>Leo He</h4><p>Ingegnere di ricerca, Google</p></div></header>
+                      <p>Lavorando sul miglioramento ricorsivo e sulla valutazione automatizzata, He condivide sia la diagnosi della dichiarazione sia la sua richiesta, che considera misurata: regolare il ritmo, non fermare tutto. Il passaggio decisivo è l’automazione della stessa ricerca sull’AI, perché da quel momento i sistemi possono contribuire al proprio miglioramento e il progresso rischia di superare, senza segnali evidenti, la nostra capacità di comprenderlo e orientarlo. Per questo la possibilità di rallentare deve diventare una capacità condivisa, non una speranza. Chiede inoltre di trasformare la formula «strumenti tecnici e di governo» in misure concrete: nessun sistema, per quanto capace, dovrebbe giudicare da solo se il proprio successore è sicuro da distribuire. Valutazioni e controlli indipendenti sono, secondo lui, il freno operativo richiesto dalla lettera.</p>
+                    </article>
+                  </div>
+
+                  <footer class="pacing-rsi-footer">
+                    <p><strong>Criterio del filtro:</strong> sono incluse soltanto le cinque voci che usano “RSI” o l’espressione inglese completa <em>recursive self-improvement</em>. Le rese italiane sono le stesse del PDF allegato.</p>
+                    <button type="button" data-pacing-spooky-exit>Interrompi la trasmissione <span aria-hidden="true">[ESC]</span></button>
+                  </footer>
                 </section>
 
                 <footer class="news-item-footer pacing-footer">
@@ -930,6 +975,6 @@
       <nav class="chapter-next" aria-label="Continua la lettura"><a href="altro.html">← Dossier</a><a href="index.html">Home →</a></nav>
     </main>
     <footer class="site-footer"><span>AI.it</span><span>Novità · 8 aggiornamenti in 5 giorni</span></footer>
-    <script src="app.js?v=novita-landian-1"></script>
+    <script src="app.js?v=novita-spooky-2"></script>
   </body>
 </html>
