@@ -2390,11 +2390,48 @@ body.landian-news-awake::after {
 
 /* N8 — Pacing the Frontier */
 .news-day-frontier {
-  --day-accent: #ffbd32;
+  --frontier-openai-green: #10a37f;
+  --frontier-anthropic-orange: #d97757;
+  --frontier-cover:
+    linear-gradient(
+      112deg,
+      var(--frontier-openai-green) 0 48%,
+      color-mix(in srgb, var(--frontier-openai-green) 45%, var(--frontier-anthropic-orange)) 50%,
+      var(--frontier-anthropic-orange) 52% 100%
+    );
+  --day-accent: var(--frontier-openai-green);
   --news-accent: #ffbd32;
 }
+body:not(.landian-news-awake):not(.pacing-news-awake) .news-day-frontier > .news-day-head,
+body:not(.landian-news-awake):not(.pacing-news-awake) .news-day-frontier .news-list-item-pacing > summary {
+  color: #10110f;
+  background: var(--frontier-cover);
+}
+body:not(.landian-news-awake):not(.pacing-news-awake) .news-day-frontier .news-list-item-pacing > summary:hover {
+  background:
+    linear-gradient(rgba(255,255,255,.09), rgba(255,255,255,.09)),
+    var(--frontier-cover);
+}
+body:not(.landian-news-awake):not(.pacing-news-awake) .news-day-frontier .news-list-item-pacing[open] > summary,
+body:not(.landian-news-awake):not(.pacing-news-awake) .news-day-frontier .news-list-item-pacing[open] > summary:hover {
+  background: var(--frontier-cover);
+}
+body:not(.landian-news-awake):not(.pacing-news-awake) .news-day-frontier .news-list-item-pacing .news-item-meta,
+body:not(.landian-news-awake):not(.pacing-news-awake) .news-day-frontier .news-list-item-pacing .news-item-deck {
+  color: rgba(16,17,15,.82);
+}
+body:not(.landian-news-awake):not(.pacing-news-awake) .news-day-frontier .news-list-item-pacing .news-item-meta b {
+  color: #f4efe4;
+  background: #10110f;
+}
+body:not(.landian-news-awake):not(.pacing-news-awake) .news-day-frontier .news-list-item-pacing .news-item-status {
+  color: #10110f;
+}
+body:not(.landian-news-awake):not(.pacing-news-awake) .news-day-frontier .news-list-item-pacing .news-item-status i {
+  background: #10110f;
+}
 .news-list-item-pacing {
-  --day-accent: #ffbd32;
+  --day-accent: #10a37f;
   --news-accent: #ffbd32;
 }
 .pacing-story {
