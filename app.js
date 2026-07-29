@@ -1210,6 +1210,7 @@ const landianTriggers = [...document.querySelectorAll("[data-landian-trigger]")]
 const landianTransmission = document.querySelector("[data-landian-transmission]");
 const landianExit = document.querySelector("[data-landian-exit]");
 const deepseekNews = document.getElementById("deepseek-liang-investor-meeting");
+const newsSpookyModeEvent = "aiit:news-spooky-mode";
 
 if (landianTriggers.length && landianTransmission && landianExit && deepseekNews) {
   const requiredLandianClicks = 7;
@@ -1245,8 +1246,15 @@ if (landianTriggers.length && landianTransmission && landianExit && deepseekNews
     if (returnFocus) lastLandianTrigger.focus({ preventScroll: true });
   };
 
+  document.addEventListener(newsSpookyModeEvent, event => {
+    if (event.detail?.source === "deepseek") return;
+    if (document.body.classList.contains("landian-news-awake")) deactivateLandianMode(false);
+    else resetLandianProgress();
+  });
+
   const activateLandianMode = trigger => {
     lastLandianTrigger = trigger;
+    document.dispatchEvent(new CustomEvent(newsSpookyModeEvent, { detail: { source: "deepseek" } }));
     clearTimeout(landianResetTimer);
     resetLandianProgress();
     document.body.classList.add("landian-news-awake");
@@ -1299,6 +1307,112 @@ if (landianTriggers.length && landianTransmission && landianExit && deepseekNews
       window.setTimeout(() => {
         if (document.body.classList.contains("landian-news-awake") && landianThemeColor) {
           landianThemeColor.setAttribute("content", "#020302");
+        }
+      }, 0);
+    });
+  }
+}
+
+const pacingSpookyTrigger = document.querySelector("[data-pacing-spooky-trigger]");
+const pacingSpookyTransmission = document.querySelector("[data-pacing-spooky-transmission]");
+const pacingSpookyExit = document.querySelector("[data-pacing-spooky-exit]");
+const pacingNews = document.getElementById("pacing-the-frontier");
+
+if (pacingSpookyTrigger && pacingSpookyTransmission && pacingSpookyExit && pacingNews) {
+  const requiredPacingSpookyClicks = 7;
+  const pacingSpookyClickWindow = 8000;
+  const reducePacingSpookyMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const pacingSpookyThemeColor = document.getElementById("theme-color");
+  let pacingSpookyClicks = [];
+  let pacingSpookyResetTimer;
+
+  const resetPacingSpookyProgress = () => {
+    pacingSpookyClicks = [];
+    document.body.removeAttribute("data-pacing-spooky-progress");
+    pacingSpookyTrigger.classList.remove("is-counting");
+    delete pacingSpookyTrigger.dataset.pacingSpookyCount;
+    pacingSpookyTrigger.setAttribute("aria-label", "voce");
+  };
+
+  const restorePacingSpookyThemeColor = () => {
+    if (!pacingSpookyThemeColor) return;
+    const isDark = document.documentElement.dataset.theme === "dark";
+    pacingSpookyThemeColor.setAttribute("content", isDark ? "#090b09" : "#f2f0e8");
+  };
+
+  const deactivatePacingSpookyMode = (returnFocus = true) => {
+    if (!document.body.classList.contains("pacing-news-awake")) return;
+    document.body.classList.remove("pacing-news-awake");
+    pacingSpookyTransmission.hidden = true;
+    pacingSpookyTrigger.setAttribute("aria-expanded", "false");
+    resetPacingSpookyProgress();
+    restorePacingSpookyThemeColor();
+    if (returnFocus) pacingSpookyTrigger.focus({ preventScroll: true });
+  };
+
+  document.addEventListener(newsSpookyModeEvent, event => {
+    if (event.detail?.source === "pacing") return;
+    if (document.body.classList.contains("pacing-news-awake")) deactivatePacingSpookyMode(false);
+    else resetPacingSpookyProgress();
+  });
+
+  const activatePacingSpookyMode = () => {
+    document.dispatchEvent(new CustomEvent(newsSpookyModeEvent, { detail: { source: "pacing" } }));
+    clearTimeout(pacingSpookyResetTimer);
+    resetPacingSpookyProgress();
+    document.body.classList.add("pacing-news-awake");
+    pacingSpookyTransmission.hidden = false;
+    pacingSpookyTrigger.setAttribute("aria-expanded", "true");
+    pacingSpookyTrigger.setAttribute("aria-label", "voce, Spooky Theme attivo");
+    if (pacingSpookyThemeColor) pacingSpookyThemeColor.setAttribute("content", "#020302");
+    pacingSpookyTransmission.scrollIntoView({
+      behavior: reducePacingSpookyMotion.matches ? "auto" : "smooth",
+      block: "start"
+    });
+    pacingSpookyTransmission.focus({ preventScroll: true });
+  };
+
+  pacingSpookyTrigger.addEventListener("click", () => {
+    if (document.body.classList.contains("pacing-news-awake")) {
+      deactivatePacingSpookyMode(true);
+      return;
+    }
+
+    const now = performance.now();
+    pacingSpookyClicks = pacingSpookyClicks.filter(time => now - time <= pacingSpookyClickWindow);
+    pacingSpookyClicks.push(now);
+    const progress = Math.min(pacingSpookyClicks.length, requiredPacingSpookyClicks);
+
+    document.body.dataset.pacingSpookyProgress = String(progress);
+    pacingSpookyTrigger.dataset.pacingSpookyCount = String(progress).padStart(2, "0");
+    pacingSpookyTrigger.classList.add("is-counting");
+    pacingSpookyTrigger.setAttribute("aria-label", `voce, ${progress} clic su 7`);
+
+    clearTimeout(pacingSpookyResetTimer);
+    pacingSpookyResetTimer = window.setTimeout(resetPacingSpookyProgress, pacingSpookyClickWindow);
+
+    if (progress >= requiredPacingSpookyClicks) activatePacingSpookyMode();
+  });
+
+  pacingSpookyExit.addEventListener("click", () => deactivatePacingSpookyMode(true));
+
+  pacingNews.addEventListener("toggle", () => {
+    if (pacingNews.open) return;
+    if (document.body.classList.contains("pacing-news-awake")) deactivatePacingSpookyMode(false);
+    else resetPacingSpookyProgress();
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key !== "Escape" || !document.body.classList.contains("pacing-news-awake")) return;
+    event.preventDefault();
+    deactivatePacingSpookyMode(true);
+  });
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      window.setTimeout(() => {
+        if (document.body.classList.contains("pacing-news-awake") && pacingSpookyThemeColor) {
+          pacingSpookyThemeColor.setAttribute("content", "#020302");
         }
       }, 0);
     });
