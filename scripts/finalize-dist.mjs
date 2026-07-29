@@ -21,6 +21,7 @@ const contentTypes = {
   ".jpeg": "image/jpeg",
   ".png": "image/png",
   ".webp": "image/webp",
+  ".pdf": "application/pdf",
   ".woff2": "font/woff2"
 };
 const routeFiles = [
