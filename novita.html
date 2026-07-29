@@ -14,7 +14,7 @@
     <title>Novità — AI.it</title>
     <script>(() => { try { const saved = localStorage.getItem("aiit-theme"); const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dataset.theme = saved || preferred; } catch (_) { document.documentElement.dataset.theme = "light"; } })();</script>
     <link rel="stylesheet" href="styles.css?v=news-list-3" />
-    <link rel="stylesheet" href="novita.css?v=18" />
+    <link rel="stylesheet" href="novita.css?v=19" />
   </head>
   <body class="detail-page news-page news-list-page">
     <a class="skip-link" href="#feed">Salta alle notizie</a><div class="noise" aria-hidden="true"></div>
@@ -28,7 +28,80 @@
       </header>
 
       <section class="news-list" id="feed" aria-labelledby="feed-title">
-        <header class="news-list-head"><h2 id="feed-title">Giorno per giorno</h2><span>4 giorni · 7 notizie</span></header>
+        <header class="news-list-head"><h2 id="feed-title">Giorno per giorno</h2><span>5 giorni · 8 notizie</span></header>
+
+        <section class="news-day news-day-frontier" aria-labelledby="day-2026-07-28">
+          <header class="news-day-head">
+            <time datetime="2026-07-28" id="day-2026-07-28"><strong>28 luglio</strong><span>2026</span></time>
+            <span class="news-day-count">1 notizia</span>
+          </header>
+          <div class="news-day-items">
+            <details class="news-list-item news-list-item-pacing" id="pacing-the-frontier">
+              <summary aria-labelledby="pacing-the-frontier-title">
+                <span class="news-item-meta"><b>N8</b><span class="news-item-topic">Sicurezza e governance</span><span class="news-item-status"><i></i> lettera pubblica</span></span>
+                <span class="news-item-title" id="pacing-the-frontier-title">1.224 dipendenti dell’AI di frontiera chiedono di preparare un rallentamento coordinato</span>
+                <span class="news-item-deck">Pacing the Frontier propone strumenti internazionali per guadagnare tempo se la ricerca automatizzata accelerasse oltre la capacità di controllo.</span>
+                <span class="news-item-toggle" aria-hidden="true"></span>
+              </summary>
+
+              <div class="news-item-body pacing-story">
+                <section class="pacing-hero" aria-labelledby="pacing-hero-title">
+                  <div class="pacing-hero-copy">
+                    <span class="pacing-kicker">28 luglio 2026 · lettera pubblica</span>
+                    <h3 id="pacing-hero-title">Preparare il freno prima dell’emergenza.</h3>
+                    <p>La corsa tra aziende e Paesi rende difficile rallentare da soli. La lettera <em>Pacing the Frontier</em> chiede al governo statunitense di sostenere un’iniziativa internazionale capace di costruire strumenti tecnici e regole condivise per modulare il ritmo dello sviluppo dell’AI automatizzata, qualora diventasse necessario.</p>
+                  </div>
+                  <dl class="pacing-numbers" aria-label="Numeri della lettera Pacing the Frontier">
+                    <div><dt>Firmatari pubblicati</dt><dd>1.224</dd></div>
+                    <div><dt>Commenti personali</dt><dd>86</dd></div>
+                    <div><dt>Firmatari senza commento</dt><dd>1.138</dd></div>
+                  </dl>
+                </section>
+
+                <section class="pacing-request" aria-labelledby="pacing-request-title">
+                  <div>
+                    <span class="pacing-kicker">La richiesta</span>
+                    <h3 id="pacing-request-title">Costruire una possibilità futura.</h3>
+                  </div>
+                  <div class="pacing-request-copy">
+                    <p>Gli autori temono che l’automazione della ricerca sull’AI possa accelerare le capacità più rapidamente della comprensione, della sicurezza e della supervisione. Propongono di preparare in anticipo sistemi di monitoraggio, criteri verificabili e un quadro di cooperazione tra Paesi.</p>
+                    <p>La lettera lascia aperte sia la necessità sia la forma di un eventuale rallentamento. I commenti mostrano posizioni diverse: alcuni chiedono regole vincolanti, altri insistono sui rischi di concentrazione del potere o sulle difficoltà di un intervento mal progettato.</p>
+                  </div>
+                </section>
+
+                <section class="pacing-caveats" aria-labelledby="pacing-caveats-title">
+                  <header>
+                    <span class="pacing-kicker">Come leggerla</span>
+                    <h3 id="pacing-caveats-title">Tre limiti da tenere visibili.</h3>
+                  </header>
+                  <div class="pacing-caveats-grid">
+                    <article><span>01</span><strong>Verifica dichiarata</strong><p>Il sito richiede un’email aziendale o una prova dell’impiego. AI.it non ha verificato individualmente i 1.224 firmatari.</p></article>
+                    <article><span>02</span><strong>Voci personali</strong><p>Le 86 note rappresentano i singoli autori e, secondo la pagina, non necessariamente le aziende per cui lavorano.</p></article>
+                    <article><span>03</span><strong>Conteggio aperto</strong><p>Questa è una fotografia controllata il 29 luglio 2026. Il modulo per nuove firme resta disponibile e i numeri possono cambiare.</p></article>
+                  </div>
+                </section>
+
+                <section class="pacing-download" aria-labelledby="pacing-download-title">
+                  <div>
+                    <span class="pacing-kicker">Allegato AI.it</span>
+                    <h3 id="pacing-download-title">86 commenti, una voce alla volta.</h3>
+                    <p>Il PDF conserva l’ordine, il nome e il ruolo riportati dalla fonte, con una resa editoriale italiana fedele e completa di ogni commento. Il documento si ferma dopo l’ottantaseiesima voce e chiude con il conteggio richiesto degli altri firmatari.</p>
+                  </div>
+                  <a class="pacing-download-button" href="assets/pacing-the-frontier-commenti-it.pdf" target="_blank" rel="noreferrer">
+                    <span>Apri il PDF</span>
+                    <strong>86 commenti · italiano</strong>
+                    <i aria-hidden="true">↓</i>
+                  </a>
+                </section>
+
+                <footer class="news-item-footer pacing-footer">
+                  <p>Il PDF offre rese italiane complete e attribuite, non citazioni testuali. La pagina originale definisce i partecipanti “dipendenti” e “firmatari”; i ruoli comprendono ricerca, ingegneria, sicurezza, gestione e attività operative.</p>
+                  <div><a href="assets/pacing-the-frontier-commenti-it.pdf" target="_blank" rel="noreferrer">PDF in italiano ↓</a><a href="https://www.pacingthefrontier.com/" target="_blank" rel="noreferrer">Lettera originale ↗</a><a href="https://www.pacingthefrontier.com/privacy" target="_blank" rel="noreferrer">Metodo di verifica ↗</a></div>
+                </footer>
+              </div>
+            </details>
+          </div>
+        </section>
 
         <section class="news-day news-day-electric" aria-labelledby="day-2026-07-24">
           <header class="news-day-head">
@@ -856,7 +929,7 @@
 
       <nav class="chapter-next" aria-label="Continua la lettura"><a href="altro.html">← Dossier</a><a href="index.html">Home →</a></nav>
     </main>
-    <footer class="site-footer"><span>AI.it</span><span>Novità · 7 aggiornamenti in 4 giorni</span></footer>
+    <footer class="site-footer"><span>AI.it</span><span>Novità · 8 aggiornamenti in 5 giorni</span></footer>
     <script src="app.js?v=novita-landian-1"></script>
   </body>
 </html>
