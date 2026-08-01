@@ -14,7 +14,7 @@
     <title>Novità — AI.it</title>
     <script>(() => { try { const saved = localStorage.getItem("aiit-theme"); const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dataset.theme = saved || preferred; } catch (_) { document.documentElement.dataset.theme = "light"; } })();</script>
     <link rel="stylesheet" href="styles.css?v=news-list-3" />
-    <link rel="stylesheet" href="novita.css?v=25" />
+    <link rel="stylesheet" href="novita.css?v=29" />
   </head>
   <body class="detail-page news-page news-list-page">
     <a class="skip-link" href="#feed">Salta alle notizie</a><div class="noise" aria-hidden="true"></div>
@@ -28,7 +28,136 @@
       </header>
 
       <section class="news-list" id="feed" aria-labelledby="feed-title">
-        <header class="news-list-head"><h2 id="feed-title">Giorno per giorno</h2><span>6 giorni · 9 notizie</span></header>
+        <header class="news-list-head"><h2 id="feed-title">Giorno per giorno</h2><span>7 giorni · 10 notizie</span></header>
+
+        <section class="news-day news-day-astra" aria-labelledby="day-2026-08-01">
+          <header class="news-day-head">
+            <time datetime="2026-08-01" id="day-2026-08-01"><strong>1º agosto</strong><span>2026</span></time>
+            <span class="news-day-count">1 notizia</span>
+          </header>
+          <div class="news-day-items">
+            <details class="news-list-item news-list-item-astra" id="openai-astra-ten-advances">
+              <summary aria-labelledby="astra-title">
+                <span class="news-item-meta"><b>N10</b><span class="news-item-topic">Modelli × ricerca matematica</span><span class="news-item-status"><i></i> pubblicazione OpenAI</span></span>
+                <span class="news-item-title" id="astra-title">OpenAI presenta Astra attraverso dieci nuovi risultati matematici</span>
+                <span class="news-item-deck">OpenAI pubblica manoscritti, note sul percorso di scoperta e certificati Lean. Il modello non è ancora disponibile al pubblico.</span>
+                <span class="news-item-toggle" aria-hidden="true"></span>
+              </summary>
+
+              <div class="news-item-body astra-story">
+                <section class="astra-hero" aria-labelledby="astra-hero-title">
+                  <div class="astra-hero-copy">
+                    <span class="astra-kicker">1º agosto 2026 · fonte ufficiale OpenAI</span>
+                    <p class="astra-wordmark" aria-hidden="true">OPENAI / ASTRA</p>
+                    <h3 id="astra-hero-title">OpenAI sceglie la matematica per presentare il suo prossimo grande modello.</h3>
+                    <p>OpenAI ha pubblicato dieci nuovi risultati in matematica e informatica teorica ottenuti da una versione interna di <strong>Astra</strong>, nome usato dall’azienda per il suo «prossimo grande modello». Il materiale comprende un volume tecnico di 249 pagine, un documento di 62 pagine sul percorso di scoperta e formalizzazioni Lean pubblicate per il controllo.</p>
+                    <p>I dieci contributi hanno natura diversa: alcuni propongono soluzioni a problemi aperti, altri confutano congetture o migliorano limiti noti. OpenAI attribuisce al sistema gli argomenti matematici. Il team dell’azienda ha poi preparato i manoscritti con l’aiuto dello stesso modello.</p>
+                    <aside class="astra-name-note"><strong>Il nome ufficiale, per ora.</strong><span>OpenAI scrive “Astra”, senza chiamarlo “GPT Astra” o “GPT‑6”. È un progetto diverso dal Project Astra di Google DeepMind, l’assistente multimodale legato a Gemini.</span></aside>
+                  </div>
+
+                  <div class="astra-signal" role="group" aria-label="Dieci risultati in matematica e informatica teorica">
+                    <div class="astra-signal-total"><span>Risultati pubblicati</span><strong>10</strong></div>
+                    <ol aria-hidden="true">
+                      <li>01</li><li>02</li><li>03</li><li>04</li><li>05</li>
+                      <li>06</li><li>07</li><li>08</li><li>09</li><li>10</li>
+                    </ol>
+                    <p>Manoscritti<br />+ note di scoperta<br />+ certificati Lean</p>
+                  </div>
+                </section>
+
+                <dl class="astra-facts" aria-label="Numeri principali della pubblicazione su Astra">
+                  <div><dt>Pubblicazione</dt><dd><strong>1º agosto</strong><span>OpenAI usa pubblicamente il nome Astra e lo collega al suo prossimo grande modello.</span></dd></div>
+                  <div><dt>Volume tecnico</dt><dd><strong>249 pagine</strong><span>Dieci manoscritti raccolti in un unico documento.</span></dd></div>
+                  <div><dt>Note di scoperta</dt><dd><strong>62 pagine</strong><span>Narrazioni generate da un modello sulla ricostruzione del percorso, non registrazioni dirette del processo interno.</span></dd></div>
+                  <div><dt>Costo equivalente</dt><dd><strong>≈ 2.000 $</strong><span>Stima dei token usati per trovare le soluzioni alle tariffe API di Sol; non comprende l’addestramento né il costo completo della ricerca.</span></dd></div>
+                </dl>
+
+                <section class="astra-results" aria-labelledby="astra-results-title">
+                  <header>
+                    <span class="astra-kicker">Il dossier tecnico</span>
+                    <h3 id="astra-results-title">Dieci risultati di natura diversa.</h3>
+                    <p>Le formulazioni qui sotto riassumono ciò che sostengono OpenAI e i manoscritti. L’esame indipendente della comunità matematica è appena iniziato.</p>
+                  </header>
+                  <ol class="astra-results-grid">
+                    <li><span>01 · Geometria</span><strong>Impacchettamento di sfere</strong><p>Un nuovo limite superiore asintotico che raggiunge la soglia di Cohn–Elkies; il manoscritto lo descrive come il primo miglioramento generale dell’esponente dal 1978.</p></li>
+                    <li><span>02 · Teoria dei codici</span><strong>Codici binari e sferici</strong><p>Limiti superiori migliorati di fattori esponenziali per codici con distanza minima fissata.</p></li>
+                    <li><span>03 · Teoria dei gruppi</span><strong>Un gruppo non sofico</strong><p>Una costruzione esplicita che, se confermata, mostrerebbe che non tutti i gruppi ammettono approssimazioni finite tramite permutazioni.</p></li>
+                    <li><span>04 · Algebre di operatori</span><strong>Rigidità di Connes</strong><p>Una famiglia di controesempi alla congettura secondo cui alcuni gruppi sono determinati dalla loro algebra di von Neumann.</p></li>
+                    <li><span>05 · Complessità</span><strong>Circuiti aritmetici</strong><p>Nuovi limiti inferiori per calcolare il permanente attraverso circuiti e formule aritmetiche.</p></li>
+                    <li><span>06 · Informazione quantistica</span><strong>Ripetizione parallela</strong><p>Un teorema esponenziale per tutti i giochi quantistici finiti con due giocatori, oltre i casi speciali coperti finora.</p></li>
+                    <li><span>07 · Reticoli</span><strong>Vettore più vicino</strong><p>Una nuova dimostrazione della difficoltà di approssimare un problema fondamentale anche per la crittografia post-quantistica.</p></li>
+                    <li><span>08 · Geometria discreta</span><strong>Volume di Ehrhart</strong><p>La dimostrazione del limite ottimale congetturato per una classe di corpi convessi in ogni dimensione.</p></li>
+                    <li><span>09 · Combinatoria</span><strong>Numeri di Ramsey</strong><p>Un limite inferiore superesponenziale per i numeri di Ramsey multicolore dei triangoli, presentato come soluzione del problema 183 di Erdős.</p></li>
+                    <li><span>10 · Grafi estremali</span><strong>Compattezza e degenerazione</strong><p>Due costruzioni che confutano congetture di teoria dei grafi, collegate ai problemi 146 e 180 di Erdős.</p></li>
+                  </ol>
+                </section>
+
+                <section class="astra-method" aria-labelledby="astra-method-title">
+                  <header>
+                    <span class="astra-kicker">Dal modello alla prova pubblica</span>
+                    <h3 id="astra-method-title">I materiali pubblicati descrivono quattro passaggi.</h3>
+                  </header>
+                  <ol class="astra-method-flow">
+                    <li><span>01</span><div><strong>Ricerca</strong><p>Secondo OpenAI, Astra esplora i problemi e genera gli argomenti matematici.</p></div></li>
+                    <li><span>02</span><div><strong>Manoscritti</strong><p>Persone dell’azienda preparano i testi lavorando con lo stesso modello.</p></div></li>
+                    <li><span>03</span><div><strong>Formalizzazione</strong><p>Il modello traduce le dimostrazioni in certificati scritti nel linguaggio Lean.</p></div></li>
+                    <li><span>04</span><div><strong>Controllo</strong><p>Codice e documenti pubblici permettono alla comunità di riprodurre, verificare e mettere alla prova i risultati.</p></div></li>
+                  </ol>
+                  <aside class="astra-lean-note">
+                    <span>Che cosa prova Lean</span>
+                    <p>L’accettazione di un certificato da parte di Lean mostra che i passaggi formalizzati rispettano le regole logiche e le definizioni codificate. Servono comunque matematici per controllare che la formalizzazione corrisponda all’argomento originale e per valutarne novità, rilevanza e rapporto con la letteratura precedente.</p>
+                  </aside>
+                </section>
+
+                <section class="astra-arrival" aria-labelledby="astra-arrival-title">
+                  <header><span class="astra-kicker">Come è emerso Astra</span><h3 id="astra-arrival-title">Un precedente, un’anticipazione e la conferma ufficiale.</h3></header>
+                  <ol>
+                    <li><time datetime="2026-05-20">20 maggio</time><div><strong>Un precedente, senza nome</strong><p>OpenAI pubblica la confutazione di una congettura geometrica attribuita a un modello interno. L’azienda non ha dichiarato che quel sistema fosse Astra.</p></div></li>
+                    <li><time datetime="2026-07-31">31 luglio</time><div><strong>Il nome compare sulla stampa</strong><p>The Information riferisce che Sam Altman ha mostrato a Washington un modello non ancora distribuito chiamato Astra.</p></div></li>
+                    <li><time datetime="2026-08-01">1º agosto</time><div><strong>OpenAI conferma Astra</strong><p>La pubblicazione sui dieci risultati usa il nome in una fonte ufficiale e lo collega al prossimo grande modello.</p></div></li>
+                  </ol>
+                </section>
+
+                <section class="astra-status" aria-label="Fatti confermati e informazioni ancora mancanti su Astra">
+                  <article>
+                    <span class="astra-kicker">Confermato</span>
+                    <h3>Quello che sappiamo oggi.</h3>
+                    <ul>
+                      <li>Astra è il nome usato da OpenAI per una versione interna del suo prossimo grande modello.</li>
+                      <li>I dieci manoscritti, le note di scoperta e le formalizzazioni Lean sono consultabili.</li>
+                      <li>OpenAI attribuisce gli argomenti matematici al sistema e dichiara il contributo umano alla preparazione.</li>
+                      <li>OpenAI stima in circa 2.000 dollari, alle tariffe API di Sol, il costo dei token usati per trovare le soluzioni.</li>
+                    </ul>
+                  </article>
+                  <article>
+                    <span class="astra-kicker">Ancora aperto</span>
+                    <h3>Quello che non sappiamo.</h3>
+                    <ul>
+                      <li>Data di lancio, accesso in ChatGPT o API, prezzo e nome commerciale definitivo.</li>
+                      <li>Un eventuale legame con la sigla GPT‑6: OpenAI non lo ha annunciato.</li>
+                      <li>Architettura, dati di addestramento, risorse di calcolo impiegate e prestazioni generali al di fuori della matematica.</li>
+                      <li>Numero dei tentativi falliti, costo completo della ricerca e giudizio indipendente finale sui dieci lavori.</li>
+                    </ul>
+                  </article>
+                </section>
+
+                <aside class="astra-reading" aria-labelledby="astra-reading-title">
+                  <span class="astra-kicker">Lettura editoriale</span>
+                  <h3 id="astra-reading-title">Il segnale più importante è la possibilità di verificare.</h3>
+                  <div>
+                    <p>La documentazione pubblicata rende il caso Astra più informativo di una demo privata: specialisti esterni possono esaminare argomenti, ricostruzioni e codice formale.</p>
+                    <p>Se i risultati reggeranno all’esame della comunità, mostreranno in modo concreto che l’AI può contribuire alla ricerca originale in più aree. Oggi la conclusione giustificata è più circoscritta: OpenAI ha collegato ufficialmente il suo prossimo modello a dieci contributi di livello scientifico; disponibilità generale e capacità fuori da questo perimetro restano sconosciute.</p>
+                  </div>
+                </aside>
+
+                <footer class="news-item-footer astra-footer">
+                  <p>Fonti consultate il 1º agosto 2026. I materiali principali sono stati pubblicati da OpenAI e i dieci lavori non hanno ancora ricevuto una valutazione accademica indipendente completa. Il termine “avanzamenti” è usato in senso ampio: comprende nuovi limiti, costruzioni, confutazioni e soluzioni.</p>
+                  <div><a href="https://openai.com/index/ten-advances-in-mathematics/" target="_blank" rel="noreferrer">Annuncio OpenAI ↗</a><a href="https://cdn.openai.com/pdf/ten-proofs-oai.pdf" target="_blank" rel="noreferrer">Volume · 249 pagine ↗</a><a href="https://cdn.openai.com/pdf/reasoning-walkthroughs.pdf" target="_blank" rel="noreferrer">Note · 62 pagine ↗</a><a href="https://github.com/openai/ten-proofs" target="_blank" rel="noreferrer">Certificati Lean ↗</a><a href="https://developers.openai.com/api/docs/models/all" target="_blank" rel="noreferrer">Catalogo modelli OpenAI ↗</a><a href="https://openai.com/index/model-disproves-discrete-geometry-conjecture/" target="_blank" rel="noreferrer">Risultato di maggio ↗</a><a href="https://www.theinformation.com/briefings/exclusive-openai-previews-astra-ai-model-dc" target="_blank" rel="noreferrer">Anteprima a Washington ↗</a><a href="https://leidendeclaration.ai/" target="_blank" rel="noreferrer">Dichiarazione di Leiden ↗</a><a href="https://deepmind.google/models/project-astra/" target="_blank" rel="noreferrer">Project Astra · Google ↗</a></div>
+                </footer>
+              </div>
+            </details>
+          </div>
+        </section>
 
         <section class="news-day news-day-aschenbrenner" aria-labelledby="day-2026-07-30">
           <header class="news-day-head">
@@ -38,43 +167,96 @@
           <div class="news-day-items">
             <details class="news-list-item news-list-item-aschenbrenner" id="aschenbrenner-fund-unwind">
               <summary aria-labelledby="aschenbrenner-fund-title">
-                <span class="news-item-meta"><b>N9</b><span class="news-item-topic">Mercati × infrastruttura AI</span><span class="news-item-status"><i></i> fonti giornalistiche</span></span>
-                <span class="news-item-title" id="aschenbrenner-fund-title">Citadel emerge come acquirente del portafoglio quotato di Aschenbrenner</span>
-                <span class="news-item-deck">Reuters chiarisce il perimetro: Citadel avrebbe rilevato la porzione del portafoglio pubblico finanziata a leva. Al fondo resterebbe un book da circa 10 miliardi di dollari, tra azioni e investimenti privati.</span>
+                <span class="news-item-meta"><b>N9</b><span class="news-item-topic">Mercati × infrastruttura AI</span><span class="news-item-status"><i></i> lettera + fonti</span></span>
+                <span class="news-item-title" id="aschenbrenner-fund-title">Aschenbrenner: −67% a luglio, leva azzerata e fondo ancora attivo</span>
+                <span class="news-item-deck">La lettera agli investitori chiarisce che è stata ceduta solo una parte del portafoglio pubblico: tutte le posizioni corte sono state chiuse, le partecipazioni private sono rimaste e il fondo non è stato liquidato.</span>
                 <span class="news-item-toggle" aria-hidden="true"></span>
               </summary>
 
               <div class="news-item-body aschenbrenner-story">
                 <section class="aschenbrenner-hero" aria-labelledby="aschenbrenner-hero-title">
                   <div class="aschenbrenner-hero-copy">
-                    <span class="aschenbrenner-kicker">30 luglio 2026 · notizia in evoluzione</span>
-                    <h3 id="aschenbrenner-hero-title">Quando la tesi guarda al 2030 e i broker chiedono cassa oggi.</h3>
-                    <p>CNBC, Wall Street Journal, Financial Times, Axios e Reuters indicano <strong>Citadel</strong>, la società d’investimento di Ken Griffin — da non confondere con Citadel Securities — come acquirente di una parte molto ampia del portafoglio azionario quotato di Situational Awareness. Le prime ricostruzioni divergevano sul perimetro; Reuters ora riferisce che Citadel ha rilevato la porzione finanziata a leva dai broker.</p>
-                    <p>Secondo Reuters, dopo l’accordo a Situational resterebbe un book di circa 10 miliardi di dollari, composto da azioni e investimenti privati come Anthropic; non è una stima del patrimonio netto o del capitale dei clienti. Il WSJ riferisce che la parte finanziata con capitale dei clienti è rimasta al fondo. Prezzo, eventuale sconto, perdite e presenza di richieste di margine prima dell’accordo restano ignoti. Citadel avrebbe acquistato attività finanziarie, non il fondo o la società di gestione.</p>
+                    <span class="aschenbrenner-kicker">31 luglio 2026 · lettera agli investitori</span>
+                    <h3 id="aschenbrenner-hero-title">Il fondo non è stato liquidato. Il danno, però, è reale.</h3>
+                    <p>Business Insider ha pubblicato integralmente una lettera agli investitori attribuita a <strong>Leopold Aschenbrenner</strong>. Il gestore scrive di avere ceduto in un’unica operazione <strong>una parte</strong> del portafoglio pubblico per eliminare tutta la leva, di avere chiuso tutte le posizioni corte e di avere conservato gli investimenti privati. Le azioni e le opzioni lunghe rimaste sarebbero interamente pagate, quindi senza rischio di liquidazione legato al margine.</p>
+                    <p>La stima corrente, provvisoria e non sottoposta a revisione, è <strong>−67% a luglio</strong> e <strong>+80% dall’inizio del 2026</strong>. Aschenbrenner afferma che il fondo resta attivo come veicolo ibrido pubblico-privato, si assume la responsabilità dell’accaduto e promette cambiamenti nella gestione del portafoglio e del rischio. Citadel resta l’acquirente indicato dalle testate: prezzo, sconto, patrimonio netto residuo, leva precedente ed eventuali richieste formali di margine non sono pubblici.</p>
                   </div>
-                  <dl class="aschenbrenner-snapshot" aria-label="Stato delle informazioni sul fondo">
+                  <dl class="aschenbrenner-snapshot" aria-label="Dati dichiarati nella lettera agli investitori">
                     <div>
-                      <dt>Acquirente indicato</dt>
-                      <dd><strong>Citadel</strong><p>Più testate convergono sul nome; non c’è ancora una conferma ufficiale delle parti.</p></dd>
+                      <dt>Luglio 2026</dt>
+                      <dd><strong>−67%</strong><p>Stima netta provvisoria e non sottoposta a revisione, comunicata dal fondo.</p></dd>
                     </div>
                     <div>
-                      <dt>Book residuo</dt>
-                      <dd><strong>circa 10 mld $</strong><p>Stima Reuters dopo l’accordo: azioni più investimenti privati, non patrimonio netto o AUM.</p></dd>
+                      <dt>2026 fino a luglio</dt>
+                      <dd><strong>+80%</strong><p>Stima netta provvisoria del fondo. I risultati definitivi devono ancora arrivare.</p></dd>
                     </div>
                     <div>
-                      <dt>Quota Anthropic</dt>
-                      <dd><strong>non venduta</strong><p>Reuters la descrive ancora nel book del fondo; anche WSJ e FT la escludono dalla cessione.</p></dd>
+                      <dt>Book pubblico residuo</dt>
+                      <dd><strong>senza leva</strong><p>Secondo la lettera, restano solo azioni e opzioni lunghe interamente pagate.</p></dd>
                     </div>
                   </dl>
+                </section>
+
+                <section class="aschenbrenner-profile" aria-labelledby="aschenbrenner-bio-title">
+                  <details class="aschenbrenner-bio">
+                    <summary aria-labelledby="aschenbrenner-bio-title">
+                      <span class="aschenbrenner-bio-heading">
+                        <span class="aschenbrenner-kicker">Mini bio verificata · 8 tappe</span>
+                        <strong id="aschenbrenner-bio-title">Chi è Leopold Aschenbrenner?</strong>
+                        <span>La cronologia virale, tradotta e ripulita dai passaggi non confermati.</span>
+                      </span>
+                      <span class="aschenbrenner-bio-toggle" aria-hidden="true"></span>
+                    </summary>
+                    <div class="aschenbrenner-bio-body">
+                      <p class="aschenbrenner-bio-intro">Le fonti giornalistiche lo indicano come 24enne nel 2026. La sua traiettoria unisce precocità accademica, ricerca sui rischi di lungo periodo, sicurezza dell’AI e una scommessa finanziaria estremamente concentrata. Alcuni dettagli provengono da profili giornalistici o dal suo stesso racconto: sono indicati come tali.</p>
+                      <ol class="aschenbrenner-bio-timeline" role="list">
+                        <li>
+                          <span class="aschenbrenner-bio-year">2001/2002–2017</span>
+                          <div><strong>Da Berlino a Columbia a 15 anni</strong><p>Nasce in Germania nel 2001 o 2002 e frequenta la John F. Kennedy School di Berlino. Secondo Fortune è figlio di due medici. Racconta di avere convinto i genitori a lasciarlo trasferire negli Stati Uniti per iscriversi alla Columbia University a 15 anni; non abbiamo trovato una fonte solida per il dettaglio del “volo da solo”.</p></div>
+                        </li>
+                        <li>
+                          <span class="aschenbrenner-bio-year">2017–2021</span>
+                          <div><strong>Valedictorian, economia e matematica-statistica</strong><p>Si laurea nel 2021, a 19 anni, come valedictorian: un Bachelor of Arts con indirizzi in economia e matematica-statistica. Cofonda anche il capitolo di effective altruism della Columbia.</p></div>
+                        </li>
+                        <li>
+                          <span class="aschenbrenner-bio-year">2021–2022</span>
+                          <div><strong>Oxford, rischi esistenziali e FTX Future Fund</strong><p>È affiliato di ricerca al Global Priorities Institute di Oxford e firma con Philip Trammell un lavoro su crescita e rischio esistenziale. Nel 2022 entra nel FTX Future Fund; il team si dimette quando la crisi di FTX è già esplosa, poco prima della bancarotta formale.</p></div>
+                        </li>
+                        <li>
+                          <span class="aschenbrenner-bio-year">2023–apr. 2024</span>
+                          <div><strong>OpenAI, Superalignment e un licenziamento contestato</strong><p>Lavora nel team Superalignment guidato da Ilya Sutskever e Jan Leike e cofirma la ricerca “Weak-to-Strong Generalization”. Scrive anche un memo interno sul rischio di spionaggio industriale e di furto da parte di attori statali, con particolare attenzione alla Cina. OpenAI lo licenzia nell’aprile 2024 per una presunta condivisione non autorizzata di informazioni, accusa che lui contesta; le parti divergono anche sul ruolo avuto dal memo.</p></div>
+                        </li>
+                        <li>
+                          <span class="aschenbrenner-bio-year">giu. 2024</span>
+                          <div><strong>“Situational Awareness” diventa virale</strong><p>Pubblica un saggio di 165 pagine, <em>Situational Awareness: The Decade Ahead</em>, nel quale prevede AGI intorno al 2027 e un rapido passaggio verso sistemi molto più capaci degli esseri umani. È una previsione, non un fatto acquisito. Il testo circola ampiamente nella Silicon Valley; Fortune riferisce che anche Ivanka Trump lo condivise con entusiasmo.</p></div>
+                        </li>
+                        <li>
+                          <span class="aschenbrenner-bio-year">fine 2024–giu. 2026</span>
+                          <div><strong>Un hedge fund costruito sulla scarsità fisica dell’AI</strong><p>Fonda Situational Awareness LP. Secondo ricostruzioni giornalistiche parte con circa 225 milioni di dollari; lui stesso indica Patrick e John Collison, Nat Friedman e Daniel Gross tra gli investitori iniziali. Punta su energia, memoria, data center e altri colli di bottiglia: tra le posizioni pubbliche compaiono CoreWeave, Nebius, Bloom Energy, Micron, Sandisk e società legate al mining di bitcoin. Il fondo usa anche leva, ma il livello “4x” del post virale non è documentato.</p></div>
+                        </li>
+                        <li>
+                          <span class="aschenbrenner-bio-year">giu. 2026</span>
+                          <div><strong>Oltre 20 miliardi, poi il cambio di regime</strong><p>La stampa colloca il patrimonio gestito oltre 20 miliardi di dollari. Il +439% comunicato dal fondo riguarda i primi sei mesi del 2026, non il rendimento “dalla nascita”. A luglio il rapido ribasso dei titoli AI e l’andamento avverso di alcune posizioni corte mettono sotto pressione portafoglio e finanziamenti.</p></div>
+                        </li>
+                        <li>
+                          <span class="aschenbrenner-bio-year">lug. 2026</span>
+                          <div><strong>Cede una parte del book, chiude le posizioni corte, continua</strong><p>In un block trade con un unico compratore — identificato dalla stampa come Citadel — vende una parte del portafoglio pubblico per azzerare la leva. Chiude tutte le posizioni corte, mantiene azioni e opzioni lunghe interamente pagate e conserva le partecipazioni private. La lettera stima −67% a luglio e +80% nel 2026: dati provvisori del fondo, non sottoposti a revisione.</p></div>
+                        </li>
+                      </ol>
+                      <aside class="aschenbrenner-bio-correction"><strong>Correzione alla versione virale.</strong><p>Non sono confermati una leva fino a 4x, cali superiori al 35% per “molte” posizioni o la liquidazione dell’intero portafoglio lungo e corto. “Profetico” e “assolutamente folle” esprimono un giudizio. La conclusione verificabile è più precisa: una tesi tecnologica capace di attrarre rapidamente molto capitale è stata accompagnata da concentrazione e leva, che hanno amplificato sia i guadagni sia una perdita mensile estrema.</p></aside>
+                      <p class="aschenbrenner-bio-personal"><strong>Dettaglio personale, con cautela.</strong> Nel 2025 Fortune ha riferito, citando un portavoce del fondo, che Aschenbrenner era fidanzato con Avital Balwit, chief of staff del CEO di Anthropic; sul proprio sito scrive di vivere a San Francisco. È un elemento biografico, non una prova di rapporti finanziari o decisioni condivise.</p>
+                      <div class="aschenbrenner-bio-sources" aria-label="Fonti della mini biografia"><a href="https://www.jugend-forscht.de/fileadmin/user_upload/Downloadcenter/Bundeswettbewerb/L%C3%A4nderlisten_Sieger/Preistraeger_Berlin_2016.pdf" target="_blank" rel="noreferrer">Jugend forscht ↗</a><a href="https://www.college.columbia.edu/cct/latest/take-five/valedictorian-special-times-college" target="_blank" rel="noreferrer">Columbia ↗</a><a href="https://www.globalprioritiesinstitute.org/wp-content/uploads/Leopold-Aschenbrenner-and-Philip-Trammell-Existential-Risk-and-Growth-2.pdf" target="_blank" rel="noreferrer">Oxford GPI ↗</a><a href="https://forum.effectivealtruism.org/posts/xafpj3on76uRDoBja/the-ftx-future-fund-team-has-resigned-1" target="_blank" rel="noreferrer">Dimissioni Future Fund ↗</a><a href="https://openai.com/index/weak-to-strong-generalization/" target="_blank" rel="noreferrer">OpenAI ↗</a><a href="https://www.dwarkesh.com/p/leopold-aschenbrenner" target="_blank" rel="noreferrer">Intervista Dwarkesh ↗</a><a href="https://situational-awareness.ai/wp-content/uploads/2024/06/situationalawareness.pdf" target="_blank" rel="noreferrer">Saggio originale ↗</a><a href="https://fortune.com/2025/10/08/leopold-aschenbrenner-openai-ftx-1-5-billion-hedge-fund-situational-awareness/" target="_blank" rel="noreferrer">Profilo Fortune ↗</a></div>
+                    </div>
+                  </details>
                 </section>
 
                 <section class="aschenbrenner-reporting" aria-labelledby="aschenbrenner-reporting-title">
                   <header>
                     <span class="aschenbrenner-kicker">Come è cambiata la notizia</span>
-                    <h3 id="aschenbrenner-reporting-title">Dal bisogno di capitale al nome dell’acquirente.</h3>
-                    <p>Gli orari sono italiani. Tutte le ricostruzioni si basano su persone informate dei fatti; nessuna delle parti ha ancora annunciato ufficialmente l’operazione.</p>
+                    <h3 id="aschenbrenner-reporting-title">Dalla ricerca di capitale alla lettera agli investitori.</h3>
+                    <p>Gli orari sono italiani. Le ricostruzioni del 30 luglio si basano su persone informate dei fatti; il passaggio finale viene invece dalla lettera del gestore, pubblicata integralmente da Business Insider.</p>
                   </header>
-                  <ol>
+                  <ol role="list">
                     <li>
                       <time datetime="2026-07-30T05:28:00+02:00">05:28</time>
                       <div><span>Financial Times</span><strong>Ricerca di nuovo capitale</strong><p>Il FT riferisce colloqui con investitori e finanziatori dopo il ribasso dei titoli AI. Secondo una lettera agli investitori visionata dal giornale, il fondo dichiarava un rendimento netto del 439% nei primi sei mesi del 2026, prima delle perdite di luglio.</p></div>
@@ -95,13 +277,17 @@
                       <time datetime="2026-07-30T20:28:00+02:00">20:28</time>
                       <div><span>Reuters</span><strong>La parte a leva passa a Citadel</strong><p>Reuters riferisce che Citadel ha rilevato la porzione del portafoglio pubblico finanziata dai broker. Al fondo resterebbe un book da circa 10 miliardi di dollari, tra azioni e investimenti privati; Anthropic non è stata venduta. Goldman Sachs, JPMorgan, Bank of America e Citigroup avrebbero facilitato l’accordo.</p></div>
                     </li>
+                    <li>
+                      <time datetime="2026-07-31T21:18:00+02:00">31 lug.</time>
+                      <div><span>Business Insider · 21:18</span><strong>Aschenbrenner rompe il silenzio</strong><p>La lettera precisa che è stata ceduta solo una parte del portafoglio pubblico, tutte le posizioni corte sono state chiuse e il book lungo residuo è interamente pagato. Il fondo resta attivo; le stime non revisionate sono −67% a luglio e +80% nel 2026.</p></div>
+                    </li>
                   </ol>
                 </section>
 
                 <section class="aschenbrenner-numbers" aria-labelledby="aschenbrenner-numbers-title">
                   <header>
                     <span class="aschenbrenner-kicker">Numeri da non confondere</span>
-                    <h3 id="aschenbrenner-numbers-title">Quattro cifre, metriche e date diverse.</h3>
+                    <h3 id="aschenbrenner-numbers-title">Sei cifre, metriche e date diverse.</h3>
                   </header>
                   <div class="aschenbrenner-number-grid">
                     <article>
@@ -115,7 +301,7 @@
                       <p>Picco della dimensione del fondo attribuito da CNBC a una persona informata, prima delle perdite. Non è un dato regolamentare pubblico.</p>
                     </article>
                     <article>
-                      <span>30 luglio 2026 · nuovo articolo FT</span>
+                      <span>30 luglio 2026 · Financial Times</span>
                       <strong>circa 16 mld $</strong>
                       <p>Valore attribuito dal FT alle partecipazioni azionarie pubbliche coinvolte. La stima mattutina di circa 20 miliardi riguardava invece il patrimonio complessivo gestito.</p>
                     </article>
@@ -124,8 +310,19 @@
                       <strong>circa 10 mld $</strong>
                       <p>Book che resterebbe al fondo dopo l’accordo, composto da azioni e investimenti privati. Reuters non lo definisce patrimonio netto, AUM o capitale residuo.</p>
                     </article>
+                    <article>
+                      <span>Luglio 2026 · stima del fondo</span>
+                      <strong>−67%</strong>
+                      <p>Rendimento netto mensile corrente, provvisorio e non sottoposto a revisione. La lettera dice che i dati definitivi arriveranno in seguito.</p>
+                    </article>
+                    <article>
+                      <span>2026 fino a luglio · stima del fondo</span>
+                      <strong>+80%</strong>
+                      <p>Rendimento netto dall’inizio dell’anno, provvisorio e non sottoposto a revisione. È una cifra comunicata dal fondo, non un dato regolamentare.</p>
+                    </article>
                   </div>
-                  <p class="aschenbrenner-number-note"><strong>Attenzione:</strong> non si possono sottrarre 10 miliardi da 16 per stimare la perdita. I 16 miliardi riguardano partecipazioni pubbliche; il book residuo da 10 miliardi comprende azioni e investimenti privati. Nessuna delle due cifre è il prezzo pagato da Citadel o il patrimonio netto del fondo.</p>
+                  <p class="aschenbrenner-number-note"><strong>Rendimenti:</strong> +439% nei primi sei mesi e −67% a luglio vanno composti, non sommati. Il calcolo 5,39 × 0,33 ≈ 1,78 produce circa +78% da inizio anno, coerente con il +80% arrotondato della lettera. Tutte queste performance sono comunicate dal fondo e non revisionate.</p>
+                  <p class="aschenbrenner-number-note"><strong>Dimensioni:</strong> non si possono sottrarre 10 miliardi da 16 per stimare la perdita. Le due cifre descrivono perimetri diversi e nessuna delle due è il prezzo pagato da Citadel o il patrimonio netto del fondo.</p>
                 </section>
 
                 <section class="aschenbrenner-mechanism" aria-labelledby="aschenbrenner-mechanism-title">
@@ -135,7 +332,7 @@
                     <p>Usare <strong>leva</strong> significa avere un’esposizione superiore al capitale disponibile, attraverso prestiti o strumenti finanziari. Amplifica i guadagni quando il mercato va nella direzione prevista e amplifica le perdite quando si muove contro.</p>
                     <p>Il <strong>prime broker</strong> è la banca che finanzia e supporta molte operazioni di un hedge fund. Se il valore delle garanzie scende, può chiedere altra cassa o altri beni: è una richiesta di margine. Se il fondo non li fornisce in tempo, deve ridurre o vendere le posizioni.</p>
                   </div>
-                  <p class="aschenbrenner-mechanism-note"><strong>Come leggerlo:</strong> Reuters riferisce che la porzione trasferita era finanziata a leva dai broker. Ammontare dei prestiti, garanzie, contratti e presenza di richieste di margine prima dell’accordo non sono pubblici.</p>
+                  <p class="aschenbrenner-mechanism-note"><strong>Che cosa sappiamo ora:</strong> la lettera afferma che la cessione ha eliminato tutta la leva, che tutte le posizioni corte sono state chiuse e che il book pubblico residuo è interamente pagato. Non rende pubblici il livello della leva precedente, i contratti, le garanzie o eventuali richieste formali di margine: il “4x” circolato online resta privo di riscontro solido.</p>
                   <div class="aschenbrenner-flow" aria-label="Dalla concentrazione del portafoglio alla vendita delle posizioni">
                     <div><span>01</span><strong>Scommesse concentrate</strong><p>Molto capitale dipende dagli stessi scenari sull’AI.</p></div>
                     <i aria-hidden="true">+</i>
@@ -158,22 +355,22 @@
                     <article>
                       <span>Documento pubblico</span>
                       <strong>Il portafoglio di marzo</strong>
-                      <p>Il Form 13F documenta un portafoglio storico; il sito del fondo ne descrive tesi e strategia. Nessuna delle due fonti documenta la cessione del 30 luglio.</p>
+                      <p>Il Form 13F documenta una fotografia storica delle posizioni pubbliche; il sito del fondo ne descrive tesi e strategia. Nessuna delle due fonti registra in tempo reale l’operazione di luglio.</p>
+                    </article>
+                    <article>
+                      <span>Fonte diretta, non revisionata</span>
+                      <strong>La lettera del gestore</strong>
+                      <p>È il resoconto più diretto sulla struttura successiva all’accordo e sulle performance di luglio. Resta una comunicazione del fondo, pubblicata da Business Insider e non accompagnata da dati revisionati.</p>
                     </article>
                     <article>
                       <span>Fonti giornalistiche</span>
-                      <strong>Citadel, con una cautela</strong>
-                      <p>Reuters attribuisce a due fonti il dettaglio più preciso: a Citadel la parte finanziata a leva. Il WSJ riferisce che la parte finanziata con capitale dei clienti è rimasta al fondo. Non è disponibile un annuncio delle parti o un deposito regolamentare in tempo reale.</p>
-                    </article>
-                    <article>
-                      <span>Attività privata</span>
-                      <strong>La quota Anthropic</strong>
-                      <p>Reuters riferisce esplicitamente che la quota non è stata venduta e la include nel book residuo; WSJ e FT la descrivono ancora detenuta dal fondo.</p>
+                      <strong>Citadel e i termini</strong>
+                      <p>Reuters, WSJ, FT, CNBC e Axios convergono su Citadel, ma si basano su fonti anonime e hanno descritto perimetri diversi. Non è disponibile un annuncio delle parti con prezzo e condizioni.</p>
                     </article>
                     <article>
                       <span>Non noto</span>
-                      <strong>Il dopo</strong>
-                      <p>Restano ignoti perdita esatta, prezzo, eventuale sconto, leva corrente, presenza di richieste di margine, regolamento dell’operazione e patrimonio netto residuo. I 10 miliardi Reuters indicano un book, non capitale netto.</p>
+                      <strong>Il capitale rimasto</strong>
+                      <p>Restano ignoti prezzo, eventuale sconto, patrimonio netto, leva precedente, richieste formali di margine e regolamento dell’operazione. Il book da circa 10 miliardi citato da Reuters non è capitale netto.</p>
                     </article>
                   </div>
                 </section>
@@ -182,14 +379,14 @@
                   <span class="aschenbrenner-kicker">Interpretazione editoriale</span>
                   <h3 id="aschenbrenner-boundary-title">È un test della gestione finanziaria, non un verdetto sull’AGI.</h3>
                   <div>
-                    <p><strong>Che cosa mostra.</strong> Il caso mostra come una tesi tecnologica di lungo periodo possa essere messa sotto pressione dai tempi della finanza: concentrazione, coperture e leva possono rendere necessarie vendite prima che la tesi sia verificata.</p>
-                    <p><strong>Che cosa non dimostra.</strong> La cessione non prova che la futura domanda di chip, memoria, data center ed energia sia falsa. Non ci sono neppure elementi pubblici sufficienti per concludere che il fondo sia insolvente.</p>
+                    <p><strong>Che cosa mostra.</strong> Una perdita mensile stimata del 67% e l’operazione con cui il fondo ha azzerato la leva segnalano un grave fallimento nella gestione di concentrazione, coperture e liquidità, anche se il rendimento dell’anno rimane positivo secondo il fondo.</p>
+                    <p><strong>Che cosa non dimostra.</strong> La vicenda non prova che le previsioni di Aschenbrenner sull’AGI o la futura domanda di chip, memoria, data center ed energia siano vere o false. La lettera afferma inoltre che il fondo è ancora attivo: non ci sono elementi pubblici per dichiararlo chiuso o insolvente.</p>
                   </div>
                 </aside>
 
                 <footer class="news-item-footer aschenbrenner-footer">
-                  <p>Fonti ricontrollate fino alle 21:30 CEST del 30 luglio 2026, incluso l’aggiornamento Reuters delle 20:28. Acquirente e perimetro restano attribuiti a fonti anonime; non sono pubblici una conferma delle parti, prezzo o termini. Le cifre usano definizioni e date diverse. Questa pagina non offre consulenza finanziaria.</p>
-                  <div><a href="https://www.reuters.com/technology/citadel-buys-most-situationals-stock-holdings-after-ai-share-rout-sources-say-2026-07-30/" target="_blank" rel="noreferrer">Reuters · perimetro e book residuo ↗</a><a href="https://www.channelnewsasia.com/business/citadel-buys-most-situationals-stock-holdings-after-ai-share-rout-sources-say-6289306" target="_blank" rel="noreferrer">Reuters · copia CNA ↗</a><a href="https://www.cnbc.com/2026/07/30/leopold-aschenbrenners-hedge-fund-is-facing-steep-ai-losses.html" target="_blank" rel="noreferrer">CNBC · aggiornamento ↗</a><a href="https://www.wsj.com/finance/citadel-buys-situational-awarenesss-stock-portfolio-after-big-losses-in-ai-5117159b" target="_blank" rel="noreferrer">Wall Street Journal ↗</a><a href="https://www.ft.com/content/5fb44089-ecdf-4b48-bc14-1e8b4682b142" target="_blank" rel="noreferrer">FT · accordo Citadel ↗</a><a href="https://www.axios.com/2026/07/30/ai-hedge-fund-situational-awareness-citadel" target="_blank" rel="noreferrer">Axios ↗</a><a href="https://www.ft.com/content/280336bf-dbed-405f-b38e-5af644a21549" target="_blank" rel="noreferrer">FT · ricerca di capitale ↗</a><a href="https://www.sec.gov/Archives/edgar/data/2045724/000204572426000008/0002045724-26-000008-index.html" target="_blank" rel="noreferrer">Form 13F · SEC ↗</a><a href="https://www.sec.gov/rules-regulations/staff-guidance/division-investment-management-frequently-asked-questions/frequently-asked-questions-about-form-13f" target="_blank" rel="noreferrer">Come leggere il 13F ↗</a><a href="https://situationalawarenesslp.com/about" target="_blank" rel="noreferrer">Sito del fondo ↗</a><a href="https://situational-awareness.ai/" target="_blank" rel="noreferrer">Tesi originale ↗</a></div>
+                  <p>Fonti ricontrollate fino alle 16:10 CEST del 1º agosto 2026. La lettera è riprodotta da Business Insider, non pubblicata sul sito del fondo; le performance sono provvisorie e non revisionate. Identità dell’acquirente, prezzo e termini restano attribuiti a fonti anonime. Questa pagina non offre consulenza finanziaria.</p>
+                  <div><a href="https://www.businessinsider.com/leopold-aschenbrenners-letter-to-investors-after-hedge-fund-meltdown-2026-7" target="_blank" rel="noreferrer">Business Insider · lettera integrale ↗</a><a href="https://www.wsj.com/finance/investing/situational-awareness-down-67-in-july-in-ai-stock-rout-cd19901f" target="_blank" rel="noreferrer">WSJ · perdita di luglio ↗</a><a href="https://www.reuters.com/technology/citadel-buys-most-situationals-stock-holdings-after-ai-share-rout-sources-say-2026-07-30/" target="_blank" rel="noreferrer">Reuters · perimetro e book residuo ↗</a><a href="https://www.channelnewsasia.com/business/citadel-buys-most-situationals-stock-holdings-after-ai-share-rout-sources-say-6289306" target="_blank" rel="noreferrer">Reuters · copia CNA ↗</a><a href="https://www.cnbc.com/2026/07/30/leopold-aschenbrenners-hedge-fund-is-facing-steep-ai-losses.html" target="_blank" rel="noreferrer">CNBC · aggiornamento ↗</a><a href="https://www.wsj.com/finance/citadel-buys-situational-awarenesss-stock-portfolio-after-big-losses-in-ai-5117159b" target="_blank" rel="noreferrer">WSJ · accordo Citadel ↗</a><a href="https://www.ft.com/content/5fb44089-ecdf-4b48-bc14-1e8b4682b142" target="_blank" rel="noreferrer">FT · accordo Citadel ↗</a><a href="https://www.axios.com/2026/07/30/ai-hedge-fund-situational-awareness-citadel" target="_blank" rel="noreferrer">Axios ↗</a><a href="https://www.ft.com/content/280336bf-dbed-405f-b38e-5af644a21549" target="_blank" rel="noreferrer">FT · ricerca di capitale ↗</a><a href="https://www.sec.gov/Archives/edgar/data/2045724/000204572426000008/0002045724-26-000008-index.html" target="_blank" rel="noreferrer">Form 13F · SEC ↗</a><a href="https://www.sec.gov/rules-regulations/staff-guidance/division-investment-management-frequently-asked-questions/frequently-asked-questions-about-form-13f" target="_blank" rel="noreferrer">Come leggere il 13F ↗</a><a href="https://situationalawarenesslp.com/about" target="_blank" rel="noreferrer">Sito del fondo ↗</a><a href="https://situational-awareness.ai/" target="_blank" rel="noreferrer">Tesi originale ↗</a></div>
                 </footer>
               </div>
             </details>
@@ -1140,7 +1337,7 @@
 
       <nav class="chapter-next" aria-label="Continua la lettura"><a href="altro.html">← Dossier</a><a href="index.html">Home →</a></nav>
     </main>
-    <footer class="site-footer"><span>AI.it</span><span>Novità · 9 aggiornamenti in 6 giorni</span></footer>
+    <footer class="site-footer"><span>AI.it</span><span>Novità · 10 aggiornamenti in 7 giorni</span></footer>
     <script src="app.js?v=novita-spooky-2"></script>
   </body>
 </html>
