@@ -61,8 +61,11 @@ const routeFiles = [
   "robots.txt"
 ];
 
-// Larger files stay in dist and are served through env.ASSETS, keeping the Worker below Sites' 10 MiB limit.
-const maxEmbeddedAssetBytes = 210 * 1024;
+const maxEmbeddedAssetBytes = 256 * 1024;
+// This superseded concept image is not referenced by the site; keeping it out of the route table saves Worker space.
+const excludedEmbeddedAssets = new Set([
+  "assets/spacex-ai-satellite-concept.webp"
+]);
 const alwaysEmbeddedAssets = new Set([
   "assets/code-contributed-per-person-quarter-2026-it.png",
   "assets/claude-code-session-success-rate-2026-it.png",
@@ -82,7 +85,8 @@ function collect(directory, prefix = "", include = () => true) {
 }
 
 collect("assets", "", file =>
-  !file.endsWith(".mp4") && (
+  !file.endsWith(".mp4") &&
+  !excludedEmbeddedAssets.has(file.replaceAll("\\", "/")) && (
     alwaysEmbeddedAssets.has(file.replaceAll("\\", "/")) ||
     statSync(join(root, file)).size <= maxEmbeddedAssetBytes
   )
