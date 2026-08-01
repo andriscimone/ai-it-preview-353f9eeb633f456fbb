@@ -1418,3 +1418,35 @@ if (pacingSpookyTrigger && pacingSpookyTransmission && pacingSpookyExit && pacin
     });
   }
 }
+
+const expandableNewsItems = document.querySelectorAll("details.news-list-item");
+
+if (expandableNewsItems.length) {
+  const reduceNewsMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  expandableNewsItems.forEach(newsItem => {
+    const summary = newsItem.querySelector(":scope > summary");
+    const footerActions = newsItem.querySelector(".news-item-footer > div");
+    if (!summary || !footerActions || footerActions.querySelector(".news-item-close")) return;
+
+    const closeButton = document.createElement("button");
+    const title = summary.querySelector(".news-item-title")?.textContent?.trim();
+    closeButton.className = "news-item-close";
+    closeButton.type = "button";
+    closeButton.textContent = "Meno";
+    closeButton.setAttribute("aria-label", title ? `Riduci la notizia: ${title}` : "Riduci la notizia");
+
+    closeButton.addEventListener("click", () => {
+      newsItem.open = false;
+      summary.focus({ preventScroll: true });
+      window.requestAnimationFrame(() => {
+        summary.scrollIntoView({
+          behavior: reduceNewsMotion.matches ? "auto" : "smooth",
+          block: "center"
+        });
+      });
+    });
+
+    footerActions.append(closeButton);
+  });
+}

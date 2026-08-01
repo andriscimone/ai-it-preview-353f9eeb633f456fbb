@@ -256,6 +256,22 @@
 .news-item-footer a:first-child { color: #10110f; background: var(--news-accent); }
 .news-item-footer a:hover { color: #10110f; background: var(--news-blue); }
 .news-item-footer a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.news-item-close {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 13px;
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  color: var(--cream);
+  background: var(--ink);
+  cursor: pointer;
+  font: 600 7px var(--mono);
+  text-transform: uppercase;
+}
+.news-item-close::before { content: "\2212"; font-size: 14px; line-height: .5; }
+.news-item-close:hover { color: #10110f; background: var(--day-accent, var(--news-accent)); }
+.news-item-close:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 
 /* N2 — Thunder */
 .news-list-item + .news-list-item { border-top: 0; }
@@ -2188,7 +2204,8 @@ body.landian-news-awake::after {
   .news-proof-card strong { font-size: 36px; }
   .news-proof-card code { font-size: 10px; }
   .news-item-footer { align-items: flex-start; flex-direction: column; padding: 18px 14px; }
-  .news-item-footer div { justify-content: flex-start; }
+  .news-item-footer div { width: 100%; justify-content: flex-start; }
+  .news-item-close { min-height: 40px; margin-left: auto; }
   .news-list-item-thunder > summary { min-height: 96px; }
   .agentic-race-hero { gap: 42px; padding: 44px 14px 58px; background-size: 28px 28px; }
   .agentic-race-hero-copy h3 { margin: 17px 0 27px; font-size: 52px; }
