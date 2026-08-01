@@ -61,7 +61,8 @@ const routeFiles = [
   "robots.txt"
 ];
 
-const maxEmbeddedAssetBytes = 256 * 1024;
+// Larger files stay in dist and are served through env.ASSETS, keeping the Worker below Sites' 10 MiB limit.
+const maxEmbeddedAssetBytes = 210 * 1024;
 const alwaysEmbeddedAssets = new Set([
   "assets/code-contributed-per-person-quarter-2026-it.png",
   "assets/claude-code-session-success-rate-2026-it.png",
