@@ -14,7 +14,7 @@
     <title>Novità — AI.it</title>
     <script>(() => { try { const saved = localStorage.getItem("aiit-theme"); const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dataset.theme = saved || preferred; } catch (_) { document.documentElement.dataset.theme = "light"; } })();</script>
     <link rel="stylesheet" href="styles.css?v=news-list-3" />
-    <link rel="stylesheet" href="novita.css?v=30" />
+    <link rel="stylesheet" href="novita.css?v=32" />
   </head>
   <body class="detail-page news-page news-list-page">
     <a class="skip-link" href="#feed">Salta alle notizie</a><div class="noise" aria-hidden="true"></div>
@@ -28,7 +28,122 @@
       </header>
 
       <section class="news-list" id="feed" aria-labelledby="feed-title">
-        <header class="news-list-head"><h2 id="feed-title">Giorno per giorno</h2><span>7 giorni · 10 notizie</span></header>
+        <header class="news-list-head"><h2 id="feed-title">Giorno per giorno</h2><span>8 giorni · 11 notizie</span></header>
+
+        <section class="news-day news-day-extropic" aria-labelledby="day-2026-08-04">
+          <header class="news-day-head">
+            <time datetime="2026-08-04" id="day-2026-08-04"><strong>4 agosto</strong><span>2026</span></time>
+            <span class="news-day-count">1 notizia</span>
+          </header>
+          <div class="news-day-items">
+            <details class="news-list-item news-list-item-extropic" id="extropic-thermodynamic-computing">
+              <summary aria-labelledby="extropic-title">
+                <span class="news-item-meta"><b>N11</b><span class="news-item-topic">Chip probabilistici × energia</span><span class="news-item-status"><i></i> tape-out + codice</span></span>
+                <span class="news-item-title" id="extropic-title">Extropic porta Z1 al tape-out: 269.568 bit che oscillano apposta</span>
+                <span class="news-item-deck">Il progetto è pronto per la fabbricazione, ma Z1 non è ancora un chip funzionante e misurato. Torx, invece, è già open source.</span>
+                <span class="news-item-toggle" aria-hidden="true"></span>
+              </summary>
+
+              <div class="news-item-body extropic-story">
+                <section class="extropic-hero" aria-labelledby="extropic-hero-title">
+                  <div class="extropic-hero-copy">
+                    <span class="extropic-kicker">4 agosto 2026 · annuncio Extropic</span>
+                    <p class="extropic-wordmark" aria-hidden="true">EXTROPIC / Z1</p>
+                    <h3 id="extropic-hero-title">Il design è chiuso. Il vero test del chip deve ancora cominciare.</h3>
+                    <p>Extropic afferma di avere completato il <strong>tape-out</strong> di Z1: il progetto fisico del circuito è stato congelato e consegnato per la fabbricazione. È una tappa concreta e costosa, perché porta l’idea verso il silicio. Non significa ancora che un chip Z1 sia uscito dalla fabbrica, si sia acceso o abbia confermato le prestazioni previste.</p>
+                    <p>Il design dichiarato contiene <strong>269.568 p-bit</strong> distribuiti su otto core. Sono bit probabilistici che oscillano intenzionalmente tra 0 e 1: Z1 dovrebbe collegarli in una rete e usarli per estrarre campioni da modelli energetici con molta meno comunicazione rispetto a un processore tradizionale.</p>
+                    <aside class="extropic-disclosure"><strong>Da dove arrivano i numeri.</strong><span>Specifiche, tape-out e roadmap 2027 sono dichiarazioni di Extropic. Torx e i due nuovi paper sono pubblici; non esistono ancora benchmark indipendenti eseguiti su un chip Z1 funzionante.</span></aside>
+                  </div>
+
+                  <div class="extropic-sampler" role="img" aria-label="Schema concettuale di Z1: una rete di bit probabilistici oscilla tra zero e uno; Extropic dichiara 269.568 p-bit in otto core, con il progetto in fase di tape-out ma non ancora validato su silicio">
+                    <div class="extropic-sampler-head"><span>Z1 / 8 core</span><strong>269.568 p-bit</strong></div>
+                    <div class="extropic-node-field" aria-hidden="true">
+                      <i>0</i><i>1</i><i>0</i><i>1</i><i>1</i><i>0</i>
+                      <i>1</i><i>0</i><i>1</i><i>0</i><i>0</i><i>1</i>
+                      <i>0</i><i>1</i><i>1</i><i>0</i><i>1</i><i>0</i>
+                      <i>1</i><i>0</i><i>0</i><i>1</i><i>0</i><i>1</i>
+                    </div>
+                    <ol aria-hidden="true"><li><span>01</span>tape-out</li><li><span>02</span>fabbricazione</li><li><span>03</span>validazione</li></ol>
+                    <p>Stato al 5 agosto: Extropic dichiara concluso il primo passaggio. Fabbricazione, accensione e misure pubbliche vengono dopo.</p>
+                  </div>
+                </section>
+
+                <dl class="extropic-facts" aria-label="Specifiche progettuali dichiarate da Extropic per Z1">
+                  <div><dt>Rete probabilistica</dt><dd><strong>269.568</strong><span>p-bit nel progetto Z1, collegati in un grafo sparso.</span></dd></div>
+                  <div><dt>Architettura</dt><dd><strong>8 core</strong><span>Ogni p-bit è connesso direttamente a sedici vicini.</span></dd></div>
+                  <div><dt>Campionamento</dt><dd><strong>&gt; 50 MHz</strong><span>Frequenza prevista dal design, ancora da misurare su Z1.</span></dd></div>
+                  <div><dt>Potenza</dt><dd><strong>&lt; 1 W</strong><span>Obiettivo dichiarato per il chip, non consumo end-to-end verificato.</span></dd></div>
+                </dl>
+
+                <section class="extropic-how" aria-labelledby="extropic-how-title">
+                  <header>
+                    <span class="extropic-kicker">Che cosa fa Z1</span>
+                    <h3 id="extropic-how-title">Non elabora istruzioni: campiona possibilità.</h3>
+                    <p>Una CPU o una GPU resta necessaria per coordinare il sistema. La Thermodynamic Sampling Unit accelera un’operazione più specifica: estrarre configurazioni probabili da una distribuzione programmata.</p>
+                  </header>
+                  <ol class="extropic-flow">
+                    <li><span>01 / P-BIT</span><strong>Lascia oscillare</strong><p>Il rumore elettrico dei transistor fa cambiare rapidamente ogni p-bit tra 0 e 1, con una probabilità regolabile.</p></li>
+                    <li><span>02 / GRAFO</span><strong>Collega i vicini</strong><p>I pesi tra p-bit rendono alcune configurazioni più probabili. Z1 prevede sedici connessioni locali per ciascun nodo.</p></li>
+                    <li><span>03 / GIBBS</span><strong>Estrai campioni</strong><p>Il chip dovrebbe aggiornare la rete direttamente sul posto e restituire stati compatibili con il modello energetico programmato.</p></li>
+                  </ol>
+                  <aside class="extropic-not-quantum"><strong>Non è un computer quantistico.</strong><span>Niente qubit o sovrapposizioni quantistiche: Z1 usa transistor classici e casualità fisica. È anche diverso da una GPU generalista, perché nasce per una famiglia circoscritta di programmi probabilistici.</span></aside>
+                </section>
+
+                <section class="extropic-claim" aria-labelledby="extropic-claim-title">
+                  <div class="extropic-claim-copy">
+                    <span class="extropic-kicker">La parola da capire</span>
+                    <h3 id="extropic-claim-title">Tape-out: una scommessa in silicio, non ancora una prova.</h3>
+                    <p>Chiudere il progetto significa consegnare alla fabbrica i file definitivi del chip. Seguono produzione, confezionamento, accensione, correzione degli errori e misure. Molti progetti arrivano al tape-out; solo il silicio dirà se frequenza, consumi e affidabilità coincidono con le previsioni.</p>
+                  </div>
+                  <div class="extropic-ratio" role="img" aria-label="Stato del progetto Z1: il design fisico è chiuso con il tape-out; la validazione del chip su silicio non è ancora avvenuta e l’accesso anticipato è pianificato per il 2027">
+                    <div><span>Design fisico</span><strong>chiuso</strong><i></i></div>
+                    <div><span>Silicio Z1 validato</span><strong>non ancora</strong><i></i></div>
+                    <p>Extropic prevede l’accesso anticipato a stick, schede e cluster Z1 nel 2027.</p>
+                  </div>
+                  <ol class="extropic-caveats">
+                    <li><span>01</span><p><strong>Nessun benchmark Z1 pubblico.</strong> Frequenza superiore a 50 MHz e potenza inferiore a un watt sono specifiche del progetto, non misure su un esemplare funzionante.</p></li>
+                    <li><span>02</span><p><strong>Il “10.000×” resta una proiezione.</strong> Vale, secondo Extropic, per carichi adatti e deriva da simulazioni e modelli circuitali, non da un confronto end-to-end con Z1.</p></li>
+                    <li><span>03</span><p><strong>L’input/output può pesare molto.</strong> Il vantaggio richiede numerosi aggiornamenti locali tra letture e scritture; host e trasferimenti possono ridurlo.</p></li>
+                    <li><span>04</span><p><strong>Non è un sostituto generale delle GPU.</strong> Compilare programmi utili su questa rete e scalarli oltre esempi piccoli resta un problema di ricerca.</p></li>
+                  </ol>
+                </section>
+
+                <section class="extropic-status" aria-label="Che cosa Extropic rende disponibile oggi e che cosa promette per il 2027">
+                  <article>
+                    <span class="extropic-kicker">Disponibile oggi</span>
+                    <h3>Il software si può già aprire.</h3>
+                    <ul>
+                      <li>Torx e THRML sono open source: il primo descrive programmi probabilistici ad alto livello, il secondo è più vicino all’hardware.</li>
+                      <li>Il paper su Thermalizers è pubblico, ma il compilatore non è ancora disponibile: Extropic ne promette il codice nelle prossime settimane.</li>
+                      <li>Il nuovo esperimento fisico usa il precedente chip X0 come sorgente casuale su un modello di appena otto siti, non esegue Torx nativamente su Z1.</li>
+                      <li>La console Extropic offre accesso anticipato a simulatori GPU per Torx e THRML: gira su hardware digitale, non su Z1.</li>
+                    </ul>
+                  </article>
+                  <article>
+                    <span class="extropic-kicker">Roadmap 2027</span>
+                    <h3>Dal mezzo milione al miliardo.</h3>
+                    <ul>
+                      <li>Uno stick M.2 con due chip e più di 500.000 p-bit per sistemi a basso consumo.</li>
+                      <li>Una scheda PCIe con sedici chip e più di 4 milioni di p-bit, affiancabile alle GPU.</li>
+                      <li>Un cluster costruito con queste schede e oltre un miliardo di p-bit. Sono piani aziendali, non prodotti disponibili oggi.</li>
+                    </ul>
+                  </article>
+                </section>
+
+                <aside class="extropic-reading" aria-labelledby="extropic-reading-title">
+                  <span class="extropic-kicker">Lettura editoriale</span>
+                  <h3 id="extropic-reading-title">Z1 trasforma un’idea radicale in una scommessa che si potrà misurare.</h3>
+                  <p>Il tape-out sposta Extropic dalla dimostrazione di singoli circuiti a un progetto con numeri precisi e un calendario dichiarato. È un progresso reale, senza essere ancora la “fine delle GPU”: il prossimo annuncio decisivo dovrà mostrare silicio funzionante, un compito utile e misure complete di energia, velocità e qualità. Fino ad allora, 269.568 p-bit e meno di un watt descrivono ciò che Z1 è stato progettato per essere.</p>
+                </aside>
+
+                <footer class="news-item-footer extropic-footer">
+                  <p>Fonti consultate il 5 agosto 2026. Specifiche e roadmap Z1 provengono da Extropic; i due nuovi lavori sono preprint. Il precedente studio sull’efficienza è peer reviewed, ma il “10.000×” resta una stima su un’architettura modellata, non una misura su Z1.</p>
+                  <div><a href="https://extropic.ai/writing/from-one-to-one-billion/" target="_blank" rel="noreferrer">Annuncio Extropic ↗</a><a href="https://arxiv.org/abs/2608.01612" target="_blank" rel="noreferrer">Paper Torx ↗</a><a href="https://github.com/extropic-ai/torx" target="_blank" rel="noreferrer">Codice Torx ↗</a><a href="https://arxiv.org/abs/2608.01615" target="_blank" rel="noreferrer">Paper Thermalizers ↗</a><a href="https://extropic.dev/" target="_blank" rel="noreferrer">Simulatore Extropic ↗</a><a href="https://www.nature.com/articles/s44335-026-00075-3" target="_blank" rel="noreferrer">Studio sull’efficienza ↗</a></div>
+                </footer>
+              </div>
+            </details>
+          </div>
+        </section>
 
         <section class="news-day news-day-astra" aria-labelledby="day-2026-08-01">
           <header class="news-day-head">
