@@ -64,7 +64,8 @@ const routeFiles = [
 const maxEmbeddedAssetBytes = 256 * 1024;
 // This superseded concept image is not referenced by the site; keeping it out of the route table saves Worker space.
 const excludedEmbeddedAssets = new Set([
-  "assets/spacex-ai-satellite-concept.webp"
+  "assets/spacex-ai-satellite-concept.webp",
+  "assets/terafab-scale-nic-cruz-patane.webp"
 ]);
 const alwaysEmbeddedAssets = new Set([
   "assets/code-contributed-per-person-quarter-2026-it.png",
