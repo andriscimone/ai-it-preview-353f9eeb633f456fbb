@@ -11,6 +11,10 @@ mkdirSync(join(target, "server"), { recursive: true });
 mkdirSync(join(target, ".openai"), { recursive: true });
 copyFileSync(join(root, ".openai", "hosting.json"), join(target, ".openai", "hosting.json"));
 
+// The Maven demo is already served from an immutable GitHub Raw URL; omitting the
+// unused local copy keeps the Sites archive below its upload limit.
+rmSync(join(target, "assets", "palantir-maven-three-clicks.mp4"), { force: true });
+
 const contentTypes = {
   ".html": "text/html; charset=utf-8",
   ".css": "text/css; charset=utf-8",
