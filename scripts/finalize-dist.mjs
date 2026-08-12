@@ -66,12 +66,14 @@ const routeFiles = [
 ];
 
 const maxEmbeddedAssetBytes = 256 * 1024;
-const maxInlineBinaryBytes = 150 * 1024;
-// This superseded concept image is not referenced by the site; keeping it out of the route table saves Worker space.
+// Keep superseded or externally served files out of the Worker route table.
 const excludedEmbeddedAssets = new Set([
   "assets/spacex-ai-satellite-concept.webp",
   "assets/terafab-scale-nic-cruz-patane.webp"
 ]);
+const externalRoutes = {
+  "/assets/terafab-scale-nic-cruz-patane.webp": "https://raw.githubusercontent.com/andriscimone/ai-it-preview-353f9eeb633f456fbb/0e60b48a80c482302248f305728064c234daacc8/assets/terafab-scale-nic-cruz-patane.webp"
+};
 const alwaysEmbeddedAssets = new Set([
   "assets/code-contributed-per-person-quarter-2026-it.png",
   "assets/claude-code-session-success-rate-2026-it.png",
@@ -104,16 +106,15 @@ const routes = Object.fromEntries(routeFiles.map(file => {
   const extension = normalized.slice(normalized.lastIndexOf("."));
   const type = contentTypes[extension] || "application/octet-stream";
   const isText = type.startsWith("text/") || type.startsWith("application/json");
-  const isLargeBinary = !isText && statSync(join(root, file)).size > maxInlineBinaryBytes;
   return [`/${normalized}`, {
-    body: isText ? readFileSync(join(root, file), "utf8") : isLargeBinary ? "" : readFileSync(join(root, file)).toString("base64"),
-    ...(isText ? {} : isLargeBinary ? { asset: true } : { binary: true }),
+    body: isText ? readFileSync(join(root, file), "utf8").replaceAll("\r\n", "\n") : readFileSync(join(root, file)).toString("base64"),
+    ...(isText ? {} : { binary: true }),
     type
   }];
 }));
 
-const worker = `const routes=${JSON.stringify(routes)};
+const worker = `const routes=${JSON.stringify(routes)};const externalRoutes=${JSON.stringify(externalRoutes)};
 function decode(value){const binary=atob(value);const bytes=new Uint8Array(binary.length);for(let i=0;i<binary.length;i++)bytes[i]=binary.charCodeAt(i);return bytes;}
-export default {async fetch(request,env){const url=new URL(request.url);if(url.pathname==="/")return Response.redirect(new URL("/index.html",url),302);let path=decodeURIComponent(url.pathname);if(!routes[path]&&!path.includes("."))path+=".html";const asset=routes[path];if(!asset){if(env?.ASSETS)return env.ASSETS.fetch(request);return new Response("Not found",{status:404});}if(asset.asset){if(env?.ASSETS)return env.ASSETS.fetch(request);return new Response("Asset unavailable",{status:503});}const mutable=asset.type.startsWith("text/html")||asset.type.startsWith("text/css")||asset.type.startsWith("text/javascript");const body=asset.binary?decode(asset.body):asset.body;return new Response(body,{headers:{"content-type":asset.type,"cache-control":mutable?"no-cache":"public, max-age=31536000, immutable"}});}};`;
+export default {async fetch(request,env){const url=new URL(request.url);if(url.pathname==="/")return Response.redirect(new URL("/index.html",url),302);let path=decodeURIComponent(url.pathname);if(!routes[path]&&!externalRoutes[path]&&!path.includes("."))path+=".html";const external=externalRoutes[path];if(external)return Response.redirect(external,302);const asset=routes[path];if(!asset){if(env?.ASSETS)return env.ASSETS.fetch(request);return new Response("Not found",{status:404});}const mutable=asset.type.startsWith("text/html")||asset.type.startsWith("text/css")||asset.type.startsWith("text/javascript");const body=asset.binary?decode(asset.body):asset.body;return new Response(body,{headers:{"content-type":asset.type,"cache-control":mutable?"no-cache":"public, max-age=31536000, immutable"}});}};`;
 
 writeFileSync(join(target, "server", "index.js"), worker);
