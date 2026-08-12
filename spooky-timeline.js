@@ -208,3 +208,43 @@ function queueFutureSync() {
 window.addEventListener("scroll", queueFutureSync, { passive: true });
 window.addEventListener("resize", queueFutureSync);
 setCurrentFuture(futureCards[0]);
+
+const capitalNodes = [...document.querySelectorAll("[data-capital-node]")];
+
+function closeCapitalNodes(except = null) {
+  capitalNodes.forEach(node => {
+    if (node !== except) {
+      node.classList.remove("is-open");
+      node.classList.remove("is-dismissed");
+      node.setAttribute("aria-expanded", "false");
+    }
+  });
+}
+
+capitalNodes.forEach(node => {
+  const pointName = node.querySelector(":scope > b")?.textContent?.trim() || "selezionato";
+  node.setAttribute("aria-label", `Mostra i dettagli del punto ${pointName}`);
+  node.setAttribute("aria-expanded", "false");
+
+  node.addEventListener("click", event => {
+    event.stopPropagation();
+    node.classList.remove("is-dismissed");
+    const willOpen = !node.classList.contains("is-open");
+    closeCapitalNodes(node);
+    node.classList.toggle("is-open", willOpen);
+    node.setAttribute("aria-expanded", String(willOpen));
+  });
+
+  node.addEventListener("keydown", event => {
+    if (event.key !== "Escape") return;
+    node.classList.remove("is-open");
+    node.classList.add("is-dismissed");
+    node.setAttribute("aria-expanded", "false");
+    node.focus();
+  });
+
+  node.addEventListener("blur", () => node.classList.remove("is-dismissed"));
+  node.addEventListener("pointerleave", () => node.classList.remove("is-dismissed"));
+});
+
+document.addEventListener("click", () => closeCapitalNodes());
