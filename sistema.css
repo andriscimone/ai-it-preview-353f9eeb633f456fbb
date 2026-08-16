@@ -91,14 +91,16 @@
   .system-chain { grid-template-columns: 1fr; padding: 16px; }
   .system-chain > i { width: 100%; height: 28px; transform: rotate(90deg); }
   .system-chain-node { min-height: 105px; }
-  .system-principle { grid-template-columns: 1fr; gap: 30px; padding: 92px 20px; }
+  .system-principle { grid-template-columns: 1fr; gap: 30px; padding: 76px 20px; }
   .system-principle p { grid-column: 1; }
-  .system-route-section { padding: 92px 20px 100px; }
+  .system-route-section { padding: 78px 20px 84px; }
   .system-section-head { grid-template-columns: 1fr; gap: 28px; }
   .system-section-head > p { grid-column: 1; }
   .system-route-grid { grid-template-columns: 1fr; margin-top: 55px; }
-  .system-route-card { min-height: 350px; padding: 28px; }
-  .system-route-card h3 { margin-top: 58px; }
+  .system-route-card { min-height: 280px; padding: 25px; }
+  .system-route-card h3 { margin-top: 34px; }
+  .system-route-card p { margin-top: 17px; }
+  .system-route-card b { padding-top: 24px; }
   .system-loop { padding: 78px 20px; }
   .system-loop ol { grid-template-columns: 1fr 1fr; }
   .system-loop li { min-height: 130px; border-bottom: 1px solid color-mix(in srgb, currentColor 50%, transparent); }

@@ -11,7 +11,7 @@
     <script>
       (() => { try { const saved = localStorage.getItem("aiit-theme"); const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dataset.theme = saved || preferred; } catch (_) { document.documentElement.dataset.theme = "light"; } })();
     </script>
-    <link rel="stylesheet" href="styles.css?v=chip-studio-5" />
+    <link rel="stylesheet" href="styles.css?v=chip-power-4" />
   </head>
   <body class="detail-page chip-page">
     <a class="skip-link" href="#top">Salta al contenuto</a><div class="noise" aria-hidden="true"></div>
@@ -154,6 +154,78 @@
               </article>
             </div>
             <p class="diagram-note">Schema concettuale, non conteggio letterale dei core. CPU e GPU moderne collaborano: una orchestra, l'altra macina il lavoro parallelo.</p>
+
+            <figure class="compute-power-figure" id="compute-power-map" aria-labelledby="compute-power-title">
+              <header class="compute-power-head">
+                <div>
+                  <p class="kicker">Mappa di scala / FP64</p>
+                  <h3 id="compute-power-title">Quanto calcolo entra<br />in un watt?</h3>
+                </div>
+                <p>Ogni macchina diventa un punto: la posizione mostra insieme quanto calcola e quanta potenza richiede. Non è una linea del tempo e i punti non sono collegati fra loro.</p>
+              </header>
+
+              <div class="compute-reading-guide" aria-labelledby="compute-reading-title">
+                <div><p class="kicker">Come si legge</p><h4 id="compute-reading-title">Tre movimenti,<br />un solo colpo d'occhio</h4></div>
+                <ol>
+                  <li><span aria-hidden="true">→</span><div><strong>Verso destra</strong><p>Più calcoli FP64 eseguiti ogni secondo.</p></div></li>
+                  <li><span aria-hidden="true">↑</span><div><strong>Verso l'alto</strong><p>Maggiore potenza dichiarata per la macchina.</p></div></li>
+                  <li class="is-efficient"><span aria-hidden="true">↘</span><div><strong>In basso a destra</strong><p>Più calcolo con meno potenza: maggiore efficienza.</p></div></li>
+                </ol>
+              </div>
+
+              <div class="compute-power-layout">
+                <div class="compute-plot-shell">
+                  <div class="compute-plot-frame">
+                    <div class="compute-y-axis" aria-hidden="true"><span>100 MW</span><span>1 MW</span><span>10 kW</span><span>100 W</span></div>
+                    <div class="compute-plot" role="img" aria-label="Mappa logaritmica di prestazioni FP64 e potenza. I punti numerati da 1 a 4 corrispondono agli esempi elencati sotto: AMD EPYC 9965, NVIDIA H100, AMD MI355X e LineShine. Le ellissi colorate rappresentano fasce indicative per CPU, acceleratori e supercomputer.">
+                      <span class="compute-axis-name compute-axis-name-y">Potenza dichiarata ↑</span>
+                      <span class="compute-band is-cpu" aria-hidden="true"><b>CPU</b></span>
+                      <span class="compute-band is-accelerator" aria-hidden="true"><b>GPU / acceleratori</b></span>
+                      <span class="compute-band is-supercomputer" aria-hidden="true"><b>Supercomputer</b></span>
+                      <span class="compute-point is-epyc" aria-hidden="true"><b>1</b></span>
+                      <span class="compute-point is-h100" aria-hidden="true"><b>2</b></span>
+                      <span class="compute-point is-mi355" aria-hidden="true"><b>3</b></span>
+                      <span class="compute-point is-lineshine" aria-hidden="true"><b>4</b></span>
+                      <span class="compute-efficiency-note" aria-hidden="true">più FLOP per watt ↘</span>
+                    </div>
+                    <div class="compute-x-axis" aria-hidden="true">
+                      <span style="--tick:0%">1 TF</span><span style="--tick:28.57%">100 TF</span><span style="--tick:57.14%">10 PF</span><span style="--tick:85.71%">1 EF</span><span class="is-last" style="--tick:100%">10 EF</span>
+                    </div>
+                    <span class="compute-axis-name compute-axis-name-x">Prestazioni FP64 →</span>
+                  </div>
+                  <ul class="compute-plot-legend" aria-label="Legenda della mappa">
+                    <li><i class="is-point" aria-hidden="true">1</i><span><strong>Punto numerato</strong>Macchina reale, descritta sotto</span></li>
+                    <li><i class="is-band" aria-hidden="true"></i><span><strong>Ellisse colorata</strong>Famiglia tecnologica indicativa</span></li>
+                    <li><i class="is-grid" aria-hidden="true"></i><span><strong>Griglia</strong>Ogni quadrato vale 10×</span></li>
+                  </ul>
+                  <p class="compute-scale-note">Le fasce possono sovrapporsi perché non sono confini rigidi. I punti, invece, derivano dai valori dichiarati nelle fonti.</p>
+                </div>
+
+                <aside class="compute-context" aria-label="Dalla singola macchina alla scala globale">
+                  <p class="kicker">Dalla macchina al pianeta</p>
+                  <div><span>LineShine · giugno 2026</span><strong>42,2 MW</strong><small>Potenza dichiarata del supercomputer n. 1 TOP500.</small></div>
+                  <div class="is-global"><span>Data center mondiali · 2025</span><strong>≈55,4 GW</strong><small>Carico medio ricavato da 485 TWh annui stimati dall'IEA.</small></div>
+                  <p>Le due misure hanno perimetri diversi: la prima riguarda un sistema; la seconda l'intero settore mondiale.</p>
+                </aside>
+              </div>
+
+              <div class="compute-ledger" aria-label="Esempi usati nella mappa">
+                <article><span>01 · Picco teorico · chip</span><strong>13,8 TFLOP/s</strong><h4>AMD EPYC 9965</h4><p>FP64 · 500 W TDP</p></article>
+                <article><span>02 · Picco dichiarato · chip</span><strong>34 TFLOP/s</strong><h4>NVIDIA H100 SXM</h4><p>FP64 · fino a 700 W</p></article>
+                <article><span>03 · Picco dichiarato · chip</span><strong>78,6 TFLOP/s</strong><h4>AMD MI355X</h4><p>FP64 · 1,4 kW TBP</p></article>
+                <article class="is-system"><span>04 · HPL misurato · sistema</span><strong>2,20 EFLOP/s</strong><h4>LineShine</h4><p>FP64 · 42,2 MW</p></article>
+              </div>
+
+              <div class="landauer-note">
+                <div><span>Confine teorico</span><strong>k<sub>B</sub>T · ln 2</strong></div>
+                <p><b>Il limite di Landauer non è un limite per FLOP.</b> Indica l'energia minima necessaria per cancellare irreversibilmente un bit. Trasformarlo in una diagonale FLOP/watt richiederebbe ipotesi su precisione, bit persi e architettura: per questo qui resta separato dai dati delle macchine reali.</p>
+              </div>
+
+              <figcaption class="compute-power-caption">
+                <p><strong>Come leggere il confronto.</strong> CPU e acceleratori mostrano picchi FP64 del singolo chip; LineShine mostra un risultato HPL FP64 misurato sull'intero sistema. TDP, TBP e potenza di sistema non sono la stessa misura. La figura serve a confrontare ordini di grandezza, non a costruire una classifica omogenea.</p>
+                <div><a href="https://www.top500.org/lists/top500/2026/06/" target="_blank" rel="noreferrer">TOP500 ↗</a><a href="https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary" target="_blank" rel="noreferrer">IEA ↗</a><a href="https://research.ibm.com/publications/dissipation-and-noise-immunity-in-computation-measurement-and-communication" target="_blank" rel="noreferrer">Landauer / IBM ↗</a></div>
+              </figcaption>
+            </figure>
           </section>
 
           <section class="history-panel token-panel" aria-labelledby="token-title">
@@ -346,10 +418,16 @@
           <li><a href="https://foundersfund.com/2017/01/manifesto/" target="_blank" rel="noreferrer">Founders Fund · What happened to the future?</a><span>Fonte primaria della tesi sulla stagnazione tecnologica associata a Peter Thiel; nel capitolo è presentata come interpretazione controversa.</span></li>
           <li><a href="https://www.nvidia.com/en-gb/about-nvidia/corporate-timeline/" target="_blank" rel="noreferrer">NVIDIA · Corporate timeline</a><span>Nascita della GPU nel 1999 e introduzione di CUDA nel 2006.</span></li>
           <li><a href="https://docs.nvidia.com/cuda/cuda-programming-guide/01-introduction/introduction.html" target="_blank" rel="noreferrer">NVIDIA · CUDA Programming Guide</a><span>Architettura delle GPU per migliaia di thread paralleli e passaggio al general-purpose computing.</span></li>
+          <li><a href="https://www.amd.com/en/blogs/2025/leadership-hpc-performance-with-5th-generation-amd.html" target="_blank" rel="noreferrer">AMD · EPYC 9965 FP64</a><span>Calcolo teorico ufficiale delle prestazioni FP64 e TDP del processore usato nella mappa.</span></li>
+          <li><a href="https://www.amd.com/en/products/accelerators/instinct/mi350/mi355x.html" target="_blank" rel="noreferrer">AMD · Instinct MI355X</a><span>Prestazioni FP64 dichiarate e potenza di scheda dell'acceleratore.</span></li>
+          <li><a href="https://www.top500.org/lists/top500/2026/06/" target="_blank" rel="noreferrer">TOP500 · giugno 2026</a><span>Risultato HPL e potenza dichiarata di LineShine, primo sistema della lista.</span></li>
+          <li><a href="https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary" target="_blank" rel="noreferrer">IEA · Key Questions on Energy and AI</a><span>485 TWh di consumo elettrico mondiale dei data center nel 2025, equivalenti a circa 55,4 GW medi.</span></li>
+          <li><a href="https://research.ibm.com/publications/dissipation-and-noise-immunity-in-computation-measurement-and-communication" target="_blank" rel="noreferrer">IBM Research · Landauer principle</a><span>Il minimo termodinamico riguarda l'informazione cancellata irreversibilmente, non una singola operazione FLOP.</span></li>
+          <li><a href="https://opg.optica.org/jlt/abstract.cfm?URI=jlt-42-22-7999" target="_blank" rel="noreferrer">Kissner et al. · All-optical computer architecture</a><span>Fonte d'ispirazione concettuale della figura inviata; il grafico AI.it è una ricostruzione originale con dati e cautele aggiornati.</span></li>
           <li><a href="https://epoch.ai/data-insights/llm-inference-price-trends" target="_blank" rel="noreferrer">Epoch AI · LLM inference price trends</a><span>Intervalli stimati del declino del prezzo di inferenza per conoscenza, scienza, matematica, coding e chatbot.</span></li>
           <li><a href="https://www.nvidia.com/en-gb/data-center/technologies/blackwell-architecture/" target="_blank" rel="noreferrer">NVIDIA · Blackwell architecture</a><span>208 miliardi di transistor dichiarati per la GPU Blackwell.</span></li>
           <li><a href="https://www.nvidia.com/en-us/data-center/a100/" target="_blank" rel="noreferrer">NVIDIA · A100</a><span>Specifiche Ampere: memoria HBM2e, banda, NVLink e TDP.</span></li>
-          <li><a href="https://www.nvidia.com/en-us/data-center/h100/" target="_blank" rel="noreferrer">NVIDIA · H100</a><span>Specifiche Hopper e Transformer Engine FP8.</span></li>
+          <li><a href="https://www.nvidia.com/en-us/data-center/h100/" target="_blank" rel="noreferrer">NVIDIA · H100</a><span>Specifiche Hopper, prestazioni FP64 e TDP usati nella mappa, oltre al Transformer Engine FP8.</span></li>
           <li><a href="https://www.nvidia.com/en-us/data-center/dgx-b200/" target="_blank" rel="noreferrer">NVIDIA · DGX B200</a><span>Specifiche Blackwell, HBM3e, NVLink e claim di training/inference.</span></li>
           <li><a href="https://www.nvidia.com/en-gb/data-center/vera-rubin-nvl72/" target="_blank" rel="noreferrer">NVIDIA · Vera Rubin NVL72</a><span>Specifiche preliminari Rubin: HBM4, NVFP4 e fabric rack-scale.</span></li>
           <li><a href="https://epoch.ai/data/ai-chip-sales-documentation/downloads" target="_blank" rel="noreferrer">Epoch AI · AI Chip Production</a><span>Stime di spedizioni, prezzo e TDP per A100, H100/H200, B200 e B300; dataset aggiornato l'11 giugno 2026.</span></li>
@@ -358,10 +436,10 @@
           <li><a href="https://nvidianews.nvidia.com/news/nvidia-partners-ai-infrastructure-america" target="_blank" rel="noreferrer">NVIDIA · xAI Colossus 2</a><span>Data center in costruzione a Memphis con oltre mezzo milione di GPU NVIDIA previste.</span></li>
           <li><a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Vera-Rubin-Ramps-Into-Full-Production-to-Power-Agentic-AI-Factories-Worldwide/default.aspx" target="_blank" rel="noreferrer">NVIDIA · Vera Rubin ramp</a><span>Piena produzione, oltre 350 fabbriche in 30 Paesi e primi deployment cloud nel 2026.</span></li>
         </ol>
-        <p class="source-boundary">La stagnazione tecnologica è una tesi interpretativa, non un fatto dimostrato dal solo grafico BLS. I confronti di transistor attraversano categorie diverse e mostrano ordini di grandezza, non prestazioni equivalenti. NVIDIA non pubblica volumi unitari o listini uniformi: produzione, prezzi e intervalli sono stime Epoch AI. I deployment sono esempi pubblici, non quote di mercato né totali cumulativi. Dati consultati il 16 luglio 2026.</p>
+        <p class="source-boundary">La stagnazione tecnologica è una tesi interpretativa, non un fatto dimostrato dal solo grafico BLS. I confronti di transistor attraversano categorie diverse e mostrano ordini di grandezza, non prestazioni equivalenti. Nel grafico potenza/calcolo, picchi del chip e risultati dell'intero sistema sono separati e non formano una classifica omogenea. NVIDIA non pubblica volumi unitari o listini uniformi: produzione, prezzi e intervalli sono stime Epoch AI. I deployment sono esempi pubblici, non quote di mercato né totali cumulativi. Dati consultati il 16 agosto 2026.</p>
       </section>
       <nav class="chapter-next" aria-label="Continua la lettura"><a href="energia.html">← Precedente: Energia</a><a href="algoritmi.html">Prossimo: Algoritmi →</a></nav>
     </main>
-    <footer class="site-footer"><span>AI.it</span><span>Chips · 02</span></footer><script src="app.js"></script>
+    <footer class="site-footer"><span>AI.it</span><span>Chips · 02</span></footer><script src="app.js?v=system-mobile-2"></script>
   </body>
 </html>
