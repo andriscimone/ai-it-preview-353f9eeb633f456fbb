@@ -14,7 +14,7 @@
     <title>Novità — AI.it</title>
     <script>(() => { try { const saved = localStorage.getItem("aiit-theme"); const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dataset.theme = saved || preferred; } catch (_) { document.documentElement.dataset.theme = "light"; } })();</script>
     <link rel="stylesheet" href="styles.css?v=news-list-3" />
-    <link rel="stylesheet" href="novita.css?v=36" />
+    <link rel="stylesheet" href="novita.css?v=38" />
   </head>
   <body class="detail-page news-page news-list-page">
     <a class="skip-link" href="#feed">Salta alle notizie</a><div class="noise" aria-hidden="true"></div>
@@ -28,7 +28,300 @@
       </header>
 
       <section class="news-list" id="feed" aria-labelledby="feed-title">
-        <header class="news-list-head"><h2 id="feed-title">Giorno per giorno</h2><span>10 giorni · 13 notizie</span></header>
+        <header class="news-list-head"><h2 id="feed-title">Giorno per giorno</h2><span>11 giorni · 14 notizie</span></header>
+
+        <section class="news-day news-day-spacex-ai" aria-labelledby="day-2026-08-16">
+          <header class="news-day-head">
+            <time datetime="2026-08-16" id="day-2026-08-16"><strong>16 agosto</strong><span>2026</span></time>
+            <span class="news-day-count">1 notizia</span>
+          </header>
+          <div class="news-day-items">
+            <details class="news-list-item news-list-item-spacex-ai" id="spacex-ai-unified-stack">
+              <summary aria-labelledby="spacex-ai-title">
+                <span class="news-item-meta"><b>N14</b><span class="news-item-topic">SpaceXAI × agenti</span><span class="news-item-status"><i></i> acquisizione chiusa + beta</span></span>
+                <span class="news-item-title" id="spacex-ai-title">SpaceX compra Cursor: Grok 4.6 e Grok Bot mostrano il nuovo stack AI</span>
+                <span class="news-item-deck">Cursor entra nel gruppo per un valore implicito di 60 miliardi. Il modello migliora; Grok Bot prova a trasformarlo in lavoro continuo dentro app e siti.</span>
+                <span class="news-item-toggle" aria-hidden="true"></span>
+              </summary>
+
+              <div class="news-item-body spacex-ai-story">
+                <section class="spacex-ai-intro" aria-labelledby="spacex-ai-intro-title">
+                  <div class="spacex-ai-intro-copy">
+                    <span class="spacex-ai-kicker">16 agosto 2026 · acquisizione completata</span>
+                    <p class="spacex-ai-wordmark" aria-hidden="true">COMPUTE / MODEL / WORK / ACTION</p>
+                    <h3 id="spacex-ai-intro-title">SpaceX sta assemblando una filiera AI completa.</h3>
+                    <p>Il 14 agosto SpaceX ha completato l’acquisizione di <strong>Anysphere, la società di Cursor</strong>. L’operazione attribuisce a Cursor un valore azionario implicito di <strong>60 miliardi di dollari</strong>: le azioni ordinarie e privilegiate sono state convertite in azioni SpaceX, salvo il contante per eventuali frazioni. Anysphere è ora una controllata al 100% di SpaceX.</p>
+                    <p>È l’ultimo tassello di una struttura costruita in meno di due anni: xAI aveva comprato X nel marzo 2025; SpaceX ha acquisito xAI nel febbraio 2026; ora aggiunge l’ambiente di programmazione usato ogni giorno da molti sviluppatori. Colossus fornisce il calcolo, Grok i modelli, X e Cursor la distribuzione, Grok Build e Grok Bot l’esecuzione.</p>
+                    <aside class="spacex-ai-disclosure"><strong>Un gruppo, non una sola società</strong><span><b>SpaceXAI</b> è un nome commerciale usato da XAI LLC. SpaceX resta la capogruppo; i documenti societari mostrano X.AI Holdings LLC/XAI LLC, X Corp. e Anysphere Inc. come entità giuridiche controllate distinte.</span></aside>
+                  </div>
+
+                  <div class="spacex-ai-stack" role="group" aria-label="Schema editoriale del gruppo SpaceX AI: SpaceX controlla il calcolo Colossus e Terafab, il modello Grok di xAI, le interfacce X e Cursor, e gli agenti Grok Build e Grok Bot">
+                    <header><span>Gruppo SpaceX</span><strong>Quattro strati collegati</strong></header>
+                    <ol>
+                      <li><b>01 / CALCOLO</b><strong>Colossus + Terafab</strong><span>GPU, energia e futura capacità produttiva.</span></li>
+                      <li><b>02 / MODELLO</b><strong>Grok</strong><span>4.6 disponibile; 4.7 e 5 nella roadmap.</span></li>
+                      <li><b>03 / INTERFACCE</b><strong>X + Cursor</strong><span>Pubblico generale e lavoro professionale.</span></li>
+                      <li><b>04 / AZIONE</b><strong>Build + Bot</strong><span>Agenti che producono software e operano strumenti.</span></li>
+                    </ol>
+                    <p>Questa lettura della filiera è editoriale; proprietà e acquisizioni sono dati documentati.</p>
+                  </div>
+                </section>
+
+                <section class="spacex-ai-section spacex-ai-cursor" aria-labelledby="spacex-ai-cursor-title">
+                  <header class="spacex-ai-section-head">
+                    <span class="spacex-ai-kicker">Cursor · da partner a controllata</span>
+                    <h3 id="spacex-ai-cursor-title">L’accordo da 60 miliardi si è chiuso in quattro mesi.</h3>
+                    <p>Il prezzo è un valore azionario implicito, non 60 miliardi trasferiti in contanti. Il filing registra 389.289.254 nuove azioni SpaceX per le azioni ordinarie e privilegiate di Cursor, oltre al trattamento di RSU e opzioni e al contante per eventuali frazioni.</p>
+                  </header>
+
+                  <ol class="spacex-ai-timeline" aria-label="Cronologia dell'integrazione tra SpaceX e Cursor">
+                    <li><time datetime="2026-02-02">02 FEB</time><span>STRUTTURA</span><p><strong>SpaceX acquisisce xAI.</strong> Grok e X entrano nel gruppo della società spaziale.</p></li>
+                    <li><time datetime="2026-04-19">19 APR</time><span>OPZIONE</span><p><strong>Compute e addestramento.</strong> SpaceX mette a disposizione capacità di calcolo su cluster GPU; Cursor contribuisce personale, dati e dataset, workflow, prompt, specifiche, codice e competenze. SpaceX ottiene un’opzione di acquisto.</p></li>
+                    <li><time datetime="2026-06-16">16 GIU</time><span>ACCORDO</span><p><strong>Merger agreement firmato.</strong> L’operazione viene fissata su un valore azionario implicito di 60 miliardi, con corrispettivo principalmente in azioni SpaceX.</p></li>
+                    <li><time datetime="2026-08-14">14 AGO</time><span>CHIUSURA</span><p><strong>Acquisizione completata.</strong> Anysphere sopravvive alla fusione come controllata al 100% di SpaceX.</p></li>
+                  </ol>
+
+                  <div class="spacex-ai-cursor-grid">
+                    <article>
+                      <span>Per Cursor</span>
+                      <strong>Più calcolo e modelli propri</strong>
+                      <p>L’azienda dice che la flotta GPU di SpaceXAI le permetterà di addestrare modelli più potenti e offrirli a costi più bassi. Grok 4.6, già disponibile in Cursor, è indicato come un primo assaggio del lavoro congiunto.</p>
+                    </article>
+                    <article>
+                      <span>Per SpaceXAI</span>
+                      <strong>Un ambiente di lavoro quotidiano</strong>
+                      <p>Cursor aggiunge distribuzione professionale, feedback d’uso e una squadra specializzata negli agenti di coding. Il team lavorerà anche su Grok Build, Grok Bot e Grok API.</p>
+                    </article>
+                    <article class="spacex-ai-data-note">
+                      <span>Il confine da controllare</span>
+                      <strong>Dati di lavoro e addestramento</strong>
+                      <p>Il prospetto SpaceX elenca tra i contributi di Cursor personale, dati e dataset, workflow, prompt, specifiche e codice software, destinati alla collaborazione per migliorare Grok. Non chiarisce quali dati dei clienti, se ve ne sono, rientrino nel flusso: condizioni contrattuali e politiche dei diversi piani vanno verificate separatamente.</p>
+                    </article>
+                  </div>
+                </section>
+
+                <section class="spacex-ai-section spacex-ai-model" aria-labelledby="spacex-ai-model-title">
+                  <header class="spacex-ai-section-head">
+                    <span class="spacex-ai-kicker">Grok 4.6 · disponibile dal 12 agosto</span>
+                    <h3 id="spacex-ai-model-title">Un modello pensato per lavori lunghi, tecnici e interattivi.</h3>
+                    <p>xAI descrive Grok 4.6 come un’evoluzione di 4.5 con più addestramento, un ottimizzatore migliorato e reinforcement learning su coding, CAD, sviluppo web e altri compiti professionali. È disponibile in Cursor, Grok Build, API e vari partner.</p>
+                  </header>
+
+                  <div class="spacex-ai-model-strip" aria-label="Dati principali di Grok 4.6">
+                    <span><b>$2</b>input / milione token</span>
+                    <span><b>$6</b>output / milione token</span>
+                    <span><b>500K</b>finestra di contesto</span>
+                    <span><b>×2</b>prezzo modalità Fast</span>
+                    <span><b>12 AGO</b>rilascio pubblico</span>
+                  </div>
+
+                  <div class="spacex-ai-table-wrap" tabindex="0" aria-label="Tabella scorrevole dei benchmark pubblicati per Grok 4.6">
+                    <table class="spacex-ai-table">
+                      <caption>Benchmark selezionati · valori pubblicati da xAI · più alto è meglio</caption>
+                      <thead><tr><th scope="col">Test</th><th scope="col">Che cosa prova</th><th scope="col">Grok 4.5 High</th><th scope="col">Grok 4.6 High</th><th scope="col">GPT‑5.6 Sol Max</th><th scope="col">Fable 5 Max</th></tr></thead>
+                      <tbody>
+                        <tr><th scope="row">AA Intelligence</th><td>Composito indipendente di capacità generali</td><td>56</td><td><strong>61</strong></td><td>61</td><td>62</td></tr>
+                        <tr><th scope="row">GDPVal‑AA v2</th><td>Compiti professionali valutati economicamente</td><td>1.526</td><td><strong>1.753</strong></td><td>1.728</td><td>1.741</td></tr>
+                        <tr><th scope="row">CursorBench</th><td>Coding agentico dentro un ambiente reale</td><td>66,7%</td><td><strong>69,9%</strong></td><td>67,2%</td><td>70,5%</td></tr>
+                        <tr><th scope="row">DeepSWE 1.1</th><td>Modifiche software su repository</td><td>54,0%</td><td><strong>65,9%</strong></td><td>73,0%</td><td>70,0%</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <aside class="spacex-ai-benchmark-note"><strong>Come leggere questi numeri</strong><span>4.6 migliora nettamente su 4.5 e raggiunge la frontiera in alcuni test; non vince ovunque. La tabella riproduce risultati scelti e pubblicati da xAI, con configurazioni diverse tra modelli: è un segnale utile, non una prova universale di superiorità. Nell’API il prezzo raddoppia anche quando il prompt supera 200.000 token.</span></aside>
+                </section>
+
+                <section class="spacex-ai-section spacex-ai-roadmap" aria-labelledby="spacex-ai-roadmap-title">
+                  <header class="spacex-ai-section-head">
+                    <span class="spacex-ai-kicker">4.7 e 5 · calendario contro realtà</span>
+                    <h3 id="spacex-ai-roadmap-title">Le promesse corrono più avanti dei prodotti disponibili.</h3>
+                    <p>Grok 4.7 non è ancora uscito. Musk ha indicato una nuova finestra di tre o quattro settimane, mentre per Grok 5 restano soltanto la conferma dell’addestramento e vecchie dichiarazioni molto ambiziose.</p>
+                  </header>
+
+                  <div class="spacex-ai-roadmap-grid">
+                    <article class="spacex-ai-roadmap-now">
+                      <span class="spacex-ai-roadmap-label">Prossimo · Grok 4.7</span>
+                      <strong>3–4 settimane</strong>
+                      <p>Il 12 agosto Musk ha detto che 4.7 dovrebbe essere pronto in tre o quattro settimane e superare tutti i modelli attuali, dopo ulteriore addestramento su dati SpaceX. Gli attribuisce 2.100 miliardi di parametri e una migliore efficienza per token, con una risposta leggermente più lenta. Sono previsioni del fondatore: non esistono ancora model card, benchmark pubblici o una data vincolante.</p>
+                      <small>La finestra più recente sposta in avanti una precedente previsione formulata il 28 luglio.</small>
+                    </article>
+
+                    <div class="spacex-ai-claims" aria-label="Cronologia delle dichiarazioni su Grok 5">
+                      <div><time datetime="2025-08-07">07 AGO 2025</time><span>SCADENZA</span><p>Musk promette Grok 5 entro la fine del 2025 e lo definisce «crushingly good». La data non viene rispettata.</p></div>
+                      <div><time datetime="2025-09-17">17 SET 2025</time><span>AGI</span><p>Musk dice che xAI ha una possibilità di raggiungere l’AGI con Grok 5.</p></div>
+                      <div><time datetime="2025-10-18">18 OTT 2025</time><span>10%</span><p>Stima pubblicamente quella probabilità al 10% «e in crescita»; aggiunge che il sistema potrebbe risultare indistinguibile dall’AGI.</p></div>
+                      <div><time datetime="2025-11-14">14 NOV 2025</time><span>SPECIFICHE</span><p>Parla di 6.000 miliardi di parametri, multimodalità nativa e uscita nel primo trimestre 2026. Sono claim verbali, senza model card.</p></div>
+                      <div><time datetime="2026-01-06">06 GEN 2026</time><span>CONFERMATO</span><p>xAI comunica soltanto che Grok 5 è in addestramento.</p></div>
+                      <div class="spacex-ai-claims-late"><time datetime="2026-08-16">OGGI</time><span>IN RITARDO</span><p>Il primo trimestre è finito da mesi. Grok 5 non è disponibile: non esistono ancora specifiche ufficiali né valutazioni indipendenti.</p></div>
+                    </div>
+                  </div>
+
+                  <p class="spacex-ai-claims-verdict"><strong>Il punto epistemico:</strong> «6T», «multimodale nativo», «sembra senziente» e «AGI» descrivono aspettative di Musk. L’unico fatto aziendale verificabile è che, a gennaio, il modello risultava in addestramento. Anche il numero di parametri misura la scala del modello, non la sua intelligenza.</p>
+                </section>
+
+                <section class="spacex-ai-bot" aria-labelledby="spacex-ai-bot-title">
+                  <header>
+                    <span class="spacex-ai-kicker">Grok Bot · early beta dall’11 agosto</span>
+                    <h3 id="spacex-ai-bot-title">Il prodotto più interessante prova a lavorare anche quando il computer è spento.</h3>
+                    <p>Grok Bot non è il profilo <em>@grok</em> su X e non è un robot fisico. xAI lo presenta come una squadra di agenti software «always-on», ognuno con un computer nel cloud. Può aprire siti e applicazioni, usare account autorizzati, coordinarsi con altri bot e continuare il lavoro senza dipendere dal computer dell’utente.</p>
+                  </header>
+
+                  <aside class="spacex-ai-harness-note" aria-label="Che cosa significa agent harness">
+                    <div>
+                      <span>Terminologia · sì, si dice agent harness</span>
+                      <p><strong>Qui il modello è un Grok; l’agent harness è il sistema che lo mette al lavoro.</strong> Può mantenere il ciclo osserva–decidi–agisci, fornire strumenti e contesto, conservare stato e applicare le regole di permesso dell’ambiente in cui opera. Grok Bot è il prodotto completo costruito sopra questi strati; in italiano <em>harness</em> resta invariato anche al plurale.</p>
+                    </div>
+                    <ol class="spacex-ai-harness-layers" aria-label="I quattro strati di un prodotto agentico">
+                      <li><b>01 · Modello</b><span>decide</span></li>
+                      <li><b>02 · Harness</b><span>orchestra</span></li>
+                      <li><b>03 · Computer</b><span>esegue</span></li>
+                      <li><b>04 · Prodotto</b><span>rende tutto usabile</span></li>
+                    </ol>
+                  </aside>
+
+                  <ol class="spacex-ai-bot-flow" aria-label="Come funziona Grok Bot secondo la presentazione di xAI">
+                    <li><b>01</b><strong>Assegna</strong><span>Scrivi il risultato che vuoi come a un collega.</span></li>
+                    <li><b>02</b><strong>Mostra</strong><span>Esegui una procedura una volta; il bot può salvarla come routine.</span></li>
+                    <li><b>03</b><strong>Esegue</strong><span>Usa app e siti nel proprio computer cloud, anche senza API dedicate.</span></li>
+                    <li><b>04</b><strong>Coordina</strong><span>Più bot condividono contesto e possono lavorare in parallelo.</span></li>
+                    <li><b>05</b><strong>Escalation</strong><span>xAI dice che torna dall’utente quando serve un’approvazione.</span></li>
+                  </ol>
+
+                  <div class="spacex-ai-table-wrap spacex-ai-harness-wrap" tabindex="0" aria-label="Confronto scorrevole tra Grok Bot e cinque piattaforme agentiche">
+                    <table class="spacex-ai-table spacex-ai-harness-table">
+                      <caption>Confronto sostanziale · sei prodotti, due famiglie · stato al 16 agosto 2026 · scorri orizzontalmente su schermi stretti</caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">Prodotto</th>
+                          <th scope="col">Perimetro</th>
+                          <th scope="col">Dove agisce</th>
+                          <th scope="col">Continuità e squadra</th>
+                          <th scope="col">Differenza rispetto a Grok Bot</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="spacex-ai-harness-grok">
+                          <th scope="row">Grok Bot<small>Piattaforma agentica</small></th>
+                          <td><strong>Generalista</strong><br>Vendite, marketing, operazioni e software.</td>
+                          <td>Un computer cloud per bot; account, app e siti anche senza API o MCP.</td>
+                          <td><strong>24/7 secondo xAI.</strong> Memoria, messaggi fra bot, contesto condiviso e chat di gruppo.</td>
+                          <td>L’unità del prodotto è il «collega» persistente. Impara routine osservando il lavoro e può passare incarichi ad altri bot.</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">ChatGPT Work<small>Piattaforma agentica</small></th>
+                          <td><strong>Generalista</strong><br>Lavoro d’ufficio, ricerca e produzione di documenti.</td>
+                          <td>Incarichi nel cloud, plugin e browser; sul desktop può usare file, app e computer locale.</td>
+                          <td>Lavori cloud lunghi, attività pianificate, trigger e monitoraggi; può avviare subagenti specializzati in parallelo e raccoglierne i risultati.</td>
+                          <td>La documentazione non presenta una squadra stabile di pari in chat di gruppo. Descrive controlli amministrativi, conferme sensibili e Auto-review per azioni importanti.</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Manus<small>Piattaforma agentica</small></th>
+                          <td><strong>Generalista</strong><br>Ricerca, browser, automazioni e progetti.</td>
+                          <td>Cloud Computer persistente ma senza GUI, su Ubuntu; il Cloud Browser con sessioni autenticate è un componente separato.</td>
+                          <td>Il computer può restare attivo 24/7; Wide Research distribuisce incarichi parallelizzabili a molti agenti e fa sintetizzare i risultati all’agente principale.</td>
+                          <td><strong>È il precedente tecnico più vicino:</strong> offriva già persistenza cloud, browser autenticato, lavoro asincrono e molti agenti, ma in componenti e modalità separate.</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Codex<small>Harness di coding</small></th>
+                          <td><strong>Software → knowledge work</strong><br>Progetti, repository e materiali professionali.</td>
+                          <td>Ambienti locali o cloud isolati per file, repository e shell; browser e Computer Use sono disponibili nell’app desktop, non nella CLI o nell’estensione IDE.</td>
+                          <td>Conversazioni e subagenti paralleli, incarichi lunghi e automazioni; il coordinamento resta centrato sul lavoro assegnato.</td>
+                          <td><strong>Record &amp; Replay su macOS</strong> trasforma una dimostrazione in una skill riutilizzabile: il «mostralo una volta» non è una capacità esclusiva di Grok Bot. Richiede Computer Use disponibile e abilitato.</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Claude Code<small>Harness di coding</small></th>
+                          <td><strong>Software</strong><br>Terminale, repository e strumenti dello sviluppatore.</td>
+                          <td>Progetto e terminale con tool, skill, MCP e modalità di permesso configurabili.</td>
+                          <td>Subagenti; gli Agent Teams sperimentali condividono un elenco di compiti e possono scriversi direttamente. Sono disabilitati di default e hanno limitazioni note nella ripresa delle sessioni.</td>
+                          <td>I messaggi diretti fra agenti sono già disponibili, ma la funzione va abilitata esplicitamente e resta sperimentale.</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Cursor Cloud Agents<small>Harness di coding</small></th>
+                          <td><strong>Software</strong><br>Implementazione, test, pull request e automazioni tecniche.</td>
+                          <td>VM cloud isolata con repository, ambiente di sviluppo, desktop, browser e MCP.</td>
+                          <td>Molti agenti in parallelo senza tenere acceso il laptop; continuità legata alle singole esecuzioni e alle automazioni.</td>
+                          <td>È il parente operativo di coding più vicino e ora appartiene allo stesso gruppo; al 16 agosto, però, xAI e Cursor non documentano un handoff nativo fra i due prodotti.</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <section class="spacex-ai-novelty" aria-label="Che cosa è già presente altrove e che cosa distingue Grok Bot">
+                    <article>
+                      <h4>Non è nuovo, preso da solo</h4>
+                      <ul><li>Computer cloud e browser autenticato.</li><li>Lavoro asincrono a computer spento.</li><li>Memoria, subagenti e coordinamento parallelo.</li><li>Routine apprese osservando una dimostrazione.</li></ul>
+                    </article>
+                    <article>
+                      <h4>La combinazione di xAI</h4>
+                      <ul><li>Bot presentati come colleghi con identità e continuità.</li><li>Messaggi laterali e chat di gruppo fra bot.</li><li>Passaggi di incarichi con assegnazione della responsabilità.</li><li>Proattività senza un nuovo prompt, secondo il claim di lancio.</li></ul>
+                    </article>
+                  </section>
+
+                  <p class="spacex-ai-harness-verdict"><strong>Verdetto:</strong> Grok Bot non inaugura l’agente che usa un computer e non è il primo sistema multi‑agent. La scommessa più specifica è organizzativa: riunire capacità già esistenti in una squadra generalista persistente, utilizzabile come una chat e capace, secondo xAI, di passarsi il lavoro al proprio interno. L’accesso è incluso in alcuni piani Cursor, ma la pagina di lancio non documenta un collegamento tecnico nativo con Cursor Cloud Agents. È anche la parte meno verificata della early beta.</p>
+
+                  <div class="spacex-ai-bot-grid">
+                    <article>
+                      <span>Vendite</span><strong>CRM e follow‑up</strong><p>Aggiornare record, preparare messaggi e svolgere ricerca su potenziali clienti.</p>
+                    </article>
+                    <article>
+                      <span>Operazioni</span><strong>Fatture e onboarding</strong><p>Raccogliere dati tra strumenti, processare documenti e preparare l’arrivo di nuovi assunti.</p>
+                    </article>
+                    <article>
+                      <span>Software</span><strong>Dal bug al fix</strong><p>Riprodurre un problema nell’interfaccia, aprire un ticket e passare il fix a un bot di debugging.</p>
+                    </article>
+                    <article>
+                      <span>Memoria</span><strong>Routine ripetibili</strong><p>Ricordare conversazioni e stile di lavoro, poi riutilizzare procedure insegnate una volta.</p>
+                    </article>
+                  </div>
+
+                  <div class="spacex-ai-access">
+                    <div><span>Accesso beta</span><strong>macOS + iOS</strong><p>Incluso per SuperGrok Heavy, Cursor Ultra e Cursor Teams Premium; le aziende possono iscriversi alla lista d’attesa. Windows, Android e una versione web non sono annunciati nella pagina di lancio.</p></div>
+                    <dl aria-label="Prezzi mensili dei piani che includono Grok Bot al lancio">
+                      <div><dt>Cursor Ultra</dt><dd>$200 / mese</dd></div>
+                      <div><dt>Teams Premium</dt><dd>$120 / utente</dd></div>
+                      <div><dt>SuperGrok Heavy</dt><dd>$300 / mese</dd></div>
+                    </dl>
+                  </div>
+
+                  <nav class="spacex-ai-harness-sources" aria-label="Fonti primarie del confronto tra piattaforme agentiche">
+                    <span>Fonti del confronto</span>
+                    <a href="https://x.ai/news/introducing-grok-bot" target="_blank" rel="noreferrer">Grok Bot ↗</a>
+                    <a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents" target="_blank" rel="noreferrer">Definizione di agent harness ↗</a>
+                    <a href="https://openai.com/index/chatgpt-for-your-most-ambitious-work/" target="_blank" rel="noreferrer">ChatGPT Work ↗</a>
+                    <a href="https://learn.chatgpt.com/docs/agent-configuration/subagents" target="_blank" rel="noreferrer">ChatGPT/Codex subagenti ↗</a>
+                    <a href="https://learn.chatgpt.com/docs/extend/record-and-replay" target="_blank" rel="noreferrer">ChatGPT/Codex Record &amp; Replay ↗</a>
+                    <a href="https://help.manus.im/en/articles/15392111-what-is-the-cloud-computer" target="_blank" rel="noreferrer">Manus Cloud Computer ↗</a>
+                    <a href="https://manus.im/docs/features/cloud-browser" target="_blank" rel="noreferrer">Manus Cloud Browser ↗</a>
+                    <a href="https://manus.im/docs/features/wide-research" target="_blank" rel="noreferrer">Manus Wide Research ↗</a>
+                    <a href="https://code.claude.com/docs/en/agent-teams" target="_blank" rel="noreferrer">Claude Agent Teams ↗</a>
+                    <a href="https://cursor.com/docs/cloud-agent" target="_blank" rel="noreferrer">Cursor Cloud Agents ↗</a>
+                  </nav>
+                </section>
+
+                <section class="spacex-ai-section spacex-ai-proof" aria-labelledby="spacex-ai-proof-title">
+                  <header class="spacex-ai-section-head">
+                    <span class="spacex-ai-kicker">Perché conta · e che cosa manca</span>
+                    <h3 id="spacex-ai-proof-title">L’azione continua rende gli errori più costosi.</h3>
+                    <p>Un chatbot produce testo da controllare. Un agente con account, memoria e autonomia può modificare sistemi reali. Per questo la qualità di Grok Bot dipenderà almeno quanto il modello da permessi, approvazioni, registri e possibilità di annullare le azioni.</p>
+                  </header>
+
+                  <div class="spacex-ai-proof-grid">
+                    <article><span>Documentato</span><ul><li>Beta disponibile in tre piani a pagamento.</li><li>Computer cloud persistente e interazione con interfacce web.</li><li>Più bot in parallelo, routine insegnate e memoria del lavoro.</li><li>Uso interno dichiarato da xAI per vendite, marketing, ufficio e bug.</li></ul></article>
+                    <article><span>Dichiarato dall’azienda</span><ul><li>Capacità dichiarata di proseguire incarichi dall’inizio alla fine anche quando l’utente si allontana.</li><li>Ritorno all’utente quando è necessaria un’approvazione.</li><li>Passaggi di lavoro fra bot, incluso l’handoff a un bot di debugging.</li><li>Benefici di produttività nei casi interni mostrati al lancio.</li></ul></article>
+                    <article><span>Ancora da misurare</span><ul><li>Tasso di successo indipendente su incarichi completi.</li><li>Comportamento quando un sito cambia interfaccia o mostra dati ambigui.</li><li>Separazione dei permessi, audit e recupero dopo un errore.</li><li>Costo reale per attività e quantità di supervisione umana.</li></ul></article>
+                  </div>
+
+                  <aside class="spacex-ai-reading"><span>Lettura editoriale</span><p>L’acquisizione di Cursor cambia il significato di ogni nuovo Grok. SpaceXAI ora può addestrare un modello sul calcolo proprietario, distribuirlo dentro strumenti di lavoro e collegarlo ad agenti persistenti. Grok 4.7 e le promesse su Grok 5 attireranno l’attenzione; la prova più concreta sarà vedere se Grok Bot riesce a completare lavoro reale con controllo, tracciabilità e pochi errori.</p></aside>
+                </section>
+
+                <footer class="news-item-footer spacex-ai-footer">
+                  <p>Fonti consultate il 16 agosto 2026. Proprietà e acquisizione di Cursor provengono da documenti SEC e annunci ufficiali. Benchmark, capacità e casi di Grok 4.6 e Grok Bot sono dati pubblicati da xAI; il confronto fra piattaforme usa la documentazione ufficiale dei rispettivi produttori. Non risultano ancora valutazioni indipendenti complete di Grok Bot. La finestra di Grok 4.7 e le caratteristiche di Grok 5 restano dichiarazioni di Elon Musk.</p>
+                  <div><a href="https://x.ai/news/xai-joins-spacex" target="_blank" rel="noreferrer">xAI entra in SpaceX ↗</a><a href="https://www.sec.gov/Archives/edgar/data/1181412/000162828026056945/spcx-20260814.htm" target="_blank" rel="noreferrer">Closing Cursor / SEC ↗</a><a href="https://cursor.com/blog/joining-spacex" target="_blank" rel="noreferrer">Cursor × SpaceX ↗</a><a href="https://x.ai/news/grok-4-6" target="_blank" rel="noreferrer">Grok 4.6 ↗</a><a href="https://x.ai/news/introducing-grok-bot" target="_blank" rel="noreferrer">Grok Bot ↗</a><a href="https://x.ai/news/series-e" target="_blank" rel="noreferrer">Grok 5 in training ↗</a><a href="https://x.com/elonmusk/status/2087604711767896527" target="_blank" rel="noreferrer">Claim Grok 4.7 ↗</a><a href="https://www.youtube.com/watch?v=Sxtk_LoBu4E" target="_blank" rel="noreferrer">Claim Grok 5 ↗</a></div>
+                </footer>
+              </div>
+            </details>
+          </div>
+        </section>
 
         <section class="news-day news-day-containment" aria-labelledby="day-2026-08-07">
           <header class="news-day-head">
@@ -1813,7 +2106,7 @@
 
       <nav class="chapter-next" aria-label="Continua la lettura"><a href="altro.html">← Dossier</a><a href="index.html">Home →</a></nav>
     </main>
-    <footer class="site-footer"><span>AI.it</span><span>Novità · 13 aggiornamenti in 10 giorni</span></footer>
+    <footer class="site-footer"><span>AI.it</span><span>Novità · 14 aggiornamenti in 11 giorni</span></footer>
     <script src="app.js?v=novita-close-1"></script>
   </body>
 </html>
