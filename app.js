@@ -1421,6 +1421,16 @@ if (pacingSpookyTrigger && pacingSpookyTransmission && pacingSpookyExit && pacin
 
 const expandableNewsItems = document.querySelectorAll("details.news-list-item");
 
+const activeSystemSubnavLink = document.querySelector('.system-subnav [aria-current="page"]');
+if (activeSystemSubnavLink) {
+  window.requestAnimationFrame(() => {
+    const subnav = activeSystemSubnavLink.closest(".system-subnav");
+    if (!subnav || subnav.scrollWidth <= subnav.clientWidth) return;
+    const centeredLeft = activeSystemSubnavLink.offsetLeft - ((subnav.clientWidth - activeSystemSubnavLink.offsetWidth) / 2);
+    subnav.scrollTo({ left: Math.max(0, centeredLeft), behavior: "auto" });
+  });
+}
+
 if (expandableNewsItems.length) {
   const reduceNewsMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 

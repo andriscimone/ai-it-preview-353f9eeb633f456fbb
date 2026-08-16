@@ -224,8 +224,8 @@
   border-radius: 24px;
   box-shadow: 0 28px 72px color-mix(in srgb, var(--ink) 12%, transparent);
 }
-.inference-page .economics-figure-media { min-height: 520px; }
-.inference-page .economics-figure img { min-height: 520px; filter: saturate(.63) contrast(.98); }
+.inference-page .economics-figure-media { min-height: 520px; grid-template-columns: minmax(0, 1fr); }
+.inference-page .economics-figure img { min-height: 520px; height: auto; filter: saturate(.63) contrast(.98); }
 .inference-page .economics-figure figcaption { padding: 19px 22px; }
 
 .inference-page .compute-evolution {
@@ -615,7 +615,7 @@
 .inference-page .truffle-case h3 { max-width: 1060px; }
 .inference-page .truffle-layout { display: grid; grid-template-columns: minmax(340px, .78fr) minmax(0, 1.22fr); border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
 .inference-page .truffle-layout figure { min-width: 0; margin: 0; border-right: 1px solid var(--ink); }
-.inference-page .truffle-layout figure img { width: 100%; aspect-ratio: 4 / 5; display: block; object-fit: cover; object-position: 50% 45%; }
+.inference-page .truffle-layout figure img { width: 100%; height: auto; aspect-ratio: 4 / 5; display: block; object-fit: cover; object-position: 50% 45%; }
 .inference-page .truffle-layout figcaption { padding: 18px 22px; color: var(--muted); font: 11px/1.6 var(--mono); }
 .inference-page .truffle-copy { padding: clamp(38px, 5vw, 82px); }
 .inference-page .truffle-lede { max-width: 850px; margin: 0; font: 400 clamp(29px, 3.5vw, 54px)/1.02 var(--serif); letter-spacing: -.03em; }
@@ -686,17 +686,19 @@
   .inference-page .open-data-rule { gap: 12px; margin-bottom: 10px; padding: 20px; border-radius: 16px; }
   .inference-page .open-data-rule strong { font-size: 25px; }
   .inference-page .workload-tabs {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: thin;
+    display: grid;
+    grid-template-columns: 1fr;
+    overflow: visible;
+    scroll-snap-type: none;
     border-radius: 18px 18px 0 0;
   }
   .inference-page .workload-tab {
-    min-width: min(78vw, 280px);
+    width: 100%;
+    min-width: 0;
     min-height: 86px;
-    flex: 0 0 auto;
-    scroll-snap-align: start;
+    border-right: 0;
+    border-bottom: 1px solid var(--ink);
+    scroll-snap-align: none;
   }
   .inference-page .workload-tab:last-child { border: 0; }
   .inference-page .chart-shell { border-radius: 0 0 20px 20px; }
@@ -732,8 +734,8 @@
   .inference-page .economics-equation i { transform: rotate(90deg); transform-origin: left center; }
   .inference-page .economics-equation strong { font-size: 32px; }
   .inference-page .economics-figure { border-radius: 18px; }
-  .inference-page .economics-figure-media { aspect-ratio: auto; overflow-x: auto; justify-content: start; }
-  .inference-page .economics-figure img { width: 720px; max-width: none; height: auto; }
+  .inference-page .economics-figure-media { aspect-ratio: auto; overflow: hidden; justify-content: center; }
+  .inference-page .economics-figure img { width: 100%; max-width: 100%; height: auto; }
   .inference-page .economics-figure figcaption { flex-direction: column; padding: 18px; }
   .inference-page .compute-evolution { margin-top: 100px; padding-top: 62px; }
   .inference-page .compute-evolution-head { grid-template-columns: 1fr; gap: 24px; padding: 0 6px 48px; }
@@ -758,8 +760,8 @@
   .inference-page .sec-bench-study { margin-top: 100px; }
   .inference-page .sec-bench-study > header { grid-template-columns: 1fr; gap: 22px; padding: 0 6px 34px; }
   .inference-page .sec-bench-mobile-hint { display: flex; justify-content: space-between; margin: 0; padding: 12px 18px; border-bottom: 1px solid var(--ink); font: 11px var(--mono); text-transform: uppercase; }
-  .inference-page .sec-bench-media { overflow-x: auto; overscroll-behavior-inline: contain; }
-  .inference-page .sec-bench-media img { width: 820px; max-width: none; }
+  .inference-page .sec-bench-media { overflow: hidden; }
+  .inference-page .sec-bench-media img { width: 100%; max-width: 100%; height: auto; }
   .inference-page .sec-bench-figure figcaption { flex-direction: column; padding: 18px; }
   .inference-page .sec-bench-figure figcaption a { align-self: flex-start; }
   .inference-page .sec-bench-commentary { padding: 30px 20px; }

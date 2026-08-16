@@ -294,7 +294,10 @@
         circle.setAttribute("role", "button");
       }
 
-      circle.addEventListener("pointermove", (event) => showTooltip(event, country));
+      circle.addEventListener("pointermove", (event) => {
+        if (event.pointerType && event.pointerType !== "mouse" && event.pointerType !== "pen") return;
+        showTooltip(event, country);
+      });
       circle.addEventListener("pointerleave", hideTooltip);
       circle.addEventListener("focus", (event) => {
         const bounds = circle.getBoundingClientRect();
@@ -739,6 +742,7 @@
       height: personPlot.bottom - topPlot.top,
     });
     hitArea.addEventListener("pointermove", (event) => {
+      if (event.pointerType && event.pointerType !== "mouse" && event.pointerType !== "pen") return;
       const bounds = svg.getBoundingClientRect();
       const svgX = ((event.clientX - bounds.left) / bounds.width) * width;
       const year = 1800 + ((svgX - left) / (right - left)) * (2024 - 1800);

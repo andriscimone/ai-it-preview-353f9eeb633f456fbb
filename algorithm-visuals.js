@@ -56,6 +56,7 @@ const storyEquationInput = document.getElementById("story-equation-x");
 const storyReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 let activeStoryKey = "equation";
 let storyFrameRequested = false;
+let storyMobileStatic = false;
 
 const storySceneCopy = {
   equation: {
@@ -180,11 +181,14 @@ function renderStoryFromScroll() {
   storyFrameRequested = false;
   if (!storyStage || !storySteps.length) return;
   if (window.innerWidth <= 900) {
+    if (storyMobileStatic) return;
+    storyMobileStatic = true;
     setStoryScene("equation");
     updateStoryMotion("equation", 1);
     document.getElementById("story-stage-progress").style.width = "20%";
     return;
   }
+  storyMobileStatic = false;
 
   const readingLine = window.innerHeight * .46;
   let activeIndex = 0;
@@ -202,6 +206,7 @@ function renderStoryFromScroll() {
 }
 
 function requestStoryFrame() {
+  if (window.innerWidth <= 900 && storyMobileStatic) return;
   if (storyFrameRequested) return;
   storyFrameRequested = true;
   requestAnimationFrame(renderStoryFromScroll);
@@ -209,7 +214,10 @@ function requestStoryFrame() {
 
 storyEquationInput?.addEventListener("input", updateStoryEquation);
 window.addEventListener("scroll", requestStoryFrame, { passive: true });
-window.addEventListener("resize", requestStoryFrame);
+window.addEventListener("resize", () => {
+  storyMobileStatic = false;
+  requestStoryFrame();
+});
 storyReducedMotion.addEventListener("change", requestStoryFrame);
 updateStoryEquation();
 setStoryScene("equation");
