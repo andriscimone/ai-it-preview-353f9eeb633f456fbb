@@ -77,39 +77,12 @@ metrButtons.forEach(button => {
 });
 
 const arcLeaderboardData = {
-  arc2: {
-    label: "ARC-AGI-2",
-    ariaLabel: "Classifica ARC-AGI-2",
-    threshold: 85,
-    thresholdLabel: "Soglia premio · 85%",
-    note: "<strong>ARC‑AGI‑2:</strong> la soglia dell’85% era il traguardo del Grand Prize, non una definizione di AGI. I risultati della leaderboard aperta non vanno confusi con quelli della competizione privata.",
-    systems: [
-      { id: "sol-max", name: "GPT‑5.6 Sol · Max", org: "OpenAI", date: "9 luglio 2026", score: 92.5, setup: "reasoning Max" },
-      { id: "gpt55-xhigh", name: "GPT‑5.5 · xHigh", org: "OpenAI", date: "22 aprile 2026", score: 85.0, setup: "reasoning xHigh" },
-      { id: "gemini3-deep", name: "Gemini 3 Deep Think", org: "Google", date: "12 febbraio 2026", score: 84.6, setup: "Deep Think · 2/26" },
-      { id: "terra-max", name: "GPT‑5.6 Terra · Max", org: "OpenAI", date: "9 luglio 2026", score: 83.9, setup: "reasoning Max" },
-      { id: "gpt54-pro", name: "GPT‑5.4 Pro · xHigh", org: "OpenAI", date: "4 marzo 2026", score: 83.3, setup: "reasoning xHigh" },
-      { id: "gemini31", name: "Gemini 3.1 Pro", org: "Google", date: "19 febbraio 2026", score: 77.1, setup: "Preview" },
-      { id: "claude47", name: "Claude 4.7 · Max", org: "Anthropic", date: "16 aprile 2026", score: 75.8, setup: "reasoning Max" }
-    ]
-  },
-  arc3: {
-    label: "ARC-AGI-3",
-    ariaLabel: "Classifica ARC-AGI-3",
-    threshold: 100,
-    thresholdLabel: "Umani · 100%",
-    note: "<strong>ARC‑AGI‑3:</strong> il punteggio premia sia i livelli completati sia l’efficienza delle azioni. La leaderboard ufficiale usa ambienti semi-privati; i risultati sui giochi pubblici non sono una misura valida del progresso generale.",
-    systems: [
-      { id: "sol-max", name: "GPT‑5.6 Sol · Max", org: "OpenAI", date: "9 luglio 2026", score: 7.8, setup: "reasoning Max" },
-      { id: "opus48", name: "Claude Opus 4.8 · High", org: "Anthropic", date: "1 giugno 2026", score: 1.5, setup: "reasoning High" },
-      { id: "terra-max", name: "GPT‑5.6 Terra · Max", org: "OpenAI", date: "9 luglio 2026", score: 0.8, setup: "reasoning Max" },
-      { id: "opus46", name: "Claude Opus 4.6 · Max", org: "Anthropic", date: "17 dicembre 2025", score: 0.5, setup: "reasoning Max" },
-      { id: "gpt55", name: "GPT‑5.5 · High", org: "OpenAI", date: "23 aprile 2026", score: 0.4, setup: "reasoning High" },
-      { id: "gemini31", name: "Gemini 3.1 Pro", org: "Google", date: "5 marzo 2026", score: 0.4, setup: "Preview" },
-      { id: "gpt54", name: "GPT‑5.4 · High", org: "OpenAI", date: "5 marzo 2026", score: 0.2, setup: "reasoning High" },
-      { id: "grok420", name: "Grok 4.20 · Reasoning", org: "xAI", date: "5 marzo 2026", score: 0.1, setup: "Beta reasoning" }
-    ]
-  }
+  arc2: { label: "ARC-AGI-2", ariaLabel: "Selezione aggiornata ARC-AGI-2", threshold: 85, thresholdLabel: "Soglia premio · 85%",
+    note: "<strong>ARC‑AGI‑2:</strong> selezione di modelli recenti, una configurazione verificata per modello. Budget diversi; costi espressi in USD per task. L’85% era la soglia del premio, non una definizione di AGI.",
+    systems: window.aiitBenchmarkData?.arc2 || [] },
+  arc3: { label: "ARC-AGI-3", ariaLabel: "ARC-AGI-3 con harness standard", threshold: 100, thresholdLabel: "Riferimento umano · 100%",
+    note: "<strong>ARC‑AGI‑3:</strong> qui compaiono solo risultati con harness Standard. Il costo è quello dell’intera valutazione. Le prove con Provider Adapter sono nel laboratorio qui sotto: teniamo visibile la differenza di configurazione.",
+    systems: window.aiitBenchmarkData?.arc3 || [] }
 };
 
 const arcViewButtons = [...document.querySelectorAll("[data-arc-view]")];
@@ -123,7 +96,7 @@ const arcDetailRank = document.getElementById("arc-detail-rank");
 const arcDetailCopy = document.getElementById("arc-detail-copy");
 const arcRankingNote = document.getElementById("arc-ranking-note");
 let activeArcView = "arc2";
-let activeArcSystem = "sol-max";
+let activeArcSystem = "openai-gpt-6-astra-max";
 
 function arcScore(value) {
   return `${value.toLocaleString("it-IT", { minimumFractionDigits: 1, maximumFractionDigits: 1 })}%`;
@@ -143,14 +116,18 @@ function selectArcSystem(id) {
   });
 
   arcDetailName.textContent = system.name;
-  arcDetailOrg.textContent = `${system.org} · ${system.date} · ${system.setup}`;
+  arcDetailOrg.textContent = `${system.org} · data indicata da ARC ${new Date(system.date + "T12:00:00Z").toLocaleDateString("it-IT")} · ${system.setup}`;
   arcDetailScore.textContent = arcScore(system.score);
+  const cost = document.getElementById("arc-detail-cost");
+  if (cost) cost.textContent = system.cost.toLocaleString("it-IT", { maximumFractionDigits: activeArcView === "arc2" ? 3 : 0 }) + " " + system.costUnit;
+  const source = document.getElementById("arc-detail-source");
+  if (source) source.href = system.source;
   arcDetailRank.textContent = `${index + 1}° nella selezione`;
   arcDetailCopy.textContent = activeArcView === "arc2"
     ? `Risolve esattamente ${arcScore(system.score)} dei task nella valutazione semi-privata. Il punteggio non descrive conoscenza generale né lavoro autonomo.`
     : `Ottiene ${arcScore(system.score)} combinando livelli completati ed efficienza delle azioni su ambienti semi-privati. Il 100% corrisponde alla prestazione umana di riferimento.`;
   chartSelectionNote(arcRankingList.querySelector(`[data-arc-system="${id}"]`), 'arc-selection-note',
-    `${system.name} · ${system.org} · ${system.date}. ${arcDetailCopy.textContent}`);
+    `${system.name} · ${system.setup}. ${arcDetailCopy.textContent} Costo: ${system.cost.toLocaleString("it-IT", { maximumFractionDigits: 3 })} ${system.costUnit}.`);
 }
 
 function renderArcLeaderboard(view) {

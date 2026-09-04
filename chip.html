@@ -13,6 +13,7 @@
     </script>
     <link rel="stylesheet" href="styles.css?v=chip-power-4" />
     <link rel="stylesheet" href="editorial.css?v=20260904" />
+    <link rel="stylesheet" href="chip.css?v=20260905" />
   </head>
   <body class="detail-page chip-page">
     <a class="skip-link" href="#top">Salta al contenuto</a><div class="noise" aria-hidden="true"></div>
@@ -67,39 +68,14 @@
               <div><p class="kicker">01 / La curva</p><h2 id="moore-title">La legge economica<br />dentro il silicio</h2></div>
               <p>Nel 1965 Gordon Moore osservò che il numero di componenti nel circuito dal costo minimo cresceva rapidamente. Non era una legge fisica: era una traiettoria industriale fatta di litografia, rendimento produttivo e investimenti.</p>
             </header>
-            <div class="moore-figure">
-              <div class="figure-note"><span>Dati verificati</span><p>Transistor dichiarati per dispositivi selezionati. Scala logaritmica: ogni riga vale 100×.</p></div>
-              <svg class="moore-chart" viewBox="0 0 1000 470" role="img" aria-labelledby="moore-chart-title moore-chart-desc">
-                <title id="moore-chart-title">Crescita del numero di transistor dal 1971 al 2024</title>
-                <desc id="moore-chart-desc">Da 2.300 transistor nell'Intel 4004 a 208 miliardi nella GPU NVIDIA Blackwell, su scala logaritmica.</desc>
-                <g class="chart-grid">
-                  <line x1="70" y1="390" x2="950" y2="390"/><line x1="70" y1="305" x2="950" y2="305"/><line x1="70" y1="220" x2="950" y2="220"/><line x1="70" y1="135" x2="950" y2="135"/><line x1="70" y1="50" x2="950" y2="50"/>
-                  <text x="8" y="394">1K</text><text x="8" y="309">100K</text><text x="8" y="224">10M</text><text x="8" y="139">1B</text><text x="8" y="54">100B</text>
-                </g>
-                <g class="chart-x-axis" aria-hidden="true">
-                  <line x1="70" y1="390" x2="70" y2="399"/><text x="70" y="424">1971</text>
-                  <line x1="219" y1="390" x2="219" y2="399"/><text x="219" y="424">1980</text>
-                  <line x1="385" y1="390" x2="385" y2="399"/><text x="385" y="424">1990</text>
-                  <line x1="552" y1="390" x2="552" y2="399"/><text x="552" y="424">2000</text>
-                  <line x1="718" y1="390" x2="718" y2="399"/><text x="718" y="424">2010</text>
-                  <line x1="884" y1="390" x2="884" y2="399"/><text x="884" y="424">2020</text>
-                  <line x1="950" y1="390" x2="950" y2="399"/><text x="950" y="424">2024</text>
-                  <text class="axis-title" x="950" y="452">ANNO</text>
-                </g>
-                <path class="moore-area" d="M70 379 L186 332 L253 304 L435 248 L552 202 L884 62 L950 40 L950 390 L70 390 Z"/>
-                <path class="moore-line" d="M70 379 L186 332 L253 304 L435 248 L552 202 L884 62 L950 40"/>
-                <g class="moore-points">
-                  <g transform="translate(70 379)"><circle r="7"/><text x="0" y="-38"><tspan>1971 · 4004</tspan><tspan x="0" dy="17">2.300</tspan></text></g>
-                  <g transform="translate(186 332)"><circle r="7"/><text x="0" y="39"><tspan>1978 · 8086</tspan><tspan x="0" dy="17">29 mila</tspan></text></g>
-                  <g transform="translate(253 304)"><circle r="7"/><text x="0" y="-43"><tspan>1982 · 286</tspan><tspan x="0" dy="17">134 mila</tspan></text></g>
-                  <g transform="translate(435 248)"><circle r="7"/><text x="0" y="40"><tspan>1993 · Pentium</tspan><tspan x="0" dy="17">3,1 milioni</tspan></text></g>
-                  <g transform="translate(552 202)"><circle r="7"/><text x="0" y="-43"><tspan>2000 · Pentium 4</tspan><tspan x="0" dy="17">42 milioni</tspan></text></g>
-                  <g transform="translate(884 62)"><circle r="7"/><text class="align-end" x="-18" y="45"><tspan>2020 · A100</tspan><tspan x="-18" dy="17">54,2 miliardi</tspan></text></g>
-                  <g transform="translate(950 40)"><circle r="8"/><text class="align-end is-final" x="-18" y="-8"><tspan>2024 · Blackwell</tspan><tspan x="-18" dy="17">208 miliardi</tspan></text></g>
-                </g>
-              </svg>
-              <p class="chart-caveat">Il confronto attraversa CPU e GPU diverse: mostra l'ordine di grandezza della miniaturizzazione, non una classifica prestazionale omogenea.</p>
-            </div>
+            <figure class="cc-figure" aria-labelledby="cc-transistor-title">
+              <figcaption><span class="cc-eyebrow">Transistor dichiarati · 1971–2026</span><h3 id="cc-transistor-title">55 anni, otto ordini di grandezza</h3><p>Ogni punto è un dispositivo. La distanza verticale misura un rapporto: salire da mille a un milione equivale a moltiplicare per 1.000.</p></figcaption>
+              <div class="cc-toolbar"><label for="cc-milestone">Esplora un chip</label><select id="cc-milestone"></select></div>
+              <div id="cc-transistor-plot" class="cc-svg-plot"></div><p class="cc-note">Cerchi vuoti: CPU. Cerchi pieni: GPU. Il bordo scuro identifica il chip scelto.</p>
+              <div class="cc-selection" id="cc-milestone-detail" aria-live="polite"></div>
+              <details class="cc-data"><summary>Leggi tutti i valori e le fonti</summary><div id="cc-transistor-table"></div></details>
+              <p class="cc-note">CPU e GPU, anche composte da più die, sono categorie diverse. Questi punti mostrano la scala dell'integrazione, non velocità equivalenti né una misura della densità per mm². Non sono una serie completa del mercato.</p>
+            </figure>
             <div class="moore-equation" aria-label="Il numero di transistor cresce, il costo per funzione scende e il software si espande">
               <div><span>Più transistor</span><strong>↑</strong></div><i>→</i><div><span>Costo per funzione</span><strong>↓</strong></div><i>→</i><div><span>Software ovunque</span><strong>↑</strong></div>
             </div>
@@ -111,15 +87,10 @@
               <p>Negli Stati Uniti la crescita media annua della produttività del lavoro cala nettamente dopo il 1973. È il dato che rende intuitiva la tesi di Thiel: progresso ancora rapido nei <em>bit</em>, molto meno evidente nel mondo degli <em>atomi</em>.</p>
             </header>
             <div class="stagnation-layout">
-              <figure class="productivity-chart">
-                <figcaption><span>Produttività del lavoro USA</span><strong>Variazione media annua</strong><small>Settore privato non agricolo · BLS</small></figcaption>
-                <div class="productivity-row"><span>1948–60</span><i><b style="--value:84.8%"></b></i><strong>2,8%</strong></div>
-                <div class="productivity-row"><span>1960–73</span><i><b style="--value:90.9%"></b></i><strong>3,0%</strong></div>
-                <div class="productivity-break"><span>1973</span><i></i><em>la frattura</em></div>
-                <div class="productivity-row is-slow"><span>1973–81</span><i><b style="--value:33.3%"></b></i><strong>1,1%</strong></div>
-                <div class="productivity-row"><span>1981–97</span><i><b style="--value:51.5%"></b></i><strong>1,7%</strong></div>
-                <div class="productivity-row is-rebound"><span>1997–05</span><i><b style="--value:100%"></b></i><strong>3,3%</strong></div>
-                <div class="productivity-row is-slow"><span>2005–18</span><i><b style="--value:42.4%"></b></i><strong>1,4%</strong></div>
+              <figure class="cc-figure cc-productivity" aria-labelledby="cc-productivity-title">
+                <figcaption><span class="cc-eyebrow">USA · settore privato non agricolo</span><h3 id="cc-productivity-title">La crescita cambia ritmo</h3><p>Produttività del lavoro: variazione media annua, in percentuale. Ogni barra rappresenta un periodo di diversa durata.</p></figcaption>
+                <div id="cc-productivity-bars"></div>
+                <p class="cc-note">Serie storica BLS 1948–2018. Il rimbalzo del 1997–2005 impedisce di leggere il rallentamento come una discesa continua.</p>
               </figure>
               <aside class="thiel-reading">
                 <span class="interpretation-label">Interpretazione</span>
@@ -136,96 +107,20 @@
               <div><p class="kicker">03 / Il cambio di macchina</p><h2 id="parallel-title">La CPU segue il filo.<br />La GPU apre il ventaglio.</h2></div>
               <p>Una CPU eccelle nel controllo e nelle sequenze complesse. Una GPU dedica più silicio a molte unità di calcolo che eseguono la stessa istruzione su dati diversi: esattamente il tipo di parallelismo richiesto dalle matrici del deep learning.</p>
             </header>
-            <div class="parallel-comparison">
-              <article class="processor-card cpu-card">
-                <div class="processor-card-head"><span>CPU</span><strong>Pochi flussi complessi</strong></div>
-                <div class="cpu-visual" aria-hidden="true"><i></i><i></i><i></i><i></i><span>controllo<br />+ cache</span></div>
-                <ol aria-label="Esecuzione prevalentemente sequenziale"><li>Leggi</li><li>Decidi</li><li>Calcola</li><li>Ripeti</li></ol>
-                <p>Ottima per il sistema operativo, la logica del programma e i compiti che dipendono molto dal passo precedente.</p>
-              </article>
-              <div class="parallel-shift" aria-hidden="true"><span>1999</span><i>→</i><span>2006</span><small>GPU · CUDA</small></div>
-              <article class="processor-card gpu-card">
-                <div class="processor-card-head"><span>GPU</span><strong>Migliaia di thread paralleli</strong></div>
-                <div class="gpu-visual" aria-hidden="true">
-                  <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-                  <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-                </div>
-                <div class="matrix-flow" aria-label="Moltiplicazioni di matrici eseguite in parallelo"><span>[ pesi ]</span><b>×</b><span>[ dati ]</span><b>=</b><span>[ output ]</span></div>
-                <p>Perfetta quando milioni di operazioni simili possono essere distribuite insieme, come nel training e nell'inferenza dei modelli.</p>
-              </article>
+            <div class="cc-figure" aria-labelledby="cc-parallel-title">
+              <div class="cc-caption"><span class="cc-eyebrow">Laboratorio · schema didattico</span><h3 id="cc-parallel-title">Il vantaggio dipende dal lavoro</h3><p>32 operazioni identiche. Un esecutore ne svolge una per passo; l'altro può distribuirne otto. Prova a imporre una dipendenza tra le operazioni.</p></div>
+              <div class="cc-segments" role="group" aria-label="Tipo di lavoro"><button type="button" data-cc-work="independent" aria-pressed="true">Operazioni indipendenti</button><button type="button" data-cc-work="dependent" aria-pressed="false">Ogni passo dipende dal precedente</button></div>
+              <label class="cc-range-label" for="cc-parallel-step">Avanza nel lavoro <output id="cc-step-label">Passo 4 di 32</output></label><input id="cc-parallel-step" type="range" min="0" max="32" value="4" step="1" />
+              <div class="cc-lanes"><section><header><h4>Un esecutore</h4><strong id="cc-cpu-count">4 / 32</strong></header><div class="cc-task-grid" id="cc-cpu-grid" aria-hidden="true"></div><p>Il lavoro procede un'operazione alla volta.</p></section><section><header><h4>Otto esecutori</h4><strong id="cc-gpu-count">32 / 32</strong></header><div class="cc-task-grid" id="cc-gpu-grid" aria-hidden="true"></div><p id="cc-parallel-explanation">Le operazioni indipendenti riempiono tutte le corsie.</p></section></div>
+              <div class="cc-selection" id="cc-parallel-result" aria-live="polite"></div>
+              <p class="cc-note">È un modello semplificato del parallelismo, non un benchmark CPU/GPU: durata uguale per operazione, otto corsie ideali, nessun costo di trasferimento o coordinamento. Anche le CPU reali eseguono lavoro in parallelo.</p>
             </div>
-            <p class="diagram-note">Schema concettuale, non conteggio letterale dei core. CPU e GPU moderne collaborano: una orchestra, l'altra macina il lavoro parallelo.</p>
-
-            <figure class="compute-power-figure" id="compute-power-map" aria-labelledby="compute-power-title">
-              <header class="compute-power-head">
-                <div>
-                  <p class="kicker">Mappa di scala / FP64</p>
-                  <h3 id="compute-power-title">Quanto calcolo entra<br />in un watt?</h3>
-                </div>
-                <p>Ogni macchina diventa un punto: la posizione mostra insieme quanto calcola e quanta potenza richiede. Non è una linea del tempo e i punti non sono collegati fra loro.</p>
-              </header>
-
-              <div class="compute-reading-guide" aria-labelledby="compute-reading-title">
-                <div><p class="kicker">Come si legge</p><h4 id="compute-reading-title">Tre movimenti,<br />un solo colpo d'occhio</h4></div>
-                <ol>
-                  <li><span aria-hidden="true">→</span><div><strong>Verso destra</strong><p>Più calcoli FP64 eseguiti ogni secondo.</p></div></li>
-                  <li><span aria-hidden="true">↑</span><div><strong>Verso l'alto</strong><p>Maggiore potenza dichiarata per la macchina.</p></div></li>
-                  <li class="is-efficient"><span aria-hidden="true">↘</span><div><strong>In basso a destra</strong><p>Più calcolo con meno potenza: maggiore efficienza.</p></div></li>
-                </ol>
-              </div>
-
-              <div class="compute-power-layout">
-                <div class="compute-plot-shell">
-                  <div class="compute-plot-frame">
-                    <div class="compute-y-axis" aria-hidden="true"><span>100 MW</span><span>1 MW</span><span>10 kW</span><span>100 W</span></div>
-                    <div class="compute-plot" role="img" aria-label="Mappa logaritmica di prestazioni FP64 e potenza. I punti numerati da 1 a 4 corrispondono agli esempi elencati sotto: AMD EPYC 9965, NVIDIA H100, AMD MI355X e LineShine. Le ellissi colorate rappresentano fasce indicative per CPU, acceleratori e supercomputer.">
-                      <span class="compute-axis-name compute-axis-name-y">Potenza dichiarata ↑</span>
-                      <span class="compute-band is-cpu" aria-hidden="true"><b>CPU</b></span>
-                      <span class="compute-band is-accelerator" aria-hidden="true"><b>GPU / acceleratori</b></span>
-                      <span class="compute-band is-supercomputer" aria-hidden="true"><b>Supercomputer</b></span>
-                      <span class="compute-point is-epyc" aria-hidden="true"><b>1</b></span>
-                      <span class="compute-point is-h100" aria-hidden="true"><b>2</b></span>
-                      <span class="compute-point is-mi355" aria-hidden="true"><b>3</b></span>
-                      <span class="compute-point is-lineshine" aria-hidden="true"><b>4</b></span>
-                      <span class="compute-efficiency-note" aria-hidden="true">più FLOP per watt ↘</span>
-                    </div>
-                    <div class="compute-x-axis" aria-hidden="true">
-                      <span style="--tick:0%">1 TF</span><span style="--tick:28.57%">100 TF</span><span style="--tick:57.14%">10 PF</span><span style="--tick:85.71%">1 EF</span><span class="is-last" style="--tick:100%">10 EF</span>
-                    </div>
-                    <span class="compute-axis-name compute-axis-name-x">Prestazioni FP64 →</span>
-                  </div>
-                  <ul class="compute-plot-legend" aria-label="Legenda della mappa">
-                    <li><i class="is-point" aria-hidden="true">1</i><span><strong>Punto numerato</strong>Macchina reale, descritta sotto</span></li>
-                    <li><i class="is-band" aria-hidden="true"></i><span><strong>Ellisse colorata</strong>Famiglia tecnologica indicativa</span></li>
-                    <li><i class="is-grid" aria-hidden="true"></i><span><strong>Griglia</strong>Ogni quadrato vale 10×</span></li>
-                  </ul>
-                  <p class="compute-scale-note">Le fasce possono sovrapporsi perché non sono confini rigidi. I punti, invece, derivano dai valori dichiarati nelle fonti.</p>
-                </div>
-
-                <aside class="compute-context" aria-label="Dalla singola macchina alla scala globale">
-                  <p class="kicker">Dalla macchina al pianeta</p>
-                  <div><span>LineShine · giugno 2026</span><strong>42,2 MW</strong><small>Potenza dichiarata del supercomputer n. 1 TOP500.</small></div>
-                  <div class="is-global"><span>Data center mondiali · 2025</span><strong>≈55,4 GW</strong><small>Carico medio ricavato da 485 TWh annui stimati dall'IEA.</small></div>
-                  <p>Le due misure hanno perimetri diversi: la prima riguarda un sistema; la seconda l'intero settore mondiale.</p>
-                </aside>
-              </div>
-
-              <div class="compute-ledger" aria-label="Esempi usati nella mappa">
-                <article><span>01 · Picco teorico · chip</span><strong>13,8 TFLOP/s</strong><h4>AMD EPYC 9965</h4><p>FP64 · 500 W TDP</p></article>
-                <article><span>02 · Picco dichiarato · chip</span><strong>34 TFLOP/s</strong><h4>NVIDIA H100 SXM</h4><p>FP64 · fino a 700 W</p></article>
-                <article><span>03 · Picco dichiarato · chip</span><strong>78,6 TFLOP/s</strong><h4>AMD MI355X</h4><p>FP64 · 1,4 kW TBP</p></article>
-                <article class="is-system"><span>04 · HPL misurato · sistema</span><strong>2,20 EFLOP/s</strong><h4>LineShine</h4><p>FP64 · 42,2 MW</p></article>
-              </div>
-
-              <div class="landauer-note">
-                <div><span>Confine teorico</span><strong>k<sub>B</sub>T · ln 2</strong></div>
-                <p><b>Il limite di Landauer non è un limite per FLOP.</b> Indica l'energia minima necessaria per cancellare irreversibilmente un bit. Trasformarlo in una diagonale FLOP/watt richiederebbe ipotesi su precisione, bit persi e architettura: per questo qui resta separato dai dati delle macchine reali.</p>
-              </div>
-
-              <figcaption class="compute-power-caption">
-                <p><strong>Come leggere il confronto.</strong> CPU e acceleratori mostrano picchi FP64 del singolo chip; LineShine mostra un risultato HPL FP64 misurato sull'intero sistema. TDP, TBP e potenza di sistema non sono la stessa misura. La figura serve a confrontare ordini di grandezza, non a costruire una classifica omogenea.</p>
-                <div><a href="https://www.top500.org/lists/top500/2026/06/" target="_blank" rel="noreferrer">TOP500 ↗</a><a href="https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary" target="_blank" rel="noreferrer">IEA ↗</a><a href="https://research.ibm.com/publications/dissipation-and-noise-immunity-in-computation-measurement-and-communication" target="_blank" rel="noreferrer">Landauer / IBM ↗</a></div>
-              </figcaption>
+            <figure class="cc-figure" id="compute-power-map" aria-labelledby="cc-roof-title">
+              <figcaption><span class="cc-eyebrow">Laboratorio · il collo di bottiglia</span><h3 id="cc-roof-title">Il calcolo può restare in attesa dei dati</h3><p>Immagina un chip da 100 mila miliardi di operazioni al secondo. Aumenta la banda della memoria oppure riusa meglio ogni byte: scopri quale limite incontri prima.</p></figcaption>
+              <div class="cc-controls-grid"><div><label class="cc-range-label" for="cc-bandwidth">Banda della memoria <output id="cc-bandwidth-value">4 TB/s</output></label><input id="cc-bandwidth" type="range" min="1" max="16" value="4" step="1" /></div><div><label class="cc-range-label" for="cc-intensity">Operazioni per byte letto <output id="cc-intensity-value">8</output></label><input id="cc-intensity" type="range" min="1" max="64" value="8" step="1" /></div></div>
+              <div id="cc-roof-bars"></div><div class="cc-selection" id="cc-roof-result" aria-live="polite"></div>
+              <details class="cc-data"><summary>Come funziona il calcolo</summary><p>Prestazione massima del modello = minimo tra 100 TFLOP/s e banda (TB/s) × operazioni per byte. Un TFLOP/s equivale a mille miliardi di operazioni al secondo. La relazione mostra i due tetti teorici; non include cache, rete, latenza, consumo elettrico o altri costi del sistema.</p><a href="https://escholarship.org/uc/item/78h8v7mr" target="_blank" rel="noreferrer">Williams, Waterman, Patterson · Roofline model ↗</a></details>
+              <p class="cc-note">Valori ipotetici, scelti per capire il meccanismo. Per confrontare l'efficienza in watt servono misure della stessa attività, con la stessa qualità dell'output e lo stesso perimetro di sistema.</p>
             </figure>
           </section>
 
@@ -248,134 +143,44 @@
                 <p>Qui indica un cambio di KPI: l'economia del sistema si giudica sempre più dal costo dell'output utile. Un token è un frammento di testo o codice elaborato dal modello; non misura da solo qualità, verità o valore.</p>
                 <p class="token-callout"><strong>Il paradosso:</strong> il prezzo per token può crollare mentre la domanda totale di chip, energia e data center continua a salire.</p>
               </div>
-              <figure class="token-price-chart">
-                <figcaption><span>Declino annuo stimato del prezzo di inferenza</span><strong>9× → 900×</strong><small>Intervalli per attività · Epoch AI</small></figcaption>
-                <div class="token-axis" aria-hidden="true"><span>1×</span><span>10×</span><span>100×</span><span>1.000×</span></div>
-                <div class="token-range"><span>Conoscenza</span><i><b style="--left:31.8%; --width:21.6%"></b></i><strong>9–40×</strong></div>
-                <div class="token-range"><span>Scienza PhD</span><i><b style="--left:53.4%; --width:45.1%"></b></i><strong>40–900×</strong></div>
-                <div class="token-range"><span>Matematica</span><i><b style="--left:43.4%; --width:51.4%"></b></i><strong>20–700×</strong></div>
-                <div class="token-range"><span>Coding</span><i><b style="--left:31.8%; --width:21.6%"></b></i><strong>9–40×</strong></div>
-                <div class="token-range"><span>Chatbot</span><i><b style="--left:33.3%; --width:43.4%"></b></i><strong>10–200×</strong></div>
-                <p>Stime storiche, dipendenti dal task. Epoch AI avverte che i cali più rapidi sono recenti e potrebbero non continuare allo stesso ritmo.</p>
+              <figure class="cc-figure cc-weights" aria-labelledby="cc-weights-title">
+                <figcaption><span class="cc-eyebrow">Laboratorio · prima di generare un token</span><h3 id="cc-weights-title">Quanto spazio occupano i pesi?</h3><p>Il numero di parametri e i bit usati per ciascuno determinano la memoria minima per conservarli.</p></figcaption>
+                <label class="cc-range-label" for="cc-parameters">Miliardi di parametri <output id="cc-parameters-value">100</output></label><input id="cc-parameters" type="range" min="10" max="1000" step="10" value="100" />
+                <div class="cc-segments" role="group" aria-label="Precisione dei pesi"><button type="button" data-cc-bits="16" aria-pressed="true">16 bit</button><button type="button" data-cc-bits="8" aria-pressed="false">8 bit</button><button type="button" data-cc-bits="4" aria-pressed="false">4 bit</button></div>
+                <div id="cc-weight-bars"></div><div class="cc-selection" id="cc-weight-result" aria-live="polite"></div>
+                <p class="cc-note">Memoria dei soli pesi, in GB decimali: parametri × bit / 8. Sono esclusi KV cache, attivazioni, metadati e memoria del programma. Ridurre i bit richiede metodi di quantizzazione e può cambiare la qualità; i parametri dei modelli proprietari spesso non sono pubblici.</p>
               </figure>
             </div>
           </section>
 
           <footer class="history-bridge">
             <span>Il chip diventa fabbrica</span>
-            <h2>Ed è qui che iniziano<br />Ampere, Hopper, Blackwell e Rubin.</h2>
-            <a href="#architecture-lab">Entra nelle quattro generazioni ↓</a>
+            <h2>Ed è qui che iniziano<br />memoria, calcolo e rete.</h2>
+            <a href="#architecture-lab">Confronta le GPU, una misura alla volta ↓</a>
           </footer>
         </article>
 
         <div class="chapter-head">
-          <div class="chapter-number">02</div>
-          <div><p class="kicker">Ampere → Hopper → Blackwell → Rubin</p><h2 id="chip-title">Quattro salti<br />di architettura</h2></div>
-          <p class="chapter-deck">I FLOP sono solo una parte della storia. La vera accelerazione arriva quando precisione, memoria HBM e interconnessione migliorano insieme.</p>
+          <div class="chapter-number">02</div><div><p class="kicker">Dalle prime GPU AI a Rubin e MI455X</p><h2 id="chip-title">Dentro il chip,<br />un sistema intero</h2></div><p class="chapter-deck">La capacità di memoria dice quanto può stare vicino al calcolo. La banda dice quanto rapidamente può arrivarci. Guarda entrambe prima di leggere un numero di FLOP.</p>
         </div>
-
-        <nav class="chip-story-nav" aria-label="Indice del capitolo Chips">
-          <a href="#architecture-lab"><span>01</span>Architettura</a>
-          <a href="#production"><span>02</span>Produzione</a>
-          <a href="#deployment"><span>03</span>Deployment</a>
-        </nav>
-
-        <div class="chip-tabs" aria-label="Generazioni NVIDIA">
-          <button type="button" class="chip-tab is-active" aria-pressed="true" data-chip="ampere"><span>2020</span><strong>Ampere</strong><small>A100</small></button>
-          <button type="button" class="chip-tab" aria-pressed="false" data-chip="hopper"><span>2022</span><strong>Hopper</strong><small>H100</small></button>
-          <button type="button" class="chip-tab" aria-pressed="false" data-chip="blackwell"><span>2024</span><strong>Blackwell</strong><small>B200</small></button>
-          <button type="button" class="chip-tab" aria-pressed="false" data-chip="rubin"><span>2026</span><strong>Rubin</strong><small>In produzione</small></button>
-        </div>
-
-        <article class="chip-lab" id="architecture-lab" aria-labelledby="chip-lab-title">
-          <header class="chip-lab-head"><div><p class="kicker" id="chip-generation">2020 · A100 80GB SXM</p><h2 id="chip-lab-title">Ampere</h2></div><p id="chip-summary">Il punto di partenza: 80 GB HBM2e, Tensor Core maturi e NVLink da 600 GB/s. Non supporta ancora FP8.</p></header>
-          <div class="chip-lab-body">
-            <div class="chip-bars" id="chip-bars" aria-label="Confronto normalizzato delle generazioni"></div>
-            <aside class="chip-detail" aria-live="polite">
-              <div class="chip-detail-hero"><span id="chip-detail-label">Picco nativo</span><strong id="chip-detail-peak">0,312 PF</strong><small id="chip-detail-precision">FP16/BF16 denso</small></div>
-              <dl>
-                <div><dt>Memoria</dt><dd id="chip-detail-memory">80 GB</dd></div><div><dt>Banda HBM</dt><dd id="chip-detail-bandwidth">2,039 TB/s</dd></div><div><dt>NVLink</dt><dd id="chip-detail-nvlink">0,6 TB/s</dd></div><div><dt>TDP</dt><dd id="chip-detail-tdp">400 W</dd></div><div><dt>Transistor</dt><dd id="chip-detail-transistors">54,2 miliardi</dd></div><div><dt>Stato</dt><dd id="chip-detail-status">Prodotto</dd></div>
-              </dl>
-              <p class="chip-detail-note" id="chip-detail-note">Base di confronto. Le barre mostrano memoria, banda HBM e NVLink rispetto ad A100 = 1.</p>
-            </aside>
-          </div>
-          <footer class="evidence-footer"><p>Il picco tensoriale cambia precisione fra le generazioni: FP16, FP8, FP4 e NVFP4 non sono direttamente comparabili. Per questo il grafico normalizza soltanto memoria e fabric.</p><a href="https://www.nvidia.com/en-us/data-center/a100/" id="chip-source-link" target="_blank" rel="noreferrer">Scheda ufficiale ↗</a></footer>
+        <nav class="chip-story-nav" aria-label="Indice del capitolo Chips"><a href="#architecture-lab"><span>01</span>Confronta le GPU</a><a href="#production"><span>02</span>Scala industriale</a><a href="#deployment"><span>03</span>Deployment</a></nav>
+        <article class="cc-figure cc-hardware" id="architecture-lab" aria-labelledby="cc-hardware-title">
+          <div class="cc-caption"><span class="cc-eyebrow">Specifiche dei produttori · verificate il 4 settembre 2026</span><h3 id="cc-hardware-title">Più spazio. Più dati al secondo.</h3><p>Sei GPU, una metrica alla volta. Scegli una barra per vedere che cosa cambia davvero. I modelli 2026 restano identificati dalle condizioni delle rispettive schede tecniche.</p></div>
+          <div class="cc-segments" role="group" aria-label="Misura delle GPU"><button type="button" data-cc-metric="memory" aria-pressed="true">Capacità · GB</button><button type="button" data-cc-metric="bandwidth" aria-pressed="false">Banda HBM · TB/s</button></div>
+          <p class="cc-axis-description" id="cc-hardware-axis">Memoria per singola GPU · GB · scala da zero</p><div id="cc-hardware-bars"></div>
+          <div class="cc-hardware-detail" id="cc-hardware-detail" aria-live="polite"></div>
+          <details class="cc-data"><summary>Valori, configurazioni e fonti</summary><div id="cc-hardware-table"></div></details>
+          <p class="cc-note">Sono capacità nominali e bande di picco, non risultati applicativi. Più memoria o più banda non garantiscono più token al secondo: contano modello, precisione, software e rete. La configurazione B200 è quella di DGX B200; per B300 la memoria segue la guida DGX B300 aggiornata.</p>
         </article>
 
         <section class="chip-scale" id="production" aria-labelledby="chip-scale-title">
-          <header class="chip-scale-head">
-            <div>
-              <p class="kicker">La corsa industriale</p>
-              <h2 id="chip-scale-title">Più costosi. Più energivori.<br />Eppure ne escono <em>sempre di più.</em></h2>
-            </div>
-            <p>NVIDIA non pubblica le unità vendute né un listino uniforme. Le stime di Epoch AI ricostruiscono spedizioni, prezzo d'acquisto e potenza da bilanci e segnali di filiera. Il risultato è il paradosso centrale: il costo per chip sale, ma la domanda fa crescere ancora più rapidamente la fabbrica.</p>
-          </header>
-
-          <div class="chip-scale-takeaway" aria-label="Sintesi del confronto tra Ampere e Blackwell">
-            <div><span>Unità totali stimate</span><strong>5,8×</strong><small>0,90M → 5,17M</small></div>
-            <div><span>TDP per chip</span><strong>3,3×</strong><small>400 W → ≈1,31 kW</small></div>
-            <div><span>TDP cumulativo nominale</span><strong>≈18,9×</strong><small>0,36 → 6,76 GW</small></div>
-          </div>
-
-          <article class="production-shell" aria-labelledby="production-title">
-            <header class="production-head">
-              <div><p class="kicker">Produzione cumulativa / stima mediana</p><h3 id="production-title">Il totale cresce a ogni generazione</h3></div>
-              <div class="production-legend" aria-label="Legenda"><span><i></i>Totale stimato</span><span><i></i>Somma dei limiti 5°–95°</span></div>
-            </header>
-            <div class="production-chart" role="img" aria-label="Totale cumulativo stimato delle unità prodotte e spedite: 896 mila A100 tra 2022 e 2023, 4,31 milioni di H100 e H200 dal terzo trimestre 2022 al 2025, 5,17 milioni di B200 e B300 dal quarto trimestre 2024 al secondo trimestre 2026. Rubin è in piena produzione nel 2026, ma non ha ancora una stima pubblica di volume.">
-              <div class="production-axis" aria-hidden="true"><span>0</span><span>1,5M</span><span>3M</span><span>4,5M</span><span>6M unità</span></div>
-              <div class="production-row">
-                <div class="production-label"><strong>Ampere</strong><span>A100 · 2022–2023</span></div>
-                <div class="production-track"><i class="production-range" style="--range-left:11.10%; --range-width:7.67%"></i><b style="--bar-width:14.44%"></b></div>
-                <div class="production-value"><strong>0,90M</strong><span>0,69–1,16M</span></div>
-              </div>
-              <div class="production-row">
-                <div class="production-label"><strong>Hopper</strong><span>H100/H200 · Q3 2022–2025</span></div>
-                <div class="production-track"><i class="production-range" style="--range-left:58.73%; --range-width:23.36%"></i><b style="--bar-width:69.46%"></b></div>
-                <div class="production-value"><strong>4,31M</strong><span>3,64–5,09M</span></div>
-              </div>
-              <div class="production-row is-current">
-                <div class="production-label"><strong>Blackwell</strong><span>B200/B300 · Q4 2024–Q2 2026</span></div>
-                <div class="production-track"><i class="production-range" style="--range-left:70.95%; --range-width:26.74%"></i><b style="--bar-width:83.31%"></b></div>
-                <div class="production-value"><strong>5,17M</strong><span>4,40–6,06M</span></div>
-              </div>
-              <div class="production-row is-forecast">
-                <div class="production-label"><strong>Rubin</strong><span>Rubin GPU · 2026</span></div>
-                <div class="production-track"><b></b><span>PIENA PRODUZIONE · VOLUMI N.D.</span></div>
-                <div class="production-value"><strong>H2 2026</strong><span>prime disponibilità</span></div>
-              </div>
-            </div>
-            <footer class="production-foot"><p>Il totale somma tutti i batch disponibili nel dataset Epoch AI. Le spedizioni stimate sono usate come proxy della produzione: Ampere copre 2022–2023, Hopper Q3 2022–2025 e Blackwell Q4 2024–Q2 2026; il ciclo Blackwell è ancora aperto. Gli estremi sommano i limiti dei singoli batch. Il TDP cumulativo indica potenza nominale dei chip prodotti, non consumo reale simultaneo né facility power.</p><a href="https://epoch.ai/data/ai-chip-sales-documentation/downloads" target="_blank" rel="noreferrer">Dataset Epoch AI ↗</a></footer>
-          </article>
-
-          <article class="pressure-shell" aria-labelledby="pressure-title">
-            <header class="pressure-head"><div><p class="kicker">Tre curve, stessa direzione</p><h3 id="pressure-title">Il prezzo non frena i volumi</h3></div><p>Ogni colonna normalizza le tre misure al massimo osservato. Prezzo e TDP sono medie ponderate sull'intero periodo disponibile; le unità sono totali cumulativi.</p></header>
-            <div class="pressure-grid">
-              <section class="pressure-generation">
-                <header><span>2022–2023</span><h4>A100</h4></header>
-                <div><span>Prezzo/chip</span><i><b style="--pressure:30%"></b></i><strong>≈$12K</strong></div>
-                <div><span>TDP/chip</span><i><b style="--pressure:31%"></b></i><strong>400 W</strong></div>
-                <div><span>Unità totali</span><i><b style="--pressure:17%"></b></i><strong>0,90M</strong></div>
-              </section>
-              <section class="pressure-generation">
-                <header><span>Q3 2022–2025</span><h4>H100/H200</h4></header>
-                <div><span>Prezzo/chip</span><i><b style="--pressure:62%"></b></i><strong>≈$25K</strong></div>
-                <div><span>TDP/chip</span><i><b style="--pressure:53%"></b></i><strong>700 W</strong></div>
-                <div><span>Unità totali</span><i><b style="--pressure:83%"></b></i><strong>4,31M</strong></div>
-              </section>
-              <section class="pressure-generation is-current">
-                <header><span>Q4 2024–Q2 2026</span><h4>B200/B300</h4></header>
-                <div><span>Prezzo/chip</span><i><b style="--pressure:100%"></b></i><strong>≈$40,3K</strong></div>
-                <div><span>TDP/chip</span><i><b style="--pressure:100%"></b></i><strong>≈1,31 kW</strong></div>
-                <div><span>Unità totali</span><i><b style="--pressure:100%"></b></i><strong>5,17M</strong></div>
-              </section>
-              <section class="pressure-generation is-undisclosed">
-                <header><span>2026</span><h4>Rubin</h4></header>
-                <div><span>Prezzo/chip</span><i><b></b></i><strong>N.D.</strong></div>
-                <div><span>TDP/chip</span><i><b></b></i><strong>N.D.</strong></div>
-                <div><span>Produzione</span><i><b></b></i><strong>RAMP</strong></div>
-              </section>
-            </div>
+          <header class="chip-scale-head"><div><p class="kicker">La corsa industriale</p><h2 id="chip-scale-title">La scala della fabbrica,<br />con i suoi margini di incertezza.</h2></div><p>Le quantità ricostruite da Epoch AI sono stime. I periodi coperti sono diversi: il confronto descrive lo snapshot disponibile, non le vendite annue né l'intero ciclo di ciascuna generazione.</p></header>
+          <article class="cc-figure" aria-labelledby="cc-industry-title">
+            <div class="cc-caption"><span class="cc-eyebrow">Snapshot storico · dataset dell'11 giugno 2026</span><h3 id="cc-industry-title">Quanto cresce il conto dei chip</h3><p>Passa dalle unità stimate al prezzo medio o alla potenza nominale per chip. Ogni vista mantiene una sola unità di misura e parte da zero.</p></div>
+            <div class="cc-segments" role="group" aria-label="Misura industriale"><button type="button" data-cc-industry="units" aria-pressed="true">Unità stimate</button><button type="button" data-cc-industry="price" aria-pressed="false">Prezzo per chip</button><button type="button" data-cc-industry="power" aria-pressed="false">Potenza per chip</button></div>
+            <p class="cc-axis-description" id="cc-industry-axis"></p><div id="cc-industry-bars"></div><p class="cc-note" id="cc-industry-note"></p>
+            <div class="cc-selection"><strong>Rubin e MI455X: nessun volume qui stimato.</strong><p>Una scheda tecnica o l'annuncio di una produzione non consentono di ricavare le unità effettivamente spedite.</p></div>
+            <details class="cc-data"><summary>Metodo e limiti dello snapshot</summary><p>Totali già ricostruiti nel capitolo dal dataset Epoch AI: A100 nel 2022–2023; H100/H200 dal terzo trimestre 2022 al 2025; B200/B300 dal quarto trimestre 2024 al secondo trimestre 2026. Gli intervalli mostrati sommano i limiti 5°–95° dei singoli batch: non sono un intervallo statistico con quella stessa copertura per il totale. Prezzi e TDP sono medie ponderate e arrotondate. Le spedizioni sono una proxy della produzione; i dati non misurano quante GPU siano accese contemporaneamente.</p><a href="https://epoch.ai/data/ai-chip-sales-documentation/downloads" target="_blank" rel="noreferrer">Dataset e documentazione Epoch AI ↗</a></details>
           </article>
 
           <section class="deployment-story" id="deployment" aria-labelledby="deployment-title">
@@ -402,7 +207,7 @@
           <article><span>01</span><h2>Precisione</h2><p>Hopper introduce FP8; Blackwell spinge FP4 e introduce NVFP4 per l'inference; Rubin estende NVFP4 al training. Più operazioni entrano nello stesso watt, con gestione numerica dedicata.</p></article>
           <article><span>02</span><h2>Memoria</h2><p>La banda HBM cresce da 2,0 a 22 TB/s per GPU: quasi 11×. È ciò che mantiene alimentati i Tensor Core e muove pesi e KV cache.</p></article>
           <article><span>03</span><h2>Rete</h2><p>NVLink sale da 0,6 a 3,6 TB/s per GPU. Il rack diventa l'unità di calcolo e decine di GPU possono comportarsi come un acceleratore unico.</p></article>
-          <article><span>04</span><h2>Co-design</h2><p>NVIDIA dichiara fino a 3× training e 15× inference per DGX B200 contro DGX H100; Rubin promette fino a 4× meno GPU per alcuni training MoE. Sono claim workload-specific.</p></article>
+          <article><span>04</span><h2>Co-design</h2><p>Chip, compilatore e rete si progettano insieme. I guadagni si verificano sullo stesso modello, con la stessa qualità e gli stessi vincoli di latenza: il picco della scheda tecnica è solo un punto di partenza.</p></article>
         </div>
       </section>
 
@@ -419,28 +224,25 @@
           <li><a href="https://foundersfund.com/2017/01/manifesto/" target="_blank" rel="noreferrer">Founders Fund · What happened to the future?</a><span>Fonte primaria della tesi sulla stagnazione tecnologica associata a Peter Thiel; nel capitolo è presentata come interpretazione controversa.</span></li>
           <li><a href="https://www.nvidia.com/en-gb/about-nvidia/corporate-timeline/" target="_blank" rel="noreferrer">NVIDIA · Corporate timeline</a><span>Nascita della GPU nel 1999 e introduzione di CUDA nel 2006.</span></li>
           <li><a href="https://docs.nvidia.com/cuda/cuda-programming-guide/01-introduction/introduction.html" target="_blank" rel="noreferrer">NVIDIA · CUDA Programming Guide</a><span>Architettura delle GPU per migliaia di thread paralleli e passaggio al general-purpose computing.</span></li>
-          <li><a href="https://www.amd.com/en/blogs/2025/leadership-hpc-performance-with-5th-generation-amd.html" target="_blank" rel="noreferrer">AMD · EPYC 9965 FP64</a><span>Calcolo teorico ufficiale delle prestazioni FP64 e TDP del processore usato nella mappa.</span></li>
-          <li><a href="https://www.amd.com/en/products/accelerators/instinct/mi350/mi355x.html" target="_blank" rel="noreferrer">AMD · Instinct MI355X</a><span>Prestazioni FP64 dichiarate e potenza di scheda dell'acceleratore.</span></li>
-          <li><a href="https://www.top500.org/lists/top500/2026/06/" target="_blank" rel="noreferrer">TOP500 · giugno 2026</a><span>Risultato HPL e potenza dichiarata di LineShine, primo sistema della lista.</span></li>
-          <li><a href="https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary" target="_blank" rel="noreferrer">IEA · Key Questions on Energy and AI</a><span>485 TWh di consumo elettrico mondiale dei data center nel 2025, equivalenti a circa 55,4 GW medi.</span></li>
-          <li><a href="https://research.ibm.com/publications/dissipation-and-noise-immunity-in-computation-measurement-and-communication" target="_blank" rel="noreferrer">IBM Research · Landauer principle</a><span>Il minimo termodinamico riguarda l'informazione cancellata irreversibilmente, non una singola operazione FLOP.</span></li>
-          <li><a href="https://opg.optica.org/jlt/abstract.cfm?URI=jlt-42-22-7999" target="_blank" rel="noreferrer">Kissner et al. · All-optical computer architecture</a><span>Fonte d'ispirazione concettuale della figura inviata; il grafico AI.it è una ricostruzione originale con dati e cautele aggiornati.</span></li>
-          <li><a href="https://epoch.ai/data-insights/llm-inference-price-trends" target="_blank" rel="noreferrer">Epoch AI · LLM inference price trends</a><span>Intervalli stimati del declino del prezzo di inferenza per conoscenza, scienza, matematica, coding e chatbot.</span></li>
           <li><a href="https://www.nvidia.com/en-gb/data-center/technologies/blackwell-architecture/" target="_blank" rel="noreferrer">NVIDIA · Blackwell architecture</a><span>208 miliardi di transistor dichiarati per la GPU Blackwell.</span></li>
           <li><a href="https://www.nvidia.com/en-us/data-center/a100/" target="_blank" rel="noreferrer">NVIDIA · A100</a><span>Specifiche Ampere: memoria HBM2e, banda, NVLink e TDP.</span></li>
-          <li><a href="https://www.nvidia.com/en-us/data-center/h100/" target="_blank" rel="noreferrer">NVIDIA · H100</a><span>Specifiche Hopper, prestazioni FP64 e TDP usati nella mappa, oltre al Transformer Engine FP8.</span></li>
-          <li><a href="https://www.nvidia.com/en-us/data-center/dgx-b200/" target="_blank" rel="noreferrer">NVIDIA · DGX B200</a><span>Specifiche Blackwell, HBM3e, NVLink e claim di training/inference.</span></li>
+          <li><a href="https://www.nvidia.com/en-us/data-center/h100/" target="_blank" rel="noreferrer">NVIDIA · H100</a><span>Memoria e banda della configurazione H100 SXM, oltre al Transformer Engine FP8.</span></li>
+          <li><a href="https://www.nvidia.com/en-us/data-center/dgx-b200/" target="_blank" rel="noreferrer">NVIDIA · DGX B200</a><span>Configurazione DGX B200: memoria e banda aggregate di otto GPU.</span></li>
           <li><a href="https://www.nvidia.com/en-gb/data-center/vera-rubin-nvl72/" target="_blank" rel="noreferrer">NVIDIA · Vera Rubin NVL72</a><span>Specifiche preliminari Rubin: HBM4, NVFP4 e fabric rack-scale.</span></li>
           <li><a href="https://epoch.ai/data/ai-chip-sales-documentation/downloads" target="_blank" rel="noreferrer">Epoch AI · AI Chip Production</a><span>Stime di spedizioni, prezzo e TDP per A100, H100/H200, B200 e B300; dataset aggiornato l'11 giugno 2026.</span></li>
           <li><a href="https://s201.q4cdn.com/141608511/files/doc_presentations/2022/02/NVDA-F4Q22-Investor-Presentation-FINAL.pdf" target="_blank" rel="noreferrer">NVIDIA · Meta RSC</a><span>6.080 A100 installate nella prima fase e circa 16.000 previste nella seconda.</span></li>
           <li><a href="https://nvidianews.nvidia.com/news/spectrum-x-ethernet-networking-xai-colossus" target="_blank" rel="noreferrer">NVIDIA · xAI Colossus</a><span>100.000 GPU Hopper operative e raddoppio annunciato a 200.000.</span></li>
           <li><a href="https://nvidianews.nvidia.com/news/nvidia-partners-ai-infrastructure-america" target="_blank" rel="noreferrer">NVIDIA · xAI Colossus 2</a><span>Data center in costruzione a Memphis con oltre mezzo milione di GPU NVIDIA previste.</span></li>
           <li><a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Vera-Rubin-Ramps-Into-Full-Production-to-Power-Agentic-AI-Factories-Worldwide/default.aspx" target="_blank" rel="noreferrer">NVIDIA · Vera Rubin ramp</a><span>Piena produzione, oltre 350 fabbriche in 30 Paesi e primi deployment cloud nel 2026.</span></li>
+          <li><a href="https://www.amd.com/en/products/accelerators/instinct/mi400/mi455x.html" target="_blank" rel="noreferrer">AMD · Instinct MI455X</a><span>Lancio 23 luglio 2026, 432 GB HBM4 e banda fino a 23,3 TB/s.</span></li>
+          <li><a href="https://docs.nvidia.com/dgx/dgxb300-user-guide/introduction-to-dgxb300.html" target="_blank" rel="noreferrer">NVIDIA · DGX B300 User Guide</a><span>Configurazione con otto GPU B300, ciascuna da 288 GB.</span></li>
+          <li><a href="https://build.nvidia.com/spark/cutile-kernels/platform-comparison" target="_blank" rel="noreferrer">NVIDIA · cuTile, confronto delle piattaforme</a><span>Banda di memoria B300 di 8 TB/s per GPU.</span></li>
+          <li><a href="https://developer.nvidia.com/blog/inside-nvidia-rubin-gpu-architecture-powering-the-era-of-agentic-ai/" target="_blank" rel="noreferrer">NVIDIA · Rubin GPU Architecture, 21 luglio 2026</a><span>336 miliardi di transistor e ruolo di memoria e comunicazione.</span></li>
         </ol>
-        <p class="source-boundary">La stagnazione tecnologica è una tesi interpretativa, non un fatto dimostrato dal solo grafico BLS. I confronti di transistor attraversano categorie diverse e mostrano ordini di grandezza, non prestazioni equivalenti. Nel grafico potenza/calcolo, picchi del chip e risultati dell'intero sistema sono separati e non formano una classifica omogenea. NVIDIA non pubblica volumi unitari o listini uniformi: produzione, prezzi e intervalli sono stime Epoch AI. I deployment sono esempi pubblici, non quote di mercato né totali cumulativi. Dati consultati il 16 agosto 2026.</p>
+        <p class="source-boundary">Le specifiche hardware sono dichiarazioni dei produttori, consultate il 4 settembre 2026; Rubin mantiene l'etichetta di specifiche preliminari della fonte. Le stime industriali conservano lo snapshot Epoch AI dell'11 giugno 2026. I laboratori sono modelli didattici, non misurazioni. La stagnazione resta una tesi interpretativa e i deployment sono casi pubblici riferiti alle date indicate, non totali di mercato.</p>
       </section>
       <nav class="chapter-next" aria-label="Continua la lettura"><a href="energia.html">← Precedente: Energia</a><a href="algoritmi.html">Prossimo: Algoritmi →</a></nav>
     </main>
-    <footer class="site-footer"><span>AI.it</span><span>Chips · 02</span></footer><script src="app.js?v=20260904-editorial"></script>
+    <footer class="site-footer"><span>AI.it</span><span>Chips · 02</span></footer><script src="app.js?v=20260904-labs"></script><script src="chip-visuals.js?v=20260905"></script>
   </body>
 </html>

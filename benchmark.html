@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="styles.css?v=dossier-1" />
     <link rel="stylesheet" href="altro.css?v=dossier-1" />
     <link rel="stylesheet" href="editorial.css?v=20260904" />
+    <link rel="stylesheet" href="benchmark.css?v=20260904-labs" />
   </head>
   <body class="detail-page dossier-page benchmark-page">
     <a class="skip-link" href="#top">Salta al contenuto</a><div class="noise" aria-hidden="true"></div>
@@ -31,6 +32,16 @@
           <ol><li><span>01</span>Che cosa misura?</li><li><span>02</span>Su quali compiti?</li><li><span>03</span>Con quali strumenti?</li><li><span>04</span>Dove smette di valere?</li></ol>
           <strong>Il contesto<br />è parte del dato.</strong>
         </div>
+      </section>
+
+      <section class="benchmark-update" aria-labelledby="benchmark-update-title">
+        <header><h2 id="benchmark-update-title">I modelli sono cambiati. Anche i test.</h2><p>Fonti controllate il 4 settembre 2026</p></header>
+        <div class="benchmark-update-grid">
+          <article><span>OpenAI · 3 settembre</span><h3>GPT‑6 Astra</h3><p><strong>95,0% su ARC‑AGI‑2</strong> con reasoning Max. Su ARC‑AGI‑3: 62,7% con harness Standard (Max) e 99,9% con Provider Adapter (High).</p><a href="#astra-benchmark-lab">Confronta le configurazioni ↓</a></article>
+          <article><span>Anthropic · 1 settembre</span><h3>Claude Fable 5.1</h3><p><strong>90,0% su ARC‑AGI‑2</strong> con reasoning Max. Nel dataset ARC‑AGI‑3 consultato non compare ancora: il dato mancante non è uno zero.</p><a href="https://arcprize.org/results/anthropic-claude-fable-5-1" target="_blank" rel="noreferrer">Apri i risultati verificati ↗</a></article>
+          <article><span>Google · 2 settembre</span><h3>Gemini 3.8 Flash</h3><p>Disponibile secondo il registro ufficiale Google. Non compare ancora nei dataset ARC consultati; qui mostriamo <strong>Gemini 3.7 Flash</strong>, che ha una valutazione pubblicata.</p><a href="https://ai.google.dev/gemini-api/docs/changelog" target="_blank" rel="noreferrer">Vedi l’aggiornamento Google ↗</a></article>
+        </div>
+        <p class="benchmark-update-note">Una nuova uscita non produce subito una misura indipendente. Date, configurazioni e assenze contano quanto i punteggi. Le barre ARC qui sotto includono anche Opus 5, Grok 4.6, Kimi K3 e DeepSeek V4.</p>
       </section>
 
       <section class="benchmark-primer" aria-labelledby="benchmark-primer-title">
@@ -62,6 +73,7 @@
 
       <section class="metr-lab" aria-labelledby="metr-lab-title">
         <header class="metr-lab-head" data-dossier-reveal><div><p class="kicker">Time Horizon 1.1 · P50</p><h2 id="metr-lab-title">Da quattro minuti<br />a oltre sedici ore.</h2></div><p>Ogni riga è un modello, ordinato per data di uscita. Più la barra arriva a destra, più è lungo il compito umano su cui l’agente ha il 50% di probabilità stimata di riuscire.</p></header>
+        <p class="metr-freshness"><strong>METR · controllo del 4 settembre 2026.</strong> Il dashboard indica come ultimo aggiornamento l’8 maggio. Il dataset TH1.1 consultato non include Astra, Fable 5.1 o Gemini 3.8 Flash: conserviamo le misure disponibili, senza assegnare valori ai nuovi modelli.</p>
         <div class="metr-timeline" data-dossier-reveal>
           <div class="metr-chart-guide" aria-hidden="true">
             <span class="metr-guide-copy">Uscita</span><span class="metr-guide-model">Modello</span>
@@ -95,7 +107,7 @@
       </section>
 
       <section class="metr-doubling" aria-labelledby="doubling-title">
-        <div data-dossier-reveal><p class="kicker">Il trend storico</p><h2 id="doubling-title">Circa ogni sette mesi,<br /><em>il righello raddoppia.</em></h2><p>Dal 2019 il time horizon dei sistemi di frontiera è cresciuto approssimativamente lungo una curva esponenziale. Nel confronto ibrido TH1/TH1.1, METR stima un raddoppio in circa 196 giorni.</p></div>
+        <div data-dossier-reveal><p class="kicker">Il trend storico</p><h2 id="doubling-title">Circa ogni sei mesi,<br /><em>il righello raddoppia.</em></h2><p>Dal 2019 il time horizon dei sistemi di frontiera è cresciuto approssimativamente lungo una curva esponenziale. Nel confronto ibrido TH1/TH1.1, il dataset corrente METR riporta circa 188 giorni, escludendo le stime centrali oltre 16 ore. È un riepilogo storico, sensibile alla finestra e alla suite scelta.</p></div>
         <div class="doubling-ladder" aria-label="Esempio di sei raddoppi consecutivi del tempo umano equivalente" data-dossier-reveal><div><span>1</span><small>min</small></div><i>×2</i><div><span>2</span><small>min</small></div><i>×2</i><div><span>4</span><small>min</small></div><i>×2</i><div><span>8</span><small>min</small></div><i>×2</i><div><span>16</span><small>min</small></div><i>×2</i><div><span>32</span><small>min</small></div></div>
         <p class="doubling-caveat" data-dossier-reveal><strong>È una descrizione del passato, non una previsione.</strong> Un raddoppio del time horizon non equivale a raddoppiare “l'intelligenza”, la produttività, l'automazione o i posti di lavoro sostituibili.</p>
       </section>
@@ -145,7 +157,7 @@
         <section class="arc-ranking" aria-labelledby="arc-ranking-title" data-dossier-reveal>
           <header class="arc-ranking-head">
             <div><span>Leaderboard essenziale</span><h3 id="arc-ranking-title">Lo stesso nome, due difficoltà molto diverse.</h3></div>
-            <p>Selezione dei sistemi verificati più rilevanti, una sola configurazione per sistema. Premi una riga per leggere il risultato.</p>
+            <p>Selezione aggiornata al 4 settembre 2026. Una configurazione per modello; ARC‑AGI‑3 usa l’harness Standard. Premi una riga per vedere punteggio, costo e fonte.</p>
           </header>
 
           <div class="arc-ranking-controls" role="group" aria-label="Scegli la versione del benchmark">
@@ -159,18 +171,32 @@
           </div>
 
           <div class="arc-ranking-detail" aria-live="polite">
-            <div><span>Sistema selezionato</span><strong id="arc-detail-name">GPT‑5.6 Sol · Max</strong><small id="arc-detail-org">OpenAI · 9 luglio 2026</small></div>
-            <div><span>Punteggio</span><strong id="arc-detail-score">92,5%</strong><small id="arc-detail-rank">1° nella selezione</small></div>
-            <p id="arc-detail-copy">Risolve esattamente il 92,5% dei task nella valutazione semi-privata. Il punteggio non descrive conoscenza generale né lavoro autonomo.</p>
+            <div><span>Sistema selezionato</span><strong id="arc-detail-name">GPT‑6 Astra</strong><small id="arc-detail-org">OpenAI · Max</small><a id="arc-detail-source" href="https://arcprize.org/results/openai-gpt-6-astra" target="_blank" rel="noreferrer">Fonte del risultato ↗</a></div>
+            <div><span>Punteggio</span><strong id="arc-detail-score">95,0%</strong><span id="arc-detail-cost">1,119 USD / task</span><small id="arc-detail-rank">1° nella selezione</small></div>
+            <p id="arc-detail-copy">Risolve esattamente il 95,0% dei task nella valutazione semi-privata. Il punteggio non descrive conoscenza generale né lavoro autonomo.</p>
           </div>
 
           <footer class="arc-ranking-foot">
             <p id="arc-ranking-note"><strong>ARC‑AGI‑2:</strong> la soglia dell’85% era il traguardo del Grand Prize, non una definizione di AGI. I risultati della leaderboard aperta non vanno confusi con quelli della competizione privata.</p>
-            <div><span>Dati verificati · 9 luglio 2026</span><a href="https://arcprize.org/leaderboard" target="_blank" rel="noreferrer">Leaderboard completa ↗</a></div>
+            <div><span>Snapshot ARC Prize · 4 settembre 2026</span><a href="https://arcprize.org/leaderboard" target="_blank" rel="noreferrer">Leaderboard completa ↗</a></div>
           </footer>
         </section>
       </section>
 
+
+        <section class="harness-lab" id="astra-benchmark-lab" data-harness-lab aria-labelledby="astra-benchmark-lab-title">
+          <header><p class="kicker">Esperimento reale · GPT‑6 Astra · 3 settembre 2026</p><h2 id="astra-benchmark-lab-title">Stesso modello, due modi di gestire il contesto.</h2><p>Il sistema che circonda il modello si chiama <em>harness</em>: conserva il lavoro precedente e organizza le chiamate. Qui puoi confrontare due harness sullo stesso test e allo stesso livello di ragionamento.</p></header>
+          <div class="harness-controls">
+            <label for="astra-benchmark-lab-effort">Livello di ragionamento<select id="astra-benchmark-lab-effort" data-harness-effort><option value="none">None · nessuno</option><option value="low">Low · basso</option><option value="medium">Medium · medio</option><option value="high" selected>High · alto</option><option value="xhigh">XHigh · molto alto</option><option value="max">Max · massimo</option></select></label>
+            <div class="harness-metrics" role="group" aria-label="Misura da confrontare"><button type="button" data-harness-metric="score" aria-pressed="true">Punteggio</button><button type="button" data-harness-metric="cost" aria-pressed="false">Costo</button></div>
+          </div>
+          <p class="harness-axis" data-harness-axis>Punteggio ARC‑AGI‑3 · scala 0–100%</p>
+          <div class="harness-row" data-harness-row="standard"><div><h4>Harness standard</h4><strong data-harness-value>54,8%</strong></div><div class="harness-track" aria-hidden="true"><i data-harness-bar style="width:54.82%"></i></div><small data-harness-detail>54,8% · $40.705 per la valutazione</small></div>
+          <div class="harness-row" data-harness-row="adapter"><div><h4>Adattatore del produttore</h4><strong data-harness-value>99,9%</strong></div><div class="harness-track" aria-hidden="true"><i data-harness-bar style="width:99.9457%"></i></div><small data-harness-detail>99,9% · $18.817 per la valutazione</small></div>
+          <p class="harness-reading" data-harness-reading aria-live="polite">Con reasoning High, lo stesso modello ottiene risultati diversi a seconda di come viene conservato il contesto.</p>
+          <div class="harness-explainer"><p><strong>Standard.</strong> Il modello sceglie quali note visibili portare al passo successivo.</p><p><strong>Provider Adapter.</strong> Preserva lo stato di ragionamento tra le richieste e compatta le conversazioni lunghe.</p></div>
+          <footer>ARC‑AGI‑3 Semi‑Private. Costi totali delle valutazioni, non tariffe per utente. Questi sei livelli sono prove distinte: il punteggio non cresce sempre con il budget. <a href="https://arcprize.org/results/openai-gpt-6-astra" target="_blank" rel="noreferrer">Risultati e configurazioni ARC Prize ↗</a> · <a href="https://arcprize.org/blog/astra" target="_blank" rel="noreferrer">Metodo e limiti ↗</a></footer>
+        </section>
       <section class="sources compact-sources" aria-labelledby="benchmark-sources-title">
         <h2 id="benchmark-sources-title">Fonti del dossier</h2>
         <ol>
@@ -183,14 +209,15 @@
           <li><a href="https://arcprize.org/arc-agi/2" target="_blank" rel="noreferrer">ARC Prize · ARC‑AGI‑2</a><span>Task statici, calibrazione umana, efficienza e protocollo della seconda versione.</span></li>
           <li><a href="https://arcprize.org/arc-agi/3" target="_blank" rel="noreferrer">ARC Prize · ARC‑AGI‑3</a><span>Ambienti interattivi, apprendimento durante il test e definizione del punteggio.</span></li>
           <li><a href="https://arcprize.org/leaderboard" target="_blank" rel="noreferrer">ARC Prize · Verified Leaderboard</a><span>Risultati verificati usati nella classifica interattiva.</span></li>
-          <li><a href="https://arcprize.org/results/openai-gpt-5-6" target="_blank" rel="noreferrer">ARC Prize · GPT‑5.6 Series</a><span>Risultati verificati più recenti per Sol, Terra e Luna su ARC‑AGI‑2 e ARC‑AGI‑3.</span></li>
+          <li><a href="https://arcprize.org/results/openai-gpt-5-6" target="_blank" rel="noreferrer">ARC Prize · GPT‑5.6 Series</a><span>Risultati della serie di luglio per Sol, Terra e Luna su ARC‑AGI‑2 e ARC‑AGI‑3.</span></li>
         </ol>
+        <p class="benchmark-update-note">Dataset ARC: <a href="https://arcprize.org/media/data/leaderboard/v2.json" target="_blank" rel="noreferrer">ARC‑AGI‑2</a> · <a href="https://arcprize.org/media/data/leaderboard/v3.json" target="_blank" rel="noreferrer">ARC‑AGI‑3</a>. Nuove uscite: <a href="https://openai.com/index/gpt-6-astra/" target="_blank" rel="noreferrer">OpenAI Astra</a> · <a href="https://www.anthropic.com/claude/fable" target="_blank" rel="noreferrer">Claude Fable 5.1</a>.</p>
         <p class="source-boundary">METR e ARC isolano capacità differenti e usano setup differenti. I loro numeri non si sommano e non formano un unico punteggio di “intelligenza”.</p>
       </section>
 
       <nav class="chapter-next" aria-label="Continua la lettura"><a href="altro.html">← Panoramica Dossier</a><a href="politica.html">Prossimo: Politica →</a></nav>
     </main>
     <footer class="site-footer"><span>AI.it</span><span>Benchmarks · METR / ARC‑AGI</span></footer>
-    <script src="app.js?v=20260904-editorial"></script><script src="dossier.js?v=20260904-editorial"></script>
+    <script src="app.js?v=20260904-labs"></script><script src="benchmark-data.js?v=20260904-labs"></script><script src="dossier.js?v=20260904-labs"></script><script src="harness-lab.js?v=20260904-labs"></script>
   </body>
 </html>
