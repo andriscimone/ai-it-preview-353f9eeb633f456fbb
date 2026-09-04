@@ -113,6 +113,9 @@ function setStoryScene(key) {
   const copy = storySceneCopy[key];
   if (!copy || !storyStage || !storyViewport) return;
   activeStoryKey = key;
+  storyStage.querySelectorAll('[data-story-select]').forEach(button => {
+    button.setAttribute('aria-pressed', String(button.dataset.storySelect === key));
+  });
   storyViewport.dataset.activeStory = key;
   document.getElementById("story-stage-index").textContent = copy.index;
   document.getElementById("story-stage-title").textContent = copy.title;
@@ -121,6 +124,7 @@ function setStoryScene(key) {
     const selected = scene.dataset.storyScene === key;
     scene.classList.toggle("is-active", selected);
     scene.setAttribute("aria-hidden", String(!selected));
+    scene.inert = !selected;
   });
 }
 
@@ -183,9 +187,9 @@ function renderStoryFromScroll() {
   if (window.innerWidth <= 900) {
     if (storyMobileStatic) return;
     storyMobileStatic = true;
-    setStoryScene("equation");
-    updateStoryMotion("equation", 1);
-    document.getElementById("story-stage-progress").style.width = "20%";
+    setStoryScene(activeStoryKey);
+    updateStoryMotion(activeStoryKey, 1);
+    document.getElementById("story-stage-progress").style.width = `${(Object.keys(storySceneCopy).indexOf(activeStoryKey) + 1) * 20}%`;
     return;
   }
   storyMobileStatic = false;
@@ -212,6 +216,26 @@ function requestStoryFrame() {
   requestAnimationFrame(renderStoryFromScroll);
 }
 
+if (storyStage) {
+  const selector = document.createElement("div");
+  selector.className = "story-mobile-controls";
+  selector.setAttribute("aria-label", "Esplora le cinque dimostrazioni");
+  const labels = ["Regola", "Limiti", "Training", "Probabilità", "Attenzione"];
+  Object.keys(storySceneCopy).forEach((key, index) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.dataset.storySelect = key;
+    button.textContent = (index + 1) + ". " + labels[index];
+    button.setAttribute("aria-pressed", String(key === activeStoryKey));
+    button.addEventListener("click", () => {
+      setStoryScene(key); updateStoryMotion(key, 1);
+      document.getElementById("story-stage-progress").style.width = ((index + 1) * 20) + "%";
+      selector.querySelectorAll("button").forEach(item => item.setAttribute("aria-pressed", String(item === button)));
+    });
+    selector.appendChild(button);
+  });
+  storyStage.querySelector(".story-stage-header").after(selector);
+}
 storyEquationInput?.addEventListener("input", updateStoryEquation);
 window.addEventListener("scroll", requestStoryFrame, { passive: true });
 window.addEventListener("resize", () => {
@@ -649,7 +673,7 @@ function selectShrinkMilestone(index) {
     ? "Siamo ancora al 100%"
     : `Al modello selezionato resta lo ${shrinkPercent(remaining)}%`;
   document.getElementById("benchmark-scale-end").textContent = model.sizeLabel;
-  shrinkRemnant?.style.setProperty("--benchmark-remaining", `${remaining}%`);
+  shrinkRemnant?.parentElement.style.setProperty("--benchmark-remaining", `${remaining}%`);
 
   document.getElementById("benchmark-detail-size").textContent = model.sizeLabel;
   document.getElementById("benchmark-detail-score").textContent = `${benchmarkNumber(model.score)}%`;

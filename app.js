@@ -224,19 +224,10 @@ function renderLegend(scene) {
 }
 
 function chartGeometry() {
-  const mobile = window.innerWidth <= 600;
-  const width = mobile ? 760 : 1100;
-  return {
-    mobile,
-    width,
-    height: 520,
-    plot: {
-      left: mobile ? 142 : 210,
-      right: width - (mobile ? 30 : 48),
-      top: 100,
-      bottom: 365
-    }
-  };
+  const width = Math.max(260, Math.round(svg.getBoundingClientRect().width || 900));
+  const mobile = width < 620;
+  const height = mobile ? 340 : 440;
+  return { mobile, width, height, plot: { left: mobile ? 48 : 76, right: width - 24, top: 48, bottom: height - 64 } };
 }
 
 function addChartDefs() {
@@ -254,45 +245,25 @@ function addChartDefs() {
 }
 
 function renderChartHeading(scene, width) {
-  const center = width / 2;
-  svg.appendChild(el("text", { x: center, y: 52, "text-anchor": "middle", fill: "var(--chart-primary)", "font-family": "Manrope", "font-size": "20", "font-weight": "600" }, scene.chartSubtitle));
+  svg.appendChild(el("text", { x: width < 620 ? 48 : 76, y: 25, fill: "var(--chart-muted)", "font-family": "Manrope", "font-size": "13" }, "Token al secondo / MW"));
 }
 
 function renderAxes(scene, plot, xScale, yScale, geometry) {
   const axes = el("g", { "aria-hidden": "true" });
-  const tickSize = geometry.mobile ? 17 : 15;
-
+  const tickSize = 12;
   for (let value = 0; value <= scene.yMax; value += scene.yTick) {
     const y = yScale(value);
-    axes.appendChild(el("line", { x1: plot.left - 8, x2: plot.left, y1: y, y2: y, stroke: "var(--chart-axis)", "stroke-width": "1.5" }));
-    axes.appendChild(el("text", { x: plot.left - 16, y: y + 5, "text-anchor": "end", fill: "var(--chart-muted)", "font-family": "DM Mono", "font-size": tickSize }, geometry.mobile ? compact(value) : Math.round(value).toLocaleString("it-IT")));
+    axes.appendChild(el("line", { x1: plot.left, x2: plot.right, y1: y, y2: y, stroke: "var(--chart-grid)" }));
+    axes.appendChild(el("text", { x: plot.left - 10, y: y + 4, "text-anchor": "end", fill: "var(--chart-muted)", "font-family": "DM Mono", "font-size": tickSize }, compact(value)));
   }
-
-  const xStep = scene.xTick || (scene.xMax > 1000 ? 500 : 100);
+  const baseStep = scene.xTick || (scene.xMax > 1000 ? 500 : 100);
+  const xStep = baseStep * Math.max(1, Math.ceil((scene.xMax - scene.xMin) / baseStep / (geometry.mobile ? 4 : 8)));
   for (let value = scene.xMin; value <= scene.xMax; value += xStep) {
     const x = xScale(value);
-    axes.appendChild(el("line", { x1: x, x2: x, y1: plot.bottom, y2: plot.bottom + 8, stroke: "var(--chart-axis)", "stroke-width": "1.5" }));
-    axes.appendChild(el("text", { x, y: plot.bottom + 32, "text-anchor": "middle", fill: "var(--chart-muted)", "font-family": "DM Mono", "font-size": tickSize }, value.toLocaleString("it-IT")));
+    axes.appendChild(el("text", { x, y: plot.bottom + 25, "text-anchor": "middle", fill: "var(--chart-muted)", "font-family": "DM Mono", "font-size": tickSize }, value.toLocaleString("it-IT")));
   }
-
-  axes.appendChild(el("line", { x1: plot.left, x2: plot.left, y1: plot.top, y2: plot.bottom, stroke: "var(--chart-axis)", "stroke-width": "1.5" }));
-  axes.appendChild(el("line", { x1: plot.left, x2: plot.right, y1: plot.bottom, y2: plot.bottom, stroke: "var(--chart-axis)", "stroke-width": "1.5" }));
-  axes.appendChild(el("text", { x: (plot.left + plot.right) / 2, y: plot.bottom + 82, "text-anchor": "middle", fill: "var(--chart-text)", "font-family": "Manrope", "font-size": geometry.mobile ? "20" : "18", "font-weight": "600" }, "TPS / UTENTE (RESPONSIVENESS) →"));
-
-  const calloutX = geometry.mobile ? 48 : 42;
-  axes.appendChild(el("text", { x: calloutX, y: 260, "text-anchor": "middle", fill: "var(--chart-text)", "font-family": "Manrope", "font-size": geometry.mobile ? "17" : "16", "font-weight": "600" }, "PIÙ IN ALTO"));
-  axes.appendChild(el("text", { x: calloutX, y: 281, "text-anchor": "middle", fill: "var(--chart-text)", "font-family": "Manrope", "font-size": geometry.mobile ? "17" : "16", "font-weight": "600" }, "È MEGLIO"));
-  axes.appendChild(el("line", { x1: calloutX, x2: calloutX, y1: 286, y2: 240, stroke: "var(--chart-axis)", "stroke-width": "4", "marker-end": "url(#focus-arrow)" }));
-  axes.appendChild(el("text", { x: calloutX, y: 422, "text-anchor": "middle", fill: "var(--chart-text)", "font-family": "Manrope", "font-size": geometry.mobile ? "18" : "17", "font-weight": "600" }, "THROUGHPUT"));
-  axes.appendChild(el("text", { x: calloutX, y: 448, "text-anchor": "middle", fill: "var(--chart-text)", "font-family": "DM Mono", "font-size": geometry.mobile ? "17" : "15" }, "TPS / MW"));
-  axes.querySelectorAll("text").forEach(node => {
-    if (Number(node.getAttribute("x")) !== calloutX) return;
-    const y = Number(node.getAttribute("y"));
-    if (y === 260) node.setAttribute("y", "176");
-    if (y === 281) node.setAttribute("y", "197");
-    if (y === 422) node.setAttribute("y", "326");
-    if (y === 448) node.setAttribute("y", "349");
-  });
+  axes.appendChild(el("line", { x1: plot.left, x2: plot.right, y1: plot.bottom, y2: plot.bottom, stroke: "var(--chart-axis)" }));
+  axes.appendChild(el("text", { x: (plot.left + plot.right) / 2, y: plot.bottom + 52, "text-anchor": "middle", fill: "var(--chart-muted)", "font-family": "Manrope", "font-size": "13" }, "Token al secondo / utente →"));
   svg.appendChild(axes);
 }
 
@@ -307,7 +278,7 @@ function renderCurveScene(scene) {
 
   const selectedX = Number(range.value);
   const lineX = xScale(selectedX);
-  const bandWidth = geometry.mobile ? 96 : 150;
+  const bandWidth = geometry.mobile ? 24 : 50;
   svg.appendChild(el("rect", { x: lineX - bandWidth / 2, y: plot.top, width: bandWidth, height: plot.bottom - plot.top, fill: "url(#focus-band)", class: "selection-band" }));
   renderAxes(scene, plot, xScale, yScale, geometry);
 
@@ -317,7 +288,7 @@ function renderCurveScene(scene) {
       d: smoothPath(series.points, xScale, yScale),
       fill: "none",
       stroke: series.color,
-      "stroke-width": index === 0 ? "6" : "4.5",
+      "stroke-width": index === 0 ? "3.5" : "3",
       "stroke-linecap": "round",
       "stroke-linejoin": "round",
       opacity: visible ? "1" : ".1",
@@ -351,9 +322,9 @@ function renderCurveScene(scene) {
       y: yScale(labelPoint[1]) + (index === 0 ? -12 : 26),
       fill: "var(--chart-text)",
       "font-family": "Manrope",
-      "font-size": geometry.mobile ? "19" : "17",
+      "font-size": "14",
       "font-weight": "600",
-      opacity: visible ? "1" : ".2"
+      opacity: geometry.mobile ? "0" : visible ? "1" : ".2"
     }, series.short));
   });
 
@@ -365,7 +336,7 @@ function renderCurveScene(scene) {
   const approximateRatio = Boolean(ratio && selectedX > tailThreshold);
   const formattedRatio = ratioText(ratio, approximateRatio);
 
-  if (ratio) {
+  if (ratio && !geometry.mobile) {
     const top = yScale(valid[0].y);
     const bottom = yScale(valid[1].y);
     svg.appendChild(el("line", {
@@ -386,7 +357,7 @@ function renderCurveScene(scene) {
       "text-anchor": placeLeft ? "end" : "start",
       fill: "var(--chart-text)",
       "font-family": "Manrope",
-      "font-size": geometry.mobile ? "34" : "38",
+      "font-size": "28",
       "font-weight": "600"
     }, formattedRatio));
   }
@@ -534,13 +505,10 @@ function showEnergyTooltip(event, html) {
 function hideEnergyTooltip() { if (energyTooltip) energyTooltip.hidden = true; }
 
 function energyGeometry() {
-  const mobile = window.innerWidth <= 600;
-  return {
-    width: mobile ? 560 : 980,
-    height: 580,
-    plot: { left: mobile ? 92 : 128, right: mobile ? 530 : 934, top: 70, bottom: 472 },
-    mobile
-  };
+  const width = Math.max(260, Math.round(energySvg.getBoundingClientRect().width || 900));
+  const mobile = width < 620;
+  const height = activeEnergyView === "power" ? 420 : mobile ? 340 : 410;
+  return { width, height, plot: { left: mobile ? 54 : 80, right: width - 24, top: 58, bottom: height - 55 }, mobile };
 }
 
 function energyText(x, y, text, attrs = {}) {
@@ -556,7 +524,9 @@ function energyText(x, y, text, attrs = {}) {
 function renderEnergySite(geometry) {
   const { plot } = geometry;
   const max = 1_200_000;
-  const x = index => plot.left + (index / (energySeries.length - 1)) * (plot.right - plot.left);
+  const startDate = Date.parse(energySeries[0].date);
+  const duration = Date.parse(energySeries.at(-1).date) - startDate;
+  const x = index => plot.left + ((Date.parse(energySeries[index].date) - startDate) / duration) * (plot.right - plot.left);
   const y = value => plot.bottom - (value / max) * (plot.bottom - plot.top);
 
   [0, 300_000, 600_000, 900_000, 1_200_000].forEach(value => {
@@ -593,7 +563,7 @@ function renderEnergySite(geometry) {
     energySvg.appendChild(point);
   });
 
-  [0, 2, 4, 6, 8, 9].forEach(index => {
+  (geometry.mobile ? [0, 4, 9] : [0, 2, 4, 6, 9]).forEach(index => {
     const date = new Date(energySeries[index].date);
     energySvg.appendChild(energyText(x(index), plot.bottom + 34, date.toLocaleDateString("it-IT", { month: "short", year: index === 0 || index === 9 ? "2-digit" : undefined }), { "text-anchor": "middle" }));
   });
@@ -603,18 +573,26 @@ function renderEnergySite(geometry) {
 }
 
 function renderEnergyBars(geometry, rows, max, unit) {
-  const { plot } = geometry;
-  const barHeight = 54;
-  const gap = rows.length === 2 ? 80 : 32;
-  const startY = rows.length === 2 ? 130 : 82;
+  const left = geometry.mobile ? 16 : 36;
+  const right = geometry.width - left;
+  const gap = rows.length === 2 ? 130 : 94;
   rows.forEach((row, index) => {
-    const y = startY + index * (barHeight + gap);
-    const width = (row.value / max) * (plot.right - plot.left);
-    energySvg.appendChild(energyText(plot.left - 14, y + 33, row.label, { "text-anchor": "end", fill: "var(--chart-text)", "font-family": "Manrope", "font-size": "15", "font-weight": "600" }));
-    energySvg.appendChild(el("rect", { x: plot.left, y, width: plot.right - plot.left, height: barHeight, fill: "var(--chart-grid)" }));
-    energySvg.appendChild(el("rect", { x: plot.left, y, width, height: barHeight, fill: row.estimated ? "none" : "var(--chart-primary)", stroke: row.estimated ? "var(--chart-primary)" : "none", "stroke-width": row.estimated ? "3" : "0", "stroke-dasharray": row.estimated ? "9 7" : "none" }));
-    energySvg.appendChild(energyText(Math.min(plot.right - 8, plot.left + width + 14), y + 34, `${row.display || row.value.toLocaleString("it-IT")} ${unit}`, { fill: "var(--chart-text)", "font-family": "DM Mono", "font-size": "14", "font-weight": "500" }));
-    if (row.note) energySvg.appendChild(energyText(plot.left, y + barHeight + 20, row.note, { "font-size": "12" }));
+    const y = 46 + index * gap;
+    const width = (row.value / max) * (right - left);
+    energySvg.appendChild(energyText(left, y - 14, row.label, { fill: "var(--chart-text)", "font-family": "Manrope", "font-size": "13", "font-weight": "600" }));
+    energySvg.appendChild(energyText(right, y - 14, (row.display || row.value.toLocaleString("it-IT")) + " " + unit, { "text-anchor": "end", fill: "var(--chart-text)", "font-size": "13" }));
+    energySvg.appendChild(el("rect", { x: left, y, width: right - left, height: 22, rx: 4, fill: "var(--chart-grid)" }));
+    energySvg.appendChild(el("rect", { x: left, y, width, height: 22, rx: 4, fill: row.estimated ? "none" : "var(--chart-primary)", stroke: row.estimated ? "var(--chart-primary)" : "none", "stroke-width": "2", "stroke-dasharray": row.estimated ? "6 4" : "none" }));
+    if (row.note) {
+      const words = row.note.split(" ");
+      const lines = [""];
+      const limit = Math.floor((right - left) / 6.5);
+      words.forEach(word => {
+        if ((lines.at(-1) + " " + word).length > limit) lines.push(word);
+        else lines[lines.length - 1] += (lines.at(-1) ? " " : "") + word;
+      });
+      lines.forEach((line, i) => energySvg.appendChild(energyText(left, y + 43 + i * 16, line, { "font-size": "12" })));
+    }
   });
 }
 
@@ -800,7 +778,7 @@ function applyTheme(theme, persist = false) {
   themeToggle.setAttribute("aria-label", isDark ? "Passa al tema chiaro" : "Passa al tema scuro");
   themeToggleLabel.textContent = isDark ? "Chiaro" : "Scuro";
   themeToggleIcon.textContent = isDark ? "☀" : "☾";
-  themeColor.setAttribute("content", isDark ? "#090b09" : "#f2f0e8");
+  themeColor.setAttribute("content", isDark ? "#101820" : "#f8fafb");
   if (persist) {
     try { localStorage.setItem("aiit-theme", isDark ? "dark" : "light"); } catch (_) {}
   }
@@ -936,14 +914,40 @@ if (scalingRange && scalingOutput && scalingFitPath && scalingFitArea && scaling
     return { compute, parameters, tokens, loss, x: xForLogCompute(logCompute), y: yForLoss(loss) };
   };
 
-  const curve = [];
-  for (let index = 0; index <= 140; index += 1) {
-    const logCompute = plot.logMin + ((plot.logMax - plot.logMin) * index / 140);
-    const point = computeOptimalPoint(logCompute);
-    curve.push(`${index === 0 ? "M" : "L"}${point.x.toFixed(2)} ${point.y.toFixed(2)}`);
-  }
-  scalingFitPath.setAttribute("d", curve.join(" "));
-  scalingFitArea.setAttribute("d", `${curve.join(" ")} L${plot.x1} ${plot.y1} L${plot.x0} ${plot.y1} Z`);
+
+  const layoutScalingPlot = () => {
+    const width = Math.max(260, Math.round(scalingPlot.getBoundingClientRect().width));
+    const height = width < 620 ? 310 : 380;
+    Object.assign(plot, { x0: 45, x1: width - 24, y0: 46, y1: height - 62 });
+    scalingPlot.setAttribute("viewBox", "0 0 " + width + " " + height);
+    const grid = scalingPlot.querySelector(".scaling-grid");
+    const ticks = scalingPlot.querySelector(".scaling-tick-labels");
+    grid.replaceChildren(); ticks.replaceChildren();
+    [2, 2.5, 3, 3.5].forEach(loss => {
+      const y = yForLoss(loss);
+      grid.appendChild(el("path", { d: "M" + plot.x0 + " " + y + "H" + plot.x1 }));
+      ticks.appendChild(el("text", { x: plot.x0 - 10, y: y + 4, "text-anchor": "end" }, loss.toLocaleString("it-IT")));
+    });
+    (width < 420 ? [18, 21, 23, 25] : [18, 20, 22, 24, 25]).forEach(log => {
+      ticks.appendChild(el("text", { x: xForLogCompute(log), y: plot.y1 + 25, "text-anchor": "middle" }, "10" + toSuperscript(log)));
+    });
+    const axisY = scalingPlot.querySelector(".scaling-axis-title-y");
+    axisY.removeAttribute("transform");
+    axisY.setAttribute("x", plot.x0); axisY.setAttribute("y", 22);
+    axisY.textContent = "Training loss · meno è meglio";
+    const axisX = scalingPlot.querySelector(".scaling-axis-title-x");
+    axisX.setAttribute("x", plot.x1); axisX.setAttribute("y", height - 10);
+    axisX.textContent = "Compute (FLOPs) · scala logaritmica →";
+    scalingGuideX.setAttribute("x1", plot.x0);
+    scalingGuideY.setAttribute("y1", plot.y0);
+    const curve = [];
+    for (let i = 0; i <= 140; i++) {
+      const point = computeOptimalPoint(plot.logMin + (plot.logMax - plot.logMin) * i / 140);
+      curve.push((i ? "L" : "M") + point.x.toFixed(2) + " " + point.y.toFixed(2));
+    }
+    scalingFitPath.setAttribute("d", curve.join(" "));
+    scalingFitArea.setAttribute("d", curve.join(" ") + " L" + plot.x1 + " " + plot.y1 + " L" + plot.x0 + " " + plot.y1 + " Z");
+  };
 
   const renderScalingState = () => {
     const point = computeOptimalPoint(Number(scalingRange.value));
@@ -964,8 +968,8 @@ if (scalingRange && scalingOutput && scalingFitPath && scalingFitArea && scaling
     scalingGuideY.setAttribute("x1", point.x.toFixed(2));
     scalingGuideY.setAttribute("x2", point.x.toFixed(2));
     scalingGuideY.setAttribute("y2", point.y.toFixed(2));
-    const calloutX = point.x > 510 ? point.x - 194 : point.x + 18;
-    const calloutY = Math.max(48, Math.min(280, point.y - 66));
+    const calloutX = Math.max(plot.x0, Math.min(plot.x1 - 176, point.x > (plot.x0 + plot.x1) / 2 ? point.x - 188 : point.x + 12));
+    const calloutY = Math.max(plot.y0 + 4, Math.min(plot.y1 - 60, point.y - 70));
     scalingCallout.setAttribute("transform", `translate(${calloutX.toFixed(2)} ${calloutY.toFixed(2)})`);
     scalingCalloutLoss.textContent = `LOSS ${lossNumber}`;
     scalingCalloutCompute.textContent = computeLabel;
@@ -980,14 +984,33 @@ if (scalingRange && scalingOutput && scalingFitPath && scalingFitArea && scaling
   };
 
   scalingRange.addEventListener("input", renderScalingState);
-  scalingPlot.addEventListener("pointerdown", event => {
+  const selectScalingPoint = event => {
     const bounds = scalingPlot.getBoundingClientRect();
-    const svgX = ((event.clientX - bounds.left) / bounds.width) * 760;
+    const svgX = ((event.clientX - bounds.left) / bounds.width) * scalingPlot.viewBox.baseVal.width;
     const clampedX = Math.max(plot.x0, Math.min(plot.x1, svgX));
     const logCompute = plot.logMin + ((clampedX - plot.x0) / (plot.x1 - plot.x0)) * (plot.logMax - plot.logMin);
     scalingRange.value = logCompute.toFixed(4);
     renderScalingState();
+  };
+  scalingPlot.addEventListener("pointerdown", event => {
+    if (!event.isPrimary) return;
+    scalingPlot.setPointerCapture(event.pointerId);
+    selectScalingPoint(event);
   });
+  scalingPlot.addEventListener("pointermove", event => {
+    if (scalingPlot.hasPointerCapture(event.pointerId)) selectScalingPoint(event);
+  });
+  const releaseScaling = event => {
+    if (scalingPlot.hasPointerCapture(event.pointerId)) scalingPlot.releasePointerCapture(event.pointerId);
+  };
+  scalingPlot.addEventListener("pointerup", releaseScaling);
+  scalingPlot.addEventListener("pointercancel", releaseScaling);
+  let scalingResize;
+  window.addEventListener("resize", () => {
+    clearTimeout(scalingResize);
+    scalingResize = setTimeout(() => { layoutScalingPlot(); renderScalingState(); }, 100);
+  });
+  layoutScalingPlot();
   scalingPresets.forEach(button => button.addEventListener("click", () => {
     scalingRange.value = button.dataset.scalingPreset;
     renderScalingState();
