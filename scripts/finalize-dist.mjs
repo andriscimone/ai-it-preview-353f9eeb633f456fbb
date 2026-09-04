@@ -68,16 +68,21 @@ const routeFiles = [
 const maxEmbeddedAssetBytes = 256 * 1024;
 // Keep superseded or externally served files out of the Worker route table.
 const excludedEmbeddedAssets = new Set([
+  "assets/n16-glm53-flash-pareto.png",
+  "assets/news-jacobiana-meme.png",
   "assets/spacex-ai-satellite-concept.webp",
   "assets/terafab-scale-nic-cruz-patane.webp"
 ]);
 const externalRoutes = {
+  // Pin the original PNGs to a published revision, preserving resolution while
+  // keeping the Worker below the Sites upload limit.
+  "/assets/n16-glm53-flash-pareto.png": "https://raw.githubusercontent.com/andriscimone/ai-it-preview-353f9eeb633f456fbb/ad7e363df8b28fa73011dd43337ce1244225edbd/assets/n16-glm53-flash-pareto.png",
+  "/assets/news-jacobiana-meme.png": "https://raw.githubusercontent.com/andriscimone/ai-it-preview-353f9eeb633f456fbb/ad7e363df8b28fa73011dd43337ce1244225edbd/assets/news-jacobiana-meme.png",
   "/assets/terafab-scale-nic-cruz-patane.webp": "https://raw.githubusercontent.com/andriscimone/ai-it-preview-353f9eeb633f456fbb/0e60b48a80c482302248f305728064c234daacc8/assets/terafab-scale-nic-cruz-patane.webp"
 };
 const alwaysEmbeddedAssets = new Set([
   "assets/code-contributed-per-person-quarter-2026-it.png",
   "assets/claude-code-session-success-rate-2026-it.png",
-  "assets/news-jacobiana-meme.png",
   "assets/news-jacobiana-post.png",
   "assets/openai-output-tokens-by-department-2026-it.png",
   "assets/spooky-plato-cave-v1.webp"
