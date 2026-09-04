@@ -69,6 +69,9 @@
     const country = dataset.find((item) => item.c === code);
     if (!country) return;
     selectedCode = code;
+    const select = document.getElementById("gdp-country-select");
+    if (select) select.value = code;
+    hideTooltip();
     updateControls();
     updateDetail(country);
     render();
@@ -86,7 +89,7 @@
     const desiredTop = event.clientY - bounds.top + 14;
     const maxLeft = bounds.width - tooltip.offsetWidth - 12;
     tooltip.style.left = `${Math.max(10, Math.min(desiredLeft, maxLeft))}px`;
-    tooltip.style.top = `${Math.max(56, desiredTop)}px`;
+    tooltip.style.top = `${Math.max(10, Math.min(desiredTop, bounds.height - tooltip.offsetHeight - 10))}px`;
   }
 
   function hideTooltip() {
@@ -110,10 +113,10 @@
     if (!dataset.length) return;
 
     const compact = window.innerWidth < 700;
-    const width = compact ? 720 : 1120;
-    const height = 620;
+    const width = Math.max(260, Math.round(svg.getBoundingClientRect().width || 1000));
+    const height = compact ? 390 : 540;
     const margin = compact
-      ? { top: 58, right: 24, bottom: 78, left: 78 }
+      ? { top: 30, right: 16, bottom: 60, left: 58 }
       : { top: 54, right: 42, bottom: 82, left: 98 };
     const plot = {
       left: margin.left,
@@ -164,7 +167,7 @@
           y: plot.bottom - 14,
           "text-anchor": "end",
         },
-        compact ? "RICCHI + POCA ENERGIA: QUASI VUOTO" : "IL QUADRANTE «RICCHI + POCA ENERGIA» È QUASI VUOTO",
+        compact ? "QUASI VUOTO" : "IL QUADRANTE «RICCHI + POCA ENERGIA» È QUASI VUOTO",
       ),
     );
 
@@ -237,7 +240,7 @@
           y: height - 19,
           "text-anchor": "middle",
         },
-        "PIL PRO CAPITE · $ INTERNAZIONALI 2021",
+        compact ? "PIL/persona · $ internazionali 2021" : "PIL PRO CAPITE · $ INTERNAZIONALI 2021",
       ),
       make(
         "text",
@@ -248,7 +251,7 @@
           transform: `rotate(-90 20 ${(plot.top + plot.bottom) / 2})`,
           "text-anchor": "middle",
         },
-        "ENERGIA PRIMARIA · KWH PER PERSONA",
+        compact ? "Energia primaria · kWh/persona" : "ENERGIA PRIMARIA · KWH PER PERSONA",
       ),
     );
 
@@ -308,8 +311,7 @@
       });
       circle.addEventListener("blur", hideTooltip);
       circle.addEventListener("click", () => {
-        if (featured) selectCountry(country.c);
-        else updateDetail(country);
+        selectCountry(country.c);
       });
       circle.addEventListener("keydown", (event) => {
         if (event.key === "Enter" || event.key === " ") {
@@ -374,6 +376,18 @@
             country.g > 0 &&
             country.e > 0,
         );
+      const label = document.createElement("label");
+      label.className = "gdp-country-select-label";
+      label.htmlFor = "gdp-country-select";
+      label.textContent = "Esplora un Paese";
+      const select = document.createElement("select");
+      select.id = "gdp-country-select";
+      [...dataset].sort((a, b) => countryLabel(a).localeCompare(countryLabel(b), "it")).forEach(country => {
+        select.add(new Option(countryLabel(country), country.c));
+      });
+      select.addEventListener("change", () => selectCountry(select.value));
+      label.appendChild(select);
+      frame.before(label);
       selectCountry(selectedCode);
     })
     .catch(() => {
@@ -460,7 +474,7 @@
     const desiredTop = event.clientY - bounds.top + 14;
     const maxLeft = bounds.width - tooltip.offsetWidth - 12;
     tooltip.style.left = Math.max(10, Math.min(desiredLeft, maxLeft)) + "px";
-    tooltip.style.top = Math.max(10, desiredTop) + "px";
+    tooltip.style.top = Math.max(10, Math.min(desiredTop, bounds.height - tooltip.offsetHeight - 10)) + "px";
   }
 
   function hideTooltip() {
@@ -521,17 +535,17 @@
     if (!dataset.length) return;
 
     const compact = window.innerWidth < 700;
-    const width = compact ? 720 : 1120;
-    const height = compact ? 860 : 760;
-    const left = compact ? 78 : 92;
+    const width = Math.max(260, Math.round(svg.getBoundingClientRect().width || 1000));
+    const height = compact ? 570 : 700;
+    const left = compact ? 48 : 78;
     const right = width - (compact ? 28 : 48);
     const topPlot = {
       top: 68,
-      bottom: compact ? 468 : 442,
+      bottom: compact ? 295 : 395,
     };
     const personPlot = {
-      top: compact ? 594 : 544,
-      bottom: compact ? 782 : 688,
+      top: compact ? 385 : 500,
+      bottom: compact ? 515 : 632,
     };
     const maxTotal = 200000;
     const maxPerson = 3000;
@@ -539,7 +553,7 @@
     const yTop = (value) => topPlot.bottom - (value / maxTotal) * (topPlot.bottom - topPlot.top);
     const yPerson = (value) =>
       personPlot.bottom - (Math.min(value, maxPerson) / maxPerson) * (personPlot.bottom - personPlot.top);
-    const xTicks = compact ? [1800, 1900, 1950, 2000, 2024] : [1800, 1850, 1900, 1950, 2000, 2024];
+    const xTicks = compact ? [1800, 1900, 2024] : [1800, 1850, 1900, 1950, 2000, 2024];
     const totalTicks = compact ? [0, 100000, 200000] : [0, 50000, 100000, 150000, 200000];
     const personTicks = [0, 1000, 2000, 3000];
 
@@ -606,12 +620,12 @@
       make(
         "text",
         { class: "history-axis-label", x: left, y: topPlot.top - 28 },
-        "ENERGIA PRIMARIA GLOBALE · TWh/ANNO",
+        compact ? "Energia primaria · TWh/anno" : "ENERGIA PRIMARIA GLOBALE · TWh/ANNO",
       ),
       make(
         "text",
         { class: "history-axis-label", x: left, y: personPlot.top - 28 },
-        "POTENZA PRIMARIA MEDIA PER PERSONA · W",
+        compact ? "Potenza media per persona · W" : "POTENZA PRIMARIA MEDIA PER PERSONA · W",
       ),
       make("line", {
         class: "history-axis-line",

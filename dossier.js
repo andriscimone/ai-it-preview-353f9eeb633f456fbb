@@ -35,6 +35,20 @@ const metrReadingCi = document.getElementById("metr-reading-ci");
 const metrReadingStatus = document.getElementById("metr-reading-status");
 const metrMaxMinutes = 32 * 60;
 
+// Keep the selected result beside its bar, even in long mobile rankings.
+function chartSelectionNote(button, id, text) {
+  if (!button) return;
+  let note = document.getElementById(id);
+  if (!note) {
+    note = document.createElement('p');
+    note.id = id;
+    note.className = 'chart-selection-note';
+    note.setAttribute('role', 'status');
+  }
+  note.textContent = text;
+  button.after(note);
+}
+
 function metrPosition(minutes) {
   const boundedMinutes = Math.max(1, Math.min(minutes, metrMaxMinutes));
   return `${(Math.log(boundedMinutes) / Math.log(metrMaxMinutes)) * 100}%`;
@@ -53,6 +67,8 @@ function renderMetrModel(key) {
     button.classList.toggle("is-active", selected);
     button.setAttribute("aria-pressed", String(selected));
   });
+  chartSelectionNote(metrButtons.find(button => button.dataset.metrModel === key), 'metr-selection-note',
+    `P50: ${model.duration} di lavoro umano. Intervallo di confidenza: ${model.ci}. ${model.status}`);
 }
 
 metrButtons.forEach(button => {
@@ -133,6 +149,8 @@ function selectArcSystem(id) {
   arcDetailCopy.textContent = activeArcView === "arc2"
     ? `Risolve esattamente ${arcScore(system.score)} dei task nella valutazione semi-privata. Il punteggio non descrive conoscenza generale né lavoro autonomo.`
     : `Ottiene ${arcScore(system.score)} combinando livelli completati ed efficienza delle azioni su ambienti semi-privati. Il 100% corrisponde alla prestazione umana di riferimento.`;
+  chartSelectionNote(arcRankingList.querySelector(`[data-arc-system="${id}"]`), 'arc-selection-note',
+    `${system.name} · ${system.org} · ${system.date}. ${arcDetailCopy.textContent}`);
 }
 
 function renderArcLeaderboard(view) {

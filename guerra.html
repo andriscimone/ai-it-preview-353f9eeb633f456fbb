@@ -15,6 +15,7 @@
     <script>(() => { try { const saved = localStorage.getItem("aiit-theme"); const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dataset.theme = saved || preferred; } catch (_) { document.documentElement.dataset.theme = "light"; } })();</script>
     <link rel="stylesheet" href="styles.css?v=dossier-1" />
     <link rel="stylesheet" href="altro.css?v=war-3" />
+    <link rel="stylesheet" href="editorial.css?v=20260904" />
   </head>
   <body class="detail-page dossier-page war-page">
     <a class="skip-link" href="#top">Salta al contenuto</a><div class="noise" aria-hidden="true"></div>
@@ -217,6 +218,6 @@
       <nav class="chapter-next" aria-label="Continua la lettura"><a href="politica.html">← Precedente: Politica</a><a href="altro.html">Torna alla panoramica Dossier →</a></nav>
     </main>
     <footer class="site-footer"><span>AI.it</span><span>Guerra · Palantir / Anduril</span></footer>
-    <script src="app.js"></script><script src="dossier.js"></script><script src="guerra.js"></script>
+    <script src="app.js?v=20260904-editorial"></script><script src="dossier.js?v=20260904-editorial"></script><script src="guerra.js"></script>
   </body>
 </html>
