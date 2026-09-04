@@ -22,6 +22,14 @@ La pagina segreta `spooky-timeline.html` apre con *Accelerando*: un'introduzione
 
 Il quarto capitolo presenta l'inferenza come lavoro svolto dopo una domanda. Collega test-time compute e sistemi multi-agent alla frontiera dell'efficienza: velocità percepita (token in output al secondo per utente) contro capacità del sistema (token in output al secondo per megawatt).
 
+Il 4 settembre 2026 sono state importate dalla [versione di riferimento](https://cerulean-delta-b5sz.here.now/novita.html) le notizie N15–N19: Jalapeño, GLM-5.3-Flash / Ox Alpha, Fable 5.1, GPT-6 Astra e Cybercab. Testi, fonti e grafica risiedono in `novita.html` e `novita.css`; le tre immagini aggiunte sono in `assets/` e vengono copiate automaticamente nell’anteprima e nella build.
+
+La revisione editoriale approvata nello stesso giorno ha ridotto le anteprime a 40–44 parole, eliminato ripetizioni e chiarito sigle, attribuzioni e confronti economici. Astra segue l’ordine attività → costi e accesso → limiti; gli scenari Cybercab restano una riflessione personale con prezzi ipotetici; GLM presenta il benchmark completo prima del piccolo campione iniziale. Sono conservati i collegamenti alle fonti, le immagini, i dati dei grafici e gli identificatori delle sezioni. Le date di consultazione si riferiscono alla versione importata: questa revisione riguarda la scrittura e non rinnova la verifica delle fonti.
+
+Per verificare l’importazione, aprire `novita.html`: il contatore deve mostrare 19 notizie in 16 giorni e le prime cinque schede devono avere numeri da N19 a N15. Aprire ogni scheda, controllare le immagini e richiuderla con “Meno”. Se manca un’immagine, controllare il relativo file in `assets/`; se compare la grafica precedente, ricaricare la pagina.
+
+Per rispettare il limite Sites di 10 MiB (10.485.760 byte), `scripts/finalize-dist.mjs` reindirizza il grafico GLM e il meme della Jacobiana alle copie originali su GitHub Raw, fissate a una revisione immutabile. Le pagine mantengono i percorsi relativi in `assets/`: localmente e su GitHub Pages sono file statici; su Sites quei due indirizzi effettuano un reindirizzamento. Non viene ridotta la risoluzione. Se si aggiornano queste immagini, occorre pubblicare prima i nuovi file su GitHub e aggiornare la revisione nei reindirizzamenti. Preparare il rilascio in una copia pulita e ricontrollare la dimensione di `dist/server/index.js`, per evitare di includere immagini locali estranee.
+
 Per provarlo localmente, avvia un server statico dalla cartella del progetto:
 
 ```powershell
