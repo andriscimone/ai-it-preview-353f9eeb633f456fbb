@@ -44,6 +44,9 @@ const routeFiles = [
   "spooky-timeline.html",
   "app.js",
   "dossier.js",
+  "benchmark-data.js",
+  "harness-lab.js",
+  "chip-visuals.js",
   "energy-visuals.js",
   "algorithm-visuals.js",
   "politica.js",
@@ -51,6 +54,8 @@ const routeFiles = [
   "news-jacobiana.js",
   "spooky-timeline.js",
   "energy.css",
+  "benchmark.css",
+  "chip.css",
   "algorithms.css",
   "inferenza.css",
   "politica.css",
@@ -75,6 +80,7 @@ const excludedEmbeddedAssets = new Set([
   "assets/terafab-scale-nic-cruz-patane.webp"
 ]);
 const externalRoutes = {
+  "/assets/anduril-field-test-editorial-v1.png": "https://raw.githubusercontent.com/andriscimone/ai-it-preview-353f9eeb633f456fbb/89dd1bb7ea03319a715c1969dc9670ac1b3476ee/assets/anduril-field-test-editorial-v1.png",
   // Pin the original PNGs to a published revision, preserving resolution while
   // keeping the Worker below the Sites upload limit.
   "/assets/n16-glm53-flash-pareto.png": "https://raw.githubusercontent.com/andriscimone/ai-it-preview-353f9eeb633f456fbb/ad7e363df8b28fa73011dd43337ce1244225edbd/assets/n16-glm53-flash-pareto.png",

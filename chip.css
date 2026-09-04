@@ -1,0 +1,137 @@
+/* The chapter's diagrams share one readable, responsive visual vocabulary. */
+.chip-page .chip-history { color: var(--ink); background: var(--paper); }
+.chip-page .history-panel { padding: clamp(44px, 7vw, 104px) 5vw; border-color: var(--line); background: var(--paper); }
+.chip-page .history-panel > header { gap: 32px; margin-bottom: 36px; grid-template-columns: 1.15fr 1fr; }
+.chip-page .history-panel > header h2 { color: var(--ink); font-size: clamp(36px, 4.8vw, 68px); line-height: 1.04; }
+.chip-page .history-panel > header > p, .chip-page .history-panel .diagram-note { color: var(--muted); }
+.chip-page .history-panel .kicker, .chip-page .history-panel > header em { color: var(--ui-accent); }
+.chip-page .history-panel .interpretation-label { color: var(--muted); }
+.chip-page .chip-history-hero { color: #edf3f7; }
+.chip-page .chip-origin-timeline { background: var(--paper-deep); border-color: var(--line); }
+.chip-page .chip-origin-timeline li { border-color: var(--line); }
+.chip-page .chip-origin-timeline :is(time, strong) { color: var(--ink); }
+.chip-page .chip-origin-timeline :is(p, span) { color: var(--muted); }
+.chip-page .chip-origin-timeline .is-italian { background: var(--chart-focus); }
+.chip-page .faggin-spotlight { background: var(--paper-deep); border-color: var(--line); }
+.chip-page .faggin-spotlight :is(h2, h2 em, dd) { color: var(--ink); }
+.chip-page .faggin-spotlight :is(p, dt, a) { color: var(--muted); }
+.chip-page .faggin-stamp { color: var(--ink); border-color: var(--line); }
+.chip-page .faggin-stamp i { background: var(--line); }
+.chip-page .faggin-spotlight dl, .chip-page .faggin-spotlight dl div { border-color: var(--line); }
+.chip-page .moore-equation { color: var(--ink); border-color: var(--line); }
+.chip-page .moore-equation :is(span, strong, i) { color: var(--muted); }
+.chip-page .stagnation-layout { grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: 32px; }
+.chip-page .thiel-reading { color: var(--ink); background: var(--paper-deep); border-color: var(--line); }
+.chip-page .thiel-reading :is(p, a), .chip-page .evidence-warning { color: var(--muted); }
+.chip-page .thiel-reading blockquote { color: var(--ink); }
+.chip-page .evidence-warning { border-color: var(--line); }
+.chip-page .evidence-warning strong { color: var(--ink); }
+.chip-page .token-evidence { grid-template-columns: 1fr 1.1fr; gap: 30px; }
+.chip-page .token-explainer :is(h3, .token-callout) { color: var(--ink); }
+.chip-page .token-explainer > p { color: var(--muted); }
+.chip-page .economy-shift article { background: var(--paper-deep); border-color: var(--line); }
+.chip-page .economy-shift :is(article strong, article.is-token strong, > i) { color: var(--ink); }
+.chip-page .economy-shift article :is(span, p) { color: var(--muted); }
+.chip-page .history-bridge { background: var(--paper-deep); color: var(--ink); }
+.chip-page .history-bridge :is(h2, a, span) { color: var(--ink); }
+.chip-page .chip-scale-head h2 { font-size: clamp(36px, 4.5vw, 64px); line-height: 1.05; }
+.chip-page .cc-figure { --cc-color: var(--chart-primary); margin: 28px 0; padding: clamp(18px, 3vw, 36px); color: var(--ink); background: var(--chart-surface); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--ui-shadow); min-width: 0; }
+.chip-page .cc-figure :is(p, h3, h4, figure, dl) { margin: 0; }
+.chip-page .cc-figure > :is(figcaption, .cc-caption) { margin-bottom: 26px; }
+.chip-page .cc-figure :is(figcaption, .cc-caption) h3 { margin: 8px 0 12px; color: var(--ink); font: 500 clamp(25px, 3vw, 37px)/1.14 var(--serif); letter-spacing: -.035em; }
+.chip-page .cc-figure :is(figcaption, .cc-caption) p { max-width: 78ch; font: 15px/1.65 var(--sans); color: var(--muted); }
+.chip-page .cc-eyebrow { display: block; color: var(--muted); font: 600 12px/1.5 var(--sans); letter-spacing: .055em; text-transform: uppercase; }
+.chip-page .cc-figure .cc-note { margin: 20px 0 0; color: var(--muted); font: 13px/1.65 var(--sans); }
+.chip-page .cc-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding-block: 4px 18px; font: 600 14px var(--sans); }
+.chip-page .cc-toolbar select { min-height: 44px; width: min(100%, 300px); border: 1px solid var(--line); border-radius: 7px; color: var(--ink); background: var(--paper); padding: 9px 12px; font: 14px var(--sans); }
+.chip-page .cc-svg-plot { width: 100%; min-width: 0; }
+.chip-page .cc-svg-plot svg { display: block; width: 100%; height: auto; overflow: visible; }
+.chip-page .cc-tick { font: 12px var(--sans); fill: var(--muted); }
+.chip-page .cc-grid-line { stroke: var(--chart-grid); stroke-width: 1; }
+.chip-page .cc-milestone-dot { fill: var(--cc-color); stroke: var(--chart-surface); stroke-width: 2; }
+.chip-page .cc-milestone-dot.is-cpu { fill: var(--chart-surface); stroke: var(--cc-color); }
+.chip-page .cc-milestone-dot.is-selected { stroke: var(--ink); stroke-width: 2.5; }
+.chip-page .cc-selection { margin: 22px 0 0; padding: 18px 20px; background: var(--chart-focus); border-left: 3px solid var(--cc-color); border-radius: 0 8px 8px 0; }
+.chip-page .cc-selection > span { display: block; color: var(--muted); font: 13px/1.5 var(--sans); }
+.chip-page .cc-selection > strong { display: block; margin: 3px 0 6px; color: var(--ink); font: 600 22px/1.3 var(--sans); letter-spacing: -.025em; }
+.chip-page .cc-selection p { font: 14px/1.65 var(--sans); color: var(--muted); }
+.chip-page .cc-data { margin-top: 22px; border-top: 1px solid var(--line); font: 14px/1.65 var(--sans); }
+.chip-page .cc-data summary { min-height: 44px; padding-block: 14px; color: var(--ink); cursor: pointer; font-weight: 600; }
+.chip-page .cc-data > div { overflow-x: auto; }
+.chip-page .cc-data p { margin-bottom: 12px; }
+.chip-page .cc-data table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13px; }
+.chip-page .cc-data caption { padding: 4px 0 12px; text-align: left; color: var(--muted); }
+.chip-page .cc-data :is(th, td) { padding: 11px 10px; border-bottom: 1px solid var(--line); white-space: normal; min-width: 86px; }
+.chip-page .cc-data tbody th { font-weight: 500; }
+.chip-page .cc-segments { display: flex; gap: 8px; flex-wrap: wrap; margin: 0 0 24px; }
+.chip-page .cc-segments button { min-height: 44px; padding: 10px 15px; border: 1px solid var(--line); border-radius: 8px; color: var(--ink); background: var(--paper); font: 600 14px/1.4 var(--sans); cursor: pointer; }
+.chip-page .cc-segments button[aria-pressed="true"] { color: var(--chart-surface); border-color: var(--cc-color); background: var(--cc-color); }
+.chip-page .cc-figure :is(button, select, input, summary, a):focus-visible { outline: 3px solid var(--cc-color); outline-offset: 4px; }
+.chip-page .cc-range-label { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin: 22px 0 4px; color: var(--ink); font: 500 14px/1.5 var(--sans); }
+.chip-page .cc-range-label output { white-space: nowrap; font: 600 14px/1.5 var(--mono); color: var(--cc-color); }
+.chip-page .cc-figure input[type="range"] { display: block; width: 100%; height: 44px; margin: 0 0 14px; padding: 0; accent-color: var(--cc-color); cursor: pointer; }
+.chip-page .cc-controls-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px; }
+.chip-page .cc-controls-grid .cc-range-label { margin-top: 0; }
+.chip-page .cc-lanes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 18px; }
+.chip-page .cc-lanes section { padding: 20px; background: var(--paper); border: 1px solid var(--line); border-radius: 10px; }
+.chip-page .cc-lanes header { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
+.chip-page .cc-lanes h4 { color: var(--ink); font: 600 16px/1.3 var(--sans); }
+.chip-page .cc-lanes header strong { white-space: nowrap; font: 600 14px var(--mono); color: var(--cc-color); }
+.chip-page .cc-task-grid { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 6px; }
+.chip-page .cc-task-grid i { aspect-ratio: 1; border: 1px solid var(--line); background: var(--chart-surface); border-radius: 3px; }
+.chip-page .cc-task-grid .is-done { background: var(--cc-color); border-color: var(--cc-color); }
+.chip-page .cc-lanes p { margin-top: 14px; color: var(--muted); font: 13px/1.6 var(--sans); }
+.chip-page .cc-scale { display: flex; justify-content: space-between; gap: 6px; padding: 0 0 9px; color: var(--muted); font: 12px/1.5 var(--mono); }
+.chip-page .cc-bar-item { padding: 13px 0 15px; }
+.chip-page .cc-bar-label { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin-bottom: 9px; color: var(--ink); font: 500 14px/1.4 var(--sans); }
+.chip-page .cc-bar-label b { font: 600 17px/1.4 var(--sans); }
+.chip-page .cc-bar-label strong { flex-shrink: 0; white-space: nowrap; color: var(--ink); font: 600 18px/1.4 var(--mono); }
+.chip-page .cc-bar-label small { display: block; color: var(--muted); font: 12px/1.5 var(--sans); }
+.chip-page .cc-bar-label strong small { display: inline; font-size: 12px; }
+.chip-page .cc-bar-track { position: relative; display: block; height: 14px; width: 100%; border-left: 1px solid var(--chart-axis); background: var(--paper-deep); border-radius: 0 3px 3px 0; }
+.chip-page .cc-bar-track > i { height: 100%; display: block; background: var(--cc-color); border-radius: 0 3px 3px 0; transition: width .2s ease; }
+.chip-page .cc-bar-reference > i { background: var(--chart-axis); }
+.chip-page .cc-axis-description { margin-bottom: 14px; color: var(--muted); font: 13px/1.6 var(--sans); }
+.chip-page .cc-hardware-row { display: block; width: 100%; padding: 13px 14px 16px; margin-bottom: 4px; text-align: left; border: 1px solid transparent; border-radius: 9px; background: transparent; cursor: pointer; }
+.chip-page .cc-hardware-row[aria-pressed="true"] { background: var(--chart-focus); border-color: var(--cc-color); }
+.chip-page .cc-hardware-row[aria-pressed="false"] .cc-bar-track i { opacity: .82; }
+.chip-page .cc-hardware-row:hover { background: var(--paper); }
+.chip-page #cc-hardware-bars > .cc-scale { margin-inline: 14px; }
+.chip-page .cc-hardware-row.is-preliminary .cc-bar-track i { border: 1px dashed var(--cc-color); background: color-mix(in srgb, var(--cc-color) 22%, var(--chart-surface)); }
+.chip-page .cc-hardware-detail { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(220px, .7fr); gap: 30px; margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--line); }
+.chip-page .cc-hardware-detail h4 { margin: 7px 0 10px; color: var(--ink); font: 600 24px/1.2 var(--sans); letter-spacing: -.035em; }
+.chip-page .cc-hardware-detail p { color: var(--muted); font: 14px/1.65 var(--sans); }
+.chip-page .cc-hardware-detail a { display: inline-block; margin-top: 12px; font: 600 14px/1.5 var(--sans); }
+.chip-page .cc-hardware-detail dl { display: flex; justify-content: space-between; align-self: start; gap: 16px; }
+.chip-page .cc-hardware-detail dt { color: var(--muted); font: 13px/1.5 var(--sans); }
+.chip-page .cc-hardware-detail dd { margin: 5px 0 0; color: var(--ink); font: 600 30px/1.3 var(--sans); letter-spacing: -.04em; }
+.chip-page .cc-hardware-detail dd small { font-size: 14px; letter-spacing: 0; color: var(--muted); }
+.chip-page .cc-industry-row { margin-block: 8px 20px; }
+.chip-page .cc-interval { position: absolute; height: 5px; top: 4px; border-top: 2px solid var(--ink); }
+.chip-page .cc-interval::before, .chip-page .cc-interval::after { content: ""; position: absolute; width: 2px; height: 15px; background: var(--ink); top: -8px; }
+.chip-page .cc-interval::before { left: 0; }.chip-page .cc-interval::after { right: 0; }
+.chip-page .cc-interval-label { margin-top: 9px; color: var(--muted); font: 12px/1.5 var(--sans); }
+@media (max-width: 800px) {
+  .chip-page .history-panel > header, .chip-page .stagnation-layout, .chip-page .token-evidence { grid-template-columns: 1fr; }
+  .chip-page .cc-hardware-detail { grid-template-columns: 1fr; }
+  .chip-page .cc-hardware-detail dl { justify-content: flex-start; gap: 40px; }
+}
+@media (max-width: 520px) {
+  .chip-page .history-panel { padding: 48px 16px; }
+  .chip-page .history-panel > header { gap: 20px; }
+  .chip-page .cc-figure { margin-block: 24px; padding: 18px 14px; border-radius: 11px; }
+  .chip-page .cc-lanes, .chip-page .cc-controls-grid { grid-template-columns: 1fr; gap: 18px; }
+  .chip-page .cc-lanes section { padding: 16px; }
+  .chip-page .cc-task-grid i { max-height: 30px; }
+  .chip-page .cc-selection { padding: 15px; }
+  .chip-page .cc-selection > strong { font-size: 20px; }
+  .chip-page .cc-segments { gap: 6px; margin-bottom: 20px; }
+  .chip-page .cc-segments button { padding: 9px 11px; font-size: 13px; flex: 1 1 auto; }
+  .chip-page .cc-range-label { flex-wrap: wrap; gap: 3px 10px; }
+  .chip-page .cc-hardware-row { padding: 11px 6px 14px; }
+  .chip-page #cc-hardware-bars > .cc-scale { margin-inline: 6px; }
+  .chip-page .cc-hardware-detail dl { gap: 26px; }
+  .chip-page .cc-hardware-detail dd { font-size: 27px; }
+  .chip-page .cc-data :is(th, td) { padding: 9px 6px; font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) { .chip-page .cc-bar-track > i { transition: none; } }

@@ -22,7 +22,7 @@
       })();
     </script>
     <link rel="stylesheet" href="styles.css?v=system-mobile-2" />
-    <link rel="stylesheet" href="algorithms.css?v=system-mobile-2" />
+    <link rel="stylesheet" href="algorithms.css?v=20260905-efficiency" />
     <link rel="stylesheet" href="editorial.css?v=20260904" />
   </head>
   <body class="detail-page algorithm-page">
@@ -354,112 +354,67 @@
           <footer class="progress-machine-foot"><p>Schema ispirato alla scomposizione “compute · algorithmic efficiency · unhobbling” proposta da Leopold Aschenbrenner.</p><a href="https://situational-awareness.ai/from-gpt-4-to-agi/" target="_blank" rel="noreferrer">Vai al capitolo originale ↗</a></footer>
         </article>
 
-        <article class="algorithm-lab" id="efficienza" aria-labelledby="algorithm-lab-title">
-          <header class="evidence-header">
-            <div><p class="kicker">100 blocchi oggi, quanti domani?</p><h2 id="algorithm-lab-title">Stesso target, meno compute</h2><p>Ogni quadratino rappresenta un blocco del compute che serve oggi. Sposta il tempo e guarda quanti blocchi restano necessari per raggiungere lo stesso risultato.</p></div>
+        <article class="efficiency-lab" id="efficienza" aria-labelledby="efficiency-title">
+          <header class="efficiency-intro">
+            <p class="kicker">Un esperimento da esplorare</p>
+            <h2 id="efficiency-title">Stesso risultato.<br /><em>Meno lavoro.</em></h2>
+            <p>Fissa un obiettivo di addestramento: raggiungere lo stesso livello di errore su un test linguistico. La ricetta iniziale richiede <strong>100 unità di calcolo</strong>. Che cosa cambia se gli algoritmi diventano più efficienti?</p>
+            <span class="efficiency-badge">Simulazione didattica · tasso storico, nessuna previsione</span>
           </header>
-          <div class="algorithm-stage">
-            <div class="algorithm-answer" aria-live="polite">
-              <span id="algorithm-answer-time">Oggi</span>
-              <p>Per raggiungere <b>lo stesso target</b> servono <strong id="algorithm-answer-compute">100 blocchi su 100</strong>.</p>
-            </div>
-
-            <div class="compute-comparison">
-              <figure class="compute-snapshot compute-snapshot-today">
-                <header><span>Punto di partenza</span><strong>Oggi · 100%</strong></header>
-                <div class="compute-tile-grid" id="compute-grid-today" role="img" aria-label="Oggi servono tutti i 100 blocchi di compute"></div>
-                <figcaption>100 blocchi necessari</figcaption>
-              </figure>
-
-              <div class="compute-divider" aria-hidden="true"><span id="algorithm-divisor">÷ 1</span><i>stesso<br />risultato</i></div>
-
-              <figure class="compute-snapshot compute-snapshot-future">
-                <header><span id="algorithm-future-label">Con il tasso storico</span><strong id="compute-required">100%</strong></header>
-                <div class="compute-tile-grid" id="compute-grid-future" role="img" aria-label="Oggi servono 100 blocchi di compute"></div>
-                <figcaption><span><i class="tile-key is-required"></i>serve ancora</span><span><i class="tile-key is-freed"></i>compute liberato</span></figcaption>
-              </figure>
-            </div>
-
-            <div class="compute-payoff">
-              <div><span>Compute liberato</span><strong id="compute-freed">0%</strong><small>del budget iniziale</small></div>
-              <p>Oppure, mantenendo lo stesso budget di oggi, puoi ottenere un lavoro equivalente a <strong id="effective-multiplier">1×</strong>.</p>
-            </div>
-
-            <div class="algorithm-control">
-              <label class="algorithm-range-label" for="algorithm-months"><span>Fai avanzare il tempo</span><strong><span id="algorithm-months-value">0</span> mesi</strong></label>
-              <input id="algorithm-months" type="range" min="0" max="40" step="1" value="0" />
-              <div class="algorithm-presets" aria-label="Scorciatoie temporali">
-                <button class="is-active" type="button" data-algorithm-months="0" aria-pressed="true">Oggi</button>
-                <button type="button" data-algorithm-months="8" aria-pressed="false">8 mesi</button>
-                <button type="button" data-algorithm-months="16" aria-pressed="false">16 mesi</button>
-                <button type="button" data-algorithm-months="24" aria-pressed="false">24 mesi</button>
-                <button type="button" data-algorithm-months="32" aria-pressed="false">32 mesi</button>
-                <button type="button" data-algorithm-months="40" aria-pressed="false">40 mesi</button>
-              </div>
-            </div>
+          <div class="efficiency-steps" role="group" aria-label="Esplora il confronto in tre passaggi">
+            <button type="button" data-efficiency-step="baseline" aria-pressed="false"><span>01</span> Fissa il target</button>
+            <button type="button" data-efficiency-step="saving" aria-pressed="true"><span>02</span> Migliora la ricetta</button>
+            <button type="button" data-efficiency-step="reinvest" aria-pressed="false"><span>03</span> Usa il risparmio</button>
           </div>
-          <footer class="evidence-footer"><p>È un simulatore del tasso storico, non una previsione: Epoch AI analizza 231 stime su language model fra 2012 e 2023. Stima centrale: dimezzamento ogni 8 mesi; intervallo di confidenza 95%: 5–14 mesi.</p><a href="https://epoch.ai/publications/algorithmic-progress-in-language-models" target="_blank" rel="noreferrer">Studio e metodo ↗</a></footer>
-        </article>
-
-        <article class="benchmark-atlas" id="benchmark-modelli" aria-labelledby="benchmark-atlas-title">
-          <header class="benchmark-atlas-intro">
-            <p class="kicker">La scala, finalmente visibile</p>
-            <h2 id="benchmark-atlas-title">Da 1.700 miliardi a 2.</h2>
-            <p>Non è una classifica: seguiamo quanto si è ristretto il modello necessario per <strong>raggiungere o superare il 39% di GPT-4 su GPQA Diamond</strong>.</p>
-          </header>
-
-          <div class="benchmark-explorer">
-            <div class="benchmark-chart-head">
-              <div><span>Confronto diretto con la stima di GPT-4</span><strong id="benchmark-current-summary">1.700B → 2B</strong></div>
-              <p>Scegli una tappa: la visualizzazione si restringe insieme al modello.</p>
-            </div>
-
-            <nav class="benchmark-milestones" id="benchmark-milestones" aria-label="Tappe della miniaturizzazione"></nav>
-
-            <div class="benchmark-shrink-stage" id="benchmark-shrink-stage" role="img" aria-label="Confronto tra la stima di 1.700 miliardi di parametri di GPT-4 e il modello selezionato">
-              <div class="benchmark-origin">
-                <span>Punto di partenza · 2023</span>
-                <strong>1.700B</strong>
-                <small>GPT-4 · stima totale non ufficiale</small>
-              </div>
-              <div class="benchmark-ratio">
-                <strong id="benchmark-ratio">850×</strong>
-                <span id="benchmark-ratio-label">meno parametri</span>
-              </div>
-              <div class="benchmark-selected-mass">
-                <span id="benchmark-selected-label">Marzo 2026 · Qwen3.5-2B</span>
-                <strong id="benchmark-selected-size">2B</strong>
-                <small>parametri attivi / effettivi pubblicati</small>
+          <div class="efficiency-workspace">
+            <div class="efficiency-main">
+              <div class="efficiency-target"><span>Ciò che resta fermo</span><strong>Compito, soglia di errore e valutazione</strong></div>
+              <figure class="efficiency-bars" aria-labelledby="efficiency-bars-title">
+                <figcaption id="efficiency-bars-title">Compute necessario per raggiungere il target <span>Indice · ricetta iniziale = 100</span></figcaption>
+                <div class="efficiency-bar-row"><div><span>Ricetta iniziale</span><strong>100</strong></div><div class="efficiency-bar-track"><i class="efficiency-baseline-bar"></i></div></div>
+                <div class="efficiency-bar-row"><div><span>Ricetta migliorata</span><strong id="efficiency-required">25</strong></div><div class="efficiency-bar-track"><i id="efficiency-required-bar" style="width:25%"></i><b id="efficiency-freed-bar" style="width:75%"></b></div></div>
+                <div class="efficiency-ticks" aria-hidden="true"><span>0</span><span>25</span><span>50</span><span>75</span><span>100</span></div>
+                <div class="efficiency-legend"><span><i></i>Calcolo necessario</span><span><i class="is-unused"></i>Budget disponibile</span></div>
+              </figure>
+              <div class="efficiency-slider">
+                <label for="efficiency-months"><span>Distanza tra le due ricette</span><strong><output id="efficiency-months-value">16</output> mesi</strong></label>
+                <input id="efficiency-months" type="range" min="0" max="32" step="1" value="16" aria-describedby="efficiency-slider-help" />
+                <div class="efficiency-presets" role="group" aria-label="Seleziona la distanza temporale"><button type="button" data-efficiency-months="0" aria-pressed="false">0 mesi</button><button type="button" data-efficiency-months="8" aria-pressed="false">8 mesi</button><button type="button" data-efficiency-months="16" aria-pressed="true">16 mesi</button><button type="button" data-efficiency-months="32" aria-pressed="false">32 mesi</button></div>
+                <p id="efficiency-slider-help">Il tempo applica una formula al tasso scelto. Non indica quando uscirà un modello né quanto costerà.</p>
               </div>
             </div>
-
-            <div class="benchmark-scale" aria-live="polite">
-              <div><span>GPT-4 stimato = 100%</span><strong id="benchmark-remaining-label">Al modello selezionato resta lo 0,12%</strong></div>
-              <div class="benchmark-scale-track" aria-hidden="true"><i id="benchmark-scale-remnant"></i></div>
-              <div class="benchmark-scale-caption"><span>1.700B</span><span id="benchmark-scale-end">2B</span></div>
-            </div>
-
-            <div class="benchmark-zoom" aria-label="Passaggi di scala">
-              <span id="benchmark-zoom-label">Per arrivarci servono tre zoom di scala</span>
-              <div id="benchmark-zoom-steps"></div>
-            </div>
-
-            <aside class="benchmark-detail" id="benchmark-detail" aria-live="polite">
-              <div class="benchmark-detail-score"><span>Parametri del modello</span><strong id="benchmark-detail-size">2B</strong></div>
-              <div class="benchmark-detail-copy">
-                <span id="benchmark-detail-date">2 marzo 2026 · Qwen</span>
-                <h3 id="benchmark-detail-name">Qwen3.5-2B</h3>
-                <p class="benchmark-detail-result"><strong id="benchmark-detail-score">51,6%</strong> GPQA Diamond <i>·</i> soglia GPT-4: 39%</p>
-                <p id="benchmark-detail-note">Con due miliardi di parametri supera la baseline GPT-4 del paper. Il risultato usa la modalità di ragionamento pubblicata nel model card.</p>
-              </div>
-              <a id="benchmark-detail-source" href="https://huggingface.co/Qwen/Qwen3.5-2B" target="_blank" rel="noreferrer">Apri model card e risultati ↗</a>
+            <aside class="efficiency-reading" aria-live="polite" aria-atomic="true">
+              <span id="efficiency-reading-kicker">A parità di target</span>
+              <strong id="efficiency-result">75%</strong>
+              <h3 id="efficiency-result-title">di compute risparmiato</h3>
+              <p id="efficiency-result-copy">Dopo 16 mesi al tasso scelto, 25 unità sostituiscono le 100 iniziali. Il target resta identico.</p>
+              <div class="efficiency-use" role="group" aria-label="Come usare il guadagno"><button type="button" data-efficiency-use="save" aria-pressed="true">Risparmia</button><button type="button" data-efficiency-use="reuse" aria-pressed="false">Reinvesti</button></div>
+              <small id="efficiency-result-limit">Risparmio di operazioni, senza conversione automatica in euro, energia o tempo.</small>
             </aside>
           </div>
+          <details class="efficiency-method" open>
+            <summary>Da dove arriva il tasso? Esplora l'incertezza</summary>
+            <div class="efficiency-method-body">
+              <div class="efficiency-research"><p class="kicker">Evidenza · 2012–2023</p><h3>Un dimezzamento in circa 8 mesi.</h3><p>Ho e colleghi studiano oltre 200 valutazioni di modelli su WikiText e Penn Treebank. La versione finale pubblicata a NeurIPS 2024 stima un intervallo di confidenza al 90% da <strong>2 a 22 mesi</strong> per il dimezzamento.</p><p>Il risultato riguarda il pretraining nel periodo studiato. L'ampiezza dell'intervallo invita a non usare la media come un calendario del futuro.</p><a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/6b066da6a23bc55f9b887e7298102884-Abstract-Conference.html" target="_blank" rel="noreferrer">Leggi il paper finale ↗</a></div>
+              <div class="efficiency-curve-panel">
+                <div class="efficiency-rate" role="group" aria-label="Mesi necessari per dimezzare il compute"><button type="button" data-efficiency-rate="22" aria-pressed="false">22 mesi <small>estremo lento</small></button><button type="button" data-efficiency-rate="8" aria-pressed="true">8 mesi <small>stima centrale</small></button><button type="button" data-efficiency-rate="2" aria-pressed="false">2 mesi <small>estremo rapido</small></button></div>
+                <svg id="efficiency-curve" role="img" aria-labelledby="efficiency-curve-title efficiency-curve-desc"></svg>
+                <p class="efficiency-formula">Compute = 100 × 2<sup>−mesi / tempo di dimezzamento</sup>. La curva continua è calcolata; la fascia mostra i due estremi applicati alla formula, senza probabilità previsiva.</p>
+              </div>
+            </div>
+          </details>
+          <noscript><p class="efficiency-noscript">Con un dimezzamento ogni 8 mesi: indice 100 all'inizio, 50 a 8 mesi, 25 a 16 mesi e 6,25 a 32 mesi. Le interazioni richiedono JavaScript.</p></noscript>
+        </article>
 
-          <footer class="benchmark-footer">
-            <p><strong>Confronto d'ordine di grandezza:</strong> 1.700B è una stima non ufficiale dei parametri totali di GPT-4; i modelli piccoli riportano parametri densi, attivi o effettivi. Il confronto rende visibile la scala, ma non misura direttamente energia, velocità o costo.</p>
-            <a href="https://arxiv.org/abs/2311.12022" target="_blank" rel="noreferrer"><span>Il target del 2023</span> Paper GPQA ↗</a>
-          </footer>
+        <article class="model-workbench" id="benchmark-modelli" aria-labelledby="model-workbench-title">
+          <header class="efficiency-intro"><p class="kicker">Esempi aggiornati · settembre 2026</p><h2 id="model-workbench-title">I modelli cambiano.<br /><em>Le misure vanno distinte.</em></h2><p>Esplora Gemma 4 e Qwen3.5: il punteggio mostra un risultato; i parametri descrivono una parte del modello. Per misurare l'efficienza serve anche sapere quanto calcolo è stato impiegato.</p></header>
+          <div class="model-workbench-controls" role="group" aria-label="Famiglia di modelli"><button type="button" data-efficiency-family="gemma" aria-pressed="true">Gemma 4</button><button type="button" data-efficiency-family="qwen" aria-pressed="false">Qwen3.5</button></div>
+          <div class="model-workbench-layout">
+            <div><div class="model-workbench-label"><strong>GPQA Diamond</strong><span>Accuratezza dichiarata dal laboratorio · 0–100%</span></div><div id="efficiency-model-bars" class="efficiency-model-bars"></div><p class="model-workbench-help">Tocca una barra per leggere dimensioni e metodo. Ogni famiglia resta nel proprio gruppo di valutazioni.</p></div>
+            <aside class="efficiency-model-detail" aria-live="polite" aria-atomic="true"><span id="efficiency-model-lab">Google DeepMind</span><h3 id="efficiency-model-name">Gemma 4 12B Unified</h3><dl><div><dt>Parametri dichiarati</dt><dd id="efficiency-model-params">11,95 miliardi</dd></div><div><dt>GPQA Diamond</dt><dd id="efficiency-model-score">78,8%</dd></div></dl><p id="efficiency-model-note">Immagini e audio entrano direttamente nel modello linguistico, senza encoder dedicati. Questo cambiamento di architettura, da solo, non quantifica il risparmio.</p><a id="efficiency-model-source" href="https://ai.google.dev/gemma/docs/core/model_card_4" target="_blank" rel="noreferrer">Scheda ufficiale e protocollo ↗</a></aside>
+          </div>
+          <footer class="model-workbench-footer"><p><strong>Come leggere:</strong> risultati delle versioni instruction-tuned con ragionamento, secondo le rispettive schede. Budget di token e procedure possono differire. Parametri totali, attivi ed effettivi hanno significati diversi: non si dividono per ricavare un risparmio di compute.</p><a href="benchmark.html">Esplora tutti i benchmark →</a></footer>
+          <noscript><p class="efficiency-noscript">Gemma 4: E2B 43,4%; 12B Unified 78,8%; 26B A4B 82,3%; 31B 84,3%. Qwen3.5: 4B 76,2%; 9B 81,7%; 27B 85,5%. Dati dichiarati nelle schede ufficiali.</p></noscript>
         </article>
 
         <section class="unhobbling-story" id="sblocco" aria-labelledby="unhobbling-title">
@@ -507,7 +462,7 @@
 
         <div class="model-evidence" aria-label="Tre livelli di evidenza sul progresso algoritmico">
           <article data-confidence="strong"><span class="confidence">Misura longitudinale</span><h2>Stesso target di loss</h2><strong>−50% compute / 8 mesi</strong><p>La stima Epoch confronta la quantità di calcolo necessaria per raggiungere lo stesso livello di performance nel periodo studiato.</p></article>
-          <article data-confidence="proxy"><span class="confidence">Confronto di scala</span><h2>Livello GPT-4 su GPQA</h2><strong>≈850× meno</strong><p>Dalla stima non ufficiale di 1.700B per GPT-4 ai 2B pubblicati per Qwen3.5-2B, mantenendo almeno la baseline del 39% sul benchmark.</p></article>
+          <article data-confidence="proxy"><span class="confidence">Dati dei laboratori · 2026</span><h2>Gemma 4 e Qwen3.5</h2><strong>dimensione ≠ compute</strong><p>I modelli del 2026 combinano nuove architetture e ragionamento. Parametri e accuratezza si leggono separatamente, insieme al protocollo.</p></article>
           <article data-confidence="limited"><span class="confidence">Interpretazione</span><h2>Dal chatbot all'agente</h2><strong>guadagno non unico</strong><p>Post-training, strumenti e ragionamento possono sbloccare capacità, ma non esiste una sola conversione affidabile in FLOP effettivi.</p></article>
         </div>
 
@@ -527,11 +482,11 @@
         <ol>
           <li><a href="https://situational-awareness.ai/from-gpt-4-to-agi/" target="_blank" rel="noreferrer">Aschenbrenner · Situational Awareness, cap. I</a><span>Sezioni “Algorithmic efficiencies” e “Unhobbling”, pp. 22–39 del PDF. È la fonte primaria per la scomposizione in tre leve e per i casi storici riportati.</span></li>
           <li><a href="https://situational-awareness.ai/" target="_blank" rel="noreferrer">Situational Awareness · sito ufficiale</a><span>Edizione web completa del saggio <i>The Decade Ahead</i>, pubblicato da Leopold Aschenbrenner nel giugno 2024.</span></li>
-          <li><a href="https://epoch.ai/publications/algorithmic-progress-in-language-models" target="_blank" rel="noreferrer">Epoch AI · Progresso algoritmico nei language model</a><span>231 stime, 2012–2023; dimezzamento del compute richiesto circa ogni otto mesi, con ampio intervallo d'incertezza.</span></li>
-          <li><a href="https://arxiv.org/abs/2311.12022" target="_blank" rel="noreferrer">Rein et al. · GPQA Diamond</a><span>Paper che introduce il benchmark: 198 domande scientifiche nella selezione Diamond, baseline GPT-4 al 39% e fascia degli esperti PhD fra 65% e 74%.</span></li>
-          <li><a href="https://github.com/deepseek-ai/DeepSeek-R1" target="_blank" rel="noreferrer">DeepSeek · R1 Distill</a><span>Dimensioni e risultati GPQA Diamond dei modelli distillati da 1,5B, 7B, 8B, 14B, 32B e 70B.</span></li>
-          <li><a href="https://huggingface.co/Qwen/Qwen3.5-2B" target="_blank" rel="noreferrer">Qwen · Qwen3.5-2B</a><span>Model card ufficiale: 2 miliardi di parametri e 51,6% su GPQA in modalità di ragionamento.</span></li>
-          <li><a href="https://ai.google.dev/gemma/docs/core/model_card_4" target="_blank" rel="noreferrer">Google DeepMind · Gemma 4</a><span>Parametri effettivi, parametri totali e risultati GPQA per la famiglia aperta Gemma 4.</span></li>
+          <li><a href="https://epoch.ai/publications/algorithmic-progress-in-language-models" target="_blank" rel="noreferrer">Epoch AI · Progresso algoritmico nei language model</a><span>Introduzione allo studio sul periodo 2012–2023. La bozza descritta qui precede la versione finale NeurIPS citata nel simulatore.</span></li>
+          <li><a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/6b066da6a23bc55f9b887e7298102884-Abstract-Conference.html" target="_blank" rel="noreferrer">Ho et al. · NeurIPS 2024, versione finale</a><span>Stima centrale di otto mesi, intervallo di confidenza al 90% di circa 2–22 mesi. È la versione usata nel simulatore.</span></li>
+          <li><a href="https://huggingface.co/Qwen/Qwen3.5-9B" target="_blank" rel="noreferrer">Qwen · Qwen3.5 4B e 9B</a><span>Parametri del modello linguistico e risultati GPQA Diamond dichiarati dal laboratorio.</span></li>
+          <li><a href="https://huggingface.co/Qwen/Qwen3.5-27B" target="_blank" rel="noreferrer">Qwen · Qwen3.5 27B</a><span>Architettura e risultati della variante densa da 27 miliardi di parametri linguistici.</span></li>
+          <li><a href="https://ai.google.dev/gemma/docs/core/model_card_4" target="_blank" rel="noreferrer">Google DeepMind · Gemma 4</a><span>Parametri effettivi, attivi e totali; risultati delle varianti E2B, 12B Unified, 26B A4B e 31B.</span></li>
           <li><a href="https://hai.stanford.edu/ai-index/2025-ai-index-report/technical-performance" target="_blank" rel="noreferrer">Stanford HAI · AI Index 2025</a><span>Contesto indipendente sulla rapida riduzione delle dimensioni necessarie per superare determinate soglie di benchmark.</span></li>
           <li><a href="https://arxiv.org/abs/2203.15556" target="_blank" rel="noreferrer">Hoffmann et al. · Chinchilla scaling laws</a><span>Mostra perché dati e parametri devono essere bilanciati: un esempio di miglioramento della ricetta di training.</span></li>
         </ol>
@@ -540,7 +495,7 @@
       <nav class="chapter-next" aria-label="Continua la lettura"><a href="chip.html">← Precedente: Chips</a><a href="inferenza.html">Prossimo: Inferenza →</a></nav>
     </main>
     <footer class="site-footer"><span>AI.it</span><span>Algoritmi · 03</span></footer>
-    <script src="app.js?v=20260904-editorial"></script>
-    <script src="algorithm-visuals.js?v=20260904-editorial"></script>
+    <script src="app.js?v=20260904-labs"></script>
+    <script src="algorithm-visuals.js?v=20260905-efficiency"></script>
   </body>
 </html>

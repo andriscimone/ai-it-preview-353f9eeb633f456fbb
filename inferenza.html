@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="styles.css?v=system-mobile-2" />
     <link rel="stylesheet" href="inferenza.css?v=system-mobile-2" />
     <link rel="stylesheet" href="editorial.css?v=20260904" />
+    <link rel="stylesheet" href="benchmark.css?v=20260904-labs" />
   </head>
   <body class="detail-page inference-page">
     <a class="skip-link" href="#top">Salta al contenuto</a><div class="noise" aria-hidden="true"></div>
@@ -25,12 +26,14 @@
           <p class="chapter-deck">Durante l'inferenza lo stesso modello può rispondere subito, ragionare più a lungo o coordinare una squadra di agenti. Ogni scelta cambia capacità, tempo, energia e costo.</p>
         </div>
 
-        <a class="inference-thesis-callout" href="#compute-evolution">
+        <a class="inference-thesis-callout" href="#inference-harness">
           <span>La tesi del capitolo · 2024 → oggi</span>
           <strong>Lo stesso modello non significa più lo stesso compute.</strong>
-          <p>Il pretraining costruisce la base. Dopo la domanda, profondità di ragionamento e parallelismo decidono quanto lavoro viene assegnato al singolo compito.</p>
-          <i>Segui l'evoluzione <b aria-hidden="true">↓</b></i>
+          <p>Il pretraining costruisce la base. Dopo la domanda, ragionamento, memoria del lavoro e coordinamento degli agenti cambiano il risultato. Il caso Astra mostra quanto può contare il sistema intorno al modello.</p>
+          <i>Esplora il caso Astra <b aria-hidden="true">↓</b></i>
         </a>
+
+        <div class="inference-model-update"><strong>Aggiornamento · settembre 2026.</strong> I nuovi riferimenti di frontiera includono <a href="https://openai.com/index/gpt-6-astra/" target="_blank" rel="noreferrer">GPT‑6 Astra</a>, <a href="https://www.anthropic.com/claude/fable" target="_blank" rel="noreferrer">Claude Fable 5.1</a> e <a href="https://ai.google.dev/gemini-api/docs/changelog" target="_blank" rel="noreferrer">Gemini 3.8 Flash</a>. Le curve hardware sotto mantengono i modelli usati nelle prove originali: un nome nuovo richiede nuove misure di velocità e potenza.</div>
 
         <div class="open-data-rule"><span>Regola del grafico</span><strong>Solo modelli aperti con una curva pubblica.</strong><p>Niente modelli chiusi, niente record di velocità senza il dato energetico, niente coordinate inventate.</p></div>
 
@@ -85,7 +88,21 @@
           </div>
         </section>
 
-        <section class="compute-evolution" aria-labelledby="compute-evolution-title">
+
+        <section class="harness-lab" id="inference-harness" data-harness-lab aria-labelledby="inference-harness-title">
+          <header><p class="kicker">Esperimento reale · GPT‑6 Astra · 3 settembre 2026</p><h2 id="inference-harness-title">Stesso modello, due modi di gestire il contesto.</h2><p>Il sistema che circonda il modello si chiama <em>harness</em>: conserva il lavoro precedente e organizza le chiamate. Qui puoi confrontare due harness sullo stesso test e allo stesso livello di ragionamento.</p></header>
+          <div class="harness-controls">
+            <label for="inference-harness-effort">Livello di ragionamento<select id="inference-harness-effort" data-harness-effort><option value="none">None · nessuno</option><option value="low">Low · basso</option><option value="medium">Medium · medio</option><option value="high" selected>High · alto</option><option value="xhigh">XHigh · molto alto</option><option value="max">Max · massimo</option></select></label>
+            <div class="harness-metrics" role="group" aria-label="Misura da confrontare"><button type="button" data-harness-metric="score" aria-pressed="true">Punteggio</button><button type="button" data-harness-metric="cost" aria-pressed="false">Costo</button></div>
+          </div>
+          <p class="harness-axis" data-harness-axis>Punteggio ARC‑AGI‑3 · scala 0–100%</p>
+          <div class="harness-row" data-harness-row="standard"><div><h4>Harness standard</h4><strong data-harness-value>54,8%</strong></div><div class="harness-track" aria-hidden="true"><i data-harness-bar style="width:54.82%"></i></div><small data-harness-detail>54,8% · $40.705 per la valutazione</small></div>
+          <div class="harness-row" data-harness-row="adapter"><div><h4>Adattatore del produttore</h4><strong data-harness-value>99,9%</strong></div><div class="harness-track" aria-hidden="true"><i data-harness-bar style="width:99.9457%"></i></div><small data-harness-detail>99,9% · $18.817 per la valutazione</small></div>
+          <p class="harness-reading" data-harness-reading aria-live="polite">Con reasoning High, lo stesso modello ottiene risultati diversi a seconda di come viene conservato il contesto.</p>
+          <div class="harness-explainer"><p><strong>Standard.</strong> Il modello sceglie quali note visibili portare al passo successivo.</p><p><strong>Provider Adapter.</strong> Preserva lo stato di ragionamento tra le richieste e compatta le conversazioni lunghe.</p></div>
+          <footer>ARC‑AGI‑3 Semi‑Private. Costi totali delle valutazioni, non tariffe per utente. Questi sei livelli sono prove distinte: il punteggio non cresce sempre con il budget. <a href="https://arcprize.org/results/openai-gpt-6-astra" target="_blank" rel="noreferrer">Risultati e configurazioni ARC Prize ↗</a> · <a href="https://arcprize.org/blog/astra" target="_blank" rel="noreferrer">Metodo e limiti ↗</a></footer>
+        </section>
+        <section class="compute-evolution" id="compute-evolution" aria-labelledby="compute-evolution-title">
           <header class="compute-evolution-head">
             <p class="kicker">Dalla risposta alla forza-lavoro</p>
             <h2 id="compute-evolution-title">Lo stesso modello non significa più lo stesso compute.</h2>
@@ -339,6 +356,6 @@
         </div>
       </aside>
     </div>
-    <script src="app.js?v=20260904-editorial"></script>
+    <script src="app.js?v=20260904-labs"></script><script src="benchmark-data.js?v=20260904-labs"></script><script src="harness-lab.js?v=20260904-labs"></script>
   </body>
 </html>

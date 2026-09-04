@@ -288,426 +288,134 @@ function setProgressLever(key) {
 
 progressButtons.forEach(button => button.addEventListener("click", () => setProgressLever(button.dataset.progressLever)));
 
-const benchmarkModels = [
-  {
-    name: "Phi-4",
-    lab: "Microsoft",
-    labKey: "microsoft",
-    date: "2024-12-12",
-    release: "12 dicembre 2024",
-    size: 14,
-    sizeLabel: "14B",
-    score: 56.1,
-    source: "https://www.microsoft.com/en-us/research/publication/phi-4-technical-report/",
-    note: "È il primo modello compatto della serie a superare chiaramente il 39% di GPT-4: qualità dei dati sintetici e post-training contano quanto la scala."
-  },
-  {
-    name: "R1 Distill 1.5B",
-    lab: "DeepSeek",
-    labKey: "deepseek",
-    date: "2025-01-20",
-    release: "20 gennaio 2025",
-    size: 1.5,
-    sizeLabel: "1,5B",
-    score: 33.8,
-    source: "https://github.com/deepseek-ai/DeepSeek-R1",
-    note: "È molto piccolo, ma resta sotto la soglia GPT-4. Serve a mostrare che ridurre i parametri non basta: la prestazione deve restare comparabile."
-  },
-  {
-    name: "R1 Distill 7B",
-    lab: "DeepSeek",
-    labKey: "deepseek",
-    date: "2025-01-20",
-    release: "20 gennaio 2025",
-    size: 7,
-    sizeLabel: "7B",
-    score: 49.1,
-    source: "https://github.com/deepseek-ai/DeepSeek-R1",
-    note: "La distillazione trasferisce parte del ragionamento di R1 in un modello denso da 7B: metà dei parametri di Phi-4, ma ancora sopra GPT-4."
-  },
-  {
-    name: "Gemma 3 4B",
-    lab: "Google DeepMind",
-    labKey: "google",
-    date: "2025-03-12",
-    release: "12 marzo 2025",
-    size: 4,
-    sizeLabel: "4B",
-    score: 30.8,
-    source: "https://ai.google.dev/gemma/docs/core/model_card_3",
-    note: "È progettato per funzionare su hardware più accessibile, ma su questo test resta sotto la baseline GPT-4."
-  },
-  {
-    name: "Gemma 3 12B",
-    lab: "Google DeepMind",
-    labKey: "google",
-    date: "2025-03-12",
-    release: "12 marzo 2025",
-    size: 12,
-    sizeLabel: "12B",
-    score: 40.9,
-    source: "https://ai.google.dev/gemma/docs/core/model_card_3",
-    note: "Supera di poco la soglia del 39%. È un buon promemoria: due modelli della stessa famiglia possono trovarsi ai lati opposti del target."
-  },
-  {
-    name: "Qwen3-4B Thinking",
-    lab: "Qwen",
-    labKey: "qwen",
-    date: "2025-08-06",
-    release: "6 agosto 2025",
-    size: 4,
-    sizeLabel: "4B",
-    score: 65.8,
-    source: "https://huggingface.co/Qwen/Qwen3.5-0.8B",
-    note: "La versione Thinking 2507 porta un modello da 4B molto oltre la soglia GPT-4, usando più compute durante la risposta."
-  },
-  {
-    name: "Qwen3.5-0.8B",
-    lab: "Qwen",
-    labKey: "qwen",
-    date: "2026-03-02",
-    release: "2 marzo 2026",
-    size: 0.8,
-    sizeLabel: "0,8B",
-    score: 11.9,
-    source: "https://huggingface.co/Qwen/Qwen3.5-0.8B",
-    note: "È il punto più piccolo del grafico, ma non raggiunge il target. Mostra il limite attuale della miniaturizzazione su questo compito scientifico."
-  },
-  {
-    name: "Qwen3.5-2B",
-    lab: "Qwen",
-    labKey: "qwen",
-    date: "2026-03-02",
-    release: "2 marzo 2026",
-    size: 2,
-    sizeLabel: "2B",
-    score: 51.6,
-    source: "https://huggingface.co/Qwen/Qwen3.5-2B",
-    note: "Con due miliardi di parametri supera la baseline GPT-4 del paper. Il risultato usa la modalità di ragionamento pubblicata nel model card."
-  },
-  {
-    name: "Qwen3.5-4B",
-    lab: "Qwen",
-    labKey: "qwen",
-    date: "2026-03-02",
-    release: "2 marzo 2026",
-    size: 4,
-    sizeLabel: "4B",
-    score: 76.2,
-    source: "https://huggingface.co/Qwen/Qwen3.5-4B",
-    note: "Resta abbastanza piccolo per l'esecuzione locale, ma produce un margine molto più ampio rispetto al target GPT-4."
-  },
-  {
-    name: "Gemma 4 E2B",
-    lab: "Google DeepMind",
-    labKey: "google",
-    date: "2026-04-02",
-    release: "2 aprile 2026",
-    size: 2.3,
-    sizeLabel: "2,3B eff.",
-    score: 43.4,
-    source: "https://ai.google.dev/gemma/docs/core/model_card_4",
-    note: "Google indica 2,3B parametri effettivi durante l'inferenza e 5,1B totali includendo gli embedding. È pensato per dispositivi edge e supera il 39%."
-  }
-];
-
-const benchmarkPlot = document.getElementById("benchmark-plot");
-const benchmarkChart = document.getElementById("benchmark-chart");
-const benchmarkPoints = document.getElementById("benchmark-points");
-let selectedBenchmarkModel = benchmarkModels.findIndex(model => model.name === "Qwen3.5-2B");
-let benchmarkLayout = null;
-
-function benchmarkNumber(value) {
-  return value.toLocaleString("it-IT", { maximumFractionDigits: 1 });
-}
-
-function svgNode(tag, attributes = {}, text = "") {
+// The simulator applies a historical rate to an index; it contains no model forecasts.
+const efficiencyLab = document.getElementById("efficienza");
+const efficiencyMonths = document.getElementById("efficiency-months");
+const efficiencyCurve = document.getElementById("efficiency-curve");
+const efficiencyState = { months: 16, halfLife: 8, use: "save" };
+const efficiencyFormat = value => value.toLocaleString("it-IT", { maximumFractionDigits: value < 1 ? 3 : 2 });
+const efficiencyCompute = (months, halfLife) => 100 * 2 ** (-months / halfLife);
+function efficiencySetText(id, value) { const node = document.getElementById(id); if (node) node.textContent = value; }
+function efficiencySvgNode(tag, attributes, text = "") {
   const node = document.createElementNS("http://www.w3.org/2000/svg", tag);
-  Object.entries(attributes).forEach(([key, value]) => node.setAttribute(key, value));
-  if (text) node.textContent = text;
+  Object.entries(attributes).forEach(([key, value]) => node.setAttribute(key, String(value)));
+  node.textContent = text;
   return node;
 }
-
-function benchmarkCoordinates(model) {
-  if (!benchmarkLayout) return { x: 0, y: 0 };
-  const time = new Date(`${model.date}T00:00:00Z`).getTime();
-  const x = benchmarkLayout.left + ((time - benchmarkLayout.start) / (benchmarkLayout.end - benchmarkLayout.start)) * benchmarkLayout.plotWidth;
-  const sizePosition = Math.log2(benchmarkLayout.maxSize / model.size) / Math.log2(benchmarkLayout.maxSize / benchmarkLayout.minSize);
-  const y = benchmarkLayout.top + sizePosition * benchmarkLayout.plotHeight;
-  return { x, y };
-}
-
-function updateBenchmarkGuide() {
-  if (!benchmarkChart || !benchmarkLayout) return;
-  benchmarkChart.querySelectorAll(".benchmark-selected-guide").forEach(node => node.remove());
-  const point = benchmarkCoordinates(benchmarkModels[selectedBenchmarkModel]);
-  const verticalGuide = svgNode("line", {
-    class: "benchmark-selected-guide",
-    x1: point.x,
-    y1: point.y,
-    x2: point.x,
-    y2: benchmarkLayout.bottom
-  });
-  const horizontalGuide = svgNode("line", {
-    class: "benchmark-selected-guide",
-    x1: benchmarkLayout.left,
-    y1: point.y,
-    x2: point.x,
-    y2: point.y
-  });
-  benchmarkChart.append(verticalGuide, horizontalGuide);
-}
-
-function selectBenchmarkModel(index) {
-  const model = benchmarkModels[index];
-  if (!model) return;
-  selectedBenchmarkModel = index;
-  benchmarkPoints?.querySelectorAll(".benchmark-point").forEach((button, buttonIndex) => {
-    const selected = buttonIndex === index;
-    button.classList.toggle("is-active", selected);
-    button.setAttribute("aria-pressed", String(selected));
-  });
-  document.getElementById("benchmark-detail-size").textContent = model.sizeLabel;
-  document.getElementById("benchmark-detail-score").textContent = `${benchmarkNumber(model.score)}%`;
-  document.getElementById("benchmark-detail-date").textContent = `${model.release} · ${model.lab}`;
-  document.getElementById("benchmark-detail-name").textContent = model.name;
-  document.getElementById("benchmark-detail-note").textContent = model.note;
-  const source = document.getElementById("benchmark-detail-source");
-  source.href = model.source;
-  source.textContent = "Apri model card e risultati ↗";
-  updateBenchmarkGuide();
-}
-
-function createBenchmarkPoints() {
-  if (!benchmarkPoints || benchmarkPoints.children.length) return;
-  benchmarkModels.forEach((model, index) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "benchmark-point";
-    button.dataset.lab = model.labKey;
-    button.dataset.status = model.score >= 39 ? "meets" : "below";
-    button.dataset.label = `${model.name} · ${model.sizeLabel} · ${benchmarkNumber(model.score)}%`;
-    button.classList.toggle("is-below", model.score < 39);
-    button.setAttribute("aria-label", `${model.name}, ${model.sizeLabel} parametri, uscito il ${model.release}, ${benchmarkNumber(model.score)} per cento su GPQA Diamond`);
-    button.setAttribute("aria-pressed", "false");
-    button.innerHTML = '<i aria-hidden="true"></i>';
-    button.addEventListener("click", () => selectBenchmarkModel(index));
-    benchmarkPoints.appendChild(button);
-  });
-}
-
-function renderBenchmarkChart() {
-  if (!benchmarkPlot || !benchmarkChart || !benchmarkPoints) return;
-  const width = Math.max(300, Math.round(benchmarkPlot.clientWidth));
-  const height = Math.max(430, Math.round(benchmarkPlot.clientHeight));
-  const compact = width < 620;
-  const left = compact ? 46 : 68;
-  const right = compact ? 14 : 34;
-  const top = compact ? 54 : 58;
-  const bottom = height - (compact ? 50 : 58);
-  const plotWidth = width - left - right;
-  const plotHeight = bottom - top;
-  const start = Date.parse("2023-01-01T00:00:00Z");
-  const end = Date.parse("2026-06-01T00:00:00Z");
-  const maxSize = 32;
-  const minSize = 0.75;
-  benchmarkLayout = { width, height, left, right, top, bottom, plotWidth, plotHeight, start, end, maxSize, minSize };
-
-  benchmarkChart.setAttribute("viewBox", `0 0 ${width} ${height}`);
-  benchmarkChart.replaceChildren(
-    svgNode("title", { id: "benchmark-chart-title" }, "Dimensione dei modelli aperti rispetto alla soglia GPT-4 su GPQA Diamond"),
-    svgNode("desc", { id: "benchmark-chart-desc" }, "Asse orizzontale: data di uscita. Asse verticale logaritmico: miliardi di parametri attivi o effettivi; più in basso significa più piccolo. I punti pieni raggiungono almeno il 39 per cento di GPT-4.")
+function renderEfficiencyCurve() {
+  if (!efficiencyCurve) return;
+  const width = Math.max(220, efficiencyCurve.clientWidth);
+  const height = 240;
+  const left = 36, right = 13, top = 28, bottom = height - 37;
+  const x = months => left + (months / 32) * (width - left - right);
+  const y = compute => bottom - (compute / 100) * (bottom - top);
+  const points = halfLife => Array.from({ length: 65 }, (_, index) => `${x(index / 2)},${y(efficiencyCompute(index / 2, halfLife))}`);
+  efficiencyCurve.setAttribute("viewBox", `0 0 ${width} ${height}`);
+  efficiencyCurve.replaceChildren(
+    efficiencySvgNode("title", { id: "efficiency-curve-title" }, "Compute per lo stesso target, indice iniziale 100"),
+    efficiencySvgNode("desc", { id: "efficiency-curve-desc" }, `Curva calcolata con dimezzamento ogni ${efficiencyState.halfLife} mesi. A ${efficiencyState.months} mesi richiede ${efficiencyFormat(efficiencyCompute(efficiencyState.months, efficiencyState.halfLife))} unità. La fascia deriva dagli estremi storici di 2 e 22 mesi; non è una previsione.`)
   );
-
-  const yScale = size => top + (Math.log2(maxSize / size) / Math.log2(maxSize / minSize)) * plotHeight;
-  [32, 16, 8, 4, 2, 1].forEach(size => {
-    const y = yScale(size);
-    benchmarkChart.appendChild(svgNode("line", { class: "benchmark-chart-grid", x1: left, y1: y, x2: width - right, y2: y }));
-    benchmarkChart.appendChild(svgNode("text", { class: "benchmark-chart-axis", x: left - 9, y: y + 3, "text-anchor": "end" }, `${size}B`));
+  [0, 25, 50, 75, 100].forEach(value => {
+    efficiencyCurve.append(efficiencySvgNode("line", { x1: left, y1: y(value), x2: width - right, y2: y(value), class: "efficiency-gridline" }), efficiencySvgNode("text", { x: left - 7, y: y(value) + 4, "text-anchor": "end", class: "efficiency-axis-text" }, String(value)));
   });
-
-  [2023, 2024, 2025, 2026].forEach(year => {
-    const time = Date.parse(`${year}-01-01T00:00:00Z`);
-    const x = left + ((time - start) / (end - start)) * plotWidth;
-    benchmarkChart.appendChild(svgNode("line", { class: "benchmark-chart-grid", x1: x, y1: top, x2: x, y2: bottom }));
-    benchmarkChart.appendChild(svgNode("text", { class: "benchmark-chart-axis", x, y: bottom + 28, "text-anchor": year === 2023 ? "start" : "middle" }, String(year)));
-  });
-
-  const targetX = left + ((Date.parse("2023-11-20T00:00:00Z") - start) / (end - start)) * plotWidth;
-  benchmarkChart.appendChild(svgNode("line", { class: "benchmark-target-line", x1: targetX, y1: top, x2: targetX, y2: bottom }));
-  benchmarkChart.appendChild(svgNode("text", { class: "benchmark-target-label", x: targetX + 8, y: top - 16 }, compact ? "GPT-4 · 39% · STIMA 1.700B" : "TARGET GPT-4 · 39% · STIMA 1.700 MILIARDI DI PARAMETRI"));
-
-  benchmarkChart.appendChild(svgNode("text", { class: "benchmark-chart-axis-title", x: left, y: 17 }, compact ? "PARAMETRI · PIÙ PICCOLO ↓" : "PARAMETRI ATTIVI / EFFETTIVI (MILIARDI) · PIÙ PICCOLO ↓"));
-  benchmarkChart.appendChild(svgNode("text", { class: "benchmark-chart-axis-title", x: width - right, y: height - 11, "text-anchor": "end" }, "DATA DI USCITA →"));
-
-  [...benchmarkPoints.children].forEach((button, index) => {
-    const point = benchmarkCoordinates(benchmarkModels[index]);
-    button.style.left = `${point.x}px`;
-    button.style.top = `${point.y}px`;
-    button.dataset.side = point.x > width - 110 ? "left" : "center";
-  });
-  updateBenchmarkGuide();
+  [0, 8, 16, 24, 32].forEach(value => efficiencyCurve.append(efficiencySvgNode("text", { x: x(value), y: bottom + 23, "text-anchor": value === 0 ? "start" : value === 32 ? "end" : "middle", class: "efficiency-axis-text" }, value === 32 ? "32 mesi" : String(value))));
+  efficiencyCurve.append(efficiencySvgNode("text", { x: left, y: 15, class: "efficiency-axis-text" }, "Compute · indice"));
+  efficiencyCurve.append(efficiencySvgNode("polygon", { points: [...points(2), ...points(22).reverse()].join(" "), class: "efficiency-band" }));
+  [2, 22].forEach(rate => efficiencyCurve.append(efficiencySvgNode("polyline", { points: points(rate).join(" "), class: "efficiency-bound" })));
+  efficiencyCurve.append(efficiencySvgNode("polyline", { points: points(efficiencyState.halfLife).join(" "), class: "efficiency-line" }));
+  const selectedX = x(efficiencyState.months), selectedY = y(efficiencyCompute(efficiencyState.months, efficiencyState.halfLife));
+  efficiencyCurve.append(efficiencySvgNode("line", { x1: selectedX, y1: top, x2: selectedX, y2: bottom, class: "efficiency-guide" }), efficiencySvgNode("circle", { cx: selectedX, cy: selectedY, r: 5, class: "efficiency-point" }));
+}
+function renderEfficiency() {
+  if (!efficiencyMonths) return;
+  const { months, halfLife, use } = efficiencyState;
+  const required = efficiencyCompute(months, halfLife);
+  const saved = 100 - required;
+  const multiplier = 100 / required;
+  efficiencyMonths.value = String(months);
+  efficiencyMonths.setAttribute("aria-valuetext", `${months} mesi; ${efficiencyFormat(required)} unità su 100 per lo stesso target`);
+  efficiencySetText("efficiency-months-value", String(months));
+  efficiencySetText("efficiency-required", efficiencyFormat(required));
+  document.getElementById("efficiency-required-bar").style.width = `${required}%`;
+  document.getElementById("efficiency-freed-bar").style.width = `${saved}%`;
+  efficiencyLab.dataset.efficiencyAllocation = use;
+  efficiencySetText("efficiency-reading-kicker", use === "save" ? "A parità di target" : "A parità di budget");
+  efficiencySetText("efficiency-result", use === "save" ? `${efficiencyFormat(saved)}%` : `${efficiencyFormat(multiplier)}×`);
+  efficiencySetText("efficiency-result-title", use === "save" ? "di compute risparmiato" : "il calcolo equivalente");
+  efficiencySetText("efficiency-result-copy", use === "save" ? `A ${months} mesi, con un dimezzamento ogni ${halfLife}, servono ${efficiencyFormat(required)} unità delle 100 iniziali. Il target resta identico.` : `Le stesse 100 unità valgono ${efficiencyFormat(100 * multiplier)} unità della ricetta iniziale. È un'equivalenza di calcolo rispetto a quel target.`);
+  efficiencySetText("efficiency-result-limit", use === "save" ? "Risparmio di operazioni, senza conversione automatica in euro, energia o tempo." : "4× il compute equivalente non significa 4× l'intelligenza. Per prevedere nuove capacità serve una relazione misurata tra calcolo e performance.");
+  efficiencyLab.querySelectorAll("[data-efficiency-months]").forEach(button => button.setAttribute("aria-pressed", String(Number(button.dataset.efficiencyMonths) === months)));
+  efficiencyLab.querySelectorAll("[data-efficiency-rate]").forEach(button => button.setAttribute("aria-pressed", String(Number(button.dataset.efficiencyRate) === halfLife)));
+  efficiencyLab.querySelectorAll("[data-efficiency-use]").forEach(button => button.setAttribute("aria-pressed", String(button.dataset.efficiencyUse === use)));
+  efficiencyLab.querySelectorAll("[data-efficiency-step]").forEach(button => button.setAttribute("aria-pressed", String(button.dataset.efficiencyStep === (months === 0 ? "baseline" : use === "save" ? "saving" : "reinvest"))));
+  renderEfficiencyCurve();
+}
+if (efficiencyMonths) {
+  efficiencyMonths.addEventListener("input", () => { efficiencyState.months = Number(efficiencyMonths.value); renderEfficiency(); });
+  efficiencyLab.querySelectorAll("[data-efficiency-months]").forEach(button => button.addEventListener("click", () => { efficiencyState.months = Number(button.dataset.efficiencyMonths); renderEfficiency(); }));
+  efficiencyLab.querySelectorAll("[data-efficiency-rate]").forEach(button => button.addEventListener("click", () => { efficiencyState.halfLife = Number(button.dataset.efficiencyRate); renderEfficiency(); }));
+  efficiencyLab.querySelectorAll("[data-efficiency-use]").forEach(button => button.addEventListener("click", () => { efficiencyState.use = button.dataset.efficiencyUse; renderEfficiency(); }));
+  efficiencyLab.querySelectorAll("[data-efficiency-step]").forEach(button => button.addEventListener("click", () => {
+    const step = button.dataset.efficiencyStep;
+    efficiencyState.months = step === "baseline" ? 0 : 16;
+    efficiencyState.halfLife = 8;
+    efficiencyState.use = step === "reinvest" ? "reuse" : "save";
+    renderEfficiency();
+  }));
+  new ResizeObserver(renderEfficiencyCurve).observe(efficiencyCurve);
+  renderEfficiency();
 }
 
-if (benchmarkPlot && benchmarkChart && benchmarkPoints) {
-  createBenchmarkPoints();
-  renderBenchmarkChart();
-  selectBenchmarkModel(selectedBenchmarkModel);
-  const benchmarkResizeObserver = new ResizeObserver(renderBenchmarkChart);
-  benchmarkResizeObserver.observe(benchmarkPlot);
+// Provider model-card results: each family is shown separately; no compute ratio is inferred.
+const efficiencyModelFamilies = {
+  gemma: { lab: "Google DeepMind · Gemma 4", source: "https://ai.google.dev/gemma/docs/core/model_card_4", models: [
+    { name: "E2B", score: 43.4, params: "2,3B effettivi · 5,1B con embeddings", note: "Effettivi esclude buona parte delle tabelle di embeddings. Il totale con queste tabelle è 5,1B: i due numeri descrivono aspetti diversi." },
+    { name: "12B Unified", score: 78.8, params: "11,95 miliardi", note: "Immagini e audio entrano direttamente nel modello linguistico, senza encoder dedicati. Questo cambiamento di architettura, da solo, non quantifica il risparmio." },
+    { name: "26B A4B", score: 82.3, params: "25,2B totali · 3,8B attivi", note: "Seleziona gli esperti per ciascun token. I 25,2B descrivono il totale; 3,8B sono la parte attiva. Energia e velocità richiedono altre misure." },
+    { name: "31B", score: 84.3, params: "30,7 miliardi", note: "Variante densa della famiglia. Il punteggio dichiarato non quantifica il calcolo necessario all'addestramento né quello usato durante le risposte." }
+  ] },
+  qwen: { lab: "Qwen · Qwen3.5", source: "https://huggingface.co/Qwen/Qwen3.5-9B", models: [
+    { name: "4B", score: 76.2, params: "4B · componente linguistica", note: "Modello denso della famiglia Qwen3.5. Il valore è quello della tabella ufficiale GPQA Diamond con ragionamento; il numero nel nome non comprende automaticamente tutte le componenti multimodali." },
+    { name: "9B", score: 81.7, params: "9B · componente linguistica", note: "Combina blocchi Gated DeltaNet e attenzione. Il ragionamento durante la risposta contribuisce al risultato: per confrontare l'efficienza servirebbe fissare anche il budget di generazione." },
+    { name: "27B", score: 85.5, params: "27B · componente linguistica", source: "https://huggingface.co/Qwen/Qwen3.5-27B", note: "La scheda ufficiale riporta questo risultato per la variante densa da 27B. È una valutazione del produttore; non viene ricavato un rapporto costo/prestazioni dai soli parametri." }
+  ] }
+};
+const efficiencyModelBars = document.getElementById("efficiency-model-bars");
+let efficiencyFamily = "gemma";
+function selectEfficiencyModel(index) {
+  const family = efficiencyModelFamilies[efficiencyFamily];
+  const model = family.models[index];
+  efficiencyModelBars.querySelectorAll("button").forEach((button, row) => button.setAttribute("aria-pressed", String(row === index)));
+  efficiencySetText("efficiency-model-lab", family.lab);
+  efficiencySetText("efficiency-model-name", `${efficiencyFamily === "gemma" ? "Gemma 4" : "Qwen3.5"} ${model.name}`);
+  efficiencySetText("efficiency-model-params", model.params);
+  efficiencySetText("efficiency-model-score", `${efficiencyFormat(model.score)}%`);
+  efficiencySetText("efficiency-model-note", model.note);
+  document.getElementById("efficiency-model-source").href = model.source || family.source;
 }
-
-const shrinkMilestones = [
-  {
-    name: "GPT-4",
-    lab: "OpenAI",
-    date: "20 novembre 2023",
-    year: "2023",
-    size: 1700,
-    sizeLabel: "1.700B",
-    score: 39,
-    source: "https://arxiv.org/abs/2311.12022",
-    note: "È il punto di partenza. Il 39% è la baseline pubblicata nel paper GPQA; 1.700B è una stima non ufficiale dei parametri totali, non un dato dichiarato da OpenAI."
-  },
-  {
-    name: "Phi-4",
-    lab: "Microsoft",
-    date: "12 dicembre 2024",
-    year: "2024",
-    size: 14,
-    sizeLabel: "14B",
-    score: 56.1,
-    source: "https://www.microsoft.com/en-us/research/publication/phi-4-technical-report/",
-    note: "Un modello denso da 14B supera la baseline GPT-4 su GPQA Diamond. È il primo grande salto visibile di questa sequenza."
-  },
-  {
-    name: "R1 Distill 7B",
-    lab: "DeepSeek",
-    date: "20 gennaio 2025",
-    year: "gen 2025",
-    size: 7,
-    sizeLabel: "7B",
-    score: 49.1,
-    source: "https://github.com/deepseek-ai/DeepSeek-R1",
-    note: "La distillazione trasferisce parte del ragionamento di R1 in un modello da 7B, dimezzando ancora la dimensione rispetto a Phi-4."
-  },
-  {
-    name: "Qwen3-4B Thinking",
-    lab: "Qwen",
-    date: "6 agosto 2025",
-    year: "ago 2025",
-    size: 4,
-    sizeLabel: "4B",
-    score: 65.8,
-    source: "https://huggingface.co/Qwen/Qwen3.5-0.8B",
-    note: "Il modello da 4B usa la modalità Thinking: meno parametri, ma più lavoro durante la risposta, e resta sopra la baseline GPT-4."
-  },
-  {
-    name: "Qwen3.5-2B",
-    lab: "Qwen",
-    date: "2 marzo 2026",
-    year: "mar 2026",
-    size: 2,
-    sizeLabel: "2B",
-    score: 51.6,
-    source: "https://huggingface.co/Qwen/Qwen3.5-2B",
-    note: "Con due miliardi di parametri supera la baseline GPT-4 del paper. Il risultato usa la modalità di ragionamento pubblicata nel model card."
-  }
-];
-
-const shrinkOriginSize = 1700;
-const shrinkMilestoneList = document.getElementById("benchmark-milestones");
-const shrinkStage = document.getElementById("benchmark-shrink-stage");
-const shrinkRemnant = document.getElementById("benchmark-scale-remnant");
-const shrinkZoomSteps = document.getElementById("benchmark-zoom-steps");
-
-function shrinkPercent(value) {
-  const digits = value < 1 ? 2 : value < 10 ? 1 : 0;
-  return value.toLocaleString("it-IT", { minimumFractionDigits: digits, maximumFractionDigits: digits });
-}
-
-function shrinkRatio(value) {
-  const ratio = shrinkOriginSize / value;
-  return ratio >= 10 ? Math.round(ratio).toLocaleString("it-IT") : ratio.toLocaleString("it-IT", { maximumFractionDigits: 1 });
-}
-
-function renderShrinkSteps(model) {
-  if (!shrinkZoomSteps) return;
-  const steps = model.size === shrinkOriginSize ? [shrinkOriginSize] : [shrinkOriginSize, 170, 17, model.size];
-  const nodes = [];
-  steps.forEach((value, index) => {
-    const item = document.createElement("span");
-    item.className = index === steps.length - 1 ? "is-final" : "";
-    item.textContent = value === shrinkOriginSize ? "1.700B" : `${benchmarkNumber(value)}B`;
-    nodes.push(item);
-    if (index < steps.length - 1) {
-      const divider = document.createElement("i");
-      divider.textContent = `÷${(value / steps[index + 1]).toLocaleString("it-IT", { maximumFractionDigits: 1 })}`;
-      nodes.push(divider);
-    }
-  });
-  shrinkZoomSteps.replaceChildren(...nodes);
-  document.getElementById("benchmark-zoom-label").textContent = model.size === shrinkOriginSize
-    ? "Questo è il punto di partenza"
-    : "Tre zoom rendono visibile il salto di scala";
-}
-
-function selectShrinkMilestone(index) {
-  const model = shrinkMilestones[index];
-  if (!model) return;
-  const remaining = (model.size / shrinkOriginSize) * 100;
-  const ratio = shrinkRatio(model.size);
-
-  shrinkMilestoneList?.querySelectorAll("button").forEach((button, buttonIndex) => {
-    const selected = buttonIndex === index;
-    button.classList.toggle("is-active", selected);
-    button.setAttribute("aria-pressed", String(selected));
-  });
-
-  document.getElementById("benchmark-current-summary").textContent = `1.700B → ${model.sizeLabel}`;
-  document.getElementById("benchmark-ratio").textContent = `${ratio}×`;
-  document.getElementById("benchmark-ratio-label").textContent = model.size === shrinkOriginSize ? "stessa dimensione" : "meno parametri";
-  document.getElementById("benchmark-selected-label").textContent = `${model.year} · ${model.name}`;
-  document.getElementById("benchmark-selected-size").textContent = model.sizeLabel;
-  document.getElementById("benchmark-remaining-label").textContent = model.size === shrinkOriginSize
-    ? "Siamo ancora al 100%"
-    : `Al modello selezionato resta lo ${shrinkPercent(remaining)}%`;
-  document.getElementById("benchmark-scale-end").textContent = model.sizeLabel;
-  shrinkRemnant?.parentElement.style.setProperty("--benchmark-remaining", `${remaining}%`);
-
-  document.getElementById("benchmark-detail-size").textContent = model.sizeLabel;
-  document.getElementById("benchmark-detail-score").textContent = `${benchmarkNumber(model.score)}%`;
-  document.getElementById("benchmark-detail-date").textContent = `${model.date} · ${model.lab}`;
-  document.getElementById("benchmark-detail-name").textContent = model.name;
-  document.getElementById("benchmark-detail-note").textContent = model.note;
-  const source = document.getElementById("benchmark-detail-source");
-  source.href = model.source;
-  source.textContent = model.name === "GPT-4" ? "Apri il paper GPQA ↗" : "Apri model card e risultati ↗";
-
-  if (shrinkStage) {
-    shrinkStage.dataset.origin = String(model.size === shrinkOriginSize);
-    shrinkStage.setAttribute("aria-label", `${model.name} usa ${model.sizeLabel} parametri: circa ${ratio} volte meno della stima di 1.700 miliardi per GPT-4, con ${benchmarkNumber(model.score)} per cento su GPQA Diamond.`);
-  }
-  renderShrinkSteps(model);
-}
-
-function createShrinkMilestones() {
-  if (!shrinkMilestoneList || shrinkMilestoneList.children.length) return;
-  shrinkMilestones.forEach((model, index) => {
+function renderEfficiencyModels() {
+  if (!efficiencyModelBars) return;
+  const family = efficiencyModelFamilies[efficiencyFamily];
+  efficiencyModelBars.replaceChildren();
+  family.models.forEach((model, index) => {
     const button = document.createElement("button");
     button.type = "button";
-    button.setAttribute("aria-pressed", "false");
-    button.setAttribute("aria-label", `${model.year}: seleziona ${model.name}, ${model.sizeLabel}`);
-    button.innerHTML = `<span>${model.year}</span><strong>${model.name}</strong><small>${model.sizeLabel} · ${benchmarkNumber(model.score)}%</small>`;
-    button.addEventListener("click", () => selectShrinkMilestone(index));
-    shrinkMilestoneList.appendChild(button);
+    button.className = "efficiency-model-row";
+    button.setAttribute("aria-label", `${model.name}, GPQA Diamond ${efficiencyFormat(model.score)} per cento. Mostra dettagli.`);
+    button.innerHTML = `<span>${model.name}</span><strong>${efficiencyFormat(model.score)}%</strong><i aria-hidden="true"><b style="width:${model.score}%"></b></i>`;
+    button.addEventListener("click", () => selectEfficiencyModel(index));
+    efficiencyModelBars.appendChild(button);
   });
+  const ticks = document.createElement("div");
+  ticks.className = "efficiency-ticks";
+  ticks.setAttribute("aria-hidden", "true");
+  ticks.innerHTML = "<span>0</span><span>25</span><span>50</span><span>75</span><span>100%</span>";
+  efficiencyModelBars.appendChild(ticks);
+  document.querySelectorAll("[data-efficiency-family]").forEach(button => button.setAttribute("aria-pressed", String(button.dataset.efficiencyFamily === efficiencyFamily)));
+  selectEfficiencyModel(1);
 }
-
-if (shrinkMilestoneList && shrinkStage) {
-  createShrinkMilestones();
-  selectShrinkMilestone(shrinkMilestones.length - 1);
-}
+document.querySelectorAll("[data-efficiency-family]").forEach(button => button.addEventListener("click", () => { efficiencyFamily = button.dataset.efficiencyFamily; renderEfficiencyModels(); }));
+renderEfficiencyModels();
 
 const unlockCopy = {
   posttraining: {
