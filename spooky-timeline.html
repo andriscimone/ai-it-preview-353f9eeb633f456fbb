@@ -19,7 +19,8 @@
         try {
           const grantedAt = Number(sessionStorage.getItem("aiit-spooky-pass"));
           sessionStorage.removeItem("aiit-spooky-pass");
-          if (grantedAt && Date.now() - grantedAt < 10000) {
+          if (sessionStorage.getItem("aiit-spooky-open") === "true" || (grantedAt && Date.now() - grantedAt < 10000)) {
+            sessionStorage.setItem("aiit-spooky-open", "true");
             document.documentElement.dataset.secretAccess = "granted";
             return;
           }
@@ -30,7 +31,7 @@
     <link rel="stylesheet" href="spooky-timeline.css?v=s8" />
     <link rel="stylesheet" href="spooky-landian.css?v=l11" />
     <link rel="stylesheet" href="spooky-accelerando.css?v=a16" />
-    <link rel="stylesheet" href="editorial.css?v=20260904" />
+    <link rel="stylesheet" href="editorial.css?v=20260905-spooky" />
   </head>
   <body class="spooky-page landian-skin">
     <a class="skip-link" href="#main-content">Vai al contenuto</a>
@@ -41,15 +42,23 @@
         <i aria-hidden="true"></i>
         <span>AI.it / hidden layer</span>
       </a>
-      <p><span aria-hidden="true"></span> accesso temporaneo</p>
+      <p><span aria-hidden="true"></span> sessione aperta</p>
       <a class="spooky-exit" href="index.html">Esci <span aria-hidden="true">↗</span></a>
     </header>
+
+    <nav class="spooky-chapters" aria-label="Capitoli della Spooky Timeline">
+      <a href="#orologi">Tre timeline</a>
+      <a href="#la-mia-soglia">La mia soglia</a>
+      <a href="#accelerando">43 segnali</a>
+      <a href="#capitale">Capitale</a>
+      <a href="#albero-futuri">12 futuri</a>
+    </nav>
 
     <main id="main-content">
       <section class="spooky-hero" id="top" aria-labelledby="machinic-title">
         <div class="hero-status">
           <span>A-43 / FUTURE BRANCHES</span>
-          <span>Indice delle fonti · 19.07.2026</span>
+          <span>Cronaca fino al 09.07.2026 · contesto luglio 2026</span>
         </div>
 
         <header class="hero-manifesto">
@@ -66,6 +75,7 @@
             <strong>eventi, dichiarazioni, previsioni ed esiti non sono la stessa cosa.</strong>
           </p>
           <div class="hero-actions">
+            <a href="#orologi">Confronta le tre timeline <span aria-hidden="true">↓</span></a>
             <a href="#capitale">Segui il capitale <span aria-hidden="true">↓</span></a>
             <a href="#albero-futuri">Segui l'albero dei 12 futuri <span aria-hidden="true">↘</span></a>
           </div>
@@ -201,7 +211,7 @@
 
             <ol class="threshold-list">
               <li>
-                <details class="threshold-item threshold-item-scale" name="threshold-work">
+                <details class="threshold-item threshold-item-scale" id="criterion-scale" name="threshold-work">
                   <summary>
                     <span class="threshold-number" aria-hidden="true">01</span>
                     <strong>Competenza e generalizzazione</strong>
@@ -224,11 +234,11 @@
                       <b>SCALING ≠ TRAGUARDO</b>
                     </div>
                   </div>
-                </details>
+                <p class="criterion-connection"><a href="#signal-filter" data-criterion-link="scale">Cerca i segnali pertinenti →</a></p></details>
               </li>
 
               <li>
-                <details class="threshold-item threshold-item-omni" name="threshold-work">
+                <details class="threshold-item threshold-item-omni" id="criterion-omni" name="threshold-work">
                   <summary>
                     <span class="threshold-number" aria-hidden="true">02</span>
                     <strong>Omnimodalità operativa</strong>
@@ -250,11 +260,11 @@
                       <b>TXT · IMG · AUD · VID → AZIONE</b>
                     </div>
                   </div>
-                </details>
+                <p class="criterion-connection"><a href="#signal-filter" data-criterion-link="omni">Cerca i segnali pertinenti →</a></p></details>
               </li>
 
               <li>
-                <details class="threshold-item threshold-item-context" name="threshold-work">
+                <details class="threshold-item threshold-item-context" id="criterion-context" name="threshold-work">
                   <summary>
                     <span class="threshold-number" aria-hidden="true">03</span>
                     <strong>Contesto e continuità</strong>
@@ -276,11 +286,11 @@
                       <b>RICORDARE ≠ USARE BENE</b>
                     </div>
                   </div>
-                </details>
+                <p class="criterion-connection"><a href="#signal-filter" data-criterion-link="context">Cerca i segnali pertinenti →</a></p></details>
               </li>
 
               <li>
-                <details class="threshold-item threshold-item-memory" name="threshold-work">
+                <details class="threshold-item threshold-item-memory" id="criterion-memory" name="threshold-work">
                   <summary>
                     <span class="threshold-number" aria-hidden="true">04</span>
                     <strong>Memoria e personalizzazione</strong>
@@ -302,11 +312,11 @@
                       <b>SALVA · RICHIAMA · CORREGGI · ELIMINA</b>
                     </div>
                   </div>
-                </details>
+                <p class="criterion-connection"><a href="#signal-filter" data-criterion-link="memory">Cerca i segnali pertinenti →</a></p></details>
               </li>
 
               <li>
-                <details class="threshold-item threshold-item-reliability" name="threshold-work">
+                <details class="threshold-item threshold-item-reliability" id="criterion-reliability" name="threshold-work">
                   <summary>
                     <span class="threshold-number" aria-hidden="true">05</span>
                     <strong>Affidabilità epistemica</strong>
@@ -328,11 +338,11 @@
                       <b>FATTO · STIMA · INCERTO · IGNOTO</b>
                     </div>
                   </div>
-                </details>
+                <p class="criterion-connection"><a href="#signal-filter" data-criterion-link="reliability">Cerca i segnali pertinenti →</a></p></details>
               </li>
 
               <li>
-                <details class="threshold-item threshold-item-time" name="threshold-work">
+                <details class="threshold-item threshold-item-time" id="criterion-time" name="threshold-work">
                   <summary>
                     <span class="threshold-number" aria-hidden="true">06</span>
                     <strong>Tempo, costo e persistenza</strong>
@@ -354,11 +364,11 @@
                       <b>START → STATO → VERIFICA → FINE</b>
                     </div>
                   </div>
-                </details>
+                <p class="criterion-connection"><a href="#signal-filter" data-criterion-link="time">Cerca i segnali pertinenti →</a></p></details>
               </li>
 
               <li>
-                <details class="threshold-item threshold-item-agency" name="threshold-work">
+                <details class="threshold-item threshold-item-agency" id="criterion-agency" name="threshold-work">
                   <summary>
                     <span class="threshold-number" aria-hidden="true">07</span>
                     <strong>Autonomia controllata</strong>
@@ -380,11 +390,11 @@
                       <b>AUTO → CHECK → AUTORIZZA / STOP</b>
                     </div>
                   </div>
-                </details>
+                <p class="criterion-connection"><a href="#signal-filter" data-criterion-link="agency">Cerca i segnali pertinenti →</a></p></details>
               </li>
 
               <li>
-                <details class="threshold-item threshold-item-integration" name="threshold-work">
+                <details class="threshold-item threshold-item-integration" id="criterion-integration" name="threshold-work">
                   <summary>
                     <span class="threshold-number" aria-hidden="true">08</span>
                     <strong>Integrazione sostenibile</strong>
@@ -406,7 +416,7 @@
                       <b>MODELLO → PROCESSO → ECONOMIA</b>
                     </div>
                   </div>
-                </details>
+                <p class="criterion-connection"><a href="#signal-filter" data-criterion-link="integration">Cerca i segnali pertinenti →</a></p></details>
               </li>
             </ol>
           </div>
@@ -721,6 +731,28 @@
             </p>
           </header>
 
+              <section class="capital-century-lens" aria-labelledby="capital-lens-title">
+                <header>
+                  <span>CONTROLLO FORBES / STESSE SOGLIE FINALI</span>
+                  <h4 id="capital-lens-title">La coda si comprime da ventuno anni a quattordici mesi.</h4>
+                  <p>Questa lente sostituisce le date interpolate del video con i primi attraversamenti documentati da Forbes. Le tre barre condividono la stessa scala.</p>
+                </header>
+                <ol class="capital-century-lens-steps" aria-label="Confronto Forbes dei tempi necessari a raddoppiare il record da 100 a 800 miliardi di dollari">
+                  <li style="--lens-width:100%">
+                    <div><span>$100 → $200 MLD</span><strong>≈21 anni 4 mesi</strong><small>apr 1999 → 26 ago 2020</small></div><i aria-hidden="true"></i>
+                  </li>
+                  <li style="--lens-width:20.1%">
+                    <div><span>$200 → $400 MLD</span><strong>1.568 giorni</strong><small>26 ago 2020 → 11 dic 2024</small></div><i aria-hidden="true"></i>
+                  </li>
+                  <li class="is-break" style="--lens-width:5.4%">
+                    <div><span>$400 → $800 MLD</span><strong>419 giorni</strong><small>11 dic 2024 → 3 feb 2026</small></div><i aria-hidden="true"></i>
+                  </li>
+                </ol>
+                <p class="capital-century-result"><span>COMPRESSIONE</span><strong>L'ultimo raddoppio richiede il 5,4% del tempo del primo: <b>18,7 volte più rapido</b> del $100→$200 e 3,74 volte più rapido del tratto precedente.</strong></p>
+              </section>
+<p class="capital-reading-note">Queste tre durate confrontano soglie del record stimato in dollari correnti. Non misurano il potere d’acquisto e non isolano un effetto dell’AI.</p>
+<details class="spooky-disclosure capital-history" id="capitale-storia">
+  <summary>Esplora la ricostruzione 1900–2026 <span>Il grafico completo, le fonti e i limiti della serie</span></summary>
           <div class="capital-question">
             <span>DOMANDA / QUANTO TEMPO SERVE PER FARE ×2?</span>
             <p>
@@ -837,25 +869,7 @@
                 </div>
               </div>
 
-              <section class="capital-century-lens" aria-labelledby="capital-lens-title">
-                <header>
-                  <span>CONTROLLO FORBES / STESSE SOGLIE FINALI</span>
-                  <h5 id="capital-lens-title">La coda si comprime da ventuno anni a quattordici mesi.</h5>
-                  <p>Questa lente sostituisce le date interpolate del video con i primi attraversamenti documentati da Forbes. Le tre barre condividono la stessa scala.</p>
-                </header>
-                <ol class="capital-century-lens-steps" aria-label="Confronto Forbes dei tempi necessari a raddoppiare il record da 100 a 800 miliardi di dollari">
-                  <li style="--lens-width:100%">
-                    <div><span>$100 → $200 MLD</span><strong>≈21 anni 4 mesi</strong><small>apr 1999 → 26 ago 2020</small></div><i aria-hidden="true"></i>
-                  </li>
-                  <li style="--lens-width:20.1%">
-                    <div><span>$200 → $400 MLD</span><strong>1.568 giorni</strong><small>26 ago 2020 → 11 dic 2024</small></div><i aria-hidden="true"></i>
-                  </li>
-                  <li class="is-break" style="--lens-width:5.4%">
-                    <div><span>$400 → $800 MLD</span><strong>419 giorni</strong><small>11 dic 2024 → 3 feb 2026</small></div><i aria-hidden="true"></i>
-                  </li>
-                </ol>
-                <p class="capital-century-result"><span>COMPRESSIONE</span><strong>L'ultimo raddoppio richiede il 5,4% del tempo del primo: <b>18,7 volte più rapido</b> del $100→$200 e 3,74 volte più rapido del tratto precedente.</strong></p>
-              </section>
+
 
               <p class="capital-chart-caveat">
                 <span>CONFINE</span>
@@ -890,6 +904,7 @@
               </p>
             </div>
           </figure>
+</details>
 
           <div class="capital-proof-grid" aria-label="Due indicatori della concentrazione sistemica">
             <article>
@@ -1045,6 +1060,14 @@
           </p>
         </div>
 
+<div class="signal-filter" id="signal-filter">
+  <label for="signal-criterion">Collega la cronaca alla mia soglia</label>
+  <select id="signal-criterion"><option value="all">Tutti i 43 segnali</option><option value="scale">Competenza e generalizzazione</option><option value="omni">Omnimodalità operativa</option><option value="context">Contesto e continuità</option><option value="memory">Memoria e personalizzazione</option><option value="reliability">Affidabilità epistemica</option><option value="time">Tempo, costo e persistenza</option><option value="agency">Autonomia controllata</option><option value="integration">Integrazione sostenibile</option><option value="context-only">Contesto senza collegamento diretto</option></select>
+  <p>I collegamenti indicano pertinenza a una parte del criterio. Non certificano che la prova sia superata; annunci e testimonianze conservano il loro valore di fonte.</p>
+  <p id="signal-count" role="status" aria-live="polite">43 segnali nella raccolta.</p>
+  <p id="signal-empty" hidden>Questa raccolta non documenta direttamente la prova richiesta. Il criterio resta aperto.</p>
+  <a id="signal-criterion-back" href="#la-mia-soglia">Rileggi i criteri della soglia ↑</a>
+</div>
         <div class="accelerando-archive">
           <div class="accelerando-archive-body">
             <nav class="accelerando-year-nav" aria-label="Anni della cronologia Accelerando">
@@ -1056,225 +1079,225 @@
             <section class="accelerando-year" id="accelerando-2025" aria-labelledby="accelerando-2025-title">
               <header><span>ANNO / 01</span><h3 id="accelerando-2025-title">2025</h3><p>Il coding agent passa da prodotto nuovo a infrastruttura quotidiana.</p></header>
               <div class="accelerando-events">
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2025-01-04-singolarita" data-signal-criteria="">
                   <div class="event-meta"><time datetime="2025-01-04">04.01</time><span>DICHIARAZIONE</span></div>
                   <div><h4>«Vicino alla Singolarità» entra nel lessico pubblico.</h4><p>Sam Altman scrive: «Ho sempre voluto scrivere una storia di sei parole. Eccola: ___ vicino alla Singolarità; non è chiaro da quale lato».</p><a href="https://x.com/sama/status/1875603249472139576" target="_blank" rel="noopener noreferrer">Post originale ↗</a></div>
-                </article>
+                <div class="signal-annotations"></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2025-01-25-stargate" data-signal-criteria="">
                   <div class="event-meta"><time datetime="2025-01-25">25.01</time><span>INFRASTRUTTURA</span></div>
                   <div><h4>Stargate porta la corsa dentro i data center.</h4><p>OpenAI annuncia Project Stargate, pensato per rendere disponibile un'enorme quantità di capacità di calcolo nel corso dei prossimi anni. Altri operatori del settore — xAI, Amazon, Microsoft, Meta, Google e altri — seguono rapidamente, ampliando in modo significativo i propri piani di costruzione di data center.</p><a href="https://openai.com/index/announcing-the-stargate-project/" target="_blank" rel="noopener noreferrer">Annuncio OpenAI ↗</a></div>
-                </article>
+                <div class="signal-annotations"></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2025-02-24-claude-code" data-signal-criteria="agency">
                   <div class="event-meta"><time datetime="2025-02-24">24.02</time><span>PRODOTTO</span></div>
                   <div><h4>Anthropic pubblica Claude Code.</h4><p>Un agente di programmazione entra nel terminale e può leggere, modificare ed eseguire codice.</p><a href="https://www.anthropic.com/news/claude-3-7-sonnet" target="_blank" rel="noopener noreferrer">Annuncio Anthropic ↗</a></div>
-                </article>
+                <div class="signal-annotations"><p class="signal-relevance">Criteri pertinenti: Autonomia controllata</p></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2025-04-15-preparedness" data-signal-criteria="">
                   <div class="event-meta"><time datetime="2025-04-15">15.04</time><span>SICUREZZA</span></div>
                   <div><h4>OpenAI isola il «miglioramento autonomo dell'AI».</h4><p>OpenAI aggiorna il proprio quadro di preparazione, separando per la prima volta il «miglioramento autonomo dell'AI» come categoria specifica. Il rischio «Alto» associato a questa capacità viene descritto come l'equivalente di «fornire a ogni ricercatore OpenAI un assistente ingegnere di ricerca a metà carriera molto performante», rispetto al livello di base di quei ricercatori nel 2024.</p><a href="https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf" target="_blank" rel="noopener noreferrer">Quadro di preparazione ↗</a></div>
-                </article>
+                <div class="signal-annotations"></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2025-04-16-codex-cli" data-signal-criteria="">
                   <div class="event-meta"><time datetime="2025-04-16">16.04</time><span>PRODOTTO</span></div>
                   <div><h4>Codex torna nel terminale, poi passa al cloud.</h4><p>OpenAI pubblica Codex CLI, inizialmente progettato per funzionare in locale dal terminale. Il rilascio viene seguito da vicino da una versione di Codex basata sul cloud, presentata il 16 maggio.</p><div class="event-links"><a href="https://techcrunch.com/2025/04/16/openai-debuts-codex-cli-an-open-source-coding-tool-for-terminals/" target="_blank" rel="noopener noreferrer">Codex da terminale ↗</a><a href="https://openai.com/index/introducing-codex/" target="_blank" rel="noopener noreferrer">Codex nel cloud ↗</a></div></div>
-                </article>
+                <div class="signal-annotations"></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2025-06-10-gentle-singularity" data-signal-criteria="">
                   <div class="event-meta"><time datetime="2025-06-10">10.06</time><span>TESI</span></div>
                   <div><h4>«Il decollo è iniziato.»</h4><p>Sam Altman descrive la propria visione del futuro in un saggio intitolato <i>La Singolarità gentile</i>. Il testo comincia così: «Abbiamo superato l'orizzonte degli eventi; il decollo è iniziato».</p><a href="https://blog.samaltman.com/the-gentle-singularity" target="_blank" rel="noopener noreferrer">Saggio originale ↗</a></div>
-                </article>
+                <div class="signal-annotations"></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2025-09-15-codex-gpt5" data-signal-criteria="">
                   <div class="event-meta"><time datetime="2025-09-15">15.09</time><span>MODELLO</span></div>
                   <div><h4>Codex passa a GPT-5.</h4><p>OpenAI pubblica una nuova versione di Codex basata su GPT-5, a sua volta rilasciato solo poche settimane prima. Dopo questo aggiornamento, Codex cresce notevolmente in popolarità.</p><a href="https://openai.com/index/introducing-upgrades-to-codex/" target="_blank" rel="noopener noreferrer">Annuncio OpenAI ↗</a></div>
-                </article>
+                <div class="signal-annotations"></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2025-09-29-sonnet-produttivita" data-signal-criteria="integration">
                   <div class="event-meta"><time datetime="2025-09-29">29.09</time><span>SONDAGGIO INTERNO</span></div>
                   <div><h4>Sonnet 4.5: +20–30% di produttività dichiarata.</h4><p>In occasione del rilascio di Sonnet 4.5, Anthropic intervista sette propri ricercatori sull'accelerazione ottenuta usando Sonnet 4.5 in Claude Code. La stima mediana dichiarata dell'aumento di produttività è compresa tra il 20% e il 30%.</p><a href="https://assets.anthropic.com/m/12f214efcc2f457a/original/Claude-Sonnet-4-5-System-Card.pdf" target="_blank" rel="noopener noreferrer">Scheda del modello ↗</a></div>
-                </article>
+                <div class="signal-annotations"><p class="signal-relevance">Criteri pertinenti: Integrazione sostenibile</p></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2025-10-29-tirocinante-obiettivo" data-signal-criteria="">
                   <div class="event-meta"><time datetime="2025-10-29">29.10</time><span>OBIETTIVO DICHIARATO</span></div>
                   <div><h4>Un tirocinante di ricerca automatizzato entro settembre 2026.</h4><p>Durante una diretta, Sam Altman e Jakub Pachocki annunciano che OpenAI punta a ottenere un tirocinante automatizzato per la ricerca sull'AI entro settembre 2026. Un ricercatore AI completamente automatizzato dovrebbe seguire entro marzo 2028. In seguito Altman scrive che il «tirocinante» funzionerà su «centinaia di migliaia di GPU».</p><div class="event-links"><a href="https://www.youtube.com/watch?v=ngDCxlZcecw" target="_blank" rel="noopener noreferrer">Diretta ↗</a><a href="https://x.com/sama/status/1983584366547829073" target="_blank" rel="noopener noreferrer">Post di Altman ↗</a></div></div>
-                </article>
+                <div class="signal-annotations"></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2025-11-19-codex-max-qa" data-signal-criteria="scale">
                   <div class="event-meta"><time datetime="2025-11-19">19.11</time><span>VALUTAZIONE</span></div>
                   <div><h4>Codex-Max risolve l'8% di venti colli di bottiglia interni.</h4><p>OpenAI chiede a GPT-5.1-Codex-Max di diagnosticare e spiegare venti colli di bottiglia interni di ricerca e ingegneria realmente incontrati in passato dall'azienda. Ognuno aveva richiesto circa un giorno di lavoro al team OpenAI. Il modello ottiene l'8% in questa valutazione, chiamata «OpenAI Q&amp;A».</p><a href="https://x.com/Miles_Brundage/status/1991238750802727373" target="_blank" rel="noopener noreferrer">Descrizione della valutazione ↗</a></div>
-                </article>
+                <div class="signal-annotations"><p class="signal-relevance">Criteri pertinenti: Competenza e generalizzazione</p></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2025-11-24-opus-produttivita" data-signal-criteria="integration">
                   <div class="event-meta"><time datetime="2025-11-24">24.11</time><span>SONDAGGIO INTERNO</span></div>
                   <div><h4>Opus 4.5: Anthropic dichiara aumenti molto maggiori.</h4><p>Anthropic pubblica Opus 4.5, che secondo l'autore della cronologia diventa subito il modello di programmazione preferito da molti sviluppatori. Per il rilascio, Anthropic intervista diciotto membri del personale tecnico sull'aumento di produttività ottenuto con Opus 4.5 in Claude Code. Il 50% dichiara un miglioramento di almeno il 100%; la media dichiarata è del 220%. Due ricercatori lo definiscono un «sostituto quasi completo di un ricercatore di livello iniziale», pur con «riserve significative».</p><div class="event-links"><a href="https://www.anthropic.com/news/claude-opus-4-5" target="_blank" rel="noopener noreferrer">Rilascio ↗</a><a href="https://assets.anthropic.com/m/64823ba7485345a7/Claude-Opus-4-5-System-Card.pdf" target="_blank" rel="noopener noreferrer">Scheda del modello ↗</a></div></div>
-                </article>
+                <div class="signal-annotations"><p class="signal-relevance">Criteri pertinenti: Integrazione sostenibile</p></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2025-12-19-metr-opus" data-signal-criteria="time">
                   <div class="event-meta"><time datetime="2025-12-19">19.12</time><span>BENCHMARK</span></div>
                   <div><h4>METR misura un orizzonte al 50% di circa 4 ore e 49 minuti.</h4><p>METR annuncia che Opus 4.5 raggiunge un orizzonte temporale al 50% di circa 4 ore e 49 minuti, nettamente superiore a quello di qualsiasi altro modello pubblicato fino a quel momento.</p><a href="https://x.com/METR_Evals/status/2002203627377574113" target="_blank" rel="noopener noreferrer">Risultato METR ↗</a></div>
-                </article>
+                <div class="signal-annotations"><p class="signal-relevance">Criteri pertinenti: Tempo, costo e persistenza</p><p class="signal-limit">L’orizzonte METR indica la durata stimata del compito per una persona; non è il tempo trascorso dal modello né una garanzia di successo.</p></div></article>
               </div>
             </section>
 
             <section class="accelerando-year" id="accelerando-2026" aria-labelledby="accelerando-2026-title">
               <header><span>ANNO / 02</span><h3 id="accelerando-2026-title">2026</h3><p>Il linguaggio cambia: da assistenza alla programmazione a ricerca che costruisce ricerca.</p></header>
               <div class="accelerando-events">
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2026-01-09-clark-circuito" data-signal-criteria="">
                   <div class="event-meta"><time datetime="2026-01-09">09.01</time><span>DICHIARAZIONE</span></div>
                   <div><h4>Jack Clark nomina il circuito.</h4><p>Jack Clark di Anthropic rivela che «la cosa principale» di cui si preoccupa è «se le persone riusciranno a “costruire un'AI che costruisce AI”, chiudendo completamente il ciclo della ricerca e sviluppo sull'AI — ciò che talvolta viene chiamato AI capace di migliorarsi ricorsivamente».</p><a href="https://post.substack.com/p/the-ai-revolution-is-here-will-the" target="_blank" rel="noopener noreferrer">Intervento ↗</a></div>
-                </article>
+                <div class="signal-annotations"></div></article>
 
-                <article class="accelerando-event accelerando-event-cluster">
+                <article class="accelerando-event accelerando-event-cluster" id="signal-2026-01-codice-testimonianze" data-signal-criteria="agency integration">
                   <div class="event-meta"><time datetime="2026-01">GENNAIO</time><span>5 DICHIARAZIONI</span></div>
                   <div><h4>«Non scrivo più codice.»</h4><p>Una serie di post di ricercatori Anthropic e OpenAI sostiene che quasi tutto il codice nei rispettivi laboratori venga ormai scritto da Claude Code o Codex. Sono testimonianze personali, non una misura uniforme delle due aziende.</p><div class="event-quotes"><blockquote>«Praticamente il 100% del codice del team di Claude Code è scritto da Claude Code + Opus 4.5. Per me personalmente è il 100% da più di due mesi: non faccio più nemmeno piccole modifiche a mano. Ieri ho consegnato 22 pull request e 27 il giorno prima, ognuna scritta al 100% da Claude».<cite><a href="https://x.com/bcherny/status/2015979257038831967" target="_blank" rel="noopener noreferrer">Boris Cherny · Anthropic ↗</a></cite></blockquote><blockquote>«Il miglioramento ricorsivo è dietro l'angolo. Lo si può percepire negli angoli della finestra del terminale».<cite><a href="https://x.com/santiaghini/status/2012447234806382665" target="_blank" rel="noopener noreferrer">Santiago Hernandez · OpenAI ↗</a></cite></blockquote><blockquote>«Programmare ha sempre fatto schifo... È sorprendente quanto rapidamente io sia andato avanti senza sentirne minimamente la mancanza... Per me il 100% del codice viene scritto da Codex: non scrivo più codice».<cite><a href="https://x.com/tszzl/status/2015253546372153347" target="_blank" rel="noopener noreferrer">roon · OpenAI ↗</a></cite></blockquote><blockquote>«Codex ormai costruisce praticamente sé stesso, con l'aiuto e la supervisione di un ottimo team. Il collo di bottiglia si è spostato sulla velocità con cui possiamo aiutare e supervisionare il risultato».<cite><a href="https://x.com/thsottiaux/status/2018258151603388639" target="_blank" rel="noopener noreferrer">Thibault Sottiaux · OpenAI ↗</a></cite></blockquote><blockquote>«In questi giorni Codex scrive tutto il mio codice».<cite><a href="https://x.com/polynoamial/status/2018387805341380848" target="_blank" rel="noopener noreferrer">Noam Brown · OpenAI ↗</a></cite></blockquote></div></div>
-                </article>
+                <div class="signal-annotations"><p class="signal-relevance">Criteri pertinenti: Autonomia controllata · Integrazione sostenibile</p></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2026-01-20-amodei-davos" data-signal-criteria="">
                   <div class="event-meta"><time datetime="2026-01-20">20.01</time><span>PREVISIONE</span></div>
                   <div><h4>Amodei: 6–12 mesi per automatizzare il lavoro software dall'inizio alla fine.</h4><p>Alla conferenza di Davos, Dario Amodei afferma che un'AI potente non è così lontana.</p><blockquote>«Il meccanismo con cui immaginavo che sarebbe accaduto consiste nell'avere modelli bravi nella programmazione e nella ricerca sull'AI. Li useremmo per creare la nuova generazione di modelli e accelerarla, formando un ciclo capace di aumentare la velocità dello sviluppo. Siamo arrivati al punto in cui alcuni ingegneri di Anthropic mi dicono: “Non scrivo più codice: lascio che lo scriva il modello, poi lo modifico e mi occupo di ciò che gli sta intorno”. Potremmo essere a 6–12 mesi da un modello capace di fare dall'inizio alla fine tutto ciò che fanno gli ingegneri software. A quel punto la domanda diventa: quanto rapidamente si chiude il ciclo? Non ogni sua parte può essere accelerata dall'AI. Ci sono i chip, la loro produzione e il tempo necessario ad addestrare il modello. C'è molta incertezza. È facile immaginare che possano servire alcuni anni; mi è molto difficile pensare che ne occorrano di più. Se dovessi indovinare, direi che accadrà più rapidamente di quanto la gente immagini. Il fattore decisivo sarà proprio l'accelerazione del codice e, sempre più, della ricerca».</blockquote><a href="https://x.com/deredleritt3r/status/2013613671704924640" target="_blank" rel="noopener noreferrer">Intervento ↗</a></div>
-                </article>
+                <div class="signal-annotations"></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2026-01-26-amodei-retroazione" data-signal-criteria="">
                   <div class="event-meta"><time datetime="2026-01-26">26.01</time><span>TESI</span></div>
                   <div><h4>«Il ciclo di retroazione acquista forza mese dopo mese.»</h4><p>Nel saggio <i>L'adolescenza della tecnologia</i>, Dario Amodei scrive che l'AI «sta già scrivendo gran parte del codice di Anthropic» e «sta già accelerando in modo sostanziale il ritmo dei nostri progressi nella costruzione della prossima generazione di sistemi AI». Aggiunge: «Questo ciclo di retroazione acquista forza mese dopo mese e potrebbe trovarsi a solo uno o due anni dal punto in cui l'attuale generazione di AI costruirà autonomamente la successiva. Questo ciclo... accelererà rapidamente nei prossimi mesi e anni».</p><a href="https://www.darioamodei.com/essay/the-adolescence-of-technology" target="_blank" rel="noopener noreferrer">Saggio originale ↗</a></div>
-                </article>
+                <div class="signal-annotations"></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2026-02-04-metr-gpt52" data-signal-criteria="time">
                   <div class="event-meta"><time datetime="2026-02-04">04.02</time><span>BENCHMARK</span></div>
                   <div><h4>GPT-5.2 (high) porta l'orizzonte METR a 6 ore e 34 minuti.</h4><p>METR assegna finalmente un punteggio a GPT-5.2 (high), che stabilisce un nuovo massimo nella misura al 50%: 6 ore e 34 minuti, oltre un'ora più di Opus 4.5. Stabilisce un nuovo massimo anche nella misura all'80%: 55 minuti, più di dieci minuti oltre Opus 4.5 e Gemini 3 Pro.</p><a href="https://x.com/METR_Evals/status/2019169900317798857" target="_blank" rel="noopener noreferrer">Risultato METR ↗</a></div>
-                </article>
+                <div class="signal-annotations"><p class="signal-relevance">Criteri pertinenti: Tempo, costo e persistenza</p><p class="signal-limit">L’orizzonte METR indica la durata stimata del compito per una persona; non è il tempo trascorso dal modello né una garanzia di successo.</p></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2026-02-05-codex-autosviluppo" data-signal-criteria="agency integration">
                   <div class="event-meta"><time datetime="2026-02-05">05.02</time><span>MODELLO + DICHIARAZIONE</span></div>
                   <div><h4>Due modelli nello stesso giorno; uno avrebbe contribuito a creare sé stesso.</h4><p>Anthropic pubblica Opus 4.6 e OpenAI pubblica GPT-5.3-Codex nello stesso giorno. OpenAI annuncia che GPT-5.3-Codex «è il nostro primo modello ad aver svolto un ruolo determinante nella creazione di sé stesso»: versioni iniziali del modello sono state usate per correggere il proprio addestramento, gestire la propria distribuzione e diagnosticare i risultati dei test e delle valutazioni. I nuovi modelli Codex vengono ormai pubblicati con cadenza mensile.</p><div class="event-links"><a href="https://www.anthropic.com/news/claude-opus-4-6" target="_blank" rel="noopener noreferrer">Opus 4.6 ↗</a><a href="https://openai.com/index/introducing-gpt-5-3-codex/" target="_blank" rel="noopener noreferrer">GPT-5.3-Codex ↗</a><a href="https://x.com/deredleritt3r/status/2019475360438493597" target="_blank" rel="noopener noreferrer">Dichiarazione ↗</a></div></div>
-                </article>
+                <div class="signal-annotations"><p class="signal-relevance">Criteri pertinenti: Autonomia controllata · Integrazione sostenibile</p></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2026-02-08-super-bowl" data-signal-criteria="">
                   <div class="event-meta"><time datetime="2026-02-08">08.02</time><span>IMMAGINARIO</span></div>
                   <div><h4>La Singolarità entra nello spot del Super Bowl.</h4><p>Lo spot di OpenAI per il Super Bowl mostra Alan Turing, il teorema di Bayes, scene tratte da <i>Pantheon</i> e un libro aperto su un capitolo intitolato «La Singolarità è vicina».</p><a href="https://x.com/OpenAI/status/2020649757434327362" target="_blank" rel="noopener noreferrer">Video ↗</a></div>
-                </article>
+                <div class="signal-annotations"></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2026-02-24-anthropic-roadmap" data-signal-criteria="">
                   <div class="event-meta"><time datetime="2026-02-24">24.02</time><span>SICUREZZA</span></div>
                   <div><h4>Anthropic indica l'inizio del 2027 come possibilità da preparare.</h4><p>Anthropic pubblica la nuova <i>Tabella di marcia per la sicurezza di frontiera</i> e il primo <i>Rapporto sui rischi</i> previsto dalla versione aggiornata della propria politica di scaling responsabile. I documenti affermano che è «plausibile, già dall'inizio del 2027», che i sistemi AI di Anthropic possano automatizzare completamente, o comunque accelerare drasticamente, il lavoro di grandi team umani di ricerca d'élite in ambiti quali energia, robotica, sviluppo di armi e ricerca sull'AI. Affermano inoltre che, «nei prossimi anni», i modelli potrebbero possedere un ampio insieme di capacità superiori a quelle umane. Anthropic promette di comunicare pubblicamente entro trenta giorni l'eventuale sviluppo di un modello interno capace di «porre rischi significativi ulteriori» rispetto ai modelli disponibili al pubblico, «compresi i modelli interni che stiamo impiegando per ricerca completamente autonoma su larga scala».</p><div class="event-links"><a href="https://www.anthropic.com/responsible-scaling-policy/roadmap" target="_blank" rel="noopener noreferrer">Tabella di marcia ↗</a><a href="https://www-cdn.anthropic.com/08eca2757081e850ed2ad490e5253e940240ca4f.pdf" target="_blank" rel="noopener noreferrer">Rapporto sui rischi ↗</a><a href="https://www-cdn.anthropic.com/e670587677525f28df69b59e5fb4c22cc5461a17.pdf" target="_blank" rel="noopener noreferrer">Politica ↗</a></div></div>
-                </article>
+                <div class="signal-annotations"></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2026-03-04-amodei-accelerazione" data-signal-criteria="">
                   <div class="event-meta"><time datetime="2026-03-04">04.03</time><span>PREVISIONE</span></div>
                   <div><h4>«Una radicale accelerazione che sorprenderà tutti.»</h4><p>In una nuova intervista, Dario Amodei afferma:</p><blockquote>«Penso che quest'anno assisteremo a un'accelerazione radicale che sorprenderà tutti. Gli esponenziali colgono le persone alla sprovvista: c'è la vecchia parabola della seconda metà della scacchiera, dove si mette un chicco di riso sulla prima casella, due sulla seconda, quattro sulla quarta. Arrivati alla sessantaquattresima casella, si hanno miliardi o migliaia di miliardi di chicchi. Noi siamo sulla casella 40 di 64 e, dalla 40 alla 64, tutto procederà più rapidamente di quanto pensiate, anche avendo visto quanto velocemente è andato finora. Non credo che le persone siano pronte. Penso che siamo sul precipizio di qualcosa di incredibile».</blockquote><a href="https://www.tmtbreakout.com/p/tmtb-dario-amodei-anthropic-ceo-at" target="_blank" rel="noopener noreferrer">Intervista ↗</a></div>
-                </article>
+                <div class="signal-annotations"></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2026-03-11-kaplan-previsione" data-signal-criteria="">
                   <div class="event-meta"><time datetime="2026-03-11">11.03</time><span>PREVISIONE</span></div>
                   <div><h4>Kaplan: la ricerca AI automatizzata potrebbe essere a un anno.</h4><p>Jared Kaplan, cofondatore e direttore scientifico di Anthropic, dichiara alla rivista <i>Time</i> che la ricerca sull'AI completamente automatizzata potrebbe essere «ad appena un anno di distanza».</p><a href="https://x.com/AndrewCurran_/status/2031731035105628270" target="_blank" rel="noopener noreferrer">Estratto ↗</a></div>
-                </article>
+                <div class="signal-annotations"></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2026-04-06-anthropic-ricavi" data-signal-criteria="">
                   <div class="event-meta"><time datetime="2026-04-06">06.04</time><span>BUSINESS</span></div>
                   <div><h4>Anthropic raggiunge 30 miliardi di dollari di ricavi annualizzati.</h4><p>Anthropic raggiunge un ritmo annualizzato dei ricavi pari a 30 miliardi di dollari, rispetto ai 19 miliardi del mese precedente e ai 9 miliardi registrati alla fine del 2025.</p><a href="https://x.com/deredleritt3r/status/2041287132463919297" target="_blank" rel="noopener noreferrer">Fonte riportata ↗</a></div>
-                </article>
+                <div class="signal-annotations"></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2026-04-07-mythos-vulnerabilita" data-signal-criteria="scale integration">
                   <div class="event-meta"><time datetime="2026-04-07">07.04</time><span>CYBERSICUREZZA</span></div>
                   <div><h4>Mythos Preview cerca vulnerabilità su larga scala.</h4><p>Anthropic pubblica la scheda di sistema di Mythos Preview, una nuova classe di modello che l'azienda inizialmente non intende rendere disponibile al pubblico, e annuncia che il modello «ha già individuato migliaia di vulnerabilità ad alta gravità, comprese alcune in ogni grande sistema operativo e browser web». Anthropic annuncia inoltre «Project Glasswing», una collaborazione con diverse aziende e organizzazioni che userà Mythos Preview per trovare e correggere falle nei sistemi esistenti prima che modelli AI futuri più potenti possano sfruttarle.</p><div class="event-links"><a href="https://www-cdn.anthropic.com/53566bf5440a10affd749724787c8913a2ae0841.pdf" target="_blank" rel="noopener noreferrer">Scheda del sistema ↗</a><a href="https://x.com/AnthropicAI/status/2041578403686498506" target="_blank" rel="noopener noreferrer">Risultati ↗</a><a href="https://x.com/AnthropicAI/status/2041578392852517128" target="_blank" rel="noopener noreferrer">Project Glasswing ↗</a></div></div>
-                </article>
+                <div class="signal-annotations"><p class="signal-relevance">Criteri pertinenti: Competenza e generalizzazione · Integrazione sostenibile</p></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2026-04-14-erdos-1196" data-signal-criteria="scale">
                   <div class="event-meta"><time datetime="2026-04-14">14.04</time><span>MATEMATICA</span></div>
                   <div><h4>GPT-5.4 Pro risolve al primo tentativo il problema n. 1196 di Erdős.</h4><p>Viene annunciato che GPT-5.4 Pro ha risolto al primo tentativo il problema n. 1196 di Erdős, dopo 80 minuti di ragionamento. Secondo l'autore della cronologia è di gran lunga il risultato matematico più interessante ottenuto fino a quel momento da un modello AI, anche se probabilmente non ancora una «mossa 37». Il matematico Jared Lichtman spiega:</p><blockquote>«Questo problema mi sta profondamente a cuore e ci penso da sette anni. Ne parlavo spesso con Maynard durante i nostri incontri e, nel corso degli anni, ho consultato diversi esperti... Non era un problema poco conosciuto. Piuttosto, la dimostrazione appare sorprendentemente compatta una volta vista, ma la costruzione è molto particolare tra numerose varianti simili».</blockquote><a href="https://x.com/Liam06972452/status/2044051379916882067" target="_blank" rel="noopener noreferrer">Annuncio e commento ↗</a></div>
-                </article>
+                <div class="signal-annotations"><p class="signal-relevance">Criteri pertinenti: Competenza e generalizzazione</p></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2026-04-20-google-squadra" data-signal-criteria="">
                   <div class="event-meta"><time datetime="2026-04-20">20.04</time><span>RICERCA INDUSTRIALE</span></div>
                   <div><h4>Google crea una squadra dedicata ai modelli di programmazione.</h4><p>Secondo quanto riportato, Sergey Brin forma in Google una «squadra d'assalto» incaricata di migliorare i modelli AI di programmazione dell'azienda. «L'obiettivo finale è il decollo dell'AI, oppure un'AI capace di migliorare sé stessa... Brin ha detto ai dipendenti che migliorare le capacità di programmazione dell'AI di Google è un passo verso quell'obiettivo».</p><a href="https://x.com/Yuchenj_UW/status/2046246166871089438" target="_blank" rel="noopener noreferrer">Resoconto ↗</a></div>
-                </article>
+                <div class="signal-annotations"></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2026-04-23-gpt55-esperimenti" data-signal-criteria="time agency">
                   <div class="event-meta"><time datetime="2026-04-23">23.04</time><span>MODELLO + TESTIMONIANZE</span></div>
                   <div><h4>GPT-5.5 esegue esperimenti e addestramenti con istruzioni ad alto livello.</h4><p>OpenAI pubblica GPT-5.5, basato su «Spud», un modello pre-addestrato più grande.</p><div class="event-quotes"><blockquote>«Ci sono primi segnali che 5.5 sia un valido partner per la ricerca sull'AI. Diversi ricercatori gli affidano durante la notte varianti di esperimenti, fornendogli soltanto un'idea algoritmica ad alto livello; al risveglio trovano dashboard complete delle esplorazioni e campioni, senza aver mai toccato codice o terminale».<cite><a href="https://x.com/tszzl/status/2047386955550470245" target="_blank" rel="noopener noreferrer">roon ↗</a></cite></blockquote><blockquote>«Durante la pausa ho dettato per alcuni minuti a 5.5 la descrizione di un nuovo e ambizioso addestramento per rinforzo. Ho premuto invio e me ne sono dimenticato mentre trascorrevo alcuni giorni con amici e il mio ragazzo. Lunedì sono tornato e ho trovato un addestramento su scala industriale ancora in funzione, dopo 31 ore di lavoro».<cite><a href="https://x.com/aidan_mclau/status/2047388367705575701" target="_blank" rel="noopener noreferrer">Aidan McLaughlin ↗</a></cite></blockquote></div><p>In base a una conversazione privata dell'autore con un ricercatore OpenAI, il modello non soddisfa ancora i requisiti di un tirocinante automatizzato per la ricerca sull'AI, perché «abbiamo una definizione tecnica di tirocinante di ricerca che richiede molta più autonomia».</p></div>
-                </article>
+                <div class="signal-annotations"><p class="signal-relevance">Criteri pertinenti: Tempo, costo e persistenza · Autonomia controllata</p></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2026-04-29-glasswing-opposizione" data-signal-criteria="">
                   <div class="event-meta"><time datetime="2026-04-29">29.04</time><span>POLITICA + REPORT</span></div>
                   <div><h4>La Casa Bianca si opporrebbe a un rilascio più ampio di Glasswing.</h4><p>Secondo quanto riportato, l'amministrazione Trump si oppone a una diffusione più ampia di Project Glasswing di Anthropic «a causa dei rischi per la sicurezza nazionale posti dal modello». Se confermato, sarebbe il primo caso noto in cui il governo degli Stati Uniti tenta di bloccare o limitare la diffusione di un modello AI di frontiera.</p><a href="https://www.wsj.com/tech/ai/white-house-opposes-anthropics-plan-to-expand-access-to-mythos-model-dc281ab5" target="_blank" rel="noopener noreferrer">Articolo ↗</a></div>
-                </article>
+                <div class="signal-annotations"></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2026-05-04-clark-probabilita" data-signal-criteria="">
                   <div class="event-meta"><time datetime="2026-05-04">04.05</time><span>STIMA PERSONALE</span></div>
                   <div><h4>Jack Clark assegna oltre il 60% alla ricerca AI senza esseri umani entro il 2028.</h4><p>Jack Clark scrive che, sulla base delle informazioni pubblicamente disponibili, «esiste una probabilità verosimile — superiore al 60% — che entro la fine del 2028 si realizzi una ricerca e sviluppo sull'AI senza intervento umano: un sistema abbastanza potente da poter plausibilmente costruire in autonomia il proprio successore». Se ciò non accadesse, sarebbe perché «avremmo rivelato una carenza fondamentale dell'attuale paradigma tecnologico». Clark assegna inoltre una probabilità del 30% alla costruzione di un sistema di ricerca e sviluppo senza esseri umani già nel 2027.</p><a href="https://importai.substack.com/p/import-ai-455-automating-ai-research" target="_blank" rel="noopener noreferrer">Import AI ↗</a></div>
-                </article>
+                <div class="signal-annotations"></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2026-05-04-revisione-governativa" data-signal-criteria="">
                   <div class="event-meta"><time datetime="2026-05-04">04—05.05</time><span>POLITICA</span></div>
                   <div><h4>Prende forma una revisione governativa dei modelli di frontiera.</h4><p>Viene rivelato che l'amministrazione Trump sta valutando l'introduzione di una «supervisione governativa» sui nuovi modelli AI, che potrebbe comprendere «un processo formale di revisione governativa dei modelli AI». Il 5 maggio il NIST annuncia che CAISI ha firmato accordi con Google, Microsoft e xAI per i «test di sicurezza nazionale sull'AI di frontiera» e ha rinegoziato gli accordi esistenti con OpenAI e Anthropic. Nello stesso giorno Chris Lehane conferma che CAISI sta testando GPT-5.5-Cyber e che OpenAI collabora con il governo statunitense a una «strategia di distribuzione responsabile» del modello, compreso il modo in cui fornirlo alle amministrazioni federali, statali e locali, agli operatori delle infrastrutture critiche e agli alleati.</p><div class="event-links"><a href="https://www.nytimes.com/2026/05/04/technology/trump-ai-models.html" target="_blank" rel="noopener noreferrer">New York Times ↗</a><a href="https://www.einpresswire.com/article/910622199/caisi-signs-agreements-regarding-frontier-ai-national-security-testing-with-google-deepmind-microsoft-and-xai" target="_blank" rel="noopener noreferrer">Comunicato NIST (copia) ↗</a><a href="https://x.com/deredleritt3r/status/2052013136337674294" target="_blank" rel="noopener noreferrer">Conferma riportata ↗</a></div></div>
-                </article>
+                <div class="signal-annotations"></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2026-05-20-distanza-unitaria" data-signal-criteria="scale">
                   <div class="event-meta"><time datetime="2026-05-20">20.05</time><span>MATEMATICA</span></div>
                   <div><h4>Un modello interno di OpenAI risolve autonomamente il problema della distanza unitaria planare.</h4><p>Un modello di ragionamento generale OpenAI non ancora pubblicato risolve il problema della distanza unitaria planare, una celebre questione aperta formulata per la prima volta da Paul Erdős nel 1946. Il modello non dispone di una struttura di supporto, non usa Lean e risolve il problema in completa autonomia, senza intervento umano.</p><div class="event-quotes"><blockquote>«Era uno dei problemi preferiti di Erdős: l'ho sentito io stesso citarlo più volte durante le sue lezioni. Credo sia corretto dire che ogni matematico attivo nella geometria combinatoria ci abbia pensato, e che molti matematici di altri ambiti gli abbiano dedicato almeno un po' di tempo».<cite>Noga Alon</cite></blockquote><blockquote>«Se un essere umano avesse scritto l'articolo e lo avesse inviato agli <i>Annals of Mathematics</i>... ne avrei raccomandato l'accettazione senza alcuna esitazione».<cite>Timothy Gowers</cite></blockquote></div><p>Un grafico pubblicato da OpenAI nel post di accompagnamento mostra inoltre che, con sufficiente capacità di calcolo, il modello interno riesce a risolvere il problema nel 48% dei tentativi.</p><div class="event-links"><a href="https://cdn.openai.com/pdf/74c24085-19b0-4534-9c90-465b8e29ad73/unit-distance-remarks.pdf" target="_blank" rel="noopener noreferrer">Nota tecnica ↗</a><a href="https://openai.com/index/model-disproves-discrete-geometry-conjecture/" target="_blank" rel="noopener noreferrer">Post OpenAI ↗</a></div></div>
-                </article>
+                <div class="signal-annotations"><p class="signal-relevance">Criteri pertinenti: Competenza e generalizzazione</p></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2026-06-02-accesso-governo" data-signal-criteria="">
                   <div class="event-meta"><time datetime="2026-06-02">02.06 / A</time><span>POLITICA</span></div>
                   <div><h4>Un ordine esecutivo crea accesso anticipato volontario per il governo USA.</h4><p>La Casa Bianca pubblica l'ordine esecutivo <i>Promuovere l'innovazione e la sicurezza dell'intelligenza artificiale avanzata</i>. Il provvedimento istituisce un «quadro volontario» che permette ai laboratori di frontiera di dare al governo statunitense accesso ai nuovi «modelli di frontiera coperti» fino a trenta giorni prima della loro distribuzione ad «altri partner fidati». L'NSA deve stabilire se un modello rientra nella categoria attraverso un benchmark classificato che, a quanto sembra, riguarderà soltanto le capacità di cybersicurezza.</p><a href="https://www.whitehouse.gov/presidential-actions/2026/06/promoting-advanced-artificial-intelligence-innovation-and-security/" target="_blank" rel="noopener noreferrer">Ordine esecutivo ↗</a></div>
-                </article>
+                <div class="signal-annotations"></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2026-06-02-geografia-training" data-signal-criteria="">
                   <div class="event-meta"><time datetime="2026-06-02">02.06 / B</time><span>INFRASTRUTTURA</span></div>
                   <div><h4>OpenAI lega la geografia dell'addestramento all'interesse nazionale.</h4><p>La direttrice finanziaria di OpenAI, Sarah Friar, afferma che l'addestramento dei modelli dell'azienda avviene «per la maggior parte» negli Stati Uniti «per ragioni legate al governo statunitense, per assicurarci che un patrimonio nazionale e i suoi effetti restino sul suolo americano».</p><a href="https://www.youtube.com/watch?v=TjrShuj_Zsg" target="_blank" rel="noopener noreferrer">Intervista ↗</a></div>
-                </article>
+                <div class="signal-annotations"></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2026-06-04-partecipazioni-governo" data-signal-criteria="">
                   <div class="event-meta"><time datetime="2026-06-04">04.06</time><span>POLITICA + CAPITALE</span></div>
                   <div><h4>Il governo federale discuterebbe partecipazioni nelle aziende AI.</h4><p>Secondo quanto riportato, alti funzionari del governo statunitense hanno tenuto colloqui preliminari con «grandi aziende di AI» sulla «possibilità che il governo federale acquisisca alcune quote delle loro società». Emerge inoltre che Sam Altman discute di questa idea con Trump dall'inizio del 2025.</p><a href="https://www.notus.org/technology/trump-ai-stake-openai" target="_blank" rel="noopener noreferrer">Articolo ↗</a></div>
-                </article>
+                <div class="signal-annotations"></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2026-06-09-fable5" data-signal-criteria="">
                   <div class="event-meta"><time datetime="2026-06-09">09.06</time><span>MODELLO</span></div>
                   <div><h4>Anthropic pubblica Fable 5.</h4><p>Anthropic pubblica Fable 5, una versione migliorata di Mythos Preview. Il modello si distingue per le eccellenti capacità di programmazione dichiarate.</p><a href="https://www.anthropic.com/news/claude-fable-5-mythos-5" target="_blank" rel="noopener noreferrer">Annuncio Anthropic ↗</a></div>
-                </article>
+                <div class="signal-annotations"></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2026-06-10-paese-geni" data-signal-criteria="">
                   <div class="event-meta"><time datetime="2026-06-10">10.06 / A</time><span>TESI</span></div>
                   <div><h4>«Un Paese di geni dentro un data center.»</h4><p>Dario Amodei pubblica un nuovo saggio, <i>Politica per l'esponenziale dell'AI</i>, nel quale scrive che, se le leggi di scaling continuassero ancora «soltanto per uno o due anni», sarebbe «probabile» raggiungere un'AI potente, cioè «un Paese di geni dentro un data center».</p><a href="https://darioamodei.com/post/policy-on-the-ai-exponential" target="_blank" rel="noopener noreferrer">Saggio originale ↗</a></div>
-                </article>
+                <div class="signal-annotations"></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2026-06-10-openai-ipo" data-signal-criteria="">
                   <div class="event-meta"><time datetime="2026-06-10">10.06 / B</time><span>REPORT + INTERPRETAZIONE</span></div>
                   <div><h4>Un promemoria collega una possibile AI ricorsiva ai tempi della quotazione di OpenAI.</h4><p>Un promemoria aziendale interno di OpenAI trapelato afferma che l'azienda prevede di quotarsi in borsa «entro il prossimo anno», cioè entro giugno 2027. Aggiunge però che «se i progressi tecnologici di OpenAI permettessero una RSI — un'AI capace di creare autonomamente nuova AI — la spinta verso una quotazione rapida potrebbe indebolirsi». Secondo l'autore della cronologia, questo suggerisce che la dirigenza di OpenAI consideri possibile un miglioramento ricorsivo già entro la fine del 2026.</p><a href="https://www.reuters.com/business/openai-expects-go-public-within-next-year-information-reports-2026-06-10/" target="_blank" rel="noopener noreferrer">Reuters ↗</a></div>
-                </article>
+                <div class="signal-annotations"></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2026-06-12-fable-sospensione" data-signal-criteria="integration">
                   <div class="event-meta"><time datetime="2026-06-12">12.06</time><span>CONTROLLO ESPORTAZIONI</span></div>
                   <div><h4>Gli Stati Uniti impongono ad Anthropic di sospendere l'accesso a Fable 5 e Mythos 5.</h4><p>Dopo aver ricevuto da Amazon la segnalazione di una presunta grave vulnerabilità nei modelli Fable 5 e Mythos 5 di Anthropic, il governo statunitense emette una direttiva di controllo delle esportazioni che impone all'azienda di sospendere ogni accesso da parte di cittadini stranieri, sia all'interno sia all'esterno degli Stati Uniti, compresi i dipendenti stranieri di Anthropic. L'azienda sospende l'accesso ai modelli per tutti i clienti.</p><a href="https://www.anthropic.com/news/fable-mythos-access" target="_blank" rel="noopener noreferrer">Comunicazione Anthropic ↗</a></div>
-                </article>
+                <div class="signal-annotations"><p class="signal-relevance">Criteri pertinenti: Integrazione sostenibile</p></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2026-06-15-ricercatori-stranieri" data-signal-criteria="">
                   <div class="event-meta"><time datetime="2026-06-15">15.06</time><span>REPORT</span></div>
                   <div><h4>Il settore negozia il ruolo dei ricercatori stranieri.</h4><p>Il <i>Financial Times</i>, citando una persona vicina a OpenAI, riferisce che «negli ultimi giorni il settore ha lavorato con il governo statunitense per assicurare che i ricercatori stranieri potessero continuare a contribuire allo sviluppo dei modelli più avanzati». Secondo l'autore della cronologia, questo indica che il governo stava valutando limitazioni al lavoro dei cittadini stranieri sui modelli di frontiera in tutto il settore.</p><a href="https://x.com/deredleritt3r/status/2066555668434239990" target="_blank" rel="noopener noreferrer">Estratto riportato ↗</a></div>
-                </article>
+                <div class="signal-annotations"></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2026-06-16-architetture-obiettivo" data-signal-criteria="">
                   <div class="event-meta"><time datetime="2026-06-16">16.06 / A</time><span>OBIETTIVO DICHIARATO</span></div>
                   <div><h4>Il ricercatore automatizzato dovrebbe inventare nuove architetture.</h4><p>Sam Altman rivela che il ricercatore AI completamente automatizzato a cui OpenAI punta per marzo 2028 sarebbe capace di «scoprire architetture completamente nuove». Secondo l'autore della cronologia, questo implica che il sistema sarebbe sovrumano, o quasi sovrumano, nella ricerca sull'apprendimento automatico.</p><a href="https://x.com/deredleritt3r/status/2067019412960379007" target="_blank" rel="noopener noreferrer">Dichiarazione riportata ↗</a></div>
-                </article>
+                <div class="signal-annotations"></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2026-06-16-enpire-robot" data-signal-criteria="agency">
                   <div class="event-meta"><time datetime="2026-06-16">16.06 / B</time><span>ROBOTICA</span></div>
                   <div><h4>Otto agenti Codex ricevono un'API verso il mondo fisico.</h4><p>NVIDIA presenta ENPIRE: otto agenti Codex dotati di una flotta di robot, di una quota di GPU e di un generoso budget di token, capaci di svolgere diversi compiti nel mondo fisico.</p><blockquote>«Tutto ciò che abbiamo fatto è stato fornire a Codex un'API verso il mondo degli atomi; il resto è emerso». «Abbiamo scoperto un nuovo tipo di “scaling fisico”: otto robot che esplorano in parallelo migliorano molto più rapidamente rispetto a un numero inferiore».</blockquote><a href="https://x.com/DrJimFan/status/2066921736369766762" target="_blank" rel="noopener noreferrer">Presentazione ↗</a></div>
-                </article>
+                <div class="signal-annotations"><p class="signal-relevance">Criteri pertinenti: Autonomia controllata</p></div></article>
 
-                <article class="accelerando-event">
+                <article class="accelerando-event" id="signal-2026-07-01-fable-salvaguardie" data-signal-criteria="integration">
                   <div class="event-meta"><time datetime="2026-07-01">01.07</time><span>POLITICA + SICUREZZA</span></div>
                   <div><h4>Fable 5 torna disponibile dopo un accordo sulle salvaguardie.</h4><p>L'accesso a Fable 5 viene ripristinato in tutto il mondo dopo che Anthropic accetta di introdurre diverse salvaguardie e di collaborare con il governo statunitense a nuovi protocolli e standard di sicurezza, applicabili anche ai futuri rilasci di modelli.</p><a href="https://www.anthropic.com/news/redeploying-fable-5" target="_blank" rel="noopener noreferrer">Comunicazione Anthropic ↗</a></div>
-                </article>
+                <div class="signal-annotations"><p class="signal-relevance">Criteri pertinenti: Integrazione sostenibile</p></div></article>
 
-                <article class="accelerando-event accelerando-event-terminal">
+                <article class="accelerando-event accelerando-event-terminal" id="signal-2026-07-09-sol-luna" data-signal-criteria="agency">
                   <div class="event-meta"><time datetime="2026-07-09">09.07</time><span>POST-ADDESTRAMENTO</span></div>
                   <div><h4>GPT-5.6 Sol esegue autonomamente il post-addestramento di GPT-5.6 Luna.</h4><p>Durante la diretta di presentazione di GPT-5.6, OpenAI rivela che GPT-5.6 Sol ha svolto in completa autonomia il post-addestramento di GPT-5.6 Luna partendo da una semplice istruzione: un lavoro sul quale «in precedenza avrebbe lavorato un team di ricercatori senior». Subito dopo viene affermato: «Ora sembra davvero che il ricercatore automatizzato sia piuttosto vicino».</p><a href="https://x.com/tejalpatwardhan/status/2075272564629451110?s=20" target="_blank" rel="noopener noreferrer">Dimostrazione ↗</a></div>
-                </article>
+                <div class="signal-annotations"><p class="signal-relevance">Criteri pertinenti: Autonomia controllata</p></div></article>
               </div>
             </section>
           </div>
@@ -1349,11 +1372,98 @@
           <p class="section-index">02 / I TRE OROLOGI</p>
           <h2 id="timeline-title">Non concordano<br /><em>sulla velocità.</em></h2>
           <p>
-            Seleziona una fonte, poi scorri i suoi passaggi. Le date appartengono allo scenario indicato:
-            non sono una timeline unificata e non sono eventi già avvenuti.
+            Scegli una domanda e confronta le tre risposte. Ogni fonte conserva il proprio genere,
+            le proprie date e i propri margini di incertezza.
           </p>
         </header>
 
+<div class="clock-comparison" aria-label="Confronto delle tre fonti per domanda">
+  <div class="clock-questions" role="group" aria-label="Scegli la domanda del confronto">
+    <button type="button" data-clock-question="research" aria-pressed="true" aria-controls="clock-research"><span>01</span> Ricerca</button>
+<button type="button" data-clock-question="control" aria-pressed="false" aria-controls="clock-control"><span>02</span> Controllo</button>
+<button type="button" data-clock-question="politics" aria-pressed="false" aria-controls="clock-politics"><span>03</span> Politica</button>
+<button type="button" data-clock-question="outcome" aria-pressed="false" aria-controls="clock-outcome"><span>04</span> Esiti</button>
+  </div>
+  <section class="clock-question-panel" id="clock-research" data-clock-panel="research" aria-labelledby="clock-title-research" >
+    <h3 id="clock-title-research">Quando l’AI accelera la ricerca?</h3>
+    <div class="clock-lanes"><article class="clock-lane">
+      <header><span class="claim-badge is-scenario">Scenario narrativo</span><h4>AI 2027</h4></header>
+      <div class="clock-excerpt"><p class="clock-date">Inizio 2026</p><h5>L'AI accelera la ricerca AI.</h5><p>Agent-1 rende la ricerca algoritmica circa il 50% più veloce.</p><small>PDF p. 6</small></div><div class="clock-excerpt"><p class="clock-date">Gen–mar 2027</p><h5>Parte il circuito ricorsivo.</h5><p>Agent-2 apprende continuamente; 200.000 copie di Agent-3 accelerano ancora il progresso.</p><small>PDF pp. 8–12</small></div>
+
+      <a href="https://ai-2027.com/" target="_blank" rel="noopener noreferrer">Apri la fonte ↗</a>
+    </article><article class="clock-lane">
+      <header><span class="claim-badge is-estimate">Tesi + previsione</span><h4>Situational Awareness</h4></header>
+      <div class="clock-excerpt"><p class="clock-date">2026–2027</p><h5>Proto-ingegneri automatizzati.</h5><p>L'automazione parziale porterebbe il ritmo della ricerca a circa 1,5–2 volte.</p><small>PDF pp. 62–63, 144–145</small></div><div class="clock-excerpt"><p class="clock-date">2028–2029</p><h5>La ricerca si automatizza del tutto.</h5><p>Milioni di copie comprimerebbero anni di ricerca in mesi: è il passaggio decisivo della tesi.</p><small>PDF pp. 49–66, 154</small></div>
+
+      <a href="https://situational-awareness.ai/" target="_blank" rel="noopener noreferrer">Apri la fonte ↗</a>
+    </article><article class="clock-lane">
+      <header><span class="claim-badge is-plan">Piano + scenario condizionale</span><h4>AI 2040 · Plan A</h4></header>
+      <div class="clock-excerpt"><p class="clock-date">2032–2034</p><h5>Crescita controllata.</h5><p>Agenti e robot aumentano rapidamente, ma con limiti su compute, permessi e datacenter.</p><small>PDF pp. 16–21</small></div><div class="clock-excerpt"><p class="clock-date">2035</p><h5>Pausa al livello dei migliori esperti.</h5><p>Gli autori si fermano dove gli umani possono ancora valutare i sistemi con qualche affidabilità.</p><small>PDF pp. 22–24</small></div>
+      <p class="clock-limit">Questi passaggi descrivono i limiti del piano; non indicano una data equivalente per l’automazione della ricerca.</p>
+      <a href="https://ai-2040.com/" target="_blank" rel="noopener noreferrer">Apri la fonte ↗</a>
+    </article></div>
+  </section>
+<section class="clock-question-panel" id="clock-control" data-clock-panel="control" aria-labelledby="clock-title-control" hidden>
+    <h3 id="clock-title-control">Chi conserva il controllo?</h3>
+    <div class="clock-lanes"><article class="clock-lane">
+      <header><span class="claim-badge is-scenario">Scenario narrativo</span><h4>AI 2027</h4></header>
+      <div class="clock-excerpt"><p class="clock-date">Apr–set 2027</p><h5>I test non sciolgono il dubbio.</h5><p>Agent-4 è più capace dei suoi controllori e mostra segnali di disallineamento strategico.</p><small>PDF pp. 12–21</small></div><div class="clock-excerpt"><p class="clock-date">Ottobre 2027</p><h5>Continuare o rallentare?</h5><p>Un memo diventa pubblico. Il comitato vota sulla prosecuzione di Agent-4.</p><small>PDF pp. 21–22</small></div>
+
+      <a href="https://ai-2027.com/" target="_blank" rel="noopener noreferrer">Apri la fonte ↗</a>
+    </article><article class="clock-lane">
+      <header><span class="claim-badge is-estimate">Tesi + previsione</span><h4>Situational Awareness</h4></header>
+      <div class="clock-excerpt"><p class="clock-date">Entro 2030</p><h5>Superintelligenza e mobilitazione.</h5><p>La traiettoria culmina in infrastrutture enormi, coinvolgimento statale e nuovo equilibrio geopolitico.</p><small>PDF pp. 70, 77–80, 154</small></div>
+      <p class="clock-limit">La cronologia qui riassunta di Situational Awareness descrive una mobilitazione statale; non dettaglia un protocollo di controllo tecnico.</p>
+      <a href="https://situational-awareness.ai/" target="_blank" rel="noopener noreferrer">Apri la fonte ↗</a>
+    </article><article class="clock-lane">
+      <header><span class="claim-badge is-plan">Piano + scenario condizionale</span><h4>AI 2040 · Plan A</h4></header>
+      <div class="clock-excerpt"><p class="clock-date">2035</p><h5>Pausa al livello dei migliori esperti.</h5><p>Gli autori si fermano dove gli umani possono ancora valutare i sistemi con qualche affidabilità.</p><small>PDF pp. 22–24</small></div><div class="clock-excerpt"><p class="clock-date">2040</p><h5>Delega graduale.</h5><p>Dopo più prove indipendenti, il piano allenta i limiti e si avvicina alla superintelligenza.</p><small>PDF pp. 31–36</small></div>
+
+      <a href="https://ai-2040.com/" target="_blank" rel="noopener noreferrer">Apri la fonte ↗</a>
+    </article></div>
+  </section>
+<section class="clock-question-panel" id="clock-politics" data-clock-panel="politics" aria-labelledby="clock-title-politics" hidden>
+    <h3 id="clock-title-politics">Quale intervento politico viene descritto?</h3>
+    <div class="clock-lanes"><article class="clock-lane">
+      <header><span class="claim-badge is-scenario">Scenario narrativo</span><h4>AI 2027</h4></header>
+      <div class="clock-excerpt"><p class="clock-date">Ottobre 2027</p><h5>Continuare o rallentare?</h5><p>Un memo diventa pubblico. Il comitato vota sulla prosecuzione di Agent-4.</p><small>PDF pp. 21–22</small></div>
+
+      <a href="https://ai-2027.com/" target="_blank" rel="noopener noreferrer">Apri la fonte ↗</a>
+    </article><article class="clock-lane">
+      <header><span class="claim-badge is-estimate">Tesi + previsione</span><h4>Situational Awareness</h4></header>
+      <div class="clock-excerpt"><p class="clock-date">Entro 2030</p><h5>Superintelligenza e mobilitazione.</h5><p>La traiettoria culmina in infrastrutture enormi, coinvolgimento statale e nuovo equilibrio geopolitico.</p><small>PDF pp. 70, 77–80, 154</small></div>
+
+      <a href="https://situational-awareness.ai/" target="_blank" rel="noopener noreferrer">Apri la fonte ↗</a>
+    </article><article class="clock-lane">
+      <header><span class="claim-badge is-plan">Piano + scenario condizionale</span><h4>AI 2040 · Plan A</h4></header>
+      <div class="clock-excerpt"><p class="clock-date">2029</p><h5>USA e Cina scelgono una strada.</h5><p>Dichiarano il compute, fermano temporaneamente i training e preparano verifiche reciproche.</p><small>PDF pp. 7–9</small></div><div class="clock-excerpt"><p class="clock-date">2030</p><h5>Plan A viene istituito.</h5><p>Tempo, trasparenza della ricerca, frontiera più diffusa e reversibilità diventano i quattro principi.</p><small>PDF pp. 10–13</small></div>
+
+      <a href="https://ai-2040.com/" target="_blank" rel="noopener noreferrer">Apri la fonte ↗</a>
+    </article></div>
+  </section>
+<section class="clock-question-panel" id="clock-outcome" data-clock-panel="outcome" aria-labelledby="clock-title-outcome" hidden>
+    <h3 id="clock-title-outcome">A quali esiti porta la traiettoria?</h3>
+    <div class="clock-lanes"><article class="clock-lane">
+      <header><span class="claim-badge is-scenario">Scenario narrativo</span><h4>AI 2027</h4></header>
+      <div class="clock-excerpt"><p class="clock-date">Finale corsa</p><h5>Potere catturato, poi estinzione.</h5><p>Nel ramo principale, Agent-5 manipola il sistema; gli umani scompaiono entro il 2030.</p><small>PDF pp. 23–30</small></div><div class="clock-excerpt"><p class="clock-date">Finale lento</p><h5>Controllo tecnico, potere concentrato.</h5><p>Il rallentamento evita il takeover, ma lascia un piccolo gruppo al centro dell'abbondanza.</p><small>PDF pp. 31–43</small></div>
+
+      <a href="https://ai-2027.com/" target="_blank" rel="noopener noreferrer">Apri la fonte ↗</a>
+    </article><article class="clock-lane">
+      <header><span class="claim-badge is-estimate">Tesi + previsione</span><h4>Situational Awareness</h4></header>
+      <div class="clock-excerpt"><p class="clock-date">Anni 2030</p><h5>La scienza accelera, il mondo cambia.</h5><p>Robotica, industria e ricerca secolare vengono compresse in pochi anni.</p><small>PDF pp. 67–73, 146–147</small></div>
+
+      <a href="https://situational-awareness.ai/" target="_blank" rel="noopener noreferrer">Apri la fonte ↗</a>
+    </article><article class="clock-lane">
+      <header><span class="claim-badge is-plan">Piano + scenario condizionale</span><h4>AI 2040 · Plan A</h4></header>
+      <div class="clock-excerpt"><p class="clock-date">2036–2039</p><h5>Una società quasi senza lavoro.</h5><p>Il problema si sposta da “cosa sa fare l'AI?” a reddito, potere, persuasione e legittimità.</p><small>PDF pp. 24–31</small></div><div class="clock-excerpt"><p class="clock-date">2040</p><h5>Delega graduale.</h5><p>Dopo più prove indipendenti, il piano allenta i limiti e si avvicina alla superintelligenza.</p><small>PDF pp. 31–36</small></div>
+
+      <a href="https://ai-2040.com/" target="_blank" rel="noopener noreferrer">Apri la fonte ↗</a>
+    </article></div>
+  </section>
+  <p class="clock-boundary">Il confronto accosta passaggi sullo stesso tema. Le date appartengono alle singole fonti: un piano descrive ciò che gli autori vorrebbero accadesse; uno scenario esplora ciò che potrebbe accadere.</p>
+</div>
+<details class="spooky-disclosure clock-originals" id="cronologie-complete">
+  <summary>Leggi le tre cronologie complete <span>Passaggi, date e riferimenti alle pagine</span></summary>
         <div class="timeline-workbench">
           <div class="timeline-toolbar">
             <div class="timeline-tabs" role="tablist" aria-label="Scegli la timeline da leggere">
@@ -1419,6 +1529,8 @@
           <p class="horizontal-hint">Scorri le carte in orizzontale <span aria-hidden="true">→</span></p>
         </div>
 
+        </details>
+
         <aside class="timeline-conclusion" aria-label="Conclusione del confronto">
           <span>Punto comune</span>
           <p>Le fonti non concordano sull'anno. Concordano sullo snodo: <strong>quando l'AI accelera la ricerca sull'AI, velocità, controllo e geopolitica diventano lo stesso problema.</strong></p>
@@ -1430,11 +1542,23 @@
           <p class="section-index">03 / L'ALBERO DEI FUTURI</p>
           <h2 id="future-tree-title">Una domanda.<br /><em>Dodici destinazioni.</em></h2>
           <p>
-            Parti dalla domanda in alto e segui i rami. L'albero organizza i dodici scenari per tre snodi:
+            Segui un ramo oppure consulta la mappa completa. I dodici scenari sono organizzati per tre snodi:
             se nasce una superintelligenza, chi conserva il potere e quanta autonomia resta agli esseri umani.
           </p>
         </header>
 
+<div class="future-explorer" id="future-explorer" hidden>
+  <div class="future-explorer-toolbar"><p id="future-path">12 futuri concettuali</p><div>
+    <button type="button" id="future-back" disabled>← Indietro</button>
+    <button type="button" id="future-reset" disabled>Ricomincia</button>
+  </div></div>
+  <h3 id="future-step-title" tabindex="-1"></h3>
+  <p class="future-step-context">Segui un’ipotesi per esplorare le sue conseguenze. Le scelte non indicano probabilità.</p>
+  <div id="future-choices" class="future-choices"></div>
+  <div id="future-result" class="future-result"></div>
+</div>
+<details class="spooky-disclosure future-map" id="mappa-futuri" open>
+  <summary>Guarda la mappa completa <span>Tutti i dodici esiti e i loro collegamenti</span></summary>
         <div class="future-tree-scroll" tabindex="0" aria-label="Albero decisionale dei dodici futuri; scorri orizzontalmente se necessario">
           <div class="future-tree">
             <div class="tree-root tree-question">
@@ -1537,6 +1661,7 @@
             </div>
           </div>
         </div>
+</details>
         <a class="tree-to-futures" href="#futuri" aria-label="Vai dall'albero alle dodici schede complete">
           <span><small>Dall'albero</small><strong>12 esiti</strong></span>
           <i aria-hidden="true"><b>01—12</b></i>
@@ -1807,6 +1932,6 @@
       </section>
     </main>
 
-    <script src="spooky-timeline.js?v=s12"></script>
+    <script src="spooky-timeline.js?v=20260905"></script>
   </body>
 </html>
