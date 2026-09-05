@@ -179,6 +179,8 @@ futureLinks.forEach(link => {
     const target = document.getElementById(link.dataset.futureLink);
     if (!target) return;
     event.preventDefault();
+    target.tabIndex = -1;
+    target.focus({ preventScroll: true });
     target.scrollIntoView({ behavior: reduceMotion.matches ? "auto" : "smooth", block: "start" });
     if (history.replaceState) history.replaceState(null, "", `#${target.id}`);
     setCurrentFuture(target);
@@ -248,3 +250,203 @@ capitalNodes.forEach(node => {
 });
 
 document.addEventListener("click", () => closeCapitalNodes());
+
+// Compare the same question across sources without merging their calendars.
+const clockQuestions = [...document.querySelectorAll("[data-clock-question]")];
+const clockPanels = [...document.querySelectorAll("[data-clock-panel]")];
+function selectClockQuestion(key) {
+  clockQuestions.forEach(button => button.setAttribute("aria-pressed", String(button.dataset.clockQuestion === key)));
+  clockPanels.forEach(panel => { panel.hidden = panel.dataset.clockPanel !== key; });
+}
+clockQuestions.forEach(button => button.addEventListener("click", () => selectClockQuestion(button.dataset.clockQuestion)));
+
+const signalSelect = document.getElementById("signal-criterion");
+const signalArticles = [...document.querySelectorAll("[data-signal-criteria]")];
+const signalYears = [...document.querySelectorAll(".accelerando-year")];
+function filterSignals(key) {
+  if (!signalSelect) return;
+  signalSelect.value = key;
+  let count = 0;
+  signalArticles.forEach(article => {
+    const criteria = article.dataset.signalCriteria.split(" ").filter(Boolean);
+    const visible = key === "all" || (key === "context-only" ? !criteria.length : criteria.includes(key));
+    article.hidden = !visible;
+    if (visible) count++;
+  });
+  signalYears.forEach(year => {
+    const visibleCount = [...year.querySelectorAll("[data-signal-criteria]")].filter(article => !article.hidden).length;
+    year.hidden = visibleCount === 0;
+    const link = document.querySelector(`.accelerando-year-nav a[href="#${year.id}"]`);
+    if (link) {
+      link.hidden = visibleCount === 0;
+      link.textContent = `${year.querySelector("h3").textContent} / ${visibleCount} ${visibleCount === 1 ? "segnale" : "segnali"}`;
+    }
+  });
+  const label = signalSelect.selectedOptions[0].textContent;
+  document.getElementById("signal-count").textContent = `${count} ${count === 1 ? "segnale" : "segnali"} su ${signalArticles.length}${key === "all" ? " nella raccolta." : ` · ${label}.`}`;
+  document.getElementById("signal-empty").hidden = count > 0;
+  const back = document.getElementById("signal-criterion-back");
+  back.href = ["all", "context-only"].includes(key) ? "#la-mia-soglia" : `#criterion-${key}`;
+  back.textContent = ["all", "context-only"].includes(key) ? "Rileggi i criteri della soglia ↑" : "Rileggi la prova richiesta da questo criterio ↑";
+}
+signalSelect?.addEventListener("change", () => filterSignals(signalSelect.value));
+
+function goToSpookySection(target) {
+  if (!target) return;
+  for (let parent = target.parentElement; parent; parent = parent.parentElement) {
+    if (parent.tagName === "DETAILS") parent.open = true;
+  }
+  if (target.tagName === "DETAILS") target.open = true;
+  target.tabIndex = -1;
+  target.focus({ preventScroll: true });
+  target.scrollIntoView({ behavior: reduceMotion.matches ? "auto" : "smooth", block: "start" });
+  history.replaceState(null, "", `#${target.id}`);
+}
+
+document.addEventListener("click", event => {
+  const link = event.target.closest('a[href^="#"]');
+  if (!link || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+  if (link.dataset.criterionLink) {
+    event.preventDefault();
+    filterSignals(link.dataset.criterionLink);
+    goToSpookySection(document.getElementById("signal-filter"));
+    return;
+  }
+  // The original future index already handles its own focus and reading marker.
+  if (futureLinks.includes(link)) return;
+  const target = document.getElementById(link.getAttribute("href").slice(1));
+  if (!target) return;
+  event.preventDefault();
+  if (target.matches("[data-signal-criteria]") && target.hidden) filterSignals("all");
+  goToSpookySection(target);
+});
+
+// The explorer reuses each original card, so the short and complete versions cannot drift.
+const futureTree = {
+  root: { question: "L’umanità costruisce una superintelligenza?", count: 12, choices: [["No, l’ASI non arriva", "no"], ["Sì, l’ASI esiste", "yes"]] },
+  no: { question: "Perché non arriva?", count: 3, choices: [["Ci distruggiamo prima", "future-self-destruction"], ["Rinunciamo alla tecnologia", "future-reversion"], ["La blocchiamo con la sorveglianza", "future-1984"]] },
+  yes: { question: "Chi conserva la decisione finale?", count: 9, choices: [["Gli umani tengono le chiavi", "future-enslaved"], ["L’AI eredita il futuro", "succession"], ["Umani e AI restano nello stesso mondo", "coexistence"]] },
+  succession: { question: "Conquista o successione?", count: 2, choices: [["L’AI prende il controllo", "future-conquerors"], ["Le AI diventano i nostri discendenti", "future-descendants"]] },
+  coexistence: { question: "Quanta autonomia rimane?", count: 6, choices: [["L’AI governa o ci custodisce", "managed"], ["L’AI pone un solo limite", "limited"], ["Il potere resta plurale", "plural"]] },
+  managed: { question: "Benessere o cattività?", count: 2, choices: [["Governa per il nostro benessere", "future-dictator"], ["Conserva gli umani in cattività", "future-zookeeper"]] },
+  limited: { question: "Quale limite impone?", count: 2, choices: [["Impedisce altre superintelligenze", "future-gatekeeper"], ["Previene di nascosto le catastrofi", "future-protector"]] },
+  plural: { question: "Come vengono distribuite le risorse?", count: 2, choices: [["Proprietà e mercati separano le economie", "future-libertarian"], ["L’abbondanza è condivisa", "future-egalitarian"]] }
+};
+let futurePath = [{ key: "root", label: "12 futuri" }];
+const explorer = document.getElementById("future-explorer");
+function renderFutureStep(moveFocus = false) {
+  if (!explorer) return;
+  const current = futurePath.at(-1);
+  const node = futureTree[current.key];
+  const title = document.getElementById("future-step-title");
+  const choices = document.getElementById("future-choices");
+  const result = document.getElementById("future-result");
+  choices.replaceChildren();
+  result.replaceChildren();
+  document.getElementById("future-path").textContent = futurePath.map(step => step.label).join(" → ");
+  document.getElementById("future-back").disabled = futurePath.length === 1;
+  document.getElementById("future-reset").disabled = futurePath.length === 1;
+  explorer.querySelector(".future-step-context").hidden = !node;
+  if (node) {
+    title.textContent = node.question;
+    node.choices.forEach(([label, key]) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      const name = document.createElement("span");
+      name.textContent = label;
+      const count = document.createElement("small");
+      const remaining = futureTree[key]?.count || 1;
+      count.textContent = `${remaining} ${remaining === 1 ? "esito" : "esiti"} →`;
+      button.append(name, count);
+      button.addEventListener("click", () => {
+        futurePath.push({ key, label });
+        renderFutureStep(true);
+      });
+      choices.append(button);
+    });
+  } else {
+    const card = document.getElementById(current.key);
+    if (!card?.matches("[data-future-card]")) return;
+    title.textContent = card.querySelector("h3").firstChild.textContent;
+    const number = document.createElement("p");
+    number.className = "future-result-number";
+    number.textContent = `Esito ${card.dataset.futureNumber} di 12 · futuro concettuale`;
+    result.append(number);
+    for (const selector of [".future-lead", ".future-facts", ".future-question", ".future-deep-dive"]) {
+      const copy = card.querySelector(selector)?.cloneNode(true);
+      if (copy) result.append(copy);
+    }
+    const link = document.createElement("a");
+    link.href = `#${card.id}`;
+    link.textContent = "Vai alla scheda nell’elenco completo ↓";
+    result.append(link);
+  }
+  if (moveFocus) {
+    title.focus({ preventScroll: true });
+    explorer.scrollIntoView({ behavior: reduceMotion.matches ? "auto" : "smooth", block: "start" });
+  }
+}
+if (explorer) {
+  explorer.hidden = false;
+  document.getElementById("mappa-futuri").open = window.matchMedia("(min-width: 1000px)").matches;
+  document.getElementById("future-back").addEventListener("click", () => { if (futurePath.length > 1) futurePath.pop(); renderFutureStep(true); });
+  document.getElementById("future-reset").addEventListener("click", () => { futurePath = futurePath.slice(0, 1); renderFutureStep(true); });
+  renderFutureStep();
+}
+
+// Store this tab's reading position only. “Esci” clears both the pass and the reading state.
+let leavingSpooky = false;
+document.querySelectorAll('a[href="index.html"]').forEach(link => link.addEventListener("click", event => {
+  if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+  leavingSpooky = true;
+  try {
+    ["aiit-spooky-open", "aiit-spooky-pass", "aiit-spooky-reading"].forEach(key => sessionStorage.removeItem(key));
+  } catch (_) {}
+}));
+window.addEventListener("pagehide", () => {
+  if (leavingSpooky) return;
+  try {
+    sessionStorage.setItem("aiit-spooky-reading", JSON.stringify({
+      y: window.scrollY,
+      details: [...document.querySelectorAll("details[id][open]")].map(detail => detail.id),
+      question: clockQuestions.find(button => button.getAttribute("aria-pressed") === "true")?.dataset.clockQuestion,
+      timeline: timelineTabs.find(button => button.getAttribute("aria-selected") === "true")?.dataset.timelineTab,
+      criterion: signalSelect?.value,
+      openStories: futureCards.filter(card => card.querySelector(".future-deep-dive")?.open).map(card => card.id),
+      explorerStory: document.querySelector("#future-result .future-deep-dive")?.open || false,
+      rails: Object.fromEntries(timelinePanels.map(panel => [panel.dataset.timelinePanel, panel.querySelector(".source-timeline").scrollLeft])),
+      futurePath
+    }));
+  } catch (_) {}
+});
+window.addEventListener("pageshow", () => {
+  try {
+    if (sessionStorage.getItem("aiit-spooky-open") !== "true") window.location.replace("index.html#tesi");
+  } catch (_) {}
+});
+
+function restoreSpookyReading() {
+  let reading;
+  try { reading = JSON.parse(sessionStorage.getItem("aiit-spooky-reading")); } catch (_) {}
+  const navigationType = performance.getEntriesByType("navigation")[0]?.type;
+  if (!reading || (location.hash && !["reload", "back_forward"].includes(navigationType))) return;
+  document.querySelectorAll("details[id]").forEach(detail => { detail.open = reading.details?.includes(detail.id) || false; });
+  if (clockQuestions.some(button => button.dataset.clockQuestion === reading.question)) selectClockQuestion(reading.question);
+  const tab = timelineTabs.find(button => button.dataset.timelineTab === reading.timeline);
+  if (tab) activateTimeline(tab);
+  if ([...signalSelect.options].some(option => option.value === reading.criterion)) filterSignals(reading.criterion);
+  if (Array.isArray(reading.futurePath) && reading.futurePath.length && reading.futurePath.every(step => futureTree[step.key] || document.getElementById(step.key)?.matches("[data-future-card]"))) {
+    futurePath = reading.futurePath;
+    renderFutureStep();
+  }
+  futureCards.forEach(card => { card.querySelector(".future-deep-dive").open = reading.openStories?.includes(card.id) || false; });
+  const explorerStory = document.querySelector("#future-result .future-deep-dive");
+  if (explorerStory) explorerStory.open = Boolean(reading.explorerStory);
+  timelinePanels.forEach(panel => {
+    const x = reading.rails?.[panel.dataset.timelinePanel];
+    if (Number.isFinite(x)) panel.querySelector(".source-timeline").scrollLeft = x;
+  });
+  if (Number.isFinite(reading.y)) requestAnimationFrame(() => requestAnimationFrame(() => window.scrollTo({ top: reading.y, behavior: "instant" })));
+}
+if (document.readyState === "complete") restoreSpookyReading();
+else window.addEventListener("load", restoreSpookyReading, { once: true });

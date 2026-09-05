@@ -22,9 +22,22 @@ Le due scale ispirate a Kurzweil usano una selezione editoriale di svolte e inte
 
 ## Come si apre
 
+### Revisione del 5 settembre 2026
+
+- L'indice dei capitoli resta raggiungibile durante la lettura e apre la cronaca quando si sceglie “43 segnali”.
+- Il confronto principale accosta ricerca, controllo, politica ed esiti. I passaggi e i riferimenti alle pagine provengono dalle cronologie già presenti, conservate sotto “Leggi le tre cronologie complete”. Le note esplicitano i punti senza una corrispondenza diretta fra fonti.
+- La lente dei tre raddoppi recenti precede il grafico storico, ora richiudibile. Il grafico completo mantiene uno scorrimento interno con etichette di almeno 12px.
+- I collegamenti nei criteri aprono un filtro sulla cronaca. `data-signal-criteria` associa ogni evento a zero o più criteri: 16 segnali pertinenti, 27 di contesto. Omnimodalità, contesto, memoria e affidabilità non hanno prove direttamente documentate nella raccolta e mostrano uno stato vuoto esplicito. Aggiungere una nuova associazione solo quando il testo dell'evento riguarda una parte precisa della prova; non usare il conteggio come punteggio.
+- L'albero guidato conserva una sequenza di scelte e legge sintesi, fatti e racconto dalla scheda originale corrispondente. “Indietro” e “Ricomincia” cambiano percorso; la mappa completa resta apribile e parte aperta sugli schermi grandi.
+- `sessionStorage` conserva accesso, posizione e selezioni nella scheda corrente; “Esci” cancella questi dati. La pagina non registra dati su un server. La data visibile distingue la cronaca fino al 9 luglio dal contesto di luglio: questa revisione non certifica una nuova consultazione delle fonti.
+
+Verifica mirata: provare tutte e quattro le domande, gli otto criteri e lo stato senza risultati; raggiungere i dodici esiti e tornare indietro; aprire un racconto e ricaricare; provare le cronologie originali con frecce della tastiera e scorrimento; uscire e tentare di riaprire la pagina. A 390px devono restare interi il titolo dei futuri e le tre barre recenti, senza scorrimento laterale dell'intera pagina. Se compare ancora la vecchia interfaccia, rigenerare `public/` con `node scripts/prepare-public.mjs` e ricaricare.
+
+### Gesto di ingresso
+
 - La parola `capire`, nella sezione finale della homepage, è un pulsante visivamente identico al testo.
 - Sette clic entro 2,2 secondi salvano in `sessionStorage` un lasciapassare temporaneo e aprono la timeline.
-- La pagina consuma subito il lasciapassare: apertura diretta, ricarica e cronologia del browser riportano alla homepage.
+- La pagina consuma il lasciapassare iniziale e conserva lo sblocco nella stessa scheda fino a “Esci”. L'apertura diretta senza sblocco riporta alla homepage; ricarica e ritorno mantengono la lettura.
 - La timeline non compare nella navigazione e usa `noindex` per chiedere ai motori di ricerca di non indicizzarla.
 
 ## Limite importante
@@ -68,7 +81,7 @@ La separazione tra i tre fogli di stile è intenzionale: `spooky-timeline.css` m
 16. Cambia le tre timeline anche con le frecce della tastiera e scorri le carte in orizzontale.
 17. Segui entrambi i rami dell'albero: ogni esito deve mostrare il collegamento e aprire la scheda con lo stesso numero; il raccordo “12 esiti → 12 racconti” deve portare all'inizio delle descrizioni.
 18. In ognuno dei dodici futuri apri “Entra nello scenario”: deve comparire il racconto completo con il riferimento alle pagine del libro; richiudilo anche con la tastiera.
-19. Ricarica la timeline: devi tornare alla homepage.
+19. Ricarica la timeline: devono restare accesso, posizione verticale, confronto selezionato, criterio filtrato, percorso dell'albero, racconti aperti e posizione della cronologia orizzontale attiva. “Esci” deve cancellare lo sblocco; il ritorno dalla cronologia del browser deve allora portare alla Home.
 20. Ripeti su mobile e controlla che prologo, criteri, manifesto, circuito, meme, grafici, capitale, registro, tendine e carte restino leggibili senza scorrimento laterale della pagina.
 
 Se i tab o l'indice non reagiscono, controlla per prima cosa che `spooky-timeline.js` sia stato copiato nella cartella pubblicata e che la console del browser non mostri errori.
