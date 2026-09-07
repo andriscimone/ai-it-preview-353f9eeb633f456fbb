@@ -1102,6 +1102,121 @@ if (pacingSpookyTrigger && pacingSpookyTransmission && pacingSpookyExit && pacin
 
 const expandableNewsItems = document.querySelectorAll("details.news-list-item");
 
+// The annual budgets live beside their explanations in novita.html.
+// Keeping the mileage fixed makes each break-even fare annual cost / 10,000.
+const cybercabCost = document.getElementById("cybercab-cost");
+if (cybercabCost) {
+  const annualKm = Number(cybercabCost.dataset.annualKm);
+  const taxiRate = Number(cybercabCost.dataset.taxiRate);
+  const budget = [...cybercabCost.querySelectorAll("[data-cc-cost]")];
+  const car = {
+    min: budget.reduce((sum, item) => sum + Number(item.dataset.min), 0),
+    max: budget.reduce((sum, item) => sum + Number(item.dataset.max), 0)
+  };
+  const garageBudget = cybercabCost.querySelector("[data-cc-garage]").dataset;
+  const garage = { min: car.min + Number(garageBudget.min), max: car.max + Number(garageBudget.max) };
+  const input = document.getElementById("cybercab-km-price");
+  const chart = document.getElementById("cybercab-cost-chart");
+  const plot = cybercabCost.querySelector(".cybercab-cost-plot");
+  const zoomButton = document.getElementById("cybercab-cost-zoom");
+  const number = value => new Intl.NumberFormat("it-IT", { maximumFractionDigits: 0, useGrouping: "always" }).format(value);
+  const fare = value => new Intl.NumberFormat("it-IT", { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(value);
+  const euroRange = range => `${number(range.min)}–${number(range.max)}`;
+  const threshold = range => `${fare(range.min / annualKm)}–${fare(range.max / annualKm)} €/km`;
+  let zoomed = false;
+
+  for (const [name, range] of [["car", car], ["garage", garage]]) {
+    const panel = cybercabCost.querySelector(`[data-cc-scenario="${name}"]`);
+    panel.querySelector("[data-cc-annual]").innerHTML = `${euroRange(range)} €<small>/anno</small>`;
+    panel.querySelector("[data-cc-threshold]").textContent = threshold(range);
+  }
+
+  const compare = (annual, range, label) => {
+    if (annual < range.min) return `${label}: risparmi ${number(range.min - annual)}–${number(range.max - annual)} € l’anno.`;
+    if (annual > range.max) return `${label}: spendi ${number(annual - range.max)}–${number(annual - range.min)} € in più l’anno.`;
+    if (annual === range.min) return `${label}: pareggi lo scenario meno costoso; negli altri risparmi fino a ${number(range.max - annual)} €.`;
+    if (annual === range.max) return `${label}: pareggi lo scenario più costoso; negli altri spendi fino a ${number(annual - range.min)} € in più.`;
+    return `${label}: dipende dalle tue spese, da ${number(annual - range.min)} € in più a ${number(range.max - annual)} € di risparmio l’anno.`;
+  };
+
+  const drawCybercabCost = () => {
+    const width = Math.round(plot.getBoundingClientRect().width);
+    if (!width) return; // The article starts closed; ResizeObserver draws on opening.
+    const height = 410;
+    const left = 58, right = width - 16, top = 58, bottom = height - 65;
+    const maxRate = zoomed ? 0.8 : taxiRate;
+    const rate = Number(input.value);
+    const x = value => left + value / maxRate * (right - left);
+    const y = value => bottom - value / (maxRate * annualKm) * (bottom - top);
+    const text = (px, py, content, anchor = "start", className = "") => `<text x="${px}" y="${py}" text-anchor="${anchor}" class="${className}">${content}</text>`;
+    let marks = `<defs><pattern id="cc-garage-hatch" width="8" height="8" patternUnits="userSpaceOnUse"><path class="cc-hatch" d="M-2 2L2 -2M0 8L8 0M6 10L10 6"/></pattern></defs>`;
+    marks += text(left, 20, "Spesa annua (€)");
+    for (let tick = 0; tick <= 4; tick += 1) {
+      const cost = maxRate * annualKm * tick / 4;
+      marks += `<path class="cc-grid" d="M${left} ${y(cost)}H${right}"/>`;
+      marks += text(left - 9, y(cost) + 4, number(cost), "end", "cc-tick");
+      marks += text(x(maxRate * tick / 4), bottom + 25, tick ? fare(maxRate * tick / 4) : "0", tick === 4 ? "end" : "middle", "cc-tick");
+    }
+    for (const [range, type] of [[car, "car"], [garage, "garage"]]) {
+      const rect = `x="${left}" y="${y(range.max)}" width="${right - left}" height="${y(range.min) - y(range.max)}"`;
+      marks += `<rect class="cc-${type}-band" ${rect}/>`;
+      if (type === "garage") marks += `<rect ${rect} fill="url(#cc-garage-hatch)"/>`;
+    }
+    marks += `<path class="cc-axis" d="M${left} ${top}V${bottom}H${right}"/>`;
+    marks += `<path class="cc-fare-line" d="M${left} ${bottom}L${right} ${top}"/>`;
+    for (const cost of [car.min, car.max, garage.min, garage.max]) {
+      marks += `<circle class="cc-point" cx="${x(cost / annualKm)}" cy="${y(cost)}" r="3.5"/>`;
+    }
+    marks += text(right - 8, y((car.min + car.max) / 2) + 5, "Senza garage", "end", "cc-band-label");
+    marks += text(right - 8, y((garage.min + garage.max) / 2) + 5, "Con garage", "end", "cc-band-label");
+    if (rate <= maxRate) {
+      marks += `<path class="cc-selected-guide" d="M${x(rate)} ${bottom}V${y(rate * annualKm)}H${left}"/>`;
+      marks += `<circle class="cc-selected-point" cx="${x(rate)}" cy="${y(rate * annualKm)}" r="6"/>`;
+    }
+    if (!zoomed) {
+      marks += `<rect class="cc-taxi-point" x="${x(taxiRate) - 5}" y="${y(taxiRate * annualKm) - 5}" width="10" height="10"/>`;
+      marks += text(right - 8, top - 14, `Taxi: ipotesi ${fare(taxiRate)} €/km`, "end");
+    }
+    marks += text((left + right) / 2, height - 8, "Prezzo medio corse (€/km)", "middle");
+    chart.setAttribute("viewBox", `0 0 ${width} ${height}`);
+    chart.querySelector(".cc-plot-marks").innerHTML = marks;
+    document.getElementById("cybercab-chart-scale").textContent = zoomed
+      ? `Zoom · 0–0,80 €/km${rate > maxRate ? " · prezzo selezionato fuori scala" : ""}`
+      : "Scala completa · 0–2 €/km";
+    zoomButton.setAttribute("aria-pressed", String(zoomed));
+    zoomButton.textContent = zoomed ? "Mostra anche il taxi" : "Zoom sul pareggio";
+  };
+
+  const updateCybercabCost = () => {
+    const rate = Number(input.value);
+    const annual = Math.round(rate * annualKm);
+    input.setAttribute("aria-valuetext", `${fare(rate)} euro al chilometro, ${number(annual)} euro all’anno`);
+    document.getElementById("cybercab-km-price-value").textContent = `${fare(rate)} €/km`;
+    document.getElementById("cybercab-annual-price").innerHTML = `${number(annual)} €<small>/anno</small>`;
+    document.getElementById("cybercab-cost-verdict").textContent = `${compare(annual, car, "Senza garage")} ${compare(annual, garage, "Con garage")}`;
+    document.getElementById("cybercab-chart-description").textContent = `Per ${number(annualKm)} km annui, corse a ${fare(rate)} euro al km costano ${number(annual)} euro. Mantenimento auto: ${euroRange(car)} euro senza garage e ${euroRange(garage)} euro con garage. Pareggio rispettivamente a ${threshold(car)} e ${threshold(garage)}. Taxi nell’ipotesi a ${fare(taxiRate)} euro al km: ${number(taxiRate * annualKm)} euro annui. Acquisto escluso.`;
+    drawCybercabCost();
+  };
+  input.addEventListener("input", () => {
+    if (Number(input.value) > 0.8) zoomed = false;
+    updateCybercabCost();
+  });
+  zoomButton.addEventListener("click", () => { zoomed = !zoomed; drawCybercabCost(); });
+  new ResizeObserver(drawCybercabCost).observe(plot);
+  cybercabCost.querySelector(".cybercab-cost-controls").hidden = false;
+  cybercabCost.querySelector(".cybercab-cost-toolbar").hidden = false;
+  updateCybercabCost();
+
+  const openCybercabAnchor = () => {
+    const anchor = location.hash.slice(1);
+    if (!["n19-cybercab", "cybercab-cost", "cybercab-cost-title"].includes(anchor)) return;
+    cybercabCost.closest("details.news-list-item").open = true;
+    requestAnimationFrame(() => document.getElementById(anchor)?.scrollIntoView({ block: "start", behavior: "auto" }));
+  };
+  window.addEventListener("hashchange", openCybercabAnchor);
+  openCybercabAnchor();
+}
+
 const activeSystemSubnavLink = document.querySelector('.system-subnav [aria-current="page"]');
 if (activeSystemSubnavLink) {
   window.requestAnimationFrame(() => {

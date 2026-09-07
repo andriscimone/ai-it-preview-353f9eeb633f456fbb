@@ -14,7 +14,7 @@
     <title>Novità — AI.it</title>
     <script>(() => { try { const saved = localStorage.getItem("aiit-theme"); const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dataset.theme = saved || preferred; } catch (_) { document.documentElement.dataset.theme = "light"; } })();</script>
     <link rel="stylesheet" href="styles.css?v=news-list-3" />
-    <link rel="stylesheet" href="novita.css?v=39" />
+    <link rel="stylesheet" href="novita.css?v=40" />
     <link rel="stylesheet" href="editorial.css?v=20260904" />
   </head>
   <body class="detail-page news-page news-list-page">
@@ -128,25 +128,93 @@
                   <p>Il paragone che trovo più utile è quello con gli ascensori. I primi richiedevano un operatore per regolare velocità, direzione e arresto; negli Stati Uniti esistevano decine di migliaia di addetti. I comandi automatici hanno reso quasi superfluo quel mestiere e contribuito a trasformare l’ascensore in un’infrastruttura ordinaria della città verticale.</p>
                   <p>Per me la svolta economica sta qui: poter offrire un servizio continuo senza assegnare una persona a ogni cabina, 24 ore su 24. L’analogia ha un limite evidente: la cabina segue un percorso chiuso, mentre un’auto deve affrontare pedoni, ciclisti, lavori stradali, maltempo e comportamenti imprevedibili.</p>
 
-                  <h4>Due scenari di prezzo, senza una soglia magica</h4>
-                  <p>Prendiamo una corsa ipotetica da 25 euro. Con uno sconto del 20%, 30% o 40% costerebbe 20, 17,50 o 15 euro. Il risparmio potrebbe aumentare la frequenza d’uso, ma per molte famiglie il servizio resterebbe occasionale.</p>
-                  <p>Se la riduzione arrivasse all’80–90%, la stessa corsa costerebbe 5 o 2,50 euro. Uso queste percentuali come scenari illustrativi: la convenienza rispetto all’auto privata dipenderebbe da distanze, frequenza degli spostamenti, disponibilità del servizio e alternative locali.</p>
-                  <p>Una diffusione su larga scala potrebbe ridurre la domanda di conducenti. Se le piattaforme trattenessero gran parte del risparmio, il costo sociale dell’automazione potrebbe accompagnarsi a benefici modesti per i passeggeri. Resterebbero possibili vantaggi di disponibilità notturna, privacy e accessibilità; quelli sulla sicurezza richiedono dati specifici.</p>
-                  <div class="cybercab-table-wrap">
-                    <table class="cybercab-table cybercab-table-phases">
-                      <caption>Scenari illustrativi · prezzo iniziale della corsa = 100</caption>
-                      <thead><tr><th scope="col">Scenario</th><th scope="col">Prezzo per il cliente</th><th scope="col">Possibile effetto</th></tr></thead>
-                      <tbody>
-                        <tr><th scope="row">Taxi con conducente</th><td>100</td><td>Situazione di riferimento</td></tr>
-                        <tr><th scope="row">Robotaxi con sconto moderato</th><td>60–80</td><td>Corse più accessibili; l’auto privata può restare conveniente</td></tr>
-                        <tr><th scope="row">Robotaxi con forte riduzione di prezzo</th><td>10–20</td><td>Possibile alternativa all’auto privata per più spostamenti</td></tr>
-                      </tbody>
-                    </table>
-                  </div>
+                  <h4>10.000 km all’anno: quanto dovrebbe costare una corsa?</h4>
+                  <p>Per capire quando il Cybercab potrebbe sostituire un’utilitaria, confronto la spesa per percorrere gli stessi 10.000 km in un anno. Le corse costano <strong>prezzo medio al km × 10.000</strong>; per l’auto considero una fascia di spese, perché consumi, assicurazione, manutenzione e garage cambiano da persona a persona.</p>
 
-                  <h4>Il confronto è con tutti i costi dell’auto</h4>
-                  <p>Il prezzo della corsa va confrontato con acquisto, assicurazione, bollo, manutenzione, carburante o ricarica, garage e parcheggi, oltre al tempo trascorso guidando. In Italia circolano circa 41,3 milioni di automobili, ferme per oltre il 95% della giornata. Il rapporto Audimob di ISFORT citato stima una spesa familiare media di 334 euro al mese, pari a circa 105 miliardi di euro l’anno sul piano nazionale.</p>
-                  <p>È questa la scala del cambiamento che mi interessa: rendere conveniente rinunciare a un bene costoso e poco utilizzato, a partire dalla seconda macchina familiare.</p>
+                  <figure class="cybercab-cost" id="cybercab-cost" data-annual-km="10000" data-taxi-rate="2" aria-labelledby="cybercab-cost-title">
+                    <figcaption class="cybercab-cost-head">
+                      <span class="cybercab-cost-eyebrow">Simulazione · Italia · 10.000 km annui</span>
+                      <h4 id="cybercab-cost-title">Taxi, Cybercab e mantenimento di un’utilitaria</h4>
+                      <p>Spesa annua in euro al variare del prezzo delle corse. Le fasce rappresentano scenari di spesa, non medie nazionali.</p>
+                    </figcaption>
+                    <p class="cybercab-cost-exclusion"><strong>Il costo d’acquisto dell’auto è escluso.</strong> Sono esclusi anche svalutazione, rate e interessi del finanziamento.</p>
+
+                    <div class="cybercab-cost-controls" hidden>
+                      <label for="cybercab-km-price">Prezzo medio ipotetico del Cybercab <output id="cybercab-km-price-value" for="cybercab-km-price">0,30 €/km</output></label>
+                      <input id="cybercab-km-price" type="range" min="0.10" max="2" step="0.01" value="0.30" aria-describedby="cybercab-price-help" />
+                      <div class="cybercab-cost-scale" aria-hidden="true"><span>0,10 €/km</span><span>2,00 €/km</span></div>
+                      <p id="cybercab-price-help">Usa il prezzo effettivo pagato: anche scatto iniziale, attese e supplementi vanno ripartiti sui km. Questi valori non sono tariffe annunciate da Tesla.</p>
+                    </div>
+
+                    <div class="cybercab-cost-legend" aria-label="Legenda del grafico">
+                      <span><i class="cc-key-line" aria-hidden="true"></i>Spesa in corse</span>
+                      <span><i class="cc-key-car" aria-hidden="true"></i>Auto senza garage</span>
+                      <span><i class="cc-key-garage" aria-hidden="true"></i>Auto con garage</span>
+                    </div>
+                    <div class="cybercab-cost-plot">
+                      <svg id="cybercab-cost-chart" viewBox="0 0 720 410" role="img" aria-labelledby="cybercab-chart-title cybercab-chart-description">
+                        <title id="cybercab-chart-title">Spesa per 10.000 km annui: corse e mantenimento dell’auto</title>
+                        <desc id="cybercab-chart-description">Le corse costano 2.000 euro a 0,20 euro al km, 3.000 a 0,30, 5.000 a 0,50 e 20.000 a 2 euro. L’utilitaria costa 2.000–3.500 euro senza garage e 3.200–5.900 euro con garage in affitto. Acquisto escluso.</desc>
+                        <g class="cc-plot-marks">
+                          <text x="60" y="22">Spesa annua (€)</text>
+                          <path class="cc-grid" d="M60 48H696M60 198H696M60 348H696" />
+                          <rect class="cc-car-band" x="60" y="295.5" width="636" height="22.5" />
+                          <rect class="cc-garage-band" x="60" y="259.5" width="636" height="40.5" />
+                          <path class="cc-axis" d="M60 48V348H696" />
+                          <path class="cc-fare-line" d="M60 348L696 48" />
+                          <text x="50" y="53" text-anchor="end">20.000</text>
+                          <text x="50" y="203" text-anchor="end">10.000</text>
+                          <text x="50" y="353" text-anchor="end">0</text>
+                          <text x="60" y="373" text-anchor="middle">0</text>
+                          <text x="378" y="373" text-anchor="middle">1,00</text>
+                          <text x="696" y="373" text-anchor="end">2,00</text>
+                          <text x="688" y="44" text-anchor="end">Taxi: ipotesi 2 €/km → 20.000 €</text>
+                          <text x="688" y="284" text-anchor="end">Con garage</text>
+                          <text x="688" y="312" text-anchor="end">Senza garage</text>
+                          <text x="378" y="401" text-anchor="middle">Prezzo medio delle corse (€/km)</text>
+                        </g>
+                      </svg>
+                    </div>
+                    <div class="cybercab-cost-toolbar" hidden>
+                      <span id="cybercab-chart-scale">Scala completa · 0–2 €/km</span>
+                      <button id="cybercab-cost-zoom" type="button" aria-pressed="false" aria-controls="cybercab-cost-chart">Zoom sul pareggio</button>
+                    </div>
+
+                    <div class="cybercab-cost-result" aria-live="polite" aria-atomic="true">
+                      <p class="cybercab-cost-total"><span>Cybercab · scenario selezionato</span><strong id="cybercab-annual-price">3.000 €<small>/anno</small></strong></p>
+                      <p id="cybercab-cost-verdict">A 0,30 €/km, la spesa rientra nella fascia dell’auto senza garage ed è inferiore a tutta la fascia con garage.</p>
+                    </div>
+
+                    <div class="cybercab-cost-thresholds">
+                      <div data-cc-scenario="car"><span>Utilitaria senza garage</span><strong data-cc-annual>2.000–3.500 €<small>/anno</small></strong><p>Pareggio a <b data-cc-threshold>0,20–0,35 €/km</b></p></div>
+                      <div data-cc-scenario="garage"><span>Utilitaria con garage in affitto</span><strong data-cc-annual>3.200–5.900 €<small>/anno</small></strong><p>Pareggio a <b data-cc-threshold>0,32–0,59 €/km</b></p></div>
+                    </div>
+                    <p class="cybercab-cost-reading">Sotto il limite inferiore, le corse costano meno di tutta la fascia. Tra i due limiti, dipende da quanto spendi per l’auto. Sopra il limite superiore, mantenere l’auto costa meno in tutti gli scenari mostrati. Al limite esatto c’è pareggio con uno degli estremi.</p>
+                    <p class="cybercab-cost-taxi"><strong>Taxi con conducente: 20.000 €/anno nell’esempio a 2 €/km.</strong> È un’ipotesi di prezzo medio effettivo, non una tariffa nazionale: città, durata e numero delle corse cambiano il conto.</p>
+
+                    <details class="cybercab-cost-method">
+                      <summary>Ipotesi di spesa e fonti del grafico</summary>
+                      <div>
+                        <p>Scenario illustrativo per un’utilitaria a benzina già posseduta. Sommo gli estremi delle seguenti voci annue: la fascia risultante non è un intervallo statistico e non copre tutti i casi possibili.</p>
+                        <dl class="cybercab-cost-budget">
+                          <div data-cc-cost data-min="1000" data-max="1400"><dt>Carburante</dt><dd>1.000–1.400 €<small>5–7 l/100 km, benzina ipotizzata a 2 €/l.</small></dd></div>
+                          <div data-cc-cost data-min="350" data-max="900"><dt>Assicurazione RC auto</dt><dd>350–900 €<small>La spesa personale dipende anche da provincia, età e classe di merito.</small></dd></div>
+                          <div data-cc-cost data-min="150" data-max="250"><dt>Bollo</dt><dd>150–250 €<small>Budget ipotetico: potenza, regione ed esenzioni cambiano l’importo.</small></dd></div>
+                          <div data-cc-cost data-min="500" data-max="950"><dt>Manutenzione, gomme e revisione</dt><dd>500–950 €<small>Budget annualizzato: include una quota per interventi che non ricorrono ogni anno.</small></dd></div>
+                          <div data-cc-garage data-min="1200" data-max="2400"><dt>Garage in affitto, se presente</dt><dd>+1.200–2.400 €<small>Ipotesi di 100–200 €/mese; senza questo canone, l’aggiunta è zero.</small></dd></div>
+                        </dl>
+                        <p><strong>Riferimenti, consultati il 7 settembre 2026.</strong> Fiat dichiara 5,0–5,1 l/100 km nel ciclo misto per la Pandina; l’intervallo 5–7 del grafico è una mia ipotesi d’uso. Il MIMIT riporta per la Lombardia benzina self a 2,050 €/l: uso 2 €/l come valore arrotondato. IVASS rileva una RC auto media di 423,4 € nel primo trimestre 2026, sull’insieme delle autovetture. I budget per bollo, manutenzione e garage sono ipotesi editoriali, non stime pubblicate da queste fonti.</p>
+                        <p>Per i taxi uso 2 €/km come scenario, senza attribuirlo a un operatore. Il tariffario del Comune di Milano, aggiornato a luglio 2024, distingue scatto iniziale, tempo e progressioni: il solo parametro chilometrico non basta a ricavare la spesa annua. Per il Cybercab il cursore esplora prezzi ipotetici in euro, senza convertire gli obiettivi di costo operativo di Tesla in tariffe per il passeggero.</p>
+                        <p><strong>Perimetro.</strong> Acquisto, svalutazione e finanziamento esclusi. Non considero pedaggi, parcheggi occasionali, multe, guasti eccezionali o il valore del tempo. Il confronto assume di sostituire tutti i 10.000 km e di poter eliminare le spese dell’auto e l’eventuale affitto del garage; mantenendo l’auto, molti costi fissi resterebbero. Un garage di proprietà non genera automaticamente un risparmio monetario.</p>
+                        <p class="cybercab-cost-sources"><a href="https://www.fiat.it/modello/pandina/caratteristiche-tecniche" target="_blank" rel="noreferrer">Fiat · consumi Pandina ↗</a><a href="https://www.mimit.gov.it/it/prezzo-medio-carburanti/regioni" target="_blank" rel="noreferrer">MIMIT · carburanti ↗</a><a href="https://www.ivass.it/pubblicazioni-e-statistiche/statistiche/comunicazioni-statistiche/2026/cs-n-6-2026/Report_IPER_13_7.pdf" target="_blank" rel="noreferrer">IVASS · RC auto ↗</a><a href="https://www.comune.milano.it/documents/20118/68224/Tariffario%2BTaxi%2B%28agg.%2Bluglio%2B2024%29.pdf/a0372f46-b96d-11f6-3e03-9420e4f0cfd7?download=true&amp;t=1746021632929&amp;version=1.0" target="_blank" rel="noreferrer">Milano · struttura delle tariffe taxi ↗</a></p>
+                      </div>
+                    </details>
+                    <noscript><p>Il grafico mostra lo scenario a 0,30 €/km. Attiva JavaScript per cambiare la tariffa e ingrandire il pareggio.</p></noscript>
+                  </figure>
+
+                  <h4>La scelta dipende anche dal servizio</h4>
+                  <p>Il grafico isola le spese annuali di un’auto già acquistata. Per decidere se comprarne una, andrebbero aggiunti il capitale necessario e la perdita di valore nel tempo. Per rinunciarvi, conta anche poter trovare una corsa quando serve, con spazio e accessibilità adatti ai propri spostamenti.</p>
+                  <p>Una diffusione su larga scala potrebbe ridurre la domanda di conducenti. Se le piattaforme trattenessero gran parte del risparmio, il costo sociale dell’automazione potrebbe accompagnarsi a benefici modesti per i passeggeri. Resterebbero possibili vantaggi di disponibilità notturna, privacy e accessibilità; quelli sulla sicurezza richiedono dati specifici.</p>
 
                   <h4>Quanto risparmio arriverà al cliente?</h4>
                   <p>Anche con un costo operativo di 0,20 dollari per miglio, Tesla potrebbe scegliere una tariffa ben superiore a 0,30 o 0,40 dollari. Se i veicoli fossero pochi rispetto alla domanda e gli operatori restassero pochi, una parte rilevante del vantaggio potrebbe diventare margine per le piattaforme.</p>
@@ -3183,6 +3251,6 @@
       <nav class="chapter-next" aria-label="Continua la lettura"><a href="altro.html">← Dossier</a><a href="index.html">Home →</a></nav>
     </main>
     <footer class="site-footer"><span>AI.it</span><span>Novità · 19 aggiornamenti in 16 giorni</span></footer>
-    <script src="app.js?v=20260904-editorial"></script>
+    <script src="app.js?v=20260907-cybercab"></script>
   </body>
 </html>

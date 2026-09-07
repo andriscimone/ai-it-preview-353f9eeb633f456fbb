@@ -7175,7 +7175,6 @@ body.pacing-news-awake::after {
 .cybercab-table tbody tr:nth-child(even) {
   background: color-mix(in srgb, var(--cc-red) 5%, var(--cc-panel));
 }
-.cybercab-table-phases tbody th { width: 28%; }
 .cybercab-essay {
   margin-top: 0;
   padding: 36px 4vw 28px;
@@ -7307,4 +7306,100 @@ body.pacing-news-awake::after {
 }
 @media (max-width: 800px) {
   .cybercab-drive-photo img { width: 100%; }
+}
+
+/* Cybercab: annual spending at fixed distance; hatch distinguishes the garage band. */
+.cybercab-cost {
+  --cc-chart-blue: #126eab;
+  --cc-chart-gold: #946414;
+  margin: 28px 0;
+  padding: clamp(14px, 2.5vw, 28px);
+  min-width: 0;
+  background: var(--cc-panel);
+  border-block: 2px solid var(--cc-rule);
+  scroll-margin-top: 90px;
+}
+:root[data-theme="dark"] .cybercab-cost {
+  --cc-chart-blue: #75c5ff;
+  --cc-chart-gold: #e4b466;
+}
+.cybercab-cost [hidden] { display: none; }
+.cybercab-cost-head .cybercab-cost-eyebrow { color: var(--cc-muted); font: 500 12px/1.5 var(--mono); }
+.cybercab-essay .cybercab-cost-head h4 {
+  max-width: none;
+  margin: 8px 0 12px;
+  font: 500 clamp(23px, 3vw, 32px)/1.2 var(--serif);
+  letter-spacing: -.025em;
+}
+.cybercab-essay .cybercab-cost p { max-width: none; font-size: 16px; line-height: 1.6; }
+.cybercab-essay .cybercab-cost .cybercab-cost-exclusion {
+  margin: 20px 0 24px;
+  padding: 12px 0 12px 14px;
+  border-left: 3px solid var(--cc-red);
+  color: var(--cc-text);
+  font-size: 14px;
+}
+.cybercab-cost-exclusion strong { display: block; }
+.cybercab-cost-controls label { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 16px; color: var(--cc-text); font-size: 16px; }
+.cybercab-cost-controls output { font: 600 24px/1.4 var(--mono); color: var(--cc-chart-blue); white-space: nowrap; }
+.cybercab-cost-controls input { display: block; width: 100%; height: 44px; margin: 4px 0 0; accent-color: var(--cc-chart-blue); cursor: pointer; }
+.cybercab-cost-scale { display: flex; justify-content: space-between; color: var(--cc-muted); font: 13px/1.5 var(--mono); }
+.cybercab-essay .cybercab-cost-controls p { margin: 10px 0 22px; font-size: 13px; }
+.cybercab-cost-legend { display: flex; flex-wrap: wrap; gap: 8px 18px; color: var(--cc-text); font-size: 14px; }
+.cybercab-cost-legend span { display: inline-flex; align-items: center; gap: 8px; }
+.cybercab-cost-legend i { display: inline-block; flex: 0 0 22px; height: 12px; }
+.cc-key-line { border-top: 3px solid var(--cc-chart-blue); transform: translateY(5px); }
+.cc-key-car { background: color-mix(in srgb, var(--cc-muted) 18%, var(--cc-panel)); border: 1px solid var(--cc-muted); }
+.cc-key-garage { border: 1px dashed var(--cc-chart-gold); background: repeating-linear-gradient(135deg, transparent 0 4px, color-mix(in srgb, var(--cc-chart-gold) 35%, transparent) 4px 5px); }
+.cybercab-cost-plot { width: 100%; margin-top: 14px; }
+#cybercab-cost-chart { display: block; width: 100%; height: auto; overflow: visible; color: var(--cc-text); font: 14px var(--sans); }
+#cybercab-cost-chart text { fill: currentColor; }
+#cybercab-cost-chart .cc-grid { stroke: var(--cc-rule); fill: none; stroke-width: 1; }
+#cybercab-cost-chart .cc-axis { stroke: var(--cc-muted); fill: none; stroke-width: 1; }
+#cybercab-cost-chart .cc-car-band { fill: color-mix(in srgb, var(--cc-muted) 15%, transparent); stroke: var(--cc-muted); stroke-width: 1; }
+#cybercab-cost-chart .cc-garage-band { fill: color-mix(in srgb, var(--cc-chart-gold) 9%, transparent); stroke: var(--cc-chart-gold); stroke-dasharray: 5 4; stroke-width: 1; }
+#cybercab-cost-chart .cc-hatch { stroke: var(--cc-chart-gold); stroke-opacity: .32; stroke-width: 1; }
+#cybercab-cost-chart .cc-fare-line { fill: none; stroke: var(--cc-chart-blue); stroke-width: 3; }
+#cybercab-cost-chart .cc-selected-guide { fill: none; stroke: var(--cc-chart-blue); stroke-dasharray: 4 5; stroke-width: 1.5; }
+#cybercab-cost-chart .cc-point { fill: var(--cc-panel); stroke: var(--cc-chart-blue); stroke-width: 2; }
+#cybercab-cost-chart .cc-selected-point { fill: var(--cc-chart-blue); stroke: var(--cc-panel); stroke-width: 3; }
+#cybercab-cost-chart .cc-taxi-point { fill: var(--cc-text); stroke: var(--cc-panel); stroke-width: 2; }
+#cybercab-cost-chart .cc-band-label { font-weight: 600; paint-order: stroke; stroke: var(--cc-panel); stroke-width: 4; stroke-linejoin: round; }
+#cybercab-cost-chart .cc-tick { font: 13px var(--mono); fill: var(--cc-muted); }
+.cybercab-cost-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 14px; margin: 0 0 20px; font-size: 13px; color: var(--cc-muted); }
+.cybercab-cost-toolbar button { min-height: 44px; padding: 9px 13px; border: 1px solid var(--cc-rule); background: var(--cc-panel); color: var(--cc-text); font: 500 14px/1.4 var(--sans); cursor: pointer; }
+.cybercab-cost-toolbar button[aria-pressed="true"] { border-color: var(--cc-chart-blue); color: var(--cc-chart-blue); }
+.cybercab-cost :is(input, button, summary, a):focus-visible { outline: 3px solid var(--cc-chart-blue); outline-offset: 4px; }
+.cybercab-cost-result { display: grid; grid-template-columns: minmax(200px, .8fr) minmax(0, 1.2fr); align-items: center; gap: 14px 24px; padding: 20px 0; border-block: 1px solid var(--cc-rule); }
+.cybercab-essay .cybercab-cost-result p { margin: 0; }
+.cybercab-cost-total span { display: block; color: var(--cc-muted); font-size: 14px; }
+.cybercab-cost-total strong { display: block; color: var(--cc-chart-blue); font: 600 clamp(30px, 4vw, 40px)/1.4 var(--mono); }
+.cybercab-cost small { font-size: 13px; font-weight: 400; }
+.cybercab-cost-total small { margin-left: 6px; color: var(--cc-muted); }
+.cybercab-cost-thresholds { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 28px; margin: 24px 0 14px; }
+.cybercab-cost-thresholds > div { padding-left: 12px; border-left: 3px solid var(--cc-muted); }
+.cybercab-cost-thresholds > div:last-child { border-left-color: var(--cc-chart-gold); border-left-style: dashed; }
+.cybercab-cost-thresholds span { display: block; color: var(--cc-muted); font-size: 14px; }
+.cybercab-cost-thresholds strong { display: block; color: var(--cc-text); font: 600 clamp(21px, 2.5vw, 28px)/1.5 var(--mono); }
+.cybercab-cost-thresholds small { margin-left: 5px; }
+.cybercab-essay .cybercab-cost-thresholds p { margin: 3px 0 0; font-size: 14px; }
+.cybercab-essay .cybercab-cost :is(.cybercab-cost-reading, .cybercab-cost-taxi) { font-size: 14px; }
+.cybercab-cost-taxi { padding-top: 14px; }
+.cybercab-cost-taxi strong { color: var(--cc-text); }
+.cybercab-cost-method { margin-top: 22px; border-top: 1px solid var(--cc-rule); }
+.cybercab-cost-method > summary { padding: 15px 0; color: var(--cc-text); font-size: 16px; font-weight: 600; cursor: pointer; }
+.cybercab-essay .cybercab-cost-method p { margin: 0 0 14px; font-size: 14px; }
+.cybercab-cost-budget { margin: 18px 0; color: var(--cc-text); font-size: 14px; }
+.cybercab-cost-budget > div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 6px 20px; padding: 12px 0; border-top: 1px solid var(--cc-rule); }
+.cybercab-cost-budget dt { font-weight: 500; }
+.cybercab-cost-budget dd { margin: 0; font-weight: 600; }
+.cybercab-cost-budget small { display: block; margin-top: 3px; line-height: 1.6; color: var(--cc-muted); }
+.cybercab-cost-sources { display: flex; flex-wrap: wrap; gap: 10px 18px; }
+.cybercab-cost-sources a { color: var(--cc-chart-blue); text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 600px) {
+  .cybercab-cost-result, .cybercab-cost-thresholds { grid-template-columns: minmax(0, 1fr); }
+  .cybercab-cost-budget > div { grid-template-columns: minmax(0, 1fr); }
+}
+@media print {
+  .cybercab-cost-controls, .cybercab-cost-toolbar { display: none; }
 }
