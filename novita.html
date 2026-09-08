@@ -14,7 +14,7 @@
     <title>Novità — AI.it</title>
     <script>(() => { try { const saved = localStorage.getItem("aiit-theme"); const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dataset.theme = saved || preferred; } catch (_) { document.documentElement.dataset.theme = "light"; } })();</script>
     <link rel="stylesheet" href="styles.css?v=news-list-3" />
-    <link rel="stylesheet" href="novita.css?v=40" />
+    <link rel="stylesheet" href="novita.css?v=41" />
     <link rel="stylesheet" href="editorial.css?v=20260904" />
   </head>
   <body class="detail-page news-page news-list-page">
@@ -29,7 +29,93 @@
       </header>
 
       <section class="news-list" id="feed" aria-labelledby="feed-title">
-        <header class="news-list-head"><h2 id="feed-title">Giorno per giorno</h2><span>16 giorni · 19 notizie</span></header>
+        <header class="news-list-head"><h2 id="feed-title">Giorno per giorno</h2><span>17 giorni · 20 notizie</span></header>
+
+        <section class="news-day news-day-navier" aria-labelledby="day-2026-09-08">
+          <header class="news-day-head">
+            <time datetime="2026-09-08" id="day-2026-09-08"><strong>8 settembre</strong><span>2026</span></time>
+            <span class="news-day-count">1 notizia</span>
+          </header>
+          <div class="news-day-items">
+            <details class="news-list-item news-list-item-navier" id="n20-navier-stokes">
+              <summary aria-labelledby="navier-title">
+                <span class="news-item-meta"><b>N20</b><span class="news-item-topic">Matematica × ricerca AI</span><span class="news-item-status"><i></i> OpenAI · prova da esaminare</span></span>
+                <span class="news-item-title" id="navier-title">Navier–Stokes: OpenAI annuncia una soluzione. Si apre la disputa sui contributi umani</span>
+                <span class="news-item-deck">OpenAI pubblica una prova sul problema del millennio, prodotta da un modello interno che descrive come più capace di Astra. Disponibili testo e formalizzazione in Lean. Restano da esaminare la dimostrazione e il possibile contributo dei lavori di Tristan Buckmaster e Levent Alpöge.</span>
+                <span class="news-item-toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="news-item-body navier-story">
+                <section class="navier-section navier-intro" aria-labelledby="navier-result-title">
+                  <span class="navier-kicker">L’annuncio · 8 settembre 2026</span>
+                  <h3 id="navier-result-title">Una possibile svolta sul comportamento dei fluidi</h3>
+                  <p><a href="https://openai.com/index/navier-stokes-solution/" target="_blank" rel="noreferrer">OpenAI annuncia</a> una soluzione al problema di esistenza e regolarità di Navier–Stokes. La scoperta è attribuita a un <strong>modello interno ancora in addestramento</strong>; GPT‑6 Astra avrebbe curato la successiva formalizzazione e verifica in Lean.</p>
+                  <p>Nel <a href="https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf" target="_blank" rel="noreferrer">lavoro di 165 pagine</a>, gli autori costruiscono un fluido tridimensionale inizialmente fermo, soggetto a una forza esterna regolare, la cui velocità diventa illimitata in un tempo finito mentre l’energia cinetica resta limitata. È ciò che in matematica si chiama <strong>singolarità</strong>, o <em>blowup</em>.</p>
+                  <aside class="navier-note"><strong>Stato della notizia</strong><p>La prova e il codice sono pubblici. Alla consultazione dell’8 settembre, il <a href="https://www.claymath.org/millennium/Navier-Stokes-Equation/" target="_blank" rel="noreferrer">Clay Mathematics Institute</a> classifica ancora il problema come irrisolto. Qui riportiamo il risultato annunciato e il suo perimetro; non abbiamo verificato integralmente la dimostrazione.</p></aside>
+                </section>
+
+                <section class="navier-section" aria-labelledby="navier-explainer-title">
+                  <span class="navier-kicker">La domanda matematica</span>
+                  <h3 id="navier-explainer-title">Un fluido che parte regolare può perdere la regolarità?</h3>
+                  <p>Le equazioni di Navier–Stokes descrivono il moto di fluidi come acqua e aria. Il problema riguarda la loro evoluzione: partendo da condizioni lisce, possono comparire velocità senza limite? La <strong>viscosità</strong>, l’attrito interno del fluido, tende a smorzare le differenze di velocità e rende difficile costruire un esempio simile. La domanda riguarda il modello matematico continuo; non implica che l’acqua reale possa raggiungere velocità infinite.</p>
+                  <p>La costruzione presentata nel paper concentra il moto in un vortice che si restringe e diventa sempre più sottile. La velocità cresce in una regione sempre più piccola, così l’energia complessiva può restare limitata. Il passaggio difficile consiste nel mantenere regolare la forza esterna anche quando il moto sviluppa la singolarità.</p>
+                  <p><strong>La forza esterna è una precisazione essenziale.</strong> Le alternative C e D dell’<a href="https://www.claymath.org/wp-content/uploads/2022/06/navierstokes.pdf" target="_blank" rel="noreferrer">enunciato ufficiale di Charles Fefferman</a> ammettono una forza liscia: dimostrarne una è una delle vie previste per risolvere il problema. Questo risultato, se confermato, lascerebbe comunque aperta la questione di Navier–Stokes senza forza esterna.</p>
+                </section>
+
+                <section class="navier-section" aria-labelledby="navier-process-title">
+                  <span class="navier-kicker">Il lavoro dichiarato da OpenAI</span>
+                  <h3 id="navier-process-title">Migliaia di agenti per cercare; Astra per formalizzare</h3>
+                  <dl class="navier-stats">
+                    <div><dt>≈10.000</dt><dd>agenti contemporanei nel gruppo arrivato al risultato</dd></div>
+                    <div><dt>88 ore</dt><dd>dall’avvio dei primi agenti alla soluzione dichiarata</dd></div>
+                    <div><dt>+17 ore</dt><dd>per formalizzazione e verifica con Astra</dd></div>
+                    <div><dt>130 mld</dt><dd>token di output impiegati per Navier–Stokes</dd></div>
+                  </dl>
+                  <p>Gli agenti sono istanze del modello che lavorano su parti della ricerca e si scambiano risultati. Nel <a href="https://openai.com/index/navier-stokes-solution/#how-we-found-the-proof" target="_blank" rel="noreferrer">resoconto aziendale</a>, i ricercatori scelgono i problemi, riallocano le risorse e fanno circolare le idee intermedie con Codex. È un processo coordinato, con interventi umani. I numeri descrivono questo esperimento; non il costo di una normale risposta di Astra.</p>
+                </section>
+
+                <section class="navier-section" aria-labelledby="navier-chart-title">
+                  <span class="navier-kicker">Il grafico originale pubblicato su X</span>
+                  <h3 id="navier-chart-title">Astra e il modello interno, su problemi matematici aperti selezionati</h3>
+                  <figure class="navier-chart">
+                    <a href="assets/n20-openai-astra-internal-model-original.png" target="_blank" rel="noreferrer" aria-label="Apri il grafico originale OpenAI a piena risoluzione">
+                      <img src="assets/n20-openai-astra-internal-model-original.png" width="1574" height="1126" loading="lazy" decoding="async" alt="Grafico OpenAI: percentuale di successo su problemi matematici aperti selezionati rispetto al calcolo impiegato in fase di risposta, su scala logaritmica. La curva blu scura del modello interno sta sopra quella azzurra di GPT-6 Astra. Mancano valori numerici sull’asse orizzontale." />
+                      <span>Apri a piena risoluzione · 1574 × 1126 ↗</span>
+                    </a>
+                    <figcaption>Immagine originale, senza ridisegno. Fonte: <a href="https://x.com/OpenAI/status/2097374643518640382" target="_blank" rel="noreferrer">OpenAI su X, 8 settembre 2026 ↗</a>.</figcaption>
+                  </figure>
+                  <div class="navier-chart-reading">
+                    <div><h4>Che cosa mostra</h4><p>In verticale c’è il tasso di successo (<em>pass rate</em>). In orizzontale, il calcolo usato durante la risposta, su scala logaritmica. I punti del modello interno arrivano a circa il 48%; quelli di Astra a circa il 17%. Sono letture approssimative dell’immagine, a budget diversi.</p></div>
+                    <div><h4>Che cosa manca</h4><p>Il grafico non indica i valori del calcolo sull’asse orizzontale, la lista e il numero dei problemi, né il significato delle barre d’errore. È un confronto aziendale su un insieme selezionato: da solo non misura la probabilità che la prova di Navier–Stokes sia corretta.</p></div>
+                  </div>
+                </section>
+
+                <section class="navier-section" aria-labelledby="navier-check-title">
+                  <span class="navier-kicker">Come si valuta una prova</span>
+                  <h3 id="navier-check-title">Lean rende controllabili i passaggi; serve anche capire che cosa è stato formalizzato</h3>
+                  <p><strong>Lean</strong> è un assistente di dimostrazione: controlla che una conclusione discenda dalle definizioni e dalle ipotesi scritte nel suo linguaggio. Il <a href="https://github.com/openai/NavierStokesAndEuler" target="_blank" rel="noreferrer">repository pubblico di OpenAI</a> contiene le formalizzazioni per Navier–Stokes ed Euler. La verifica deve riguardare anche la corrispondenza tra il teorema formalizzato, il paper e il problema originale. In questa revisione editoriale non abbiamo eseguito il progetto Lean.</p>
+                  <p>Le <a href="https://www.claymath.org/millennium-problems/rules/" target="_blank" rel="noreferrer">regole del premio Clay</a> richiedono una pubblicazione ammissibile, almeno due anni trascorsi dalla pubblicazione e l’accettazione generale della comunità matematica prima che una proposta venga considerata. L’annuncio di oggi non equivale all’assegnazione del premio.</p>
+                </section>
+
+                <section class="navier-section navier-dispute" aria-labelledby="navier-dispute-title">
+                  <span class="navier-kicker">La controversia · priorità, collaborazione e dati</span>
+                  <h3 id="navier-dispute-title">Dietro l’annuncio ci sono anche due matematici e una questione di fiducia</h3>
+                  <p><strong>Tristan Buckmaster</strong>, professore alla NYU, e <strong>Levent Alpöge</strong>, matematico e dipendente Anthropic, hanno annunciato lavori su equazioni collegate, usando strumenti AI. Come spiega <a href="https://terrytao.wordpress.com/2026/09/07/finite-time-blowup-with-smooth-forcing-term-for-the-incompressible-porous-medium-boussinesq-and-incompressible-euler-equations/" target="_blank" rel="noreferrer">Terence Tao nel suo commento</a>, il loro risultato riguarda Euler con forza regolare, oltre a Boussinesq e al modello dei mezzi porosi, e sviluppa lavori precedenti di Diego Córdoba e Luis Martínez-Zoroa. Euler descrive un fluido privo di viscosità. Quei lavori, da soli, non dimostrano che i due avessero già risolto Navier–Stokes.</p>
+                  <div class="navier-dispute-point"><h4>Il racconto di Buckmaster</h4><p>Nella sua <a href="https://cims.nyu.edu/~tristanb/statement.pdf" target="_blank" rel="noreferrer">dichiarazione pubblica</a>, Buckmaster precisa che era una collaborazione personale, senza coinvolgimento istituzionale dei rispettivi datori di lavoro. Solleva il dubbio che bozze e conversazioni di ricerca passate attraverso Codex possano avere contribuito all’addestramento. Riferisce di aver chiesto chiarimenti e di aver ricevuto una risposta sull’assenza di consultazione dei dati utente, senza ottenere allora una risposta specifica sull’addestramento.</p><p>Racconta inoltre che Sébastien Bubeck, ricercatore OpenAI, avrebbe proposto di escludere Alpöge da un articolo sul risultato Navier–Stokes a causa del suo impiego presso Anthropic; descrive anche pressioni sulla propria carriera quando prospettava di rendere pubblica la vicenda. Sono accuse di Buckmaster. Lo stesso autore precisa che, al momento della dichiarazione, non aveva visto la prova OpenAI e non sapeva se i loro dati fossero stati usati.</p></div>
+                  <div class="navier-dispute-point"><h4>La replica e la precisazione di OpenAI</h4><p><a href="https://x.com/SebastienBubeck/status/2097214122471432349" target="_blank" rel="noreferrer">Bubeck contesta pubblicamente le accuse</a>, definendole false e incendiarie. Nell’<a href="https://openai.com/index/navier-stokes-solution/#concurrent-work" target="_blank" rel="noreferrer">annuncio ufficiale</a>, OpenAI riconosce la priorità dei due su Euler forzato e nega che ricercatori o agenti abbiano visto il loro lavoro privato o consultato dati utente specifici per questa ricerca. Aggiunge però di <strong>non poter escludere che dati de-identificati derivati dal loro uso dei prodotti abbiano contribuito a migliorare i modelli</strong>, pur giudicandolo improbabile.</p></div>
+                  <aside class="navier-note"><strong>Il punto ancora aperto</strong><p>Consultare una bozza durante la ricerca e apprendere dai dati durante l’addestramento sono due percorsi diversi. L’ammissione di una possibilità non dimostra che sia accaduto; il diniego dell’accesso diretto non chiude la domanda sull’addestramento. Le fonti pubbliche esaminate non consentono di attribuire un eventuale contributo dei loro dati ad Astra o al modello interno. Validità matematica, priorità scientifica e provenienza dei dati richiedono verifiche distinte.</p></aside>
+                </section>
+                <footer class="news-item-footer">
+                  <p>Fonti consultate l’8 settembre 2026. Notizia in sviluppo: risultato dichiarato da OpenAI, materiali pubblici e testimonianze contestate sono indicati separatamente.</p>
+                  <div>
+                    <a href="https://openai.com/index/navier-stokes-solution/" target="_blank" rel="noreferrer">Annuncio OpenAI ↗</a>
+                    <a href="https://cims.nyu.edu/~tristanb/statement.pdf" target="_blank" rel="noreferrer">Dichiarazione Buckmaster ↗</a>
+                    <a href="https://www.claymath.org/wp-content/uploads/2022/06/navierstokes.pdf" target="_blank" rel="noreferrer">Il problema ufficiale ↗</a>
+                  </div>
+                </footer>
+              </div>
+            </details>
+          </div>
+        </section>
 
         <section class="news-day news-day-cybercab" aria-labelledby="day-2026-09-04">
           <header class="news-day-head">
