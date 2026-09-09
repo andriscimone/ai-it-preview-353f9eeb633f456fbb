@@ -11,7 +11,7 @@ La pagina `spooky-timeline.html` è un dossier interattivo nascosto nella homepa
 - un'introduzione accelerazionista che spiega il circuito compute → modelli → lavoro AI → ricerca più rapida;
 - tre grafici interni — due di Anthropic e uno di OpenAI — con fonti primarie e limiti metodologici visibili;
 - una sezione `00.2 / CAPITALE` con una scala completa 1900—2026: ogni gradino vale ×2 e la distanza orizzontale mostra il tempo fra le soglie. Dodici punti segnano gli attraversamenti e un tredicesimo punto distinto mostra il massimo intraday Forbes di Musk a $1.450 miliardi; tutti rivelano nome completo, data e patrimonio al passaggio, al focus o al tocco. Seguono volatilità, concentrazione generale e mappa della filiera Musk;
-- un grande ingresso editoriale richiudibile, “Quando l'AI accelera se stessa”, che introduce e amplia il registro di 43 eventi del 2025-2026;
+- un grande ingresso editoriale richiudibile, “Quando l'AI accelera se stessa”, che introduce e amplia il registro di 56 eventi del 2025-2026;
 - una legenda che separa fatto storico, stima, scenario, raccomandazione e futuro concettuale;
 - tre timeline orizzontali per *AI 2027*, *Situational Awareness* e *AI 2040*;
 - un albero decisionale che organizza i dodici futuri per arrivo dell'ASI, controllo e autonomia umana e conduce direttamente alle schede numerate;
@@ -20,16 +20,24 @@ La pagina `spooky-timeline.html` è un dossier interattivo nascosto nella homepa
 
 Le due scale ispirate a Kurzweil usano una selezione editoriale di svolte e intervalli approssimativi: cambiare gli eventi cambia la forma, quindi non vengono presentate come prova di una legge universale o della data 2045. Il registro *Accelerando* mescola eventi, dichiarazioni e interpretazioni dell'autore della raccolta: non viene presentato come prova della Singolarità. I grafici descrivono dati aziendali di Anthropic e OpenAI, non misurazioni indipendenti. La sezione sul capitale usa una scala nominale prefissata in cui ogni soglia vale ×2: il grafico principale dichiara di ricostruire la cronologia interna del video, mentre la lente recente usa attraversamenti Forbes documentati. Prima del 1987 non esiste una classifica mondiale annuale comparabile; il tratteggio e i nodi vuoti impediscono di confondere la ricostruzione con una serie certificata. Il record cambia titolare e non equivale a liquidità né a un raddoppio del potere d'acquisto. Le date degli altri documenti restano legate alle rispettive fonti. I dodici futuri del video non hanno date o probabilità: sono possibilità concettuali, non una quarta timeline.
 
+## Aggiornamento delle fonti · 9 settembre 2026
+
+Confrontata la [raccolta a revisione fissa](https://github.com/prinz-ai/accelerando/blob/c0587fa490e9ee47f48d3544b03231090fd10146/README.md): 56 voci datate coperte, 13 aggiunte dal 19 luglio all’8 settembre. Sono conservati i riferimenti delle nuove voci e delle note, con la copia già disponibile del comunicato NIST al posto dell’originale non più disponibile. Le fonti OpenAI, Anthropic ed Epoch sono state consultate; i post X non leggibili sono indicati come riferimenti della raccolta. Non è una verifica matematica né una certificazione indipendente delle dichiarazioni aziendali.
+
+Le note includono versione di Fable incerta, replica dichiarata da Aaron Lou e prompt, datazione precedente degli incidenti, modello interno distinto da Astra, ripresa dell’addestramento indicata dalla raccolta e limiti della sua identificazione. Il risultato su Riemann è parziale; i circa 200 dollari medi dei risultati matematici rappresentano solo l’equivalente dei token alle tariffe Sol. Per Navier–Stokes sono precisati forza esterna, formulazioni C/D e stato di annuncio. La data Epoch del 31 luglio è distinta dalla collocazione al 3 agosto.
+
+Per i criteri, le nuove voci su incidenti sono pertinenti all’autonomia controllata anche come controesempi: il filtro non è un conteggio di successi. La distribuzione di un prodotto, da sola, resta contesto.
+
 ## Come si apre
 
 ### Revisione del 5 settembre 2026
 
-- L'indice dei capitoli resta raggiungibile durante la lettura e apre la cronaca quando si sceglie “43 segnali”.
+- L'indice dei capitoli resta raggiungibile durante la lettura e apre la cronaca quando si sceglie “56 segnali”.
 - Il confronto principale accosta ricerca, controllo, politica ed esiti. I passaggi e i riferimenti alle pagine provengono dalle cronologie già presenti, conservate sotto “Leggi le tre cronologie complete”. Le note esplicitano i punti senza una corrispondenza diretta fra fonti.
 - La lente dei tre raddoppi recenti precede il grafico storico, ora richiudibile. Il grafico completo mantiene uno scorrimento interno con etichette di almeno 12px.
-- I collegamenti nei criteri aprono un filtro sulla cronaca. `data-signal-criteria` associa ogni evento a zero o più criteri: 16 segnali pertinenti, 27 di contesto. Omnimodalità, contesto, memoria e affidabilità non hanno prove direttamente documentate nella raccolta e mostrano uno stato vuoto esplicito. Aggiungere una nuova associazione solo quando il testo dell'evento riguarda una parte precisa della prova; non usare il conteggio come punteggio.
+- I collegamenti nei criteri aprono un filtro sulla cronaca. `data-signal-criteria` associa ogni evento a zero o più criteri: 28 segnali pertinenti, 28 di contesto. Omnimodalità, contesto, memoria e affidabilità non hanno prove direttamente documentate nella raccolta e mostrano uno stato vuoto esplicito. Aggiungere una nuova associazione solo quando il testo dell'evento riguarda una parte precisa della prova; non usare il conteggio come punteggio.
 - L'albero guidato conserva una sequenza di scelte e legge sintesi, fatti e racconto dalla scheda originale corrispondente. “Indietro” e “Ricomincia” cambiano percorso; la mappa completa resta apribile e parte aperta sugli schermi grandi.
-- `sessionStorage` conserva accesso, posizione e selezioni nella scheda corrente; “Esci” cancella questi dati. La pagina non registra dati su un server. La data visibile distingue la cronaca fino al 9 luglio dal contesto di luglio: questa revisione non certifica una nuova consultazione delle fonti.
+- `sessionStorage` conserva accesso, posizione e selezioni nella scheda corrente; “Esci” cancella questi dati. La pagina non registra dati su un server. La revisione dell’interfaccia del 5 settembre non certificava una nuova consultazione delle fonti. Il successivo aggiornamento del 9 settembre porta la cronaca all’8 settembre e distingue esplicitamente data del registro e data dell’evento.
 
 Verifica mirata: provare tutte e quattro le domande, gli otto criteri e lo stato senza risultati; raggiungere i dodici esiti e tornare indietro; aprire un racconto e ricaricare; provare le cronologie originali con frecce della tastiera e scorrimento; uscire e tentare di riaprire la pagina. A 390px devono restare interi il titolo dei futuri e le tre barre recenti, senza scorrimento laterale dell'intera pagina. Se compare ancora la vecchia interfaccia, rigenerare `public/` con `node scripts/prepare-public.mjs` e ricaricare.
 
@@ -50,7 +58,7 @@ Verifica mirata: provare tutte e quattro le domande, gli otto criteri e lo stato
 - `spooky-timeline.html`: contenuti, fonti e struttura semantica.
 - `spooky-timeline.css`: struttura, stati interattivi e comportamento mobile.
 - `spooky-landian.css`: skin visiva autonoma del dossier: terminale, griglia, palette e tipografia.
-- `spooky-accelerando.css`: direzione più estrema dell'introduzione, prologo personale, pannelli dei criteri, micro-visualizzazioni, circuito, grafici, sezione sul capitale e registro dei 43 segnali.
+- `spooky-accelerando.css`: direzione più estrema dell'introduzione, prologo personale, pannelli dei criteri, micro-visualizzazioni, circuito, grafici, sezione sul capitale e registro dei 56 segnali.
 - `spooky-timeline.js`: progressione del meme legata allo scorrimento, cambio del sole Nick Land al tocco, tab, tooltip del capitale, scorrimento delle timeline, indice attivo e progresso dei dodici futuri. Il grafico del capitale e le due scale di Kurzweil restano leggibili senza JavaScript.
 - `assets/spooky-plato-cave-v1.webp`, `assets/spooky-einstein-projector-v1.webp`, `assets/spooky-pepe-prisoner-v1.webp`, `assets/spooky-pepe-exit-v1.webp`, `assets/spooky-nick-land-sun.webp` e `assets/spooky-nick-land-sun-alt.webp`: tavola e livelli fotografici del meme nell'hero.
 - `assets/code-contributed-per-person-quarter-2026.png`, `assets/claude-code-session-success-rate-2026.png` e `assets/openai-output-tokens-by-department-2026.png`: copie pubblicabili dei tre grafici.
@@ -77,7 +85,7 @@ La separazione tra i tre fogli di stile è intenzionale: `spooky-timeline.css` m
 12. Passa su ciascuno dei tredici punti e ripeti con Tab e tocco: il tooltip deve mostrare nome completo, data e patrimonio, senza creare una barra orizzontale; `Esc` e un tocco esterno devono chiuderlo. I livelli trasparenti del grafico non devono intercettare il cursore al posto dei pulsanti.
 13. Controlla il tredicesimo punto e il riquadro `$1.450 miliardi`: devono indicare Elon Musk, 16 giugno 2026 e “massimo intraday”, senza presentarlo come un altro raddoppio; il riferimento superiore deve dichiarare che il prossimo ×2 è `$1.600 miliardi`.
 14. Verifica che filiera Musk, nota sul dollaro e indicatore di volatilità distinguano chiaramente fatti operativi, progetti, dipendenze e limiti causali.
-15. L'ingresso “Quando l'AI accelera se stessa” deve avere ampiezza e respiro da sezione editoriale; “Amplia la cronaca” deve mostrare 43 eventi, i collegamenti 2025 e 2026 e tutte le fonti cliccabili, poi richiudersi anche con la tastiera.
+15. L'ingresso “Quando l'AI accelera se stessa” deve avere ampiezza e respiro da sezione editoriale; “Amplia la cronaca” deve mostrare 56 eventi, i collegamenti 2025 e 2026 e tutte le fonti cliccabili, poi richiudersi anche con la tastiera.
 16. Cambia le tre timeline anche con le frecce della tastiera e scorri le carte in orizzontale.
 17. Segui entrambi i rami dell'albero: ogni esito deve mostrare il collegamento e aprire la scheda con lo stesso numero; il raccordo “12 esiti → 12 racconti” deve portare all'inizio delle descrizioni.
 18. In ognuno dei dodici futuri apri “Entra nello scenario”: deve comparire il racconto completo con il riferimento alle pagine del libro; richiudilo anche con la tastiera.
