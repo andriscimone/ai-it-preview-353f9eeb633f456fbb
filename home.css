@@ -4,12 +4,8 @@
 
 .home-page main { overflow: clip; }
 .home-page .kicker { color: var(--color-text-muted); }
-.home-page :is(a, button, input, summary):focus-visible {
-  outline: var(--focus-width) solid var(--color-accent);
-  outline-offset: var(--focus-offset);
-}
-.home-header { position: relative; z-index: 25; padding-inline: var(--gutter); }
-.home-footer { gap: var(--space-6); padding-inline: var(--gutter); }
+.home-header { position: relative; z-index: 25; }
+.home-footer { gap: var(--space-6); }
 .home-footer a { color: inherit; text-decoration-color: var(--color-accent); text-underline-offset: 4px; }
 
 /* Apertura */
