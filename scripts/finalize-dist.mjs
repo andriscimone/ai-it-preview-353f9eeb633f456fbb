@@ -65,8 +65,10 @@ const routeFiles = [
   "spooky-timeline.css",
   "spooky-landian.css",
   "spooky-accelerando.css",
+  "tokens.css",
   "styles.css",
   "editorial.css",
+  "home.css",
   "sistema.css",
   "robots.txt"
 ];
