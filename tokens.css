@@ -1,0 +1,296 @@
+/* AI.it · design system v1 (proposta).
+   Un solo accento, il terracotta; neutri ardesia; tre famiglie con ruoli fissi:
+   Newsreader per titoli e grandi numeri, Manrope per testo e interfaccia, DM Mono per etichette e dati.
+   Le pagine migrate caricano questo file prima degli altri fogli di stile. */
+
+/* 1. Font. Manrope e Newsreader sono variabili: dichiarare l'intervallo 200–800
+   rende reali i pesi 700 invece di ripiegare sul 600. */
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url("fonts/manrope.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Newsreader";
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url("fonts/newsreader.woff2") format("woff2");
+}
+@font-face {
+  font-family: "DM Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/dm-mono-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "DM Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/dm-mono-500.woff2") format("woff2");
+}
+
+/* 2. Primitivi: valori grezzi. I componenti usano solo i token semantici (sezione 3). */
+:root {
+  /* Ardesia, tinta 240°: tutti i neutri del sito. */
+  --slate-0: #ffffff;
+  --slate-25: #f8fafb;
+  --slate-50: #eef2f5;
+  --slate-100: #e5ebef;
+  --slate-200: #d5dde3;
+  --slate-300: #afbeca;
+  --slate-400: #8b9ba8;
+  --slate-500: #6b7c89;
+  --slate-600: #52616d;
+  --slate-700: #334451;
+  --slate-750: #243644;
+  --slate-800: #182530;
+  --slate-850: #17232d;
+  --slate-875: #16212b;
+  --slate-900: #101820;
+  --slate-950: #0c141c;
+
+  /* Terracotta, tinta 36°: l'unico accento. 600 sul chiaro, 300 sullo scuro. */
+  --terracotta-200: #ffbeab;
+  --terracotta-300: #ff9673;
+  --terracotta-500: #d85734;
+  --terracotta-600: #bf3f1a;
+  --terracotta-700: #ad3713;
+
+  /* Tinte per i dati: solo nei grafici, mai nell'interfaccia. */
+  --blue-500: #2a78d6;
+  --blue-400: #3987e5;
+  --aqua-500: #1baf7a;
+  --aqua-600: #199e70;
+  --violet-700: #4a3aa7;
+  --violet-400: #9085e9;
+  --amber-400: #eda100;
+  --amber-500: #c98500;
+  --rose-400: #e87ba4;
+  --rose-500: #d55181;
+  --green-600: #008300;
+}
+
+/* 3. Token semantici, tema chiaro. */
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  --color-bg: var(--slate-25);
+  --color-bg-subtle: var(--slate-50);
+  --color-surface: var(--slate-0);
+  --color-hover: var(--slate-100);
+  --color-text: var(--slate-850);                 /* 15,3:1 sul fondo */
+  --color-text-muted: var(--slate-600);           /* 6,1:1 */
+  --color-border: var(--slate-200);               /* separatori decorativi */
+  --color-border-strong: var(--slate-500);        /* bordi dei controlli, ≥ 3:1 ovunque */
+  --color-accent: var(--terracotta-600);          /* 5,1:1: valido anche per testo piccolo */
+  --color-accent-hover: var(--terracotta-700);
+  --color-accent-soft: color-mix(in srgb, var(--terracotta-600) 9%, var(--slate-0));
+  --color-on-accent: var(--slate-0);              /* 5,3:1 */
+  --color-inverse-bg: var(--slate-850);
+
+  --shadow-sm: 0 1px 2px rgb(19 43 66 / 0.06);
+  --shadow-md: 0 6px 28px rgb(19 43 66 / 0.07);
+
+  /* Grafici: cornice neutra, un evidenziatore, sette serie categoriali. */
+  --viz-grid: var(--slate-100);
+  --viz-axis: var(--slate-400);
+  --viz-context: var(--slate-400);
+  --viz-highlight: var(--terracotta-600);
+  --viz-1: var(--terracotta-600);
+  --viz-2: var(--blue-500);
+  --viz-3: var(--aqua-500);
+  --viz-4: var(--violet-700);
+  --viz-5: var(--amber-400);
+  --viz-6: var(--rose-400);
+  --viz-7: var(--green-600);
+}
+
+/* Tema scuro: stessi ruoli, gradini scelti per il fondo scuro. */
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-bg: var(--slate-900);
+  --color-bg-subtle: var(--slate-875);
+  --color-surface: var(--slate-800);
+  --color-hover: var(--slate-750);
+  --color-text: var(--slate-50);                  /* 15,9:1 */
+  --color-text-muted: var(--slate-300);           /* 9,4:1 */
+  --color-border: var(--slate-700);
+  --color-border-strong: var(--slate-500);
+  --color-accent: var(--terracotta-300);          /* 8,4:1 */
+  --color-accent-hover: var(--terracotta-200);
+  --color-accent-soft: color-mix(in srgb, var(--terracotta-300) 14%, var(--slate-800));
+  --color-on-accent: var(--slate-850);            /* 7,5:1 */
+  --color-inverse-bg: var(--slate-950);
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.3);
+  --shadow-md: 0 6px 28px rgb(0 0 0 / 0.28);
+
+  --viz-grid: var(--slate-700);
+  --viz-axis: var(--slate-400);
+  --viz-context: var(--slate-500);
+  --viz-highlight: var(--terracotta-300);
+  --viz-1: var(--terracotta-500);
+  --viz-2: var(--blue-400);
+  --viz-3: var(--aqua-600);
+  --viz-4: var(--violet-400);
+  --viz-5: var(--amber-500);
+  --viz-6: var(--rose-500);
+  --viz-7: var(--green-600);
+}
+
+/* Superficie invertita: pannelli scuri dentro una pagina chiara (e più profondi nel tema scuro).
+   Ridichiara i token, così i componenti al suo interno non hanno bisogno di varianti. */
+.surface-inverse {
+  color-scheme: dark;
+
+  --color-bg: var(--color-inverse-bg);
+  --color-bg-subtle: color-mix(in srgb, var(--slate-0) 3%, var(--color-inverse-bg));
+  --color-surface: color-mix(in srgb, var(--slate-0) 5%, var(--color-inverse-bg));
+  --color-hover: color-mix(in srgb, var(--slate-0) 8%, var(--color-inverse-bg));
+  --color-text: var(--slate-50);
+  --color-text-muted: var(--slate-300);
+  --color-border: color-mix(in srgb, var(--slate-50) 16%, transparent);
+  --color-border-strong: var(--slate-500);
+  --color-accent: var(--terracotta-300);
+  --color-accent-hover: var(--terracotta-200);
+  --color-accent-soft: color-mix(in srgb, var(--terracotta-300) 14%, var(--color-inverse-bg));
+  --color-on-accent: var(--slate-850);
+
+  --viz-grid: color-mix(in srgb, var(--slate-50) 12%, transparent);
+  --viz-axis: var(--slate-400);
+  --viz-context: var(--slate-500);
+  --viz-highlight: var(--terracotta-300);
+  --viz-1: var(--terracotta-500);
+  --viz-2: var(--blue-400);
+  --viz-3: var(--aqua-600);
+  --viz-4: var(--violet-400);
+  --viz-5: var(--amber-500);
+  --viz-6: var(--rose-500);
+  --viz-7: var(--green-600);
+
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* 4. Tipografia, spazi, forme e movimento: uguali nei due temi. */
+:root {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "Newsreader", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --font-mono: "DM Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Scala del testo. 12px è il minimo assoluto. */
+  --text-xs: 0.75rem;     /* 12 · etichette mono, metadati */
+  --text-sm: 0.875rem;    /* 14 · didascalie, controlli, note */
+  --text-base: 1rem;      /* 16 · testo corrente */
+  --text-md: 1.125rem;    /* 18 · sommari */
+  --text-lg: 1.25rem;     /* 20 · titoli di scheda */
+  /* Scala dei titoli, fluida fra 390 e 1440px. */
+  --text-xl: clamp(1.5rem, 1.2rem + 1vw, 2rem);            /* 24 → 32 */
+  --text-2xl: clamp(1.75rem, 1.3rem + 1.8vw, 2.75rem);     /* 28 → 44 */
+  --text-3xl: clamp(2.25rem, 1.5rem + 3vw, 4rem);          /* 36 → 64 */
+  --text-4xl: clamp(2.75rem, 1.6rem + 4.8vw, 5.75rem);     /* 44 → 92 */
+  --text-5xl: clamp(3.25rem, 1.8rem + 5.6vw, 6.5rem);      /* 52 → 104 */
+
+  --leading-display: 0.95;
+  --leading-tight: 1.1;
+  --leading-snug: 1.3;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.65;
+
+  --tracking-display: -0.04em;
+  --tracking-tight: -0.02em;
+  --tracking-label: 0.08em;
+
+  /* Stili di testo completi, da usare con `font: var(--type-…)`. */
+  --type-display: var(--weight-regular) var(--text-5xl) / var(--leading-display) var(--font-serif);
+  --type-headline: var(--weight-regular) var(--text-4xl) / var(--leading-display) var(--font-serif);
+  --type-title: var(--weight-regular) var(--text-2xl) / var(--leading-tight) var(--font-serif);
+  --type-subtitle: var(--weight-medium) var(--text-xl) / var(--leading-snug) var(--font-serif);
+  --type-figure: var(--weight-regular) var(--text-3xl) / 1 var(--font-serif);
+  --type-lead: var(--weight-regular) var(--text-md) / var(--leading-relaxed) var(--font-sans);
+  --type-body: var(--weight-regular) var(--text-base) / var(--leading-relaxed) var(--font-sans);
+  --type-ui: var(--weight-semibold) var(--text-sm) / var(--leading-snug) var(--font-sans);
+  --type-caption: var(--weight-regular) var(--text-sm) / var(--leading-normal) var(--font-sans);
+  --type-label: var(--weight-medium) var(--text-xs) / var(--leading-normal) var(--font-mono);
+
+  /* Spazi su griglia di 4px. */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  --gutter: clamp(1.25rem, 5vw, 4.5rem);                   /* margine laterale: 20 → 72 */
+  --section-space: clamp(3.5rem, 2rem + 6vw, 7rem);        /* respiro fra sezioni: 56 → 112 */
+  --measure: 68ch;                                         /* riga di lettura */
+
+  --radius-sm: 6px;       /* input, chip */
+  --radius-md: 10px;      /* pulsanti, tab */
+  --radius-lg: 14px;      /* schede, pannelli dei grafici */
+  --radius-xl: 20px;      /* pannelli in evidenza */
+  --radius-pill: 999px;
+
+  --border-width: 1px;
+  --focus-width: 3px;
+  --focus-offset: 3px;
+
+  --duration-fast: 150ms;
+  --duration-base: 240ms;
+  --duration-slow: 600ms;
+  --ease-standard: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  --z-sticky: 40;
+  --z-overlay: 90;
+  --z-skip: 100;
+}
+
+/* 5. Ponte temporaneo: nelle pagine migrate i nomi storici puntano ai nuovi token,
+   così intestazione, navigazione e piè di pagina condivisi li seguono senza modifiche.
+   Specificità zero: le modalità speciali di Novità e Spooky, definite sul body, restano prioritarie.
+   Da rimuovere quando tutte le pagine useranno direttamente i token. */
+:where(body) {
+  --ink: var(--color-text);
+  --paper: var(--color-bg);
+  --paper-deep: var(--color-bg-subtle);
+  --cream: var(--color-surface);
+  --ui-surface: var(--color-surface);
+  --muted: var(--color-text-muted);
+  --line: var(--color-border);
+  --hover: var(--color-hover);
+  --orange: var(--color-accent);
+  --ui-accent: var(--color-accent);
+  --green-deep: var(--color-accent);
+  --feature-bg: var(--color-inverse-bg);
+  --feature-text: var(--slate-50);
+  --ui-shadow: var(--shadow-md);
+  --sans: var(--font-sans);
+  --serif: var(--font-serif);
+  --mono: var(--font-mono);
+  --chart-surface: var(--color-surface);
+  --chart-text: var(--color-text);
+  --chart-muted: var(--color-text-muted);
+  --chart-axis: var(--viz-axis);
+  --chart-grid: var(--viz-grid);
+  --chart-primary: var(--viz-highlight);
+  --chart-secondary: var(--viz-2);
+  --chart-focus: var(--color-accent-soft);
+}
