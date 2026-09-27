@@ -9,7 +9,7 @@
     <meta property="og:description" content="Quattro parti collegate per capire da dove arriva la capacità dei sistemi AI." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="it_IT" />
-    <meta id="theme-color" name="theme-color" content="#f8fafb" />
+    <meta id="theme-color" name="theme-color" content="#ffffff" />
     <link rel="icon" href="data:," />
     <title>Il sistema — AI.it</title>
     <script>
@@ -21,10 +21,9 @@
         } catch (_) { document.documentElement.dataset.theme = "light"; }
       })();
     </script>
-    <link rel="stylesheet" href="tokens.css?v=ds-1" />
-    <link rel="stylesheet" href="styles.css?v=ds-2" />
-    <link rel="stylesheet" href="editorial.css?v=ds-2" />
-    <link rel="stylesheet" href="sistema.css?v=ds-1" />
+    <link rel="stylesheet" href="tokens.css?v=ds-v2" />
+    <link rel="stylesheet" href="components.css?v=ds-v2" />
+    <link rel="stylesheet" href="sistema.css?v=ds-v2" />
   </head>
   <body class="detail-page system-index-page">
     <a class="skip-link" href="#top">Salta al contenuto</a>
@@ -38,7 +37,7 @@
       </div>
     </header>
     <nav class="section-nav" aria-label="Sezioni del sito"><a href="index.html">Home</a><a href="sistema.html" aria-current="page">Il sistema</a><a href="altro.html">Dossier</a><a href="novita.html">Novità</a></nav>
-    <nav class="system-subnav" aria-label="Capitoli della sezione Il sistema"><a href="sistema.html" aria-current="page">Panoramica</a><a href="energia.html">Energia</a><a href="chip.html">Chips</a><a href="algoritmi.html">Algoritmi</a><a href="inferenza.html">Inferenza</a></nav>
+    <nav class="system-subnav" aria-label="Capitoli della sezione Il sistema"><a href="sistema.html" aria-current="page">Panoramica</a><a href="energia.html" data-picto="energia">Energia</a><a href="chip.html" data-picto="chip">Chips</a><a href="algoritmi.html" data-picto="algoritmi">Algoritmi</a><a href="inferenza.html" data-picto="inferenza">Inferenza</a></nav>
 
     <main id="top">
       <section class="system-landing-hero" aria-labelledby="system-title">
@@ -46,17 +45,17 @@
           <p class="kicker">Quattro parti, un solo sistema</p>
           <h1 id="system-title">Dal megawatt<br />al <em>lavoro.</em></h1>
           <p>L'AI non scala grazie a un solo ingrediente. L'energia alimenta il calcolo, i chip lo eseguono, gli algoritmi costruiscono e orientano la capacità, l'inferenza decide quanta ne viene usata per ogni compito.</p>
-          <a class="system-primary-action" href="#componenti">Esplora i quattro capitoli <span aria-hidden="true">↓</span></a>
+          <a class="system-primary-action btn btn-primary" href="#componenti">Esplora i quattro capitoli <span aria-hidden="true">↓</span></a>
         </div>
 
         <div class="system-chain" aria-label="Catena composta da energia, chip, algoritmi e inferenza" data-reveal>
-          <a class="system-chain-node chain-energy" href="energia.html"><small>S1</small><strong>Energia</strong><span>rende disponibile la potenza</span></a>
+          <a class="system-chain-node chain-energy" href="energia.html" data-picto="energia"><small>S1</small><strong>Energia</strong><span>rende disponibile la potenza</span></a>
           <i aria-hidden="true">→</i>
-          <a class="system-chain-node chain-chip" href="chip.html"><small>S2</small><strong>Chips</strong><span>trasformano potenza in calcolo</span></a>
+          <a class="system-chain-node chain-chip" href="chip.html" data-picto="chip"><small>S2</small><strong>Chips</strong><span>trasformano potenza in calcolo</span></a>
           <i aria-hidden="true">→</i>
-          <a class="system-chain-node chain-algorithms" href="algoritmi.html"><small>S3</small><strong>Algoritmi</strong><span>estraggono più capacità</span></a>
+          <a class="system-chain-node chain-algorithms" href="algoritmi.html" data-picto="algoritmi"><small>S3</small><strong>Algoritmi</strong><span>estraggono più capacità</span></a>
           <i aria-hidden="true">→</i>
-          <a class="system-chain-node chain-inference" href="inferenza.html"><small>S4</small><strong>Inferenza</strong><span>trasforma compute in lavoro</span></a>
+          <a class="system-chain-node chain-inference" href="inferenza.html" data-picto="inferenza"><small>S4</small><strong>Inferenza</strong><span>trasforma compute in lavoro</span></a>
         </div>
       </section>
 
@@ -74,14 +73,14 @@
         </header>
 
         <div class="system-route-grid">
-          <a class="system-route-card route-energy" href="energia.html" data-reveal><span>S1 / Infrastruttura</span><h3>Energia</h3><p>Da dove arriva la potenza fisica che alimenta data center, reti e nuovi cluster.</p><b>Apri il capitolo <i aria-hidden="true">↗</i></b></a>
-          <a class="system-route-card route-chip" href="chip.html" data-reveal><span>S2 / Calcolo</span><h3>Chips</h3><p>Come il silicio comprime il calcolo e trasforma elettricità in token.</p><b>Apri il capitolo <i aria-hidden="true">↗</i></b></a>
-          <a class="system-route-card route-algorithms" href="algoritmi.html" data-reveal><span>S3 / Efficienza</span><h3>Algoritmi</h3><p>Come software, post-training e ragionamento fanno rendere di più la stessa macchina.</p><b>Apri il capitolo <i aria-hidden="true">↗</i></b></a>
-          <a class="system-route-card route-inference" href="inferenza.html" data-reveal><span>S4 / Compute in uso</span><h3>Inferenza</h3><p>Come velocità, ragionamento, agenti e costo determinano il lavoro svolto per ogni compito.</p><b>Apri il capitolo <i aria-hidden="true">↗</i></b></a>
+          <a class="system-route-card route-energy" href="energia.html" data-picto="energia" data-reveal><span>S1 / Infrastruttura</span><h3>Energia</h3><p>Da dove arriva la potenza fisica che alimenta data center, reti e nuovi cluster.</p><b>Apri il capitolo <i aria-hidden="true">↗</i></b></a>
+          <a class="system-route-card route-chip" href="chip.html" data-picto="chip" data-reveal><span>S2 / Calcolo</span><h3>Chips</h3><p>Come il silicio comprime il calcolo e trasforma elettricità in token.</p><b>Apri il capitolo <i aria-hidden="true">↗</i></b></a>
+          <a class="system-route-card route-algorithms" href="algoritmi.html" data-picto="algoritmi" data-reveal><span>S3 / Efficienza</span><h3>Algoritmi</h3><p>Come software, post-training e ragionamento fanno rendere di più la stessa macchina.</p><b>Apri il capitolo <i aria-hidden="true">↗</i></b></a>
+          <a class="system-route-card route-inference" href="inferenza.html" data-picto="inferenza" data-reveal><span>S4 / Compute in uso</span><h3>Inferenza</h3><p>Come velocità, ragionamento, agenti e costo determinano il lavoro svolto per ogni compito.</p><b>Apri il capitolo <i aria-hidden="true">↗</i></b></a>
         </div>
       </section>
 
-      <section class="system-loop surface-inverse" aria-label="Sintesi del ciclo del sistema" data-reveal>
+      <section class="system-loop surface-accent" aria-label="Sintesi del ciclo del sistema" data-reveal>
         <p>Il ciclo</p>
         <ol><li><span>01</span><strong>Energia</strong></li><li><span>02</span><strong>Calcolo</strong></li><li><span>03</span><strong>Capacità</strong></li><li><span>04</span><strong>Lavoro</strong></li></ol>
         <small>Uso, costo e risultati generano nuova domanda e orientano il giro successivo: infrastruttura, addestramento e inferenza si ridisegnano insieme.</small>
@@ -90,6 +89,6 @@
       <nav class="chapter-next" aria-label="Continua la lettura"><a href="index.html">← Torna alla Home</a><a href="energia.html">Primo capitolo: Energia →</a></nav>
     </main>
     <footer class="site-footer"><span>AI.it</span><span>Il sistema · Quattro capitoli</span></footer>
-    <script src="app.js?v=20260904-editorial"></script>
+    <script src="app.js?v=ds-v2"></script>
   </body>
 </html>

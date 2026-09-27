@@ -442,7 +442,9 @@ function applyTheme(theme, persist = false) {
   themeToggle.setAttribute("aria-label", isDark ? "Passa al tema chiaro" : "Passa al tema scuro");
   themeToggleLabel.textContent = isDark ? "Chiaro" : "Scuro";
   themeToggleIcon.textContent = isDark ? "☀" : "☾";
-  themeColor.setAttribute("content", isDark ? "#101820" : "#f8fafb");
+  // Le pagine con tokens.css dichiarano il fondo in --color-bg; le altre usano i valori storici.
+  const tokenBackground = getComputedStyle(document.documentElement).getPropertyValue("--color-bg").trim();
+  themeColor.setAttribute("content", tokenBackground || (isDark ? "#101820" : "#f8fafb"));
   if (persist) {
     try { localStorage.setItem("aiit-theme", isDark ? "dark" : "light"); } catch (_) {}
   }
