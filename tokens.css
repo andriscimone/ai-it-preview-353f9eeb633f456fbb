@@ -328,9 +328,11 @@
 }
 
 /* 5. Ponte: i nomi storici puntano ai nuovi token, per gli script che leggono le variabili dei grafici
-   e per le regole condivise non ancora migrate. Specificità zero: le modalità speciali definite sul body
-   restano prioritarie. Da rimuovere quando nessuno script userà più i vecchi nomi. */
-:where(body) {
+   e per le regole condivise non ancora migrate. È dichiarato anche sulle superfici, perché una variabile
+   si risolve dove viene dichiarata: così un grafico dentro .surface-inverse usa i colori della fascia nera.
+   Specificità zero: le modalità speciali definite sul body restano prioritarie.
+   Da rimuovere quando nessuno script userà più i vecchi nomi. */
+:where(body, .surface-inverse, .surface-accent) {
   --ink: var(--color-text);
   --paper: var(--color-bg);
   --paper-deep: var(--color-bg-subtle);
