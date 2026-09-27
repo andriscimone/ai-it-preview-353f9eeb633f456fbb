@@ -44,6 +44,7 @@ a { -webkit-tap-highlight-color: transparent; }
 :where(section, article, [id]) { scroll-margin-top: calc(var(--nav-height) + var(--space-6)); }
 ::selection { background: var(--color-accent-field); color: var(--color-on-accent-field); }
 .noise { display: none; }
+[hidden] { display: none !important; }
 .skip-link {
   position: fixed;
   z-index: var(--z-skip);
@@ -133,7 +134,53 @@ a { -webkit-tap-highlight-color: transparent; }
     linear-gradient(currentColor 0 0) 0 100% / 100% 24% no-repeat;
 }
 
-/* 5. Intestazione */
+/* 5. Controlli di forma. Cursore: binario sottile e maniglia rettangolare; --range-progress (0–100%)
+   riempie il binario ed è aggiornato dagli script della pagina. --range-gap è il colore del fondo
+   dietro la maniglia. */
+input[type="range"] {
+  width: 100%;
+  height: 32px;
+  display: block;
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: ew-resize;
+}
+input[type="range"]::-webkit-slider-runnable-track { height: 4px; background: linear-gradient(90deg, var(--color-accent) 0 var(--range-progress, 0%), var(--color-border) var(--range-progress, 0%) 100%); }
+input[type="range"]::-webkit-slider-thumb { width: 14px; height: 32px; -webkit-appearance: none; appearance: none; margin-top: -14px; border: 3px solid var(--range-gap, var(--color-surface)); background: var(--color-accent); box-shadow: 0 0 0 1px var(--color-accent); }
+input[type="range"]::-moz-range-track { height: 4px; border: 0; background: var(--color-border); }
+input[type="range"]::-moz-range-progress { height: 4px; background: var(--color-accent); }
+input[type="range"]::-moz-range-thumb { width: 8px; height: 26px; border: 3px solid var(--range-gap, var(--color-surface)); border-radius: 0; background: var(--color-accent); box-shadow: 0 0 0 1px var(--color-accent); }
+input[type="range"]:focus-visible { outline-offset: var(--space-1); }
+input[type="checkbox"] { width: 20px; height: 20px; margin: 0; accent-color: var(--color-accent-field); }
+select {
+  min-height: 48px;
+  padding: 0 var(--space-4);
+  border: var(--rule-width) solid var(--color-border-strong);
+  border-radius: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font: var(--weight-medium) var(--text-base) / 1.2 var(--font-sans);
+}
+
+/* Immagini che si aprono a piena risoluzione. */
+.system-image-link { width: 100%; display: block; position: relative; color: inherit; cursor: zoom-in; text-decoration: none; }
+.system-image-open-label {
+  position: absolute;
+  z-index: 2;
+  right: var(--space-3);
+  bottom: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  background: var(--neutral-900);
+  color: var(--neutral-0);
+  font: var(--type-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+/* 6. Intestazione */
 .site-header {
   min-height: 64px;
   display: flex;
@@ -186,7 +233,7 @@ a { -webkit-tap-highlight-color: transparent; }
 .theme-toggle:hover { background: var(--color-text); color: var(--color-bg); }
 .theme-toggle-icon { font: var(--weight-regular) 0.9375rem/1 var(--font-sans); }
 
-/* 6. Navigazione di sezione, fissa in alto: la voce corrente è un campo d'accento. */
+/* 7. Navigazione di sezione, fissa in alto: la voce corrente è un campo d'accento. */
 .section-nav {
   position: sticky;
   z-index: var(--z-sticky);
@@ -255,7 +302,35 @@ a { -webkit-tap-highlight-color: transparent; }
 .dossier-subnav a:focus-visible { outline-offset: calc(-1 * var(--focus-width)); }
 .section-nav a[aria-current="page"]:focus-visible { outline-color: var(--color-on-accent-field); }
 
-/* 7. Continua la lettura: due grandi blocchi, l'accento pieno al passaggio. */
+/* 8. Capitoli: numero, sommario e fonti, comuni a tutte le pagine dei capitoli. */
+.chapter-number {
+  width: 3.5rem;
+  height: 3.5rem;
+  display: grid;
+  place-items: center;
+  background: var(--color-accent-field);
+  color: var(--color-on-accent-field);
+  font: var(--weight-heavy) condensed var(--text-lg) / 1 var(--font-sans);
+}
+.chapter-deck { max-width: 42ch; margin: 0; font: var(--type-lead); }
+.sources { padding: var(--section-space) var(--gutter); border-top: var(--rule-width) solid var(--color-border-strong); }
+.sources h2 { margin: 0 0 var(--space-12); font: var(--type-headline); letter-spacing: var(--tracking-display); }
+.sources ol { margin: 0; padding: 0; border-top: var(--rule-width) solid var(--color-border-strong); list-style: none; counter-reset: source; }
+.sources li {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: var(--space-2) var(--space-6);
+  padding: var(--space-4) 0;
+  border-bottom: var(--border-width) solid var(--color-border);
+  counter-increment: source;
+  font: var(--type-caption);
+}
+.sources li::before { content: counter(source, decimal-leading-zero); color: var(--color-text-muted); font: var(--type-label); letter-spacing: var(--tracking-label); }
+.sources li a { width: fit-content; font-weight: var(--weight-semibold); }
+.sources li span { color: var(--color-text-muted); }
+.source-boundary { max-width: 80ch; margin: var(--space-8) 0 0; color: var(--color-text-muted); font: var(--type-caption); }
+
+/* 9. Continua la lettura: due grandi blocchi, l'accento pieno al passaggio. */
 .chapter-next {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -274,7 +349,7 @@ a { -webkit-tap-highlight-color: transparent; }
 .chapter-next a:hover { background: var(--color-accent-field); color: var(--color-on-accent-field); }
 .chapter-next a:focus-visible { outline-offset: calc(-1 * var(--focus-width) - 3px); }
 
-/* 8. Piè di pagina */
+/* 10. Piè di pagina */
 .site-footer {
   min-height: 6rem;
   display: flex;
@@ -332,4 +407,6 @@ a { -webkit-tap-highlight-color: transparent; }
   .chapter-next a { min-height: 6rem; }
   .chapter-next a + a { justify-content: flex-start; border-top: var(--border-width) solid var(--color-border); border-left: 0; text-align: left; }
   .site-footer { flex-direction: column; align-items: flex-start; justify-content: center; }
+  .sources li { grid-template-columns: 2.25rem minmax(0, 1fr); }
+  .sources li span { grid-column: 2; }
 }
