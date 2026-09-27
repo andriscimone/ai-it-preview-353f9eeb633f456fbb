@@ -41,6 +41,7 @@ const files = [
   "spooky-landian.css",
   "spooky-accelerando.css",
   "tokens.css",
+  "components.css",
   "styles.css",
   "editorial.css",
   "home.css",

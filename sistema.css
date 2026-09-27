@@ -1,183 +1,218 @@
-/* Il sistema: panoramica dei quattro capitoli, costruita solo con i token di tokens.css.
-   La tesi e il ciclo sono superfici invertite (.surface-inverse nell'HTML). I capitoli non hanno
-   un colore proprio: l'accento segna il capitolo sotto il puntatore o il focus. */
+/* Il sistema · design system v2. Solo token di tokens.css e componenti di components.css.
+   La catena dei quattro capitoli è uno schema a blocchi verticale; la tesi sta sulla fascia nera,
+   il ciclo sul campo blu. Ogni capitolo porta il suo pittogramma (data-picto nell'HTML). */
 
-.system-index-page .kicker { color: var(--color-text-muted); }
+.system-index-page .kicker { color: var(--color-text); }
 
-/* Apertura con la catena dei quattro capitoli */
+/* 1. Apertura: titolo a sinistra, catena a destra */
 .system-landing-hero {
-  min-height: 620px;
   display: grid;
-  grid-template-columns: minmax(0, .9fr) minmax(440px, 1.1fr);
+  grid-template-columns: minmax(0, 1.1fr) minmax(22rem, 0.9fr);
   align-items: center;
-  gap: 6vw;
-  overflow: hidden;
-  padding: var(--space-16) var(--gutter);
-  border-bottom: var(--border-width) solid var(--color-border);
-  background: var(--color-bg);
+  gap: clamp(var(--space-12), 6vw, 7rem);
+  padding: var(--space-16) var(--gutter) var(--section-space);
 }
-.system-landing-copy { max-width: 700px; container-type: inline-size; }
-/* Il titolo si adatta alla colonna, così «Dal megawatt» resta su una riga come nell'HTML. */
-.system-landing-copy h1 { margin: var(--space-8) 0 0; font: var(--type-display); font-size: min(var(--text-5xl), 17cqi); letter-spacing: var(--tracking-display); }
+.system-landing-copy { min-width: 0; container-type: inline-size; }
+.system-landing-copy .kicker { margin-bottom: var(--space-8); }
+/* Il titolo si misura sulla colonna, così «Dal megawatt» resta su una riga come nell'HTML. */
+.system-landing-copy h1 {
+  margin: 0;
+  font: var(--type-display);
+  font-size: min(10.5rem, 16.5cqi);
+  letter-spacing: var(--tracking-display);
+}
 .system-landing-copy h1 em { color: var(--color-accent); font-style: normal; }
-.system-landing-copy > p:last-of-type { max-width: 650px; margin: var(--space-10) 0 0; color: var(--color-text-muted); font: var(--type-lead); }
-.system-primary-action {
-  width: min(100%, 350px);
-  display: flex;
-  justify-content: space-between;
-  gap: var(--space-6);
-  margin-top: var(--space-10);
-  padding: var(--space-4) 0;
-  border-bottom: 2px solid var(--color-accent);
-  color: var(--color-text);
-  font: var(--type-ui);
-  text-decoration: none;
-}
-.system-primary-action:hover { color: var(--color-accent); }
+.system-landing-copy > p:last-of-type { max-width: 40ch; margin: var(--space-10) 0 0; font: var(--type-lead); font-size: clamp(1.25rem, 1.1rem + 0.45vw, 1.5rem); }
+.system-primary-action { margin-top: var(--space-10); }
 
 .system-chain {
+  min-width: 0;
   display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: stretch;
-  gap: var(--space-2) 0;
-  position: relative;
-  padding: var(--space-5);
-  border: var(--border-width) solid var(--color-border);
-  border-radius: var(--radius-xl);
-  background: var(--color-surface);
-  box-shadow: var(--shadow-md);
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: stretch;
 }
+/* Il sottotitolo dello schema è già nel foglio di stile dalla prima versione della pagina. */
 .system-chain::before {
   content: "POTENZA → CAPACITÀ → LAVORO → NUOVA DOMANDA";
-  position: absolute;
-  top: -28px;
-  right: 0;
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-4);
+  border-bottom: var(--rule-width) solid var(--color-border-strong);
   color: var(--color-text-muted);
   font: var(--type-label);
   letter-spacing: var(--tracking-label);
 }
 .system-chain-node {
-  min-height: 112px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  padding: var(--space-5) var(--space-6);
-  border: var(--border-width) solid var(--color-border);
-  border-radius: var(--radius-md);
+  --picto-size: 2.25rem;
+  min-height: 6.5rem;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    "picto name index"
+    "picto text index";
+  align-content: center;
+  column-gap: var(--space-5);
+  padding: var(--space-4) var(--space-5);
+  border: var(--rule-width) solid var(--color-border-strong);
   background: var(--color-bg);
   color: var(--color-text);
   text-decoration: none;
 }
-.system-chain-node::before { content: ""; width: 4px; position: absolute; inset: 0 auto 0 0; background: var(--color-border-strong); }
-.system-chain-node:hover { background: var(--color-accent-soft); transform: translateX(5px); }
-.system-chain-node:is(:hover, :focus-visible)::before { background: var(--color-accent); }
-.system-chain-node small { color: var(--color-text-muted); font: var(--type-label); letter-spacing: var(--tracking-label); }
-.system-chain-node strong { margin-top: var(--space-2); font: var(--weight-regular) var(--text-xl)/var(--leading-tight) var(--font-serif); }
-.system-chain-node span { margin-top: var(--space-2); color: var(--color-text-muted); font: var(--type-caption); }
-.system-chain > i { width: 34px; display: grid; place-items: center; color: var(--color-text-muted); font: normal var(--text-lg)/1 var(--font-mono); }
-
-/* La tesi */
-.system-principle {
+.system-chain-node::before { grid-area: picto; align-self: center; }
+.system-chain-node small { grid-area: index; align-self: start; color: var(--color-text-muted); font: var(--type-label); letter-spacing: var(--tracking-label); }
+.system-chain-node strong { grid-area: name; font: var(--weight-heavy) condensed var(--text-2xl) / 1 var(--font-sans); }
+.system-chain-node span { grid-area: text; margin-top: var(--space-1); color: var(--color-text-muted); font: var(--type-caption); }
+.system-chain-node:hover,
+.system-chain-node:focus-visible { border-color: var(--color-accent-field); background: var(--color-accent-field); color: var(--color-on-accent-field); }
+.system-chain-node:is(:hover, :focus-visible) :is(small, span) { color: color-mix(in srgb, var(--color-on-accent-field) 84%, var(--color-accent-field)); }
+/* Le frecce fra i blocchi puntano verso il basso: lo schema si legge dall'alto. */
+.system-chain > i {
+  width: 2.25rem;
+  height: 2.25rem;
   display: grid;
-  grid-template-columns: 120px minmax(300px, 1fr) minmax(300px, .72fr);
-  align-items: start;
-  gap: 5vw;
-  padding: var(--section-space) var(--gutter);
-}
-.system-principle > span { color: var(--color-text-muted); font: var(--type-label); letter-spacing: var(--tracking-label); text-transform: uppercase; }
-.system-principle h2 { margin: 0; font: var(--type-headline); letter-spacing: var(--tracking-display); }
-.system-principle p { margin: var(--space-1) 0 0; color: var(--color-text-muted); font: var(--type-lead); }
-
-/* I quattro capitoli */
-.system-route-section { padding: var(--section-space) var(--gutter); background: var(--color-bg-subtle); }
-.system-section-head { display: grid; grid-template-columns: 150px 1fr minmax(250px, .55fr); align-items: start; gap: 4vw; }
-.system-section-head > div > span { display: block; margin-bottom: var(--space-5); color: var(--color-accent); font: var(--type-figure); }
-.system-section-head h2 { margin: 0; font: var(--type-headline); letter-spacing: var(--tracking-display); }
-.system-section-head h2 em { color: var(--color-accent); font-style: normal; }
-.system-section-head > p { margin: var(--space-2) 0 0; color: var(--color-text-muted); font: var(--type-body); }
-.system-route-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4); margin-top: var(--space-12); }
-.system-route-card {
-  min-height: 340px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  position: relative;
-  overflow: hidden;
-  padding: var(--space-8);
-  border: var(--border-width) solid var(--color-border);
-  border-radius: var(--radius-lg);
-  background: var(--color-surface);
-  box-shadow: var(--shadow-sm);
+  justify-self: center;
+  place-items: center;
   color: var(--color-text);
-  text-decoration: none;
+  font: var(--weight-bold) var(--text-lg) / 1 var(--font-sans);
+  font-style: normal;
+  rotate: 90deg;
 }
-.system-route-card:hover { border-color: var(--color-accent); box-shadow: var(--shadow-md); }
-.system-route-card > span { color: var(--color-text-muted); font: var(--type-label); letter-spacing: var(--tracking-label); text-transform: uppercase; }
-.system-route-card h3 { margin: var(--space-8) 0 0; font: var(--weight-regular) var(--text-3xl)/1 var(--font-serif); letter-spacing: var(--tracking-display); }
-.system-route-card p { max-width: 500px; margin: var(--space-5) 0 0; color: var(--color-text-muted); font: var(--type-body); }
-.system-route-card b {
-  width: min(100%, 240px);
+
+/* 2. La tesi, su fascia nera. I titoli lunghi prendono tutta la misura (le righe restano quelle
+   dell'HTML) e il testo si sposta sulla metà destra della griglia a 12 colonne. */
+.system-principle,
+.system-section-head {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--space-6);
+}
+.system-principle { padding: var(--section-space) var(--gutter); }
+.system-principle > span {
+  grid-column: 1 / -1;
   display: flex;
-  justify-content: space-between;
-  gap: var(--space-8);
-  margin-top: auto;
-  padding-top: var(--space-8);
+  align-items: center;
+  gap: var(--space-3);
   font: var(--type-label);
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
 }
-.system-route-card b i { color: var(--color-accent); font: normal var(--text-lg)/1 var(--font-sans); }
+.system-principle > span::before { content: ""; width: 0.75rem; height: 0.75rem; background: var(--color-accent); }
+.system-principle h2 { grid-column: 1 / -1; margin: var(--space-8) 0 0; font: var(--type-headline); letter-spacing: var(--tracking-display); }
+.system-principle p { grid-column: 7 / -1; margin: var(--space-12) 0 0; color: var(--color-text-muted); font: var(--type-lead); }
 
-/* Il ciclo */
+/* 3. I quattro capitoli: griglia svizzera 2 × 2, il capitolo sotto il puntatore diventa un campo d'accento */
+.system-route-section { padding: var(--section-space) var(--gutter); }
+.system-section-head > div { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-8); }
+.system-section-head > div > span { color: var(--color-text-muted); font: var(--type-label); letter-spacing: var(--tracking-label); }
+.system-section-head h2 { grid-column: 1 / -1; margin: var(--space-8) 0 0; font: var(--type-headline); letter-spacing: var(--tracking-display); }
+.system-section-head h2 em { color: var(--color-accent); font-style: normal; }
+.system-section-head > p { grid-column: 7 / -1; max-width: var(--measure); margin: var(--space-10) 0 0; color: var(--color-text-muted); font: var(--type-body); }
+.system-route-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: var(--space-16);
+  border-top: var(--rule-width) solid var(--color-border-strong);
+}
+.system-route-card {
+  --picto-size: 3rem;
+  min-width: 0;
+  min-height: 27rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  container-type: inline-size;
+  padding: var(--space-6) var(--space-8) var(--space-8);
+  border-bottom: var(--border-width) solid var(--color-border);
+  color: var(--color-text);
+  text-decoration: none;
+}
+.system-route-card:nth-child(odd) { border-right: var(--border-width) solid var(--color-border); }
+.system-route-card::before { position: absolute; top: var(--space-6); right: var(--space-8); }
+.system-route-card > span { color: var(--color-text-muted); font: var(--type-label); letter-spacing: var(--tracking-label); text-transform: uppercase; }
+.system-route-card h3 { margin: auto 0 0; padding-top: var(--space-16); font: var(--type-headline); font-size: min(var(--text-4xl), 20cqi); letter-spacing: var(--tracking-display); }
+.system-route-card p { max-width: 40ch; margin: var(--space-5) 0 0; color: var(--color-text-muted); font: var(--type-body); }
+.system-route-card b {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+  padding-bottom: var(--space-2);
+  border-bottom: var(--rule-width) solid var(--color-accent);
+  font: var(--type-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+.system-route-card b i { font-style: normal; }
+.system-route-card:hover,
+.system-route-card:focus-visible { background: var(--color-accent-field); color: var(--color-on-accent-field); }
+.system-route-card:is(:hover, :focus-visible) :is(span, p) { color: color-mix(in srgb, var(--color-on-accent-field) 84%, var(--color-accent-field)); }
+.system-route-card:is(:hover, :focus-visible) b { border-color: var(--color-on-accent-field); }
+.system-route-card:focus-visible { outline-offset: calc(-1 * var(--focus-width) - 3px); outline-color: var(--color-on-accent-field); }
+
+/* 4. Il ciclo, sul campo blu */
 .system-loop { padding: var(--section-space) var(--gutter); }
-.system-loop > p { margin: 0 0 var(--space-8); color: var(--color-text-muted); font: var(--type-label); letter-spacing: var(--tracking-label); text-transform: uppercase; }
-.system-loop ol { display: grid; grid-template-columns: repeat(4, 1fr); margin: 0; padding: 0; border-top: var(--border-width) solid var(--color-border-strong); list-style: none; }
+.system-loop > p {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin: 0 0 var(--space-10);
+  font: var(--type-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+.system-loop > p::before { content: ""; width: 0.75rem; height: 0.75rem; background: var(--color-accent); }
+.system-loop ol {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  border-top: var(--rule-width) solid var(--color-border-strong);
+  list-style: none;
+}
 .system-loop li {
-  min-height: 155px;
+  min-width: 0;
+  min-height: 15rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: var(--space-5) var(--space-6);
+  container-type: inline-size;
+  padding: var(--space-5) var(--space-6) var(--space-6);
   border-right: var(--border-width) solid var(--color-border);
 }
+.system-loop li:first-child { padding-left: 0; }
 .system-loop li:last-child { border-right: 0; }
-.system-loop li span { color: var(--color-text-muted); font: var(--type-label); }
-.system-loop li strong { font: var(--weight-regular) var(--text-3xl)/1 var(--font-serif); letter-spacing: var(--tracking-tight); }
-.system-loop small { max-width: 600px; display: block; margin-top: var(--space-8); color: var(--color-text-muted); font: var(--type-body); }
+.system-loop li span { color: var(--color-text-muted); font: var(--type-label); letter-spacing: var(--tracking-label); }
+.system-loop li strong { font: var(--weight-heavy) condensed min(var(--text-3xl), 24cqi) / 0.95 var(--font-sans); letter-spacing: var(--tracking-display); }
+.system-loop small { max-width: 46ch; display: block; margin-top: var(--space-10); padding-top: var(--space-5); border-top: var(--border-width) solid var(--color-border); font: var(--type-lead); }
 
 @media (prefers-reduced-motion: no-preference) {
-  .system-chain-node { transition: transform var(--duration-fast) ease, background-color var(--duration-fast) ease; }
-  .system-route-card { transition: border-color var(--duration-fast) ease, box-shadow var(--duration-fast) ease; }
+  .system-chain-node,
+  .system-route-card { transition: color var(--duration-fast) ease, background-color var(--duration-fast) ease, border-color var(--duration-fast) ease; }
 }
 
 @media (max-width: 1000px) {
-  .system-landing-hero { grid-template-columns: minmax(0, 1fr); gap: var(--space-20); }
-  .system-chain { width: 100%; max-width: 720px; }
-  .system-principle { grid-template-columns: 90px 1fr; }
-  .system-principle p { grid-column: 2; }
-  .system-section-head { grid-template-columns: 120px 1fr; }
-  .system-section-head > p { grid-column: 2; }
+  .system-landing-hero { grid-template-columns: minmax(0, 1fr); gap: var(--space-16); padding-top: var(--space-12); }
+  .system-chain { max-width: 40rem; }
+  .system-principle p,
+  .system-section-head > p { grid-column: 4 / -1; max-width: var(--measure); }
+  .system-loop ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .system-loop li:nth-child(2) { border-right: 0; }
+  .system-loop li:nth-child(3) { padding-left: 0; }
+  .system-loop li:nth-child(-n+2) { border-bottom: var(--border-width) solid var(--color-border); }
 }
 
 @media (max-width: 700px) {
-  .system-landing-hero { min-height: 0; gap: var(--space-12); padding-block: var(--space-10) var(--space-12); }
-  .system-chain { grid-template-columns: minmax(0, 1fr); padding: var(--space-3); }
-  .system-chain::before { position: static; grid-column: 1 / -1; margin-bottom: var(--space-3); }
-  .system-chain > i { width: 100%; height: 28px; transform: rotate(90deg); }
-  .system-chain-node { min-height: 105px; }
-  .system-principle { grid-template-columns: minmax(0, 1fr); gap: var(--space-8); }
-  .system-principle p { grid-column: 1; }
-  .system-section-head { grid-template-columns: minmax(0, 1fr); gap: var(--space-6); }
-  .system-section-head > p { grid-column: 1; }
+  .system-landing-hero { gap: var(--space-12); padding-block: var(--space-10) var(--space-16); }
+  .system-chain::before { font-size: var(--text-xs); }
+  .system-chain-node { --picto-size: 1.75rem; min-height: 5.5rem; column-gap: var(--space-4); padding: var(--space-3) var(--space-4); }
+  .system-chain-node strong { font-size: var(--text-xl); }
+  .system-principle p,
+  .system-section-head > p { grid-column: 1 / -1; margin-top: var(--space-8); }
   .system-route-grid { grid-template-columns: minmax(0, 1fr); margin-top: var(--space-10); }
-  .system-route-card { min-height: 280px; padding: var(--space-6); }
-  .system-route-card h3 { margin-top: var(--space-8); }
-  .system-route-card p { margin-top: var(--space-4); }
-  .system-route-card b { padding-top: var(--space-6); }
-  .system-loop ol { grid-template-columns: 1fr 1fr; }
-  .system-loop li { min-height: 130px; border-bottom: var(--border-width) solid var(--color-border); }
-  .system-loop li:nth-child(2) { border-right: 0; }
-  .system-loop li:nth-child(n+3) { border-bottom: 0; }
+  .system-route-card { --picto-size: 2.25rem; min-height: 0; padding: var(--space-6) var(--space-4) var(--space-8); }
+  .system-route-card:nth-child(odd) { border-right: 0; }
+  .system-route-card::before { top: var(--space-6); right: var(--space-4); }
+  .system-route-card h3 { padding-top: var(--space-10); font-size: min(var(--text-4xl), 24cqi); }
+  .system-loop li { min-height: 10rem; padding: var(--space-4) var(--space-4) var(--space-5); }
+  .system-loop li strong { font-size: min(var(--text-3xl), 22cqi); }
 }
