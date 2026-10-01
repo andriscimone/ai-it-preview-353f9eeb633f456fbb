@@ -20,5 +20,5 @@ Questa cartella conserva le bozze originali usate per l'introduzione *Accelerand
 
 ## Meme Shrek – Project Meridian
 
-- `meme-shrek-project-meridian.png`: meme (1200 × 1409) sul post X del 30 settembre 2026 in cui il Pentagono affida a Elon Musk, Palmer Luckey e Newt Gingrich la guida di *Project Meridian*. Shrek (“The Pentagon”) urla all’Asino (“Elon”), che elenca promesse “next year”: “120 days, Elon. Not ‘next year.’” I 120 giorni sono la scadenza del rapporto riportata da CNBC e Axios.
-- È un disegno originale, non il fotogramma del film: il sito dei template non era raggiungibile dall’ambiente di lavoro. Il file resta in bozze e non è collegato a nessuna pagina, per non appesantire `assets/` e il pacchetto Sites.
+- `meme-shrek-project-meridian.jpg`: meme (1198 × 1340) sul post X del 30 settembre 2026 in cui il Pentagono affida a Elon Musk, Palmer Luckey e Newt Gingrich la guida di *Project Meridian*. Base: il template “Shrek For Five Minutes” fornito, raddoppiato in scala 2×; l’Asino è duplicato (copia specchiata e ridotta, dietro il bordo della tenda) per avere un asino per azienda. Testi: “Could you guys not do something controversial…” / “For 5 minutes?!”. Loghi SpaceX e Anduril forniti, resi bianchi con contorno nero, uno sul petto di ciascun asino.
+- Il file resta in bozze e non è collegato a nessuna pagina, per non appesantire `assets/` e il pacchetto Sites.
