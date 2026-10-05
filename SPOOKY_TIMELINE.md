@@ -62,7 +62,6 @@ Verifica mirata: provare tutte e quattro le domande, gli otto criteri e lo stato
 - `spooky-timeline.js`: progressione del meme legata allo scorrimento, cambio del sole Nick Land al tocco, tab, tooltip del capitale, scorrimento delle timeline, indice attivo e progresso dei dodici futuri. Il grafico del capitale e le due scale di Kurzweil restano leggibili senza JavaScript.
 - `assets/spooky-plato-cave-v1.webp`, `assets/spooky-einstein-projector-v1.webp`, `assets/spooky-pepe-prisoner-v1.webp`, `assets/spooky-pepe-exit-v1.webp`, `assets/spooky-nick-land-sun.webp` e `assets/spooky-nick-land-sun-alt.webp`: tavola e livelli fotografici del meme nell'hero.
 - `assets/code-contributed-per-person-quarter-2026.png`, `assets/claude-code-session-success-rate-2026.png` e `assets/openai-output-tokens-by-department-2026.png`: copie pubblicabili dei tre grafici.
-- `content-drafts/accelerando-it.md`: traduzione estesa conservata come materiale editoriale; non viene caricata dal sito.
 - `scripts/prepare-public.mjs` e `scripts/finalize-dist.mjs`: inclusione dei file della pagina nella build pubblicabile.
 
 Non serve un database: testo e riferimenti vivono nell'HTML; JavaScript modifica soltanto ciò che il lettore vede e seleziona.
