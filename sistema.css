@@ -1,109 +1,218 @@
-.system-index-page {
-  --system-acid: #b9f43a;
-  --system-violet: #7258f5;
-  --system-coral: #ff7048;
-  --system-blue: #5f8fff;
-}
+/* Il sistema · design system v2. Solo token di tokens.css e componenti di components.css.
+   La catena dei quattro capitoli è uno schema a blocchi verticale; la tesi sta sulla fascia nera,
+   il ciclo sul campo blu. Ogni capitolo porta il suo pittogramma (data-picto nell'HTML). */
 
+.system-index-page .kicker { color: var(--color-text); }
+
+/* 1. Apertura: titolo a sinistra, catena a destra */
 .system-landing-hero {
-  min-height: min(840px, calc(100svh - 146px));
   display: grid;
-  grid-template-columns: minmax(0, .9fr) minmax(440px, 1.1fr);
+  grid-template-columns: minmax(0, 1.1fr) minmax(22rem, 0.9fr);
   align-items: center;
-  gap: 6vw;
-  padding: 72px 5vw 82px;
-  border-bottom: 1px solid var(--line);
-  background:
-    radial-gradient(circle at 86% 18%, color-mix(in srgb, var(--system-violet) 17%, transparent), transparent 27%),
-    linear-gradient(135deg, var(--paper) 0 58%, color-mix(in srgb, var(--paper-deep) 85%, var(--system-acid)) 100%);
-  overflow: hidden;
+  gap: clamp(var(--space-12), 6vw, 7rem);
+  padding: var(--space-16) var(--gutter) var(--section-space);
 }
-.system-landing-copy { max-width: 700px; }
-.system-landing-copy h1 { margin: 30px 0 0; font: 400 clamp(74px, 8.5vw, 132px)/.78 var(--serif); letter-spacing: -.06em; }
-.system-landing-copy h1 em { color: var(--system-coral); font-style: normal; }
-.system-landing-copy > p:last-of-type { max-width: 650px; margin: 38px 0 0; color: var(--muted); font-size: clamp(18px, 1.6vw, 24px); line-height: 1.52; }
-.system-primary-action { width: min(100%, 350px); display: flex; justify-content: space-between; gap: 24px; margin-top: 42px; padding: 17px 0; border-bottom: 1px solid currentColor; color: var(--ink); text-decoration: none; font: 600 9px var(--mono); text-transform: uppercase; letter-spacing: .08em; }
-.system-primary-action:hover { color: var(--system-coral); }
-.system-primary-action:focus-visible,
-.system-chain-node:focus-visible,
-.system-route-card:focus-visible { outline: 3px solid var(--system-coral); outline-offset: 5px; }
+.system-landing-copy { min-width: 0; container-type: inline-size; }
+.system-landing-copy .kicker { margin-bottom: var(--space-8); }
+/* Il titolo si misura sulla colonna, così «Dal megawatt» resta su una riga come nell'HTML. */
+.system-landing-copy h1 {
+  margin: 0;
+  font: var(--type-display);
+  font-size: min(10.5rem, 16.5cqi);
+  letter-spacing: var(--tracking-display);
+}
+.system-landing-copy h1 em { color: var(--color-accent); font-style: normal; }
+.system-landing-copy > p:last-of-type { max-width: 40ch; margin: var(--space-10) 0 0; font: var(--type-lead); font-size: clamp(1.25rem, 1.1rem + 0.45vw, 1.5rem); }
+.system-primary-action { margin-top: var(--space-10); }
 
-.system-chain { display: grid; grid-template-columns: 1fr auto; align-items: stretch; position: relative; padding: 28px; border: 1px solid var(--ink); background: color-mix(in srgb, var(--paper) 91%, transparent); box-shadow: 13px 13px 0 color-mix(in srgb, var(--ink) 10%, transparent); }
-.system-chain::before { content: "POTENZA → CAPACITÀ → LAVORO → NUOVA DOMANDA"; position: absolute; top: -25px; right: 0; color: var(--muted); font: 500 8px var(--mono); letter-spacing: .1em; }
-.system-chain-node { min-height: 118px; display: flex; flex-direction: column; justify-content: center; position: relative; padding: 20px 24px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); text-decoration: none; transition: transform .2s ease, background-color .2s ease; }
-.system-chain-node::before { content: ""; width: 6px; position: absolute; inset: 0 auto 0 0; background: var(--chain-accent); }
-.system-chain-node:hover { background: color-mix(in srgb, var(--chain-accent) 13%, var(--paper)); transform: translateX(5px); }
-.system-chain-node small { color: var(--muted); font: 600 8px var(--mono); letter-spacing: .08em; }
-.system-chain-node strong { margin-top: 8px; font: 400 clamp(29px, 3vw, 45px)/.9 var(--serif); }
-.system-chain-node span { margin-top: 8px; color: var(--muted); font-size: 11px; }
-.system-chain > i { width: 34px; display: grid; place-items: center; color: var(--muted); font: normal 18px var(--mono); }
-.chain-energy { --chain-accent: var(--system-acid); }
-.chain-chip { --chain-accent: var(--system-violet); }
-.chain-algorithms { --chain-accent: var(--system-coral); }
-.chain-inference { --chain-accent: var(--system-blue); }
+.system-chain {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: stretch;
+}
+/* Il sottotitolo dello schema è già nel foglio di stile dalla prima versione della pagina. */
+.system-chain::before {
+  content: "POTENZA → CAPACITÀ → LAVORO → NUOVA DOMANDA";
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-4);
+  border-bottom: var(--rule-width) solid var(--color-border-strong);
+  color: var(--color-text-muted);
+  font: var(--type-label);
+  letter-spacing: var(--tracking-label);
+}
+.system-chain-node {
+  --picto-size: 2.25rem;
+  min-height: 6.5rem;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    "picto name index"
+    "picto text index";
+  align-content: center;
+  column-gap: var(--space-5);
+  padding: var(--space-4) var(--space-5);
+  border: var(--rule-width) solid var(--color-border-strong);
+  background: var(--color-bg);
+  color: var(--color-text);
+  text-decoration: none;
+}
+.system-chain-node::before { grid-area: picto; align-self: center; }
+.system-chain-node small { grid-area: index; align-self: start; color: var(--color-text-muted); font: var(--type-label); letter-spacing: var(--tracking-label); }
+.system-chain-node strong { grid-area: name; font: var(--weight-heavy) condensed var(--text-2xl) / 1 var(--font-sans); }
+.system-chain-node span { grid-area: text; margin-top: var(--space-1); color: var(--color-text-muted); font: var(--type-caption); }
+.system-chain-node:hover,
+.system-chain-node:focus-visible { border-color: var(--color-accent-field); background: var(--color-accent-field); color: var(--color-on-accent-field); }
+.system-chain-node:is(:hover, :focus-visible) :is(small, span) { color: color-mix(in srgb, var(--color-on-accent-field) 84%, var(--color-accent-field)); }
+/* Le frecce fra i blocchi puntano verso il basso: lo schema si legge dall'alto. */
+.system-chain > i {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: grid;
+  justify-self: center;
+  place-items: center;
+  color: var(--color-text);
+  font: var(--weight-bold) var(--text-lg) / 1 var(--font-sans);
+  font-style: normal;
+  rotate: 90deg;
+}
 
-.system-principle { display: grid; grid-template-columns: 120px minmax(300px, 1fr) minmax(300px, .72fr); gap: 5vw; align-items: start; padding: 120px 5vw; border-bottom: 1px solid var(--line); background: var(--ink); color: var(--paper); }
-.system-principle > span { color: var(--system-acid); font: 600 9px var(--mono); text-transform: uppercase; letter-spacing: .1em; }
-.system-principle h2 { margin: 0; font: 400 clamp(55px, 7vw, 105px)/.84 var(--serif); letter-spacing: -.05em; }
-.system-principle p { margin: 5px 0 0; color: color-mix(in srgb, var(--paper) 72%, transparent); font-size: clamp(17px, 1.5vw, 22px); line-height: 1.62; }
+/* 2. La tesi, su fascia nera. I titoli lunghi prendono tutta la misura (le righe restano quelle
+   dell'HTML) e il testo si sposta sulla metà destra della griglia a 12 colonne. */
+.system-principle,
+.system-section-head {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--space-6);
+}
+.system-principle { padding: var(--section-space) var(--gutter); }
+.system-principle > span {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font: var(--type-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+.system-principle > span::before { content: ""; width: 0.75rem; height: 0.75rem; background: var(--color-accent); }
+.system-principle h2 { grid-column: 1 / -1; margin: var(--space-8) 0 0; font: var(--type-headline); letter-spacing: var(--tracking-display); }
+.system-principle p { grid-column: 7 / -1; margin: var(--space-12) 0 0; color: var(--color-text-muted); font: var(--type-lead); }
 
-.system-route-section { padding: 120px 5vw 130px; background: var(--paper-deep); }
-.system-section-head { display: grid; grid-template-columns: 150px 1fr minmax(250px, .55fr); gap: 4vw; align-items: start; }
-.system-section-head > div > span { display: block; margin-bottom: 22px; color: var(--system-coral); font: 400 52px/1 var(--serif); }
-.system-section-head h2 { margin: 0; font: 400 clamp(55px, 6.8vw, 102px)/.83 var(--serif); letter-spacing: -.05em; }
-.system-section-head h2 em { color: var(--system-coral); font-style: normal; }
-.system-section-head > p { margin: 8px 0 0; color: var(--muted); font-size: 15px; line-height: 1.65; }
-.system-route-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 80px; border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
-.system-route-card { --card-accent: var(--system-coral); min-height: 420px; display: flex; flex-direction: column; align-items: flex-start; position: relative; overflow: hidden; padding: 34px; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); background: var(--paper); color: var(--ink); text-decoration: none; }
-.system-route-card::after { content: ""; width: 190px; height: 190px; position: absolute; right: -55px; bottom: -55px; border: 1px solid color-mix(in srgb, var(--card-accent) 65%, var(--ink)); border-radius: 50%; box-shadow: 0 0 0 28px color-mix(in srgb, var(--card-accent) 8%, transparent), 0 0 0 56px color-mix(in srgb, var(--card-accent) 5%, transparent); transition: transform .25s ease; }
-.system-route-card:hover::after { transform: scale(1.18); }
-.system-route-card > span { color: var(--muted); font: 600 8px var(--mono); text-transform: uppercase; letter-spacing: .09em; }
-.system-route-card h3 { margin: 72px 0 0; font: 400 clamp(58px, 7vw, 102px)/.8 var(--serif); letter-spacing: -.055em; }
-.system-route-card p { max-width: 500px; margin: 25px 0 0; color: var(--muted); font-size: 15px; line-height: 1.6; }
-.system-route-card b { display: flex; justify-content: space-between; gap: 30px; width: min(100%, 240px); margin-top: auto; padding-top: 36px; font: 600 9px var(--mono); text-transform: uppercase; letter-spacing: .07em; }
-.system-route-card b i { color: var(--card-accent); font: normal 18px/1 var(--sans); }
-.system-route-card.route-energy { --card-accent: var(--system-acid); }
-.system-route-card.route-chip { --card-accent: var(--system-violet); }
-.system-route-card.route-algorithms { --card-accent: var(--system-coral); }
-.system-route-card.route-inference { --card-accent: var(--system-blue); }
+/* 3. I quattro capitoli: griglia svizzera 2 × 2, il capitolo sotto il puntatore diventa un campo d'accento */
+.system-route-section { padding: var(--section-space) var(--gutter); }
+.system-section-head > div { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-8); }
+.system-section-head > div > span { color: var(--color-text-muted); font: var(--type-label); letter-spacing: var(--tracking-label); }
+.system-section-head h2 { grid-column: 1 / -1; margin: var(--space-8) 0 0; font: var(--type-headline); letter-spacing: var(--tracking-display); }
+.system-section-head h2 em { color: var(--color-accent); font-style: normal; }
+.system-section-head > p { grid-column: 7 / -1; max-width: var(--measure); margin: var(--space-10) 0 0; color: var(--color-text-muted); font: var(--type-body); }
+.system-route-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: var(--space-16);
+  border-top: var(--rule-width) solid var(--color-border-strong);
+}
+.system-route-card {
+  --picto-size: 3rem;
+  min-width: 0;
+  min-height: 27rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  container-type: inline-size;
+  padding: var(--space-6) var(--space-8) var(--space-8);
+  border-bottom: var(--border-width) solid var(--color-border);
+  color: var(--color-text);
+  text-decoration: none;
+}
+.system-route-card:nth-child(odd) { border-right: var(--border-width) solid var(--color-border); }
+.system-route-card::before { position: absolute; top: var(--space-6); right: var(--space-8); }
+.system-route-card > span { color: var(--color-text-muted); font: var(--type-label); letter-spacing: var(--tracking-label); text-transform: uppercase; }
+.system-route-card h3 { margin: auto 0 0; padding-top: var(--space-16); font: var(--type-headline); font-size: min(var(--text-4xl), 20cqi); letter-spacing: var(--tracking-display); }
+.system-route-card p { max-width: 40ch; margin: var(--space-5) 0 0; color: var(--color-text-muted); font: var(--type-body); }
+.system-route-card b {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+  padding-bottom: var(--space-2);
+  border-bottom: var(--rule-width) solid var(--color-accent);
+  font: var(--type-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+.system-route-card b i { font-style: normal; }
+.system-route-card:hover,
+.system-route-card:focus-visible { background: var(--color-accent-field); color: var(--color-on-accent-field); }
+.system-route-card:is(:hover, :focus-visible) :is(span, p) { color: color-mix(in srgb, var(--color-on-accent-field) 84%, var(--color-accent-field)); }
+.system-route-card:is(:hover, :focus-visible) b { border-color: var(--color-on-accent-field); }
+.system-route-card:focus-visible { outline-offset: calc(-1 * var(--focus-width) - 3px); outline-color: var(--color-on-accent-field); }
 
-.system-loop { padding: 94px 5vw; background: var(--system-blue); color: #f7f5ed; }
-.system-loop > p { margin: 0 0 35px; font: 600 9px var(--mono); text-transform: uppercase; letter-spacing: .1em; }
-.system-loop ol { display: grid; grid-template-columns: repeat(4, 1fr); margin: 0; padding: 0; border-top: 1px solid currentColor; list-style: none; }
-.system-loop li { min-height: 155px; display: flex; flex-direction: column; justify-content: space-between; padding: 22px 24px; border-right: 1px solid color-mix(in srgb, currentColor 50%, transparent); }
+/* 4. Il ciclo, sul campo blu */
+.system-loop { padding: var(--section-space) var(--gutter); }
+.system-loop > p {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin: 0 0 var(--space-10);
+  font: var(--type-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+.system-loop > p::before { content: ""; width: 0.75rem; height: 0.75rem; background: var(--color-accent); }
+.system-loop ol {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  border-top: var(--rule-width) solid var(--color-border-strong);
+  list-style: none;
+}
+.system-loop li {
+  min-width: 0;
+  min-height: 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  container-type: inline-size;
+  padding: var(--space-5) var(--space-6) var(--space-6);
+  border-right: var(--border-width) solid var(--color-border);
+}
+.system-loop li:first-child { padding-left: 0; }
 .system-loop li:last-child { border-right: 0; }
-.system-loop li span { font: 500 9px var(--mono); }
-.system-loop li strong { font: 400 clamp(31px, 4vw, 58px)/.9 var(--serif); }
-.system-loop small { display: block; max-width: 600px; margin-top: 34px; font-size: 13px; line-height: 1.55; }
+.system-loop li span { color: var(--color-text-muted); font: var(--type-label); letter-spacing: var(--tracking-label); }
+.system-loop li strong { font: var(--weight-heavy) condensed min(var(--text-3xl), 24cqi) / 0.95 var(--font-sans); letter-spacing: var(--tracking-display); }
+.system-loop small { max-width: 46ch; display: block; margin-top: var(--space-10); padding-top: var(--space-5); border-top: var(--border-width) solid var(--color-border); font: var(--type-lead); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .system-chain-node,
+  .system-route-card { transition: color var(--duration-fast) ease, background-color var(--duration-fast) ease, border-color var(--duration-fast) ease; }
+}
 
 @media (max-width: 1000px) {
-  .system-landing-hero { grid-template-columns: 1fr; gap: 80px; }
-  .system-chain { max-width: 720px; width: 100%; }
-  .system-principle { grid-template-columns: 90px 1fr; }
-  .system-principle p { grid-column: 2; }
-  .system-section-head { grid-template-columns: 120px 1fr; }
-  .system-section-head > p { grid-column: 2; }
+  .system-landing-hero { grid-template-columns: minmax(0, 1fr); gap: var(--space-16); padding-top: var(--space-12); }
+  .system-chain { max-width: 40rem; }
+  .system-principle p,
+  .system-section-head > p { grid-column: 4 / -1; max-width: var(--measure); }
+  .system-loop ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .system-loop li:nth-child(2) { border-right: 0; }
+  .system-loop li:nth-child(3) { padding-left: 0; }
+  .system-loop li:nth-child(-n+2) { border-bottom: var(--border-width) solid var(--color-border); }
 }
 
 @media (max-width: 700px) {
-  .system-landing-hero { min-height: auto; gap: 68px; padding: 70px 20px 78px; }
-  .system-landing-copy h1 { font-size: clamp(64px, 20vw, 92px); }
-  .system-chain { grid-template-columns: 1fr; padding: 16px; }
-  .system-chain > i { width: 100%; height: 28px; transform: rotate(90deg); }
-  .system-chain-node { min-height: 105px; }
-  .system-principle { grid-template-columns: 1fr; gap: 30px; padding: 76px 20px; }
-  .system-principle p { grid-column: 1; }
-  .system-route-section { padding: 78px 20px 84px; }
-  .system-section-head { grid-template-columns: 1fr; gap: 28px; }
-  .system-section-head > p { grid-column: 1; }
-  .system-route-grid { grid-template-columns: 1fr; margin-top: 55px; }
-  .system-route-card { min-height: 280px; padding: 25px; }
-  .system-route-card h3 { margin-top: 34px; }
-  .system-route-card p { margin-top: 17px; }
-  .system-route-card b { padding-top: 24px; }
-  .system-loop { padding: 78px 20px; }
-  .system-loop ol { grid-template-columns: 1fr 1fr; }
-  .system-loop li { min-height: 130px; border-bottom: 1px solid color-mix(in srgb, currentColor 50%, transparent); }
-  .system-loop li:nth-child(2) { border-right: 0; }
-  .system-loop li:nth-child(n+3) { border-bottom: 0; }
+  .system-landing-hero { gap: var(--space-12); padding-block: var(--space-10) var(--space-16); }
+  .system-chain::before { font-size: var(--text-xs); }
+  .system-chain-node { --picto-size: 1.75rem; min-height: 5.5rem; column-gap: var(--space-4); padding: var(--space-3) var(--space-4); }
+  .system-chain-node strong { font-size: var(--text-xl); }
+  .system-principle p,
+  .system-section-head > p { grid-column: 1 / -1; margin-top: var(--space-8); }
+  .system-route-grid { grid-template-columns: minmax(0, 1fr); margin-top: var(--space-10); }
+  .system-route-card { --picto-size: 2.25rem; min-height: 0; padding: var(--space-6) var(--space-4) var(--space-8); }
+  .system-route-card:nth-child(odd) { border-right: 0; }
+  .system-route-card::before { top: var(--space-6); right: var(--space-4); }
+  .system-route-card h3 { padding-top: var(--space-10); font-size: min(var(--text-4xl), 24cqi); }
+  .system-loop li { min-height: 10rem; padding: var(--space-4) var(--space-4) var(--space-5); }
+  .system-loop li strong { font-size: min(var(--text-3xl), 22cqi); }
 }

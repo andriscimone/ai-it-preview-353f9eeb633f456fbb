@@ -41,6 +41,10 @@
     g.svg.append(node('path',{d:path(points),fill:'none',stroke:'var(--chart-primary)','stroke-width':3,'stroke-linejoin':'round','stroke-linecap':'round',...attrs}));
   }
   function dot(svg,x,y,selected = false, attrs = {}) { svg.append(node('circle',{cx:x,cy:y,r:selected?6:3.5,fill:'var(--chart-primary)',stroke:'var(--chart-surface)','stroke-width':2,...attrs})); }
+  // Riempie il binario del cursore fino al valore corrente (il design system lo legge da --range-progress).
+  function fill(input) {
+    input.style.setProperty('--range-progress', `${(Number(input.value) - Number(input.min)) / (Number(input.max) - Number(input.min)) * 100}%`);
+  }
   function press(selector, value, key) {
     document.querySelectorAll(selector).forEach(button => button.setAttribute('aria-pressed', String(button.dataset[key] === value)));
   }
@@ -71,6 +75,7 @@
     hit.addEventListener('click',event=>{const rect=g.svg.getBoundingClientRect();historyYear=1800+Math.max(0,Math.min(1,(event.clientX-rect.left-g.left)/(g.right-g.left)))*224;renderHistory();});
     g.svg.append(hit);
     $('el-history-year').value = row.y;
+    fill($('el-history-year'));
     $('el-history-year').setAttribute('aria-valuetext',String(row.y));
     $('el-history-year-label').textContent = row.y;
     $('el-history-unit').textContent = perPerson ? 'Potenza primaria media · kW / persona' : 'Energia primaria · migliaia di TWh / anno';
@@ -143,7 +148,7 @@
       const isPower=infra==='power';
       const rows=isPower?power:(showPlans?[...sites,...plans]:sites);
       infraIndex=Math.max(0,Math.min(infraIndex,rows.length-1));
-      slider.max=rows.length-1;slider.value=infraIndex;
+      slider.max=rows.length-1;slider.value=infraIndex;fill(slider);
       const first=Date.parse(rows[0][0]),last=Date.parse(rows.at(-1)[0]);
       const x=d=>g.left+(Date.parse(d)-first)/(last-first)*(g.right-g.left);
       const max=isPower?35:showPlans?1200000:800000;
@@ -190,7 +195,7 @@
     g.svg.append(node('circle',{cx:x(kExponent),cy:yy,r:8,fill:'var(--chart-primary)',stroke:'var(--chart-surface)','stroke-width':3}));
     const k=(kExponent-6)/10, p=10**kExponent,ratio=p/worldPower;
     const worldSelected=Math.abs(kExponent-worldExponent)<.001;
-    $('el-k-power').value=kExponent;$('el-k-power').setAttribute('aria-valuetext',`Indice K ${fmt(k,2)}, ${fmt(ratio,1)} volte la potenza mondiale del 2024`);
+    $('el-k-power').value=kExponent;fill($('el-k-power'));$('el-k-power').setAttribute('aria-valuetext',`Indice K ${fmt(k,2)}, ${fmt(ratio,1)} volte la potenza mondiale del 2024`);
     $('el-k-power-label').textContent=`K = ${fmt(k,2)}`;
     const reference=worldSelected?'Mondo 2024':kExponent===16?'Tipo I · soglia convenzionale':kExponent===26?'Tipo II · soglia convenzionale':kExponent===36?'Tipo III · soglia convenzionale':'Esplorazione ipotetica';
     const displayPower=p<1e15?`${fmt(p/1e12,1)} TW`:`10<sup>${fmt(kExponent,2)}</sup> W`;

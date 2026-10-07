@@ -9,7 +9,7 @@
     <meta property="og:description" content="La scala fisica dell'intelligenza artificiale, dal PIL alle reti fino alle due scommesse per il futuro." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="it_IT" />
-    <meta id="theme-color" name="theme-color" content="#f2f0e8" />
+    <meta id="theme-color" name="theme-color" content="#ffffff" />
     <link rel="icon" href="data:," />
     <title>Energia — AI.it</title>
     <script>
@@ -21,9 +21,9 @@
         } catch (_) { document.documentElement.dataset.theme = "light"; }
       })();
     </script>
-    <link rel="stylesheet" href="styles.css?v=system-mobile-2" />
-    <link rel="stylesheet" href="energy.css?v=20260904-lab" />
-    <link rel="stylesheet" href="editorial.css?v=20260904" />
+    <link rel="stylesheet" href="tokens.css?v=ds-v2" />
+    <link rel="stylesheet" href="components.css?v=ds-v2" />
+    <link rel="stylesheet" href="energy.css?v=ds-v2" />
   </head>
   <body class="detail-page energy-page">
     <a class="skip-link" href="#top">Salta al contenuto</a>
@@ -38,7 +38,7 @@
     <nav class="section-nav" aria-label="Sezioni del sito">
       <a href="index.html">Home</a><a href="sistema.html" aria-current="page">Il sistema</a><a href="altro.html">Dossier</a><a href="novita.html">Novità</a>
     </nav>
-    <nav class="system-subnav" aria-label="Capitoli della sezione Il sistema"><a href="sistema.html">Panoramica</a><a href="energia.html" aria-current="page">Energia</a><a href="chip.html">Chips</a><a href="algoritmi.html">Algoritmi</a><a href="inferenza.html">Inferenza</a></nav>
+    <nav class="system-subnav" aria-label="Capitoli della sezione Il sistema"><a href="sistema.html">Panoramica</a><a href="energia.html" aria-current="page" data-picto="energia">Energia</a><a href="chip.html" data-picto="chip">Chips</a><a href="algoritmi.html" data-picto="algoritmi">Algoritmi</a><a href="inferenza.html" data-picto="inferenza">Inferenza</a></nav>
 
     <main id="top">
       <section class="chapter evidence-chapter energy-chapter" aria-labelledby="energy-title">
@@ -83,12 +83,12 @@
               <li><span>03 · Mulino</span><strong>≈1–10 kW</strong><p>Vento e acqua producono lavoro locale senza consumare cibo umano.</p></li>
               <li><span>04 · Vapore</span><strong>≈10–100 kW</strong><p>Le prime macchine industriali concentrano potenza continua nello stesso luogo.</p></li>
               <li><span>05 · Rete</span><strong>MW → GW</strong><p>Centrali, cavi e motori separano il luogo della generazione da quello dell'uso.</p></li>
-              <li><span>06 · Mondo</span><strong>≈21,2 TW</strong><p>Potenza primaria media implicita nel consumo energetico globale del 2024.</p></li>
+              <li class="surface-inverse"><span>06 · Mondo</span><strong>≈21,2 TW</strong><p>Potenza primaria media implicita nel consumo energetico globale del 2024.</p></li>
             </ol>
           </div>
         </section>
 
-        <article class="energy-lab" id="energy-history" aria-labelledby="energy-history-title">
+        <article class="energy-lab surface-inverse" id="energy-history" aria-labelledby="energy-history-title">
           <header class="energy-lab-head"><div><p class="kicker">01 / La crescita, in prospettiva</p><h2 id="energy-history-title">Due secoli.<br />Trentatré volte più energia.</h2></div><p>Guarda il totale mondiale, poi cambia lente: quanto ne corrisponde a ogni persona? La scala cambia; anche la storia che racconta.</p></header>
           <div class="energy-lab-tabs" aria-label="Misura della serie storica"><button type="button" data-el-history="total" aria-pressed="true">Totale mondiale</button><button type="button" data-el-history="person" aria-pressed="false">Per persona</button></div>
           <div class="energy-lab-split"><div><p class="energy-lab-axis" id="el-history-unit">Energia primaria · migliaia di TWh / anno</p><svg class="energy-lab-chart" id="el-history-chart" role="img" aria-label="Consumo di energia primaria dal 1800 al 2024"></svg><div class="energy-lab-slider"><label for="el-history-year">Esplora un anno <output id="el-history-year-label" for="el-history-year">2024</output></label><input id="el-history-year" type="range" min="1800" max="2024" value="2024" step="1" /><div class="energy-lab-presets"><button type="button" data-el-year="1800">1800</button><button type="button" data-el-year="1950">1950</button><button type="button" data-el-year="2000">2000</button><button type="button" data-el-year="2024">2024</button></div></div></div><aside class="energy-lab-reading" id="el-history-reading" aria-live="polite"><p>Caricamento dei dati storici…</p></aside></div>
@@ -105,14 +105,14 @@
             <p>Ogni trasformazione economica è anche una trasformazione energetica. Cibo, acciaio, cemento, trasporti, ospedali, semiconduttori e data center sono modi diversi di convertire energia in servizi, beni e capacità produttiva.</p>
             <p>Il denaro decide chi può usarla; non la sostituisce. Per questo la ricchezza per abitante e l'energia primaria per abitante si muovono insieme. La relazione non è perfetta — contano clima, industria, efficienza e commercio — e non prova da sola causalità. Ma il quadrante «molto ricco, pochissima energia» resta sostanzialmente vuoto.</p>
           </div>
-          <aside class="unit-note" aria-label="Differenza tra potenza ed energia">
+          <aside class="unit-note surface-inverse" aria-label="Differenza tra potenza ed energia">
             <span>Una distinzione utile</span>
             <strong>TW ≠ TWh</strong>
             <p>Il watt misura la potenza istantanea; il wattora l'energia accumulata nel tempo. Nel confronto tra Paesi usiamo kWh per persona, così la popolazione non domina il grafico.</p>
           </aside>
         </section>
 
-        <article class="energy-lab" id="energy-countries" aria-labelledby="gdp-energy-title">
+        <article class="energy-lab surface-inverse" id="energy-countries" aria-labelledby="gdp-energy-title">
           <header class="energy-lab-head"><div><p class="kicker">02 / Energia e ricchezza</p><h2 id="gdp-energy-title">Una relazione forte.<br />Molte differenze da esplorare.</h2></div><p>183 Paesi e territori, nello stesso anno. Confrontane due: la ricchezza tende a crescere con l'energia disponibile, ma non nello stesso rapporto ovunque.</p></header>
           <div class="energy-lab-country-controls"><label for="el-country-a"><span class="energy-lab-key is-a">●</span> Paese <select id="el-country-a" aria-label="Paese principale"><option>Caricamento…</option></select></label><label for="el-country-b"><span class="energy-lab-key is-b">◆</span> Confronta con <select id="el-country-b" aria-label="Paese di confronto"><option>Caricamento…</option></select></label></div>
           <div class="energy-lab-split"><div><p class="energy-lab-axis">PIL pro capite · migliaia di $ internazionali</p><svg class="energy-lab-chart" id="el-gdp-chart" role="img" aria-label="Relazione tra energia primaria e PIL per persona nel 2024"></svg><p class="energy-lab-axis is-bottom">Energia primaria · MWh / persona / anno</p><p class="energy-lab-hint">Tocca un punto per selezionarlo. Su entrambi gli assi, un passo grande moltiplica il valore per dieci.</p></div><aside class="energy-lab-reading" id="el-gdp-reading" aria-live="polite"><p>Caricamento dei Paesi…</p></aside></div>
@@ -120,14 +120,14 @@
           <footer class="energy-lab-foot"><span>Snapshot 2024 · Our World in Data</span><a href="https://ourworldindata.org/grapher/energy-use-per-person-vs-gdp-per-capita?tab=chart&amp;time=2024" target="_blank" rel="noreferrer">Fonte e metodo ↗</a></footer>
         </article>
 
-        <article class="energy-lab" id="energy-infrastructure" aria-labelledby="el-infra-title">
+        <article class="energy-lab surface-inverse" id="energy-infrastructure" aria-labelledby="el-infra-title">
           <header class="energy-lab-head"><div><p class="kicker">03 / La scala dell'AI</p><h2 id="el-infra-title">Il record cresce.<br />La misura fa la differenza.</h2></div><p>Un campus, un cluster interconnesso e la capacità elettrica mondiale rispondono a tre domande diverse. Scegli quella che ti interessa.</p></header>
           <div class="energy-lab-tabs" aria-label="Misura dell'infrastruttura"><button type="button" data-el-infra="site" aria-pressed="true">Campus</button><button type="button" data-el-infra="cluster" aria-pressed="false">Cluster</button><button type="button" data-el-infra="power" aria-pressed="false">Potenza</button></div>
           <div class="energy-lab-split"><div><p class="energy-lab-axis" id="el-infra-unit">Frontiera osservata · H100-equivalent</p><svg class="energy-lab-chart" id="el-infra-chart" role="img" aria-label="Evoluzione della scala dell'infrastruttura AI"></svg><label class="energy-lab-checkbox" id="el-plans-control"><input id="el-infra-plans" type="checkbox" /> Mostra anche i progetti della fonte</label><div class="energy-lab-slider" id="el-infra-slider"><label for="el-infra-point">Leggi un punto <output for="el-infra-point" id="el-infra-point-label"></output></label><input id="el-infra-point" type="range" min="0" max="8" value="8" step="1" /></div></div><aside class="energy-lab-reading" id="el-infra-reading" aria-live="polite"></aside></div>
           <footer class="energy-lab-foot"><span id="el-infra-note"></span><a id="el-infra-source" href="https://epoch.ai/data-insights/largest-data-center-compute" target="_blank" rel="noreferrer">Fonte e dati ↗</a></footer>
         </article>
 
-        <article class="energy-lab energy-kardashev" id="kardashev" aria-labelledby="kardashev-title">
+        <article class="energy-lab energy-kardashev surface-inverse" id="kardashev" aria-labelledby="kardashev-title">
           <header class="energy-lab-head"><div><p class="kicker">04 / Allarga l'inquadratura</p><h2 id="kardashev-title">Dai gigawatt<br />a una civiltà planetaria.</h2></div><p>La scala di Kardashev immagina civiltà capaci di usare energia su scala planetaria, stellare e galattica. È una classificazione ipotetica: non misura intelligenza, benessere o sostenibilità.</p></header>
           <div class="energy-kardashev-intro"><strong>Un salto di 0,1 = dieci volte la potenza.</strong><p>Esplora la versione continua di Sagan. Qui adottiamo le soglie convenzionali 10¹⁶, 10²⁶ e 10³⁶ watt: non sono confini naturali né le identiche quantità dell'articolo originale del 1964.</p></div>
           <div class="energy-lab-tabs" aria-label="Riferimenti sulla scala Kardashev"><button type="button" data-el-k="world" aria-pressed="true">Mondo 2024</button><button type="button" data-el-k="16" aria-pressed="false">Tipo I</button><button type="button" data-el-k="26" aria-pressed="false">Tipo II</button><button type="button" data-el-k="36" aria-pressed="false">Tipo III</button></div>
@@ -139,7 +139,7 @@
 
         <div class="boundary-grid">
           <article><span>Snapshot di luglio 2026</span><strong>14,6 GW facility</strong><p>72 grandi siti tracciati da Epoch, di cui 11,2 GW sono potenza IT.</p></article>
-          <article class="estimated"><span>Ordine di grandezza</span><strong>≈20 GW training + inference</strong><p>Derivazione da 30 GW × due terzi. Non esiste un censimento pubblico globale che separi con precisione training, esperimenti e inference.</p></article>
+          <article class="estimated surface-accent"><span>Ordine di grandezza</span><strong>≈20 GW training + inference</strong><p>Derivazione da 30 GW × due terzi. Non esiste un censimento pubblico globale che separi con precisione training, esperimenti e inference.</p></article>
           <article><span>Da non usare</span><strong>415 TWh ≠ AI</strong><p>È il consumo elettrico di tutti i data center nel 2024 secondo IEA, non dell'AI soltanto.</p></article>
         </div>
 
@@ -154,7 +154,7 @@
 
           <div class="energy-lab-build"><p class="energy-lab-axis">Intervalli indicativi · anni dalla progettazione all'operatività</p><svg class="energy-lab-chart" id="el-build-chart" role="img" aria-label="Data center da 1 a 3 anni, rinnovabili da 1 a 5 anni, nuova rete da 5 a 15 anni"></svg><p>Le estremità mostrano minimo e massimo dell'intervallo, non una media. I tempi dipendono da Paese, progetto e connessione.</p></div>
 
-        <div class="queue-callout">
+        <div class="queue-callout surface-accent">
             <strong>2.500 GW</strong>
             <p>di generazione, storage e grandi carichi — inclusi data center — risultavano bloccati nelle code di connessione mondiali secondo IEA Electricity 2026.</p>
             <span>Non basta costruire energia. Bisogna riuscire a collegarla nel posto giusto e nel momento giusto.</span>
@@ -168,7 +168,7 @@
             <p>La domanda energetica dell'AI può crescere con il compute, ma l'offerta fisica non eredita automaticamente quella velocità. È per questo che, fra energia, chip e algoritmi, l'energia è oggi il paradigma più debole.</p>
           </header>
           <div class="paradigm-grid">
-            <article class="is-constraint">
+            <article class="is-constraint surface-inverse">
               <span>01 / Più energia</span>
               <h3>Il limite fisico</h3>
               <strong>5–15 anni</strong>
@@ -308,7 +308,7 @@
       <nav class="chapter-next" aria-label="Continua la lettura"><a href="sistema.html">← Panoramica Il sistema</a><a href="chip.html">Prossimo: Chips →</a></nav>
     </main>
     <footer class="site-footer"><span>AI.it</span><span>Energia · 01</span></footer>
-    <script src="app.js?v=20260904-labs"></script>
-    <script src="energy-visuals.js?v=20260904-lab"></script>
+    <script src="app.js?v=ds-v2"></script>
+    <script src="energy-visuals.js?v=ds-v2"></script>
   </body>
 </html>

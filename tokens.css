@@ -1,0 +1,361 @@
+/* AI.it · design system v2, «Blueprint».
+   Un solo accento, il blu elettrico, usato in due modi: come colore di testi e linee
+   e come campo pieno (apertura, dato in evidenza, stato selezionato). Neutri freddi, angoli vivi,
+   filetti di 2px. Una sola famiglia, Archivo variabile, di cui si usa anche l'asse della larghezza:
+   condensato per titoli e numeri, espanso maiuscolo per le etichette. DM Mono resta solo per formule e dati.
+   Le pagine migrate caricano tokens.css, poi components.css, poi il foglio della pagina. */
+
+/* 1. Font. Archivo copre pesi 100–900 e larghezze 62–125%: dichiarare gli intervalli
+   rende reali tutte le combinazioni invece di sintetizzarle. Sottoinsieme latino con frecce e apici. */
+@font-face {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  src: url("fonts/archivo.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Archivo";
+  font-style: italic;
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  src: url("fonts/archivo-italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "DM Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/dm-mono-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "DM Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/dm-mono-500.woff2") format("woff2");
+}
+
+/* 2. Primitivi: valori grezzi. I componenti usano solo i token semantici (sezione 3). */
+:root {
+  /* Neutri freddi, tinta 270° con croma minima: accompagnano il blu senza sporcarlo. */
+  --neutral-0: #ffffff;
+  --neutral-25: #f7f8fa;
+  --neutral-50: #f0f1f4;
+  --neutral-75: #e8eaef;
+  --neutral-100: #d5d8df;
+  --neutral-200: #b9bdc8;
+  --neutral-300: #a5aab8;
+  --neutral-400: #8d92a0;
+  --neutral-500: #6b7080;
+  --neutral-600: #525766;
+  --neutral-700: #3a3e4a;
+  --neutral-750: #2a2e38;
+  --neutral-800: #1e212a;
+  --neutral-850: #16181f;
+  --neutral-875: #121419;
+  --neutral-900: #0d0f14;
+  --neutral-925: #0b0c10;
+  --neutral-950: #050608;
+
+  /* Blu elettrico: l'unico accento. 500 è il campo e il testo sul chiaro, 300 il testo sullo scuro. */
+  --blue-50: #eeefff;
+  --blue-100: #dde0ff;
+  --blue-200: #b3baff;
+  --blue-300: #8e99ff;
+  --blue-400: #5a70f5;
+  --blue-500: #2a3bff;
+  --blue-600: #1b28d6;
+  --blue-900: #1c2150;
+
+  /* Tinte per i dati: solo nei grafici, mai nell'interfaccia.
+     Ordine verificato per daltonismo: blu, arancio, acqua, viola, ambra, rosa, verde. */
+  --data-blue-light: #2a3bff;
+  --data-blue-dark: #5a70f5;
+  --data-orange-light: #eb6834;
+  --data-orange-dark: #d95926;
+  --data-aqua-light: #1baf7a;
+  --data-aqua-dark: #199e70;
+  --data-violet-light: #4a3aa7;
+  --data-violet-dark: #9085e9;
+  --data-amber-light: #eda100;
+  --data-amber-dark: #c98500;
+  --data-rose-light: #e87ba4;
+  --data-rose-dark: #d55181;
+  --data-green: #008300;
+}
+
+/* 3. Token semantici, tema chiaro. */
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  --color-bg: var(--neutral-0);
+  --color-bg-subtle: var(--neutral-50);
+  --color-surface: var(--neutral-0);
+  --color-hover: var(--neutral-75);
+  --color-text: var(--neutral-900);               /* 19,2:1 sul fondo */
+  --color-text-muted: var(--neutral-600);         /* 7,2:1; 6,0:1 sul grigio di hover */
+  --color-border: var(--neutral-100);             /* separatori fini, decorativi */
+  --color-border-strong: var(--neutral-900);      /* filetti di 2px e bordi dei controlli */
+  --color-accent: var(--blue-500);                /* 6,6:1: valido anche per testo piccolo */
+  --color-accent-hover: var(--blue-600);
+  --color-accent-soft: var(--blue-50);
+  --color-on-accent: var(--neutral-0);
+  --color-accent-field: var(--blue-500);          /* l'accento come superficie */
+  --color-accent-field-hover: var(--blue-600);
+  --color-on-accent-field: var(--neutral-0);      /* 6,6:1; 9,1:1 in hover */
+  --color-inverse-bg: var(--neutral-900);
+
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-overlay: 0 18px 48px -20px rgb(13 15 20 / 0.4);
+
+  /* Grafici: cornice neutra, un evidenziatore, sette serie categoriali. */
+  --viz-grid: var(--neutral-75);
+  --viz-axis: var(--neutral-400);
+  --viz-context: var(--neutral-200);
+  --viz-highlight: var(--blue-500);
+  --viz-1: var(--data-blue-light);
+  --viz-2: var(--data-orange-light);
+  --viz-3: var(--data-aqua-light);
+  --viz-4: var(--data-violet-light);
+  --viz-5: var(--data-amber-light);
+  --viz-6: var(--data-rose-light);
+  --viz-7: var(--data-green);
+}
+
+/* Tema scuro: stessi ruoli, gradini scelti per il fondo scuro. Il campo blu resta lo stesso. */
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-bg: var(--neutral-925);
+  --color-bg-subtle: var(--neutral-875);
+  --color-surface: var(--neutral-850);
+  --color-hover: var(--neutral-800);
+  --color-text: var(--neutral-50);                /* 17,3:1 */
+  --color-text-muted: var(--neutral-300);         /* 8,4:1 */
+  --color-border: var(--neutral-750);
+  --color-border-strong: var(--neutral-50);
+  --color-accent: var(--blue-300);                /* 7,6:1 */
+  --color-accent-hover: var(--blue-200);
+  --color-accent-soft: var(--blue-900);
+  --color-on-accent: var(--neutral-925);          /* 7,6:1 */
+  --color-accent-field: var(--blue-500);
+  --color-accent-field-hover: var(--blue-600);
+  --color-on-accent-field: var(--neutral-0);
+  --color-inverse-bg: var(--neutral-950);
+
+  --shadow-overlay: 0 18px 48px -20px rgb(0 0 0 / 0.7);
+
+  --viz-grid: var(--neutral-750);
+  --viz-axis: var(--neutral-500);
+  --viz-context: var(--neutral-700);
+  --viz-highlight: var(--blue-300);
+  --viz-1: var(--data-blue-dark);
+  --viz-2: var(--data-orange-dark);
+  --viz-3: var(--data-aqua-dark);
+  --viz-4: var(--data-violet-dark);
+  --viz-5: var(--data-amber-dark);
+  --viz-6: var(--data-rose-dark);
+  --viz-7: var(--data-green);
+}
+
+/* Superfici. Ridichiarano i token, così i componenti al loro interno non hanno bisogno di varianti.
+   .surface-inverse: fascia nera, lo «strumento» (e più profonda nel tema scuro).
+   .surface-accent: campo blu, il «progetto»; qui l'accento diventa il bianco. */
+.surface-inverse {
+  color-scheme: dark;
+
+  --color-bg: var(--color-inverse-bg);
+  --color-bg-subtle: color-mix(in srgb, var(--neutral-0) 3%, var(--color-inverse-bg));
+  --color-surface: color-mix(in srgb, var(--neutral-0) 5%, var(--color-inverse-bg));
+  --color-hover: color-mix(in srgb, var(--neutral-0) 9%, var(--color-inverse-bg));
+  --color-text: var(--neutral-50);
+  --color-text-muted: var(--neutral-300);         /* 7,4:1 anche sulla superficie */
+  --color-border: color-mix(in srgb, var(--neutral-50) 16%, transparent);
+  --color-border-strong: var(--neutral-50);
+  --color-accent: var(--blue-300);
+  --color-accent-hover: var(--blue-200);
+  --color-accent-soft: var(--blue-900);
+  --color-on-accent: var(--neutral-925);
+  --color-accent-field: var(--blue-500);
+  --color-accent-field-hover: var(--blue-600);
+  --color-on-accent-field: var(--neutral-0);
+
+  --viz-grid: color-mix(in srgb, var(--neutral-50) 12%, transparent);
+  --viz-axis: var(--neutral-500);
+  --viz-context: var(--neutral-700);
+  --viz-highlight: var(--blue-300);
+  --viz-1: var(--data-blue-dark);
+  --viz-2: var(--data-orange-dark);
+  --viz-3: var(--data-aqua-dark);
+  --viz-4: var(--data-violet-dark);
+  --viz-5: var(--data-amber-dark);
+  --viz-6: var(--data-rose-dark);
+  --viz-7: var(--data-green);
+
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+.surface-accent {
+  color-scheme: dark;
+
+  --color-bg: var(--blue-500);
+  --color-bg-subtle: color-mix(in srgb, var(--neutral-950) 10%, var(--blue-500));
+  --color-surface: var(--blue-500);
+  --color-hover: color-mix(in srgb, var(--neutral-950) 14%, var(--blue-500));
+  --color-text: var(--neutral-0);                 /* 6,6:1 */
+  --color-text-muted: var(--blue-100);            /* 5,1:1 */
+  --color-border: color-mix(in srgb, var(--neutral-0) 35%, transparent);
+  --color-border-strong: var(--neutral-0);
+  --color-accent: var(--neutral-0);
+  --color-accent-hover: var(--blue-100);
+  --color-accent-soft: color-mix(in srgb, var(--neutral-0) 14%, transparent);
+  --color-on-accent: var(--blue-500);
+  --color-accent-field: var(--neutral-0);
+  --color-accent-field-hover: var(--blue-100);
+  --color-on-accent-field: var(--blue-500);       /* 6,6:1; 5,1:1 in hover */
+
+  --viz-grid: color-mix(in srgb, var(--neutral-0) 22%, transparent);
+  --viz-axis: var(--blue-100);
+  --viz-context: var(--blue-200);
+  --viz-highlight: var(--neutral-0);
+
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* 4. Tipografia, spazi, forme e movimento: uguali nei due temi. */
+:root {
+  --font-sans: "Archivo", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "DM Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-heavy: 800;
+
+  /* Larghezze dell'asse wdth. Nei `font` composti si usano le parole chiave equivalenti. */
+  --width-compressed: 68%;
+  --width-condensed: 75%;
+  --width-semi-condensed: 87.5%;
+  --width-expanded: 125%;
+
+  /* Scala del testo. 12px è il minimo assoluto. */
+  --text-xs: 0.75rem;     /* 12 · etichette */
+  --text-sm: 0.875rem;    /* 14 · didascalie, controlli, note */
+  --text-base: 1.0625rem; /* 17 · testo corrente */
+  --text-md: 1.25rem;     /* 20 · sommari */
+  --text-lg: 1.5rem;      /* 24 · titoli di scheda */
+  /* Scala dei titoli, fluida fra 390 e 1440px. */
+  --text-xl: clamp(1.625rem, 1.2rem + 1.2vw, 2.25rem);     /* 26 → 36 */
+  --text-2xl: clamp(2rem, 1.3rem + 2.6vw, 3.5rem);         /* 32 → 56 */
+  --text-3xl: clamp(2.5rem, 1.4rem + 4.2vw, 5rem);         /* 40 → 80 */
+  --text-4xl: clamp(3rem, 1.2rem + 7vw, 7.5rem);           /* 48 → 120 */
+  --text-5xl: clamp(3.5rem, 0.8rem + 10.2vw, 10.5rem);     /* 56 → 168 */
+
+  /* 0,95 è il minimo senza collisioni in Archivo condensato 800: discendente di g (0,201em)
+     più ascendente o accento minuscolo (0,724em) più 0,025em d'aria. */
+  --leading-display: 0.95;
+  --leading-headline: 0.95;
+  --leading-tight: 1.05;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.6;
+
+  --tracking-display: -0.01em;
+  --tracking-tight: -0.015em;
+  --tracking-label: 0.04em;
+
+  /* Stili di testo completi, da usare con `font: var(--type-…)`.
+     Le etichette vanno anche in maiuscolo con --tracking-label. */
+  --type-display: var(--weight-heavy) condensed var(--text-5xl) / var(--leading-display) var(--font-sans);
+  --type-headline: var(--weight-heavy) condensed var(--text-4xl) / var(--leading-headline) var(--font-sans);
+  --type-title: var(--weight-heavy) condensed var(--text-2xl) / 0.95 var(--font-sans);
+  --type-subtitle: var(--weight-bold) var(--text-xl) / var(--leading-tight) var(--font-sans);
+  --type-figure: var(--weight-heavy) condensed var(--text-4xl) / 0.85 var(--font-sans);
+  --type-lead: var(--weight-regular) var(--text-md) / var(--leading-normal) var(--font-sans);
+  --type-body: var(--weight-regular) var(--text-base) / var(--leading-relaxed) var(--font-sans);
+  --type-ui: var(--weight-bold) var(--text-sm) / var(--leading-snug) var(--font-sans);
+  --type-caption: var(--weight-regular) var(--text-sm) / var(--leading-normal) var(--font-sans);
+  --type-label: var(--weight-semibold) expanded var(--text-xs) / 1.35 var(--font-sans);
+  --type-data: var(--weight-medium) var(--text-sm) / var(--leading-normal) var(--font-mono);
+
+  /* Spazi su griglia di 4px. */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  --gutter: clamp(1.25rem, 5vw, 4.5rem);                   /* margine laterale: 20 → 72 */
+  --section-space: clamp(4rem, 2rem + 7vw, 8rem);          /* respiro fra sezioni: 64 → 128 */
+  --measure: 66ch;                                         /* riga di lettura */
+  --nav-height: 50px;                                      /* navigazione fissa, filetto compreso */
+
+  /* Angoli vivi ovunque; la pillola resta per i punti di stato. */
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-xl: 0;
+  --radius-pill: 999px;
+
+  --border-width: 1px;
+  --rule-width: 2px;
+  --focus-width: 3px;
+  --focus-offset: 3px;
+
+  --duration-fast: 150ms;
+  --duration-base: 240ms;
+  --duration-slow: 600ms;
+  --ease-standard: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  --z-sticky: 40;
+  --z-overlay: 90;
+  --z-skip: 100;
+}
+
+/* 5. Ponte: i nomi storici puntano ai nuovi token, per gli script che leggono le variabili dei grafici
+   e per le regole condivise non ancora migrate. È dichiarato anche sulle superfici, perché una variabile
+   si risolve dove viene dichiarata: così un grafico dentro .surface-inverse usa i colori della fascia nera.
+   Specificità zero: le modalità speciali definite sul body restano prioritarie.
+   Da rimuovere quando nessuno script userà più i vecchi nomi. */
+:where(body, .surface-inverse, .surface-accent) {
+  --ink: var(--color-text);
+  --paper: var(--color-bg);
+  --paper-deep: var(--color-bg-subtle);
+  --cream: var(--color-surface);
+  --ui-surface: var(--color-surface);
+  --muted: var(--color-text-muted);
+  --line: var(--color-border);
+  --hover: var(--color-hover);
+  --orange: var(--color-accent);
+  --ui-accent: var(--color-accent);
+  --green-deep: var(--color-accent);
+  --feature-bg: var(--color-inverse-bg);
+  --feature-text: var(--neutral-50);
+  --ui-shadow: var(--shadow-overlay);
+  --sans: var(--font-sans);
+  --serif: var(--font-sans);
+  --mono: var(--font-mono);
+  --chart-surface: var(--color-surface);
+  --chart-text: var(--color-text);
+  --chart-muted: var(--color-text-muted);
+  --chart-axis: var(--viz-axis);
+  --chart-grid: var(--viz-grid);
+  --chart-primary: var(--viz-highlight);
+  --chart-secondary: var(--viz-2);
+  --chart-focus: var(--color-accent-soft);
+}
