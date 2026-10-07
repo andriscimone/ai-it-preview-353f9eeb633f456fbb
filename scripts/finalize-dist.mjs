@@ -80,12 +80,12 @@ const excludedEmbeddedAssets = new Set([
   "assets/terafab-scale-nic-cruz-patane.webp"
 ]);
 const externalRoutes = {
-  "/assets/anduril-field-test-editorial-v1.png": "https://raw.githubusercontent.com/andriscimone/ai-it-preview-353f9eeb633f456fbb/89dd1bb7ea03319a715c1969dc9670ac1b3476ee/assets/anduril-field-test-editorial-v1.png",
+  "/assets/anduril-field-test-editorial-v1.png": "https://raw.githubusercontent.com/andriscimone/ai-it-preview-353f9eeb633f456fbb/45c1e09ef64276bd356b078a871c0717a1c5b6a2/assets/anduril-field-test-editorial-v1.png",
   // Pin the original PNGs to a published revision, preserving resolution while
   // keeping the Worker below the Sites upload limit.
-  "/assets/n16-glm53-flash-pareto.png": "https://raw.githubusercontent.com/andriscimone/ai-it-preview-353f9eeb633f456fbb/ad7e363df8b28fa73011dd43337ce1244225edbd/assets/n16-glm53-flash-pareto.png",
-  "/assets/news-jacobiana-meme.png": "https://raw.githubusercontent.com/andriscimone/ai-it-preview-353f9eeb633f456fbb/ad7e363df8b28fa73011dd43337ce1244225edbd/assets/news-jacobiana-meme.png",
-  "/assets/terafab-scale-nic-cruz-patane.webp": "https://raw.githubusercontent.com/andriscimone/ai-it-preview-353f9eeb633f456fbb/0e60b48a80c482302248f305728064c234daacc8/assets/terafab-scale-nic-cruz-patane.webp"
+  "/assets/n16-glm53-flash-pareto.png": "https://raw.githubusercontent.com/andriscimone/ai-it-preview-353f9eeb633f456fbb/d729000593a068a554620a2f0bf76fed912d6d66/assets/n16-glm53-flash-pareto.png",
+  "/assets/news-jacobiana-meme.png": "https://raw.githubusercontent.com/andriscimone/ai-it-preview-353f9eeb633f456fbb/d729000593a068a554620a2f0bf76fed912d6d66/assets/news-jacobiana-meme.png",
+  "/assets/terafab-scale-nic-cruz-patane.webp": "https://raw.githubusercontent.com/andriscimone/ai-it-preview-353f9eeb633f456fbb/2db71afca09c7036a6f68e7f1599c630b5e5e236/assets/terafab-scale-nic-cruz-patane.webp"
 };
 const alwaysEmbeddedAssets = new Set([
   "assets/code-contributed-per-person-quarter-2026-it.png",
